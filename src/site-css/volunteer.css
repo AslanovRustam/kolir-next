@@ -1,0 +1,480 @@
+/* =========================================================================
+   Kolir · volunteer.css
+   Сторінка «Стати волонтером» (Figma 5627-134221, variant B).
+   Хедер / ХЕРО-двошарка / слайдер / футер успадковуються від support-*.css.
+   Тут: 3 статуї в хіро, вишиванка-патерн, блок «Робимо все», форма заявки.
+   Figma px @1920 × 0.075 = rem. Підключається ОСТАННІМ.
+   ========================================================================= */
+
+@media (min-width: 1001px){
+
+  /* ─────────────────────────  ХЕРО — 3 статуї  ───────────────────────── */
+
+  /* Вишиванка-патерн по кутах тёмної картки (замість стрічок support) */
+  .volunteer-page .hero .hero-card-decor .sup-ribbon,
+  .volunteer-page .hero .hero-card-decor .s-scribble{ display: none !important; }
+  .volunteer-page .hero .vol-swirl{
+    position: absolute; pointer-events: none; user-select: none;
+    opacity: .5; z-index: 0; width: 46rem; height: auto;
+    filter: brightness(.7) saturate(1.2);
+    mix-blend-mode: screen;
+  }
+  .volunteer-page .hero .vol-swirl--tl{ left: -8rem;  top: -6rem;  transform: rotate(8deg); }
+  .volunteer-page .hero .vol-swirl--bl{ left: -10rem; bottom: -8rem; transform: rotate(-22deg); }
+  .volunteer-page .hero .vol-swirl--br{ right: -6rem; bottom: -10rem; width: 40rem; transform: rotate(28deg); }
+
+  /* Права колонка = клип-контейнер на всю світлу картку: статуї обрізаються
+     по краях картки (як у макеті: голови вгорі, пояс — по низу картки). */
+  .kolir-page.volunteer-page .hero .hero-right.support-hero-right.vol-hero-right{
+    position: absolute !important;
+    inset: auto !important; top: -8rem !important; right: 0 !important; bottom: 0 !important; left: 0 !important;  /* верх відкритий вгору — голови визирають над карткою (як маскот на головній) */
+    width: auto !important; height: auto !important;
+    overflow: hidden !important;
+    border-radius: 0 0 var(--rInner) var(--rInner) !important;   /* округлюємо лише низ; низ/право обрізаються */
+    z-index: 2 !important; pointer-events: none;
+  }
+  /* Жовтий скрайбл-стрічка ЗА статуями (як на головній за маскотом) */
+  .kolir-page.volunteer-page .hero .support-hero-right .hero-scribble-y{
+    display: block !important;
+    position: absolute !important;
+    right: 7rem !important; top: 11rem !important; left: auto !important; bottom: auto !important;
+    width: 42rem !important; height: auto !important;
+    z-index: 1 !important; pointer-events: none;
+  }
+  /* Статуї: великі, прижаті вправо; верх (голови) біля верху картки,
+     низ (пояс/прапор) обрізається нижнім краєм картки. Макет: x727 y-46
+     w1065 h801 у банері 1600×680 → ~66% ширини картки, лівий край ~44%. */
+  /* picture має заповнити картку (definite width), інакше % ширини статуї не
+     має від чого рахуватись і support-page.css width:52.5rem перемагає. */
+  .kolir-page.volunteer-page .hero .hero-right.support-hero-right picture{
+    position: absolute !important; inset: 0 !important;
+    width: auto !important; height: auto !important; display: block !important;
+  }
+  /* #heroCard (id) у селекторі — щоб гарантовано перебити width:52.5rem !important
+     із support-page.css (ID > будь-які класи). */
+  .kolir-page.volunteer-page .hero #heroCard .support-hero-right .girl.support-statue.vol-statues,
+  .kolir-page.volunteer-page #heroCard .support-hero-right .girl.support-statue.vol-statues{
+    position: absolute !important;
+    left: 42% !important; top: 4rem !important; right: auto !important; bottom: auto !important;  /* сильно вище: голови визирають над карткою; трохи лівіше */
+    width: 72% !important; height: auto !important; max-width: none !important;               /* +~5% крупніше; низ/право виходять за картку й обрізаються overflow:hidden */
+    margin: 0 !important; display: block !important; z-index: 2 !important;
+    filter: drop-shadow(0 1.5rem 3rem rgba(0,0,0,.3));
+  }
+
+  /* Заголовок хіро у три рядки, лівий блок трохи ширший */
+  .kolir-page.volunteer-page .hero .hero-left.support-hero-copy{ max-width: 56rem !important; }
+  .kolir-page.volunteer-page .hero .hero-title.vol-title{ max-width: 52rem !important; }
+
+  /* Моб-дублікат кнопки — лише для мобілки, на десктопі прибираємо */
+  .kolir-page.volunteer-page .hero .vol-hero-btn-mob{ display: none !important; }
+
+  /* Геро-кнопка — рівно як на головній (.hero .btn): support-page.css давав
+     min-height:50px + flex → кнопка була вища/інша. Прибираємо. */
+  .kolir-page.volunteer-page .hero .hero-bottom .btn.support-hero-btn{
+    display: inline-flex !important; align-items: center !important; justify-content: center !important;
+    min-height: 0 !important; height: auto !important;
+    margin: 3rem 0 0 !important;
+    padding: .8rem 1.8rem !important;
+    border-radius: 3rem !important;
+    background: var(--yellow) !important; color: var(--c-5e00cf, #5e00cf) !important;
+    font-family: "Stolzl", sans-serif !important; font-weight: 500 !important;
+    font-size: 1.35rem !important; line-height: 1.65rem !important;
+    box-shadow: 0 0 1.9rem rgba(255,255,255,.25) !important;
+  }
+
+
+  /* ─────────────────────────  БЛОК «Робимо все»  ─────────────────────── */
+  .volunteer-page .vol-about{
+    width: min(120rem, calc(100% - 4rem));
+    margin: 8rem auto 0;
+  }
+  .volunteer-page .vol-about-inner{
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 30rem;
+    column-gap: 6rem;
+    align-items: start;
+  }
+  .volunteer-page .vol-about-title{
+    margin: 0;
+    font-family: "Unbounded", sans-serif; font-weight: 700;
+    font-size: 3.4rem; line-height: 1.12; letter-spacing: -.02em;
+    color: var(--c-white, #fff);
+    max-width: 44rem;
+  }
+  .volunteer-page .vol-about-copy{
+    margin-top: 2.6rem;
+    max-width: 48rem;
+    display: flex; flex-direction: column; gap: 1.6rem;
+  }
+  .volunteer-page .vol-about-copy p{
+    margin: 0;
+    font-family: "Stolzl", sans-serif; font-weight: 400;
+    font-size: 1.35rem; line-height: 1.65;
+    color: rgba(255,255,255,.72);
+  }
+
+  /* Права колонка: «Про Kolir» + стек карток */
+  .volunteer-page .vol-about-kicker{
+    display: flex; align-items: center; justify-content: flex-end; gap: 1rem;
+    margin-bottom: 2.2rem;
+  }
+  .volunteer-page .vol-about-kicker span:first-child{
+    font-family: "Stolzl", sans-serif; font-weight: 500;
+    font-size: 1.2rem; color: rgba(255,255,255,.7);
+  }
+  .volunteer-page .vol-about-kline{
+    width: 7.5rem; height: .2rem; border-radius: 9rem;
+    background: linear-gradient(90deg, var(--c-yellow2, #ffd400), transparent);
+  }
+
+  /* Вікно карток: фіксована висота, нижні картки ховаються у градієнтну альфу.
+     БЕЗ власного скролу (overflow:hidden) — трек рухається від скролу сторінки
+     (animations.js initVolCards), тож колесо миші не перехоплюється. */
+  /* Без підкладки — картки плавно розчиняються у фон сторінки (alpha-mask
+     робить їх прозорими знизу → крізь них видно фон). */
+  .volunteer-page .vol-cards-wrap{ background: transparent; padding: 0; border-radius: 0; overflow: visible; }
+  .volunteer-page .vol-cards{
+    position: relative;
+    max-height: 32rem; overflow: hidden;   /* ~2.5 картки до затемнення, далі плавний фейд */
+    padding: .4rem .6rem .4rem .4rem;
+    -webkit-mask-image: linear-gradient(to bottom, #000 60%, rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(to bottom, #000 60%, rgba(0,0,0,0) 100%);
+  }
+  .volunteer-page .vol-cards-track{
+    display: flex; flex-direction: column; gap: 1.4rem;
+    will-change: transform;
+    transition: transform .55s cubic-bezier(.2,.7,.2,1);
+  }
+  .volunteer-page .vol-cards .vol-card{ flex: 0 0 auto; }
+
+  /* Елементи управління слайдером (крапки + стрілки вгору/вниз) */
+  .volunteer-page .vol-cards-nav{
+    display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+    margin-top: 1.8rem;
+  }
+  .volunteer-page .vol-cards-dots{ display: flex; align-items: center; gap: .6rem; }
+  .volunteer-page .vol-cards-dot{
+    width: 1.6rem; height: .4rem; padding: 0; border: 0; border-radius: 9rem; cursor: pointer;
+    background: rgba(255,255,255,.25);
+    transition: background .25s ease, width .25s ease;
+  }
+  .volunteer-page .vol-cards-dot:hover{ background: rgba(255,255,255,.45); }
+  .volunteer-page .vol-cards-dot.is-active{ width: 3rem; background: var(--c-yellow2, #ffd400); }
+  .volunteer-page .vol-cards-arrows{ display: flex; gap: .8rem; }
+  .volunteer-page .vol-cards-arr{
+    width: 3.4rem; height: 3.4rem; border-radius: 50%; cursor: pointer;
+    border: .15rem solid rgba(255,255,255,.32); background: transparent; color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: background .2s ease, border-color .2s ease, color .2s ease, opacity .2s ease;
+  }
+  .volunteer-page .vol-cards-arr:hover{ background: #fff; border-color: #fff; color: #161616; }
+  .volunteer-page .vol-cards-arr:disabled{ opacity: .3; cursor: default; }
+  .volunteer-page .vol-cards-arr:disabled:hover{ background: transparent; border-color: rgba(255,255,255,.32); color: #fff; }
+  .volunteer-page .vol-cards-arr svg{ width: 1.9rem; height: 1.9rem; }
+  .volunteer-page .vol-card{
+    position: relative;
+    display: flex; flex-direction: column;
+    min-height: 12rem; padding: 1.8rem 2rem;
+    border-radius: 1.8rem;
+    box-shadow: 0 1.2rem 3rem rgba(0,0,0,.25);
+    transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s;
+  }
+  .volunteer-page .vol-card:hover{ transform: translateY(-.5rem); box-shadow: 0 2rem 4rem rgba(0,0,0,.35); }
+  .volunteer-page .vol-card--light{ background: #fff; color: #161616; }
+  .volunteer-page .vol-card--yellow{ background: var(--c-yellow2, #ffd400); color: #161616; }
+  .volunteer-page .vol-card--purple{ background: var(--inner, #5e00cf); color: #fff; }
+  .volunteer-page .vol-card--dark{ background: #1f1f24; color: #fff; }
+
+  .volunteer-page .vol-card-num{
+    font-family: "Stolzl", sans-serif; font-weight: 600;
+    font-size: 1.15rem; opacity: .55; margin-bottom: 1.4rem;
+  }
+  .volunteer-page .vol-card-body h3{
+    margin: 0 0 .5rem;
+    font-family: "Stolzl", sans-serif; font-weight: 600;
+    font-size: 1.45rem; line-height: 1.15;
+  }
+  .volunteer-page .vol-card-body p{
+    margin: 0;
+    font-family: "Stolzl", sans-serif; font-weight: 400;
+    font-size: 1.15rem; line-height: 1.4; opacity: .7;
+  }
+  .volunteer-page .vol-card-ico{
+    position: absolute; top: 1.5rem; right: 1.6rem;
+    width: 3.4rem; height: 3.4rem; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--c-yellow2, #ffd400); color: #161616;
+  }
+  .volunteer-page .vol-card--yellow .vol-card-ico{ background: #161616; color: var(--c-yellow2, #ffd400); }
+  .volunteer-page .vol-card-ico svg{ width: 1.9rem; height: 1.9rem; }
+
+
+  /* ─────────────────────────  КЕЙСИ  ─────────────────────── */
+  .volunteer-page .vol-cases{ margin-top: 9rem; }
+
+
+  /* ─────────────  ФОРМА ЗАЯВКИ — клон секції з головної (.contactk)  ───────────── */
+  /* Темна підкладка секції */
+  .volunteer-page .contactk{ margin-top: 9rem; }
+  .volunteer-page .contactk-shell{ width: min(120rem, calc(100% - 4rem)); margin: 0 auto; }
+  .volunteer-page .contactk-card{
+    position: relative; overflow: hidden;
+    background: var(--c-2c0060);
+    border-radius: 6rem;
+    padding: 9rem 0 7rem;
+  }
+  .volunteer-page .contactk-deco{ position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .volunteer-page .contactk-pattern{ position: absolute; width: 48rem; height: auto; }
+  .volunteer-page .contactk-pattern--tr{ right: -4rem;  top: -6rem; }
+  .volunteer-page .contactk-pattern--l { left: -16rem;  top: 4rem;   transform: rotate(90deg); }
+  .volunteer-page .contactk-pattern--bl{ left: -6rem;   bottom: -12rem; transform: rotate(180deg); }
+  .volunteer-page .contactk-pattern--br{ right: -10rem; bottom: -10rem; transform: scaleX(-1); }
+
+  .volunteer-page .contactk-head,
+  .volunteer-page .contactk-grid{
+    position: relative; z-index: 1;
+    width: 108rem; max-width: calc(100% - 8rem);
+    margin-left: auto; margin-right: auto;
+  }
+  .volunteer-page .contactk-head{ display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 3rem; }
+  .volunteer-page .contactk-head-left{ display: flex; flex-direction: column; gap: 2.4rem; align-items: flex-start; }
+  .volunteer-page .contactk-title{ margin: 0; font-family: "Unbounded", sans-serif; font-weight: 600; font-size: 3.4rem; line-height: 1.15; color: var(--c-white); max-width: 62rem; }
+  .volunteer-page .contactk-sub{ margin: 0; font-family: "Stolzl", sans-serif; font-weight: 400; font-size: 1.35rem; line-height: 2.25rem; color: var(--c-white); max-width: 62rem; }
+  .volunteer-page .contactk-line{ display: block; width: 7.5rem; height: .22rem; border-radius: 9rem; background: var(--yellow); }
+  .volunteer-page .contactk-head-right{ display: flex; flex-direction: column; align-items: flex-end; gap: 1.9rem; }
+  .volunteer-page .contactk-head-right > span{ font-family: "Stolzl", sans-serif; font-weight: 400; font-size: 1.5rem; color: var(--c-white); }
+  .volunteer-page .contactk-underlines{ display: flex; gap: .4rem; }
+  .volunteer-page .contactk-underlines .line{ height: .22rem; border-radius: 9rem; display: block; }
+  .volunteer-page .contactk-underlines .line--yellow{ width: 2.3rem; background: var(--yellow); }
+  .volunteer-page .contactk-underlines .line--purple{ width: 4.6rem; background: var(--c-6D00F1); }
+
+  /* Сітка: лише жовта форма (без інфо-карток) */
+  .volunteer-page .contactk-grid{ display: flex; flex-direction: column; gap: 1.5rem; }
+
+  /* ── Жовта карточка-форма (структура з головної) ── */
+  .volunteer-page .ck-form{
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: row; align-items: stretch; gap: 0;
+    padding: 0; background: var(--yellow); border-radius: 3rem; min-height: 36.4rem;
+  }
+  .volunteer-page .kform-status:empty{ display: none; }
+  .volunteer-page .ck-form-left{ position: relative; flex: 1 1 auto; display: flex; align-items: flex-start; padding: 3rem; z-index: 1; }
+  .volunteer-page .ck-form-body{ position: relative; z-index: 1; max-width: 33.7rem; }
+  .volunteer-page .ck-form-title{ font-family: "Unbounded", sans-serif; font-weight: 600; font-size: 1.65rem; line-height: 2.1rem; color: var(--c-380279); }
+  .volunteer-page .ck-form-points{ list-style: none; margin: 2.2rem 0 0; padding: 0; display: flex; flex-direction: column; gap: 1rem; }
+  .volunteer-page .ck-form-points li{ position: relative; padding-left: 1.6rem; font-family: "Stolzl", sans-serif; font-weight: 500; font-size: 1.2rem; line-height: 1.35; color: var(--c-380279); }
+  .volunteer-page .ck-form-points li::before{ content: ""; position: absolute; left: 0; top: .15rem; width: .35rem; height: 1.1rem; border-radius: 9rem; background: var(--c-6D00F1); }
+  .volunteer-page .ck-form-scribble{
+    display: block; position: absolute; z-index: 0; pointer-events: none; user-select: none;
+    left: -2rem; bottom: -2rem; width: 42rem; height: 27rem; opacity: .85;
+    background-color: var(--c-yellow2);
+    -webkit-mask: url(/img/contact/scribble.png) no-repeat center / 100% 100%;
+            mask: url(/img/contact/scribble.png) no-repeat center / 100% 100%;
+  }
+
+  .volunteer-page .ck-form-right{ display: block; flex: 0 0 53rem; padding: 3rem 3rem 3rem 0; z-index: 1; }
+  .volunteer-page .ck-form-right .kform{ display: flex; flex-direction: column; gap: 2.4rem; }
+  .volunteer-page .kform-fields{ display: flex; flex-direction: column; gap: 1.5rem; }
+  .volunteer-page .kform-row{ display: flex; flex-direction: column; gap: .9rem; align-items: stretch; }
+  .volunteer-page .kform-label{ padding-left: 1.35rem; font-family: "Stolzl", sans-serif; font-weight: 400; font-size: 1.2rem; line-height: 1; color: var(--c-161616); }
+  .volunteer-page .kform-field{ background: var(--c-yellow2); border-radius: 2.25rem; height: 3.6rem; display: flex; align-items: center; padding: 0 1.35rem; }
+  .volunteer-page .kform-field--area{ height: 9rem; border-radius: 1.8rem; padding: 1.35rem; align-items: flex-start; }
+  .volunteer-page .kform-field input,
+  .volunteer-page .kform-field textarea,
+  .volunteer-page .kform-field select{
+    width: 100%; border: 0; background: transparent; outline: none; margin: 0; padding: 0;
+    font-family: "Stolzl", sans-serif; font-weight: 400; font-size: 1.2rem; line-height: 1.8rem; color: var(--c-161616);
+    resize: none;
+  }
+  .volunteer-page .kform-field input::placeholder,
+  .volunteer-page .kform-field textarea::placeholder{ color: var(--c-161616); opacity: .5; }
+  /* select у стилі поля */
+  .volunteer-page .kform-field--select{ position: relative; }
+  .volunteer-page .kform-field--select select{ appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: 2rem; }
+  .volunteer-page .kform-chev{ position: absolute; right: 1.35rem; top: 50%; width: .8rem; height: .8rem; margin-top: -.5rem; pointer-events: none; border-right: .18rem solid var(--c-161616); border-bottom: .18rem solid var(--c-161616); transform: rotate(45deg); transition: transform .2s ease; }
+
+  /* ── Кастомний випадаючий список (під стиль форми) ── */
+  .volunteer-page .kform-field--select.kselect .kselect-native{
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    opacity: 0; pointer-events: none;          /* нативний — лише для значення/сабміту */
+  }
+  .volunteer-page .kselect-trigger{
+    appearance: none; border: 0; background: transparent; cursor: pointer;
+    width: 100%; height: 100%; padding: 0; margin: 0;
+    display: flex; align-items: center; text-align: left;
+    font-family: "Stolzl", sans-serif; font-weight: 400; font-size: 1.2rem; color: var(--c-161616);
+  }
+  .volunteer-page .kselect-label{ overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .volunteer-page .kselect-label.is-placeholder{ color: var(--c-161616); opacity: .5; }
+  .volunteer-page .kform-field--select.is-open .kform-chev{ transform: rotate(-135deg); }  /* стрілка вгору */
+
+  .volunteer-page .kselect-menu{
+    position: absolute; left: 0; right: 0; top: calc(100% + .7rem); z-index: 30;
+    margin: 0; padding: .5rem; list-style: none;
+    background: #fff; border-radius: 1.4rem;
+    box-shadow: 0 1.4rem 3.4rem rgba(22,22,22,.24);
+    max-height: 24rem; overflow-y: auto;
+    opacity: 0; transform: translateY(-.6rem); pointer-events: none;
+    transition: opacity .18s ease, transform .18s ease;
+  }
+  .volunteer-page .kform-field--select.is-open .kselect-menu{ opacity: 1; transform: translateY(0); pointer-events: auto; }
+  .volunteer-page .kselect-opt{
+    padding: .85rem 1.1rem; border-radius: .9rem; cursor: pointer;
+    font-family: "Stolzl", sans-serif; font-weight: 400; font-size: 1.2rem; color: var(--c-161616);
+    transition: background .15s ease, color .15s ease;
+  }
+  .volunteer-page .kselect-opt:hover{ background: var(--c-yellow2, #FFE373); }
+  .volunteer-page .kselect-opt.is-selected{ color: var(--c-6D00F1, #6D00F1); font-weight: 500; }
+  .volunteer-page .kselect-opt.is-placeholder{ opacity: .55; }
+  .volunteer-page .kform-btn{
+    align-self: flex-start; margin: 0;
+    background: var(--c-6D00F1); color: var(--c-white); border: 0; cursor: pointer;
+    border-radius: 3rem; padding: .8rem 2.4rem;
+    font-family: "Stolzl", sans-serif; font-weight: 500; font-size: 1.35rem; line-height: 1.65rem;
+  }
+}
+
+/* ─────────────────────────  МОБІЛЬНІ  ───────────────────────── */
+@media (max-width: 1000px){
+  /* ── ХЕРО (моб): текст зверху, 3 статуї стрічкою знизу (стек) ──
+     Скидаємо успадковану від support-page.css машинерію статуї:
+     ::before-скрайбл, absolute-picture, фіксовану ширину «однієї статуї». */
+  .volunteer-page .hero .vol-swirl{ display: none !important; }
+  .volunteer-page .hero .hero-right.support-hero-right::before,
+  .volunteer-page .hero .hero-right.support-hero-right::after{ display: none !important; content: none !important; }
+
+  .volunteer-page .hero .support-hero-inner.vol-hero-inner{
+    height: auto !important; min-height: 0 !important; overflow: visible !important;
+    display: flex !important; flex-direction: column !important;
+  }
+  .volunteer-page .hero .support-hero-inner.vol-hero-inner::after{ display: none !important; }
+  .volunteer-page .hero .hero-left.support-hero-copy{ position: relative !important; z-index: 3 !important; }
+
+  /* Заголовок: чистий потік (без t-brand/t-line зсувів зі старого хіро) */
+  .volunteer-page .hero .hero-title.vol-title{
+    margin: 1.6rem 0 0 !important; max-width: none !important;
+    font-size: 3.4rem !important; line-height: 1.12 !important;
+    text-align: left !important; text-indent: 0 !important;
+  }
+  .volunteer-page .hero .vol-title .t-brand,
+  .volunteer-page .hero .vol-title .t-line{
+    display: inline !important; width: auto !important;
+    margin: 0 !important; padding: 0 !important; transform: none !important;
+  }
+
+  .volunteer-page .hero .hero-right.support-hero-right.vol-hero-right{
+    position: relative !important;
+    inset: auto !important; top: auto !important; bottom: auto !important; left: auto !important; right: auto !important;
+    /* ВІКНО-ОБРІЗКА: збільшене зображення ховається по цих бічних межах
+       (трохи всередині від країв плашки), те що виходить вбік — обрізається. */
+    overflow: hidden !important;
+    width: calc(100% + 3rem) !important; height: auto !important;
+    margin: 1rem -1.5rem 0 !important; z-index: 1 !important;
+    border-radius: 1.4rem !important;
+  }
+
+  /* МОБ: текст хіро — на всю ширину блока (на десктопі лишається вузька колонка) */
+  .volunteer-page .hero .vol-hero-inner .hero-title.vol-title{ width: 100% !important; max-width: 100% !important; }
+  .volunteer-page .hero .vol-hero-inner .support-hero-info,
+  .volunteer-page .hero .vol-hero-inner .support-hero-desc{ width: 100% !important; max-width: 100% !important; }
+
+  /* МОБ: оригінальна кнопка в копії схована, показуємо моб-дублікат унизу хіро
+     (під зображенням). Він — прямий дитина .vol-hero-inner після картинки. */
+  .volunteer-page .hero .support-hero-bottom .btn.support-hero-btn{ display: none !important; }
+  .volunteer-page .hero .vol-hero-inner .vol-hero-btn-mob{
+    display: inline-flex !important; align-items: center !important; justify-content: center !important;
+    position: relative !important; inset: auto !important; z-index: 4 !important;
+    width: 100% !important; margin: -5.5rem 0 0 !important;   /* піднята вище: наїжджає на низ зображення */
+  }
+  .volunteer-page .hero .hero-card.vol-hero-card{ padding-bottom: 2.2rem !important; }
+  .volunteer-page .hero .hero-right.support-hero-right picture{
+    position: static !important; display: block !important;
+    inset: auto !important; width: 100% !important; height: auto !important;
+  }
+  .volunteer-page .hero .hero-right.support-hero-right picture .girl.support-statue.vol-statues{
+    display: block !important; position: static !important;
+    inset: auto !important; left: auto !important; right: auto !important; top: auto !important; bottom: auto !important;
+    width: 134% !important; max-width: none !important; height: auto !important;
+    margin: 0 0 0 -17% !important; transform: none !important;   /* збільшене й по центру вікна */
+  }
+
+  .volunteer-page .vol-about{ width: calc(100% - 3rem); margin: 5rem auto 0; }
+  .volunteer-page .vol-about-inner{ display: flex; flex-direction: column; gap: 3rem; }
+  .volunteer-page .vol-about-title{
+    margin: 0; font-family: "Unbounded", sans-serif; font-weight: 700;
+    font-size: 2.4rem; line-height: 1.15; color: #fff;
+  }
+  .volunteer-page .vol-about-copy{ margin-top: 1.6rem; display: flex; flex-direction: column; gap: 1.2rem; }
+  .volunteer-page .vol-about-copy p{ margin: 0; font-size: 1.5rem; line-height: 1.6; color: rgba(255,255,255,.75); }
+  .volunteer-page .vol-about-kicker{ display: none; }
+  /* моб: звичайний стек, без вікна/маски/слайдера/підкладки */
+  .volunteer-page .vol-cards-wrap{ background: transparent; padding: 0; border-radius: 0; overflow: visible; }
+  .volunteer-page .vol-cards{ max-height: none; overflow: visible; -webkit-mask-image: none; mask-image: none; padding: 0; }
+  .volunteer-page .vol-cards-track{ display: flex; flex-direction: column; gap: 1.4rem; transform: none !important; transition: none !important; }
+  .volunteer-page .vol-card--clone{ display: none; } /* клони петлі лише для десктоп-слайдера */
+  .volunteer-page .vol-cards-nav{ display: none; }
+  .volunteer-page .vol-card{ position: relative; padding: 2rem; border-radius: 1.6rem; }
+  .volunteer-page .vol-card--light{ background:#fff; color:#161616; }
+  .volunteer-page .vol-card--yellow{ background: var(--c-yellow2,#ffd400); color:#161616; }
+  .volunteer-page .vol-card--purple{ background: var(--inner,#5e00cf); color:#fff; }
+  .volunteer-page .vol-card--dark{ background:#1f1f24; color:#fff; }
+  .volunteer-page .vol-card-num{ font-weight:600; opacity:.55; margin-bottom:1rem; }
+  .volunteer-page .vol-card-body h3{ margin:0 0 .5rem; font-weight:600; font-size:1.7rem; }
+  .volunteer-page .vol-card-body p{ margin:0; opacity:.7; font-size:1.4rem; }
+  .volunteer-page .vol-card-ico{ position:absolute; top:1.6rem; right:1.6rem; width:4rem; height:4rem; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; background:var(--c-yellow2,#ffd400); color:#161616; }
+  .volunteer-page .vol-card--yellow .vol-card-ico{ background:#161616; color:var(--c-yellow2,#ffd400); }
+  .volunteer-page .vol-card-ico svg{ width:2.2rem; height:2.2rem; }
+
+  /* ── Форма заявки (клон головної) ── */
+  .volunteer-page .contactk{ margin-top: 5rem; }
+  .volunteer-page .contactk-shell{ width: calc(100% - 3rem); margin: 0 auto; }
+  /* base .contactk-card мав margin-bottom:31rem (під декор-засновника на головній) —
+     на волонтерці це порожня діра до футера. Прибираємо до звичайного відступу. */
+  .volunteer-page .contactk-card{ position: relative; overflow: hidden; background: var(--c-2c0060); border-radius: 2.4rem; padding: 3rem 0; margin-bottom: 4rem !important; }
+  .volunteer-page .contactk-deco{ display: none; }
+  .volunteer-page .contactk-head,
+  .volunteer-page .contactk-grid{ width: calc(100% - 3rem); margin: 0 auto; }
+  .volunteer-page .contactk-head{ margin-bottom: 2.4rem; }
+  .volunteer-page .contactk-head-right{ display: none; }
+  .volunteer-page .contactk-head-left{ display: flex; flex-direction: column; gap: 1.6rem; align-items: flex-start; }
+  .volunteer-page .contactk-title{ margin:0; font-family:"Unbounded",sans-serif; font-weight:600; font-size:2.2rem; line-height:1.2; color: var(--c-white); }
+  .volunteer-page .contactk-sub{ margin:0; font-family:"Stolzl",sans-serif; font-weight:400; font-size:1.5rem; line-height:1.6; color: var(--c-white); }
+  .volunteer-page .contactk-line{ display:block; width:7.5rem; height:.3rem; border-radius:9rem; background: var(--yellow); }
+  .volunteer-page .contactk-grid{ display:flex; flex-direction:column; gap:1.5rem; }
+  .volunteer-page .ck-form{ display: flex; flex-direction: column; background: var(--yellow); border-radius: 2rem; overflow: hidden; }
+  .volunteer-page .ck-form-left{ padding: 2rem; }
+  .volunteer-page .ck-form-scribble{ display: none; }
+  .volunteer-page .ck-form-body{ max-width: none; }
+  .volunteer-page .ck-form-title{ font-family:"Unbounded",sans-serif; font-weight:600; font-size:1.7rem; line-height:1.3; color: var(--c-380279); }
+  .volunteer-page .ck-form-points{ list-style:none; margin:1.6rem 0 0; padding:0; display:flex; flex-direction:column; gap:.9rem; }
+  .volunteer-page .ck-form-points li{ position:relative; padding-left:1.6rem; font-weight:500; font-size:1.5rem; color: var(--c-380279); }
+  .volunteer-page .ck-form-points li::before{ content:""; position:absolute; left:0; top:.3rem; width:.4rem; height:1.3rem; border-radius:9rem; background: var(--c-6D00F1); }
+  .volunteer-page .ck-form-right{ padding: 0 2rem 2rem; }
+  .volunteer-page .ck-form-right .kform{ display:flex; flex-direction:column; gap:2rem; }
+  .volunteer-page .kform-fields{ display:flex; flex-direction:column; gap:1.4rem; }
+  .volunteer-page .kform-row{ display:flex; flex-direction:column; gap:.7rem; }
+  .volunteer-page .kform-label{ padding-left:1.35rem; font-family:"Stolzl",sans-serif; font-weight:400; font-size:1.4rem; color: var(--c-161616); }
+  .volunteer-page .kform-field{ background: var(--c-yellow2); border-radius:1.6rem; min-height:4.4rem; display:flex; align-items:center; padding:0 1.35rem; }
+  .volunteer-page .kform-field--area{ min-height:9rem; border-radius:1.4rem; padding:1.2rem 1.35rem; align-items:flex-start; }
+  .volunteer-page .kform-field input,
+  .volunteer-page .kform-field textarea,
+  .volunteer-page .kform-field select{ width:100%; border:0; background:transparent; outline:none; font-family:"Stolzl",sans-serif; font-size:1.5rem; color: var(--c-161616); resize:none; padding:0; margin:0; }
+  .volunteer-page .kform-field input::placeholder,
+  .volunteer-page .kform-field textarea::placeholder{ color: var(--c-161616); opacity:.5; }
+  .volunteer-page .kform-field--select{ position:relative; }
+  .volunteer-page .kform-field--select select{ appearance:none; -webkit-appearance:none; padding-right:2rem; cursor:pointer; }
+  .volunteer-page .kform-chev{ position:absolute; right:1.35rem; top:50%; width:.9rem; height:.9rem; margin-top:-.55rem; pointer-events:none; border-right:.2rem solid var(--c-161616); border-bottom:.2rem solid var(--c-161616); transform:rotate(45deg); transition:transform .2s ease; }
+  /* кастомний дропдаун — моб розміри */
+  .volunteer-page .kform-field--select.kselect .kselect-native{ position:absolute; inset:0; width:100%; height:100%; opacity:0; pointer-events:none; }
+  .volunteer-page .kselect-trigger{ width:100%; height:100%; padding:0; border:0; background:transparent; display:flex; align-items:center; text-align:left; font-family:"Stolzl",sans-serif; font-size:1.5rem; color:var(--c-161616); cursor:pointer; }
+  .volunteer-page .kselect-label{ overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+  .volunteer-page .kselect-label.is-placeholder{ opacity:.5; }
+  .volunteer-page .kform-field--select.is-open .kform-chev{ transform:rotate(-135deg); }
+  .volunteer-page .kselect-menu{ position:absolute; left:0; right:0; top:calc(100% + .7rem); z-index:30; margin:0; padding:.5rem; list-style:none; background:#fff; border-radius:1.4rem; box-shadow:0 1.4rem 3.4rem rgba(22,22,22,.24); max-height:26rem; overflow-y:auto; opacity:0; transform:translateY(-.6rem); pointer-events:none; transition:opacity .18s ease, transform .18s ease; }
+  .volunteer-page .kform-field--select.is-open .kselect-menu{ opacity:1; transform:translateY(0); pointer-events:auto; }
+  .volunteer-page .kselect-opt{ padding:1rem 1.2rem; border-radius:1rem; cursor:pointer; font-family:"Stolzl",sans-serif; font-size:1.5rem; color:var(--c-161616); }
+  .volunteer-page .kselect-opt:hover{ background:var(--c-yellow2,#FFE373); }
+  .volunteer-page .kselect-opt.is-selected{ color:var(--c-6D00F1,#6D00F1); font-weight:500; }
+  .volunteer-page .kselect-opt.is-placeholder{ opacity:.55; }
+  .volunteer-page .kform-btn{ align-self:flex-start; margin:0; background: var(--c-6D00F1); color: var(--c-white); border:0; border-radius:9rem; padding:1.1rem 2.4rem; font-family:"Stolzl",sans-serif; font-weight:500; font-size:1.5rem; }
+}

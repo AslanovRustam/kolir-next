@@ -1,0 +1,240 @@
+/* =========================================================================
+   Kolir · support-redesign.css
+   Хедер і ХЕРО сторінки «Підтримка України» = ТОЧНА КОПІЯ головної
+   (двошарка #3e0088/#5e00cf, ленти, та сама сітка тексту). Змінюється
+   лише КОНТЕНТ і права картинка: статуя замість маскота — інший розмір/
+   пропорції, але візуально в тому ж місці. Значення взяті з redesign.css
+   (хіро головної) + базового style.css. Підключається ОСТАННІМ.
+   Перебиваємо агресивні !important з support-page.css тими ж селекторами.
+   ========================================================================= */
+
+@media (min-width: 1001px){
+
+  /* ── Зовнішня тёмна карточка (#3e0088), як на головній ── */
+  .kolir-page.support-page .hero .hero-card.support-hero-card{
+    background: var(--outer) !important;          /* #3e0088 */
+    border-radius: var(--rOuter) !important;      /* 6rem */
+    padding: 11.5rem 0 6rem !important;           /* верх 11.5rem — місце під накладений nav, як на головній */
+    overflow: visible !important;
+    box-shadow: none !important;
+  }
+
+  /* Ленти-вишиванки — два кластери, як у макеті головної */
+  .support-page .hero .hero-card-decor .s-scribble{ display: none !important; }
+  .support-page .hero .hero-card-decor{ overflow: hidden !important; border-radius: var(--rOuter) !important; }
+  .support-page .hero .sup-ribbon{
+    position: absolute; width: auto; height: auto;
+    pointer-events: none; user-select: none; opacity: .9; z-index: 0;
+  }
+  .support-page .hero .sup-ribbon--left{  left: -12rem; top: -16rem; height: 80rem; }
+  .support-page .hero .sup-ribbon--right{ right: -9rem;  top: -4rem;  height: 106rem; }
+
+  /* ── hero-inner = flex-рядок 120rem, лівий інсет 6rem (як на головній) ── */
+  .kolir-page.support-page .hero .hero-inner.support-hero-inner{
+    position: relative !important;
+    display: flex !important;
+    align-items: stretch !important;
+    justify-content: space-between !important;
+    width: min(120rem, calc(100% - 4rem)) !important;
+    max-width: none !important;
+    margin: 6rem auto 0 !important;
+    padding: 0 0 0 6rem !important;
+    min-height: 51rem !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+  }
+
+  /* Світла внутрішня карточка = .hero-inner-clip (#5e00cf), r3rem.
+     overflow:visible — щоб жовтий скрайбл міг трохи виходити вгору за межі
+     (скруглення тримає сам border-radius фону). */
+  .kolir-page.support-page .hero .support-hero-inner > .hero-inner-clip{
+    position: absolute !important; inset: 0 !important;
+    width: auto !important; height: auto !important;
+    background: var(--inner) !important;          /* #5e00cf */
+    border-radius: var(--rInner) !important;      /* 3rem */
+    overflow: hidden !important;                  /* скрайбл всередині картки, як на головній */
+    z-index: 1 !important;
+  }
+
+  /* ── Ліва колонка-текст: pill → H1 → desc → лінія → кнопка ── */
+  .kolir-page.support-page .hero .hero-left.support-hero-copy{
+    z-index: 7 !important; position: relative !important;
+    flex: 1 1 auto !important; min-width: 0 !important;
+    display: flex !important; flex-direction: column !important; align-items: flex-start !important;
+    justify-content: center !important;   /* текст+CTA по центру висоти підложки */
+    padding-top: 0 !important;
+    max-width: 74rem !important;
+  }
+  .support-page .hero .support-hero-copy .pill{
+    height: auto !important; margin: 0 !important;
+    padding: .5rem 1.5rem !important;
+    background: transparent !important;
+    border: .2rem solid var(--yellow) !important;
+    border-radius: 1rem 2.4rem 2.4rem 2.4rem !important;
+    border-top-left-radius: 1rem !important;
+    color: var(--c-white) !important;
+    font-family: "Stolzl", sans-serif !important; font-weight: 400 !important;
+    font-size: 1.35rem !important; line-height: 1.4rem !important;
+  }
+  .kolir-page.support-page .hero .hero-title.support-title{
+    margin: 2.1rem 0 0 !important; max-width: 69rem !important;
+    font-family: "Unbounded", sans-serif !important; font-weight: 900 !important;
+    font-size: 4.8rem !important; line-height: 1.06 !important; letter-spacing: 0 !important;
+    color: var(--c-white) !important; text-transform: none !important; text-indent: 0 !important;
+  }
+  .kolir-page.support-page .hero .support-title .t-brand,
+  .kolir-page.support-page .hero .support-title .t-line{
+    display: block !important; width: auto !important;
+    margin: 0 !important; padding: 0 !important; transform: none !important;
+    color: var(--c-white) !important;
+  }
+  /* обгортки .hero-bottom/.hero-info (грід у базі) → плаский стек */
+  .kolir-page.support-page .hero .support-hero-bottom{
+    display: flex !important; flex-direction: column !important; align-items: flex-start !important;
+    margin: 2.4rem 0 0 !important;
+    grid-template-columns: none !important; column-gap: 0 !important;
+    transform: none !important;
+  }
+  .kolir-page.support-page .hero .support-hero-info{
+    display: block !important; margin: 0 !important;
+    grid-template-columns: none !important; column-gap: 0 !important;
+    transform: none !important;
+  }
+  .kolir-page.support-page .hero .support-hero-desc{
+    margin: 0 !important; max-width: 37.5rem !important;
+    font-family: "Stolzl", sans-serif !important; font-weight: 400 !important;
+    font-size: 1.35rem !important; line-height: 2.25rem !important;
+    color: var(--c-white) !important;
+  }
+  .kolir-page.support-page .hero .support-hero-line{
+    display: block !important;
+    width: 7.5rem !important; height: .3rem !important;
+    margin: 2.4rem 0 0 !important;
+    border-radius: 9rem !important; background: var(--yellow) !important;
+    transform: none !important;
+  }
+  .kolir-page.support-page .hero .support-hero-btn{
+    display: inline-flex !important; align-items: center !important; justify-content: center !important;
+    margin: 3rem 0 0 !important;
+    padding: .8rem 1.8rem !important; height: auto !important;
+    border-radius: 3rem !important;
+    background: var(--yellow) !important; color: var(--c-5e00cf) !important;
+    font-family: "Stolzl", sans-serif !important; font-weight: 500 !important;
+    font-size: 1.35rem !important; line-height: 1.65rem !important;
+    box-shadow: 0 0 1.9rem rgba(255,255,255,.25) !important;
+  }
+
+  /* ── Права колонка = КЛИП-контейнер: обрізає статую по краях підложки
+     (верх — меч, низ — нижче пояса), скруглення правого краю картки ── */
+  .kolir-page.support-page .hero .hero-right.support-hero-right{
+    position: absolute !important;
+    top: -16rem !important; bottom: 0 !important; right: 0 !important; left: auto !important;  /* верх відкритий — меч над карткою, низ/право клипається */
+    width: 72rem !important; min-width: 0 !important; flex: none !important;
+    display: block !important;
+    z-index: 2 !important;
+    overflow: hidden !important;
+    border-radius: 0 0 var(--rInner) 0 !important;   /* лише нижній-правий кут картки */
+    pointer-events: none;
+  }
+  /* Жовтий скрайбл — ТОЧНО як на головній за дівчинкою (той самий scribble.png,
+     та сама позиція відносно картки: right 1.5rem / top 5rem / 45rem) */
+  .kolir-page.support-page .hero .support-hero-right .hero-scribble-y{
+    position: absolute !important;
+    right: 1.5rem !important; top: 21rem !important;   /* hero-right зсунута top:-16rem → 21-16=5rem від верху картки (як на головній) */
+    width: 45rem !important; height: auto !important;
+    z-index: 1 !important; pointer-events: none;
+  }
+  /* Статуя: велика; пояс ≈ низ підложки, меч обрізається верхом, низ — клипом */
+  .kolir-page.support-page .hero .support-hero-right picture{ display: contents !important; }
+  .kolir-page.support-page .hero .hero-right.support-hero-right picture .girl.support-statue,
+  .kolir-page.support-page .hero .support-hero-right .girl.support-statue{
+    position: absolute !important;
+    /* розмір — за ВИСОТОЮ макета (видимі 70% картинки = висота світлої картки):
+       w ~64rem, голова ~29% згори, пояс ≈ низ картки, меч у верху. Прижата вправо. */
+    right: -4rem !important; top: 3rem !important; bottom: auto !important; left: auto !important;  /* +(-16) hero-right → меч ~13rem над карткою, голова у верхній третині */
+    width: 64rem !important; height: auto !important; max-width: none !important;
+    margin: 0 !important;
+    display: block !important; z-index: 2 !important;
+  }
+
+  /* ── «Наші Способи Допомоги»: картки = ширині хедера (120rem), по центру ── */
+  .kolir-page.support-page .support-project-list{
+    width: min(120rem, calc(100% - 4rem)) !important;
+    max-width: none !important;
+    margin-left: auto !important; margin-right: auto !important;
+  }
+  .kolir-page.support-page .support-section-title{
+    width: min(120rem, calc(100% - 4rem)) !important;
+    margin-left: auto !important; margin-right: auto !important;
+  }
+
+  /* Стрілки слайдера «Волонтерська Діяльність» — на рівні ширини хедера (120rem).
+     .p-stage-inner вужчий за хедер на 14.2rem з боку → виносимо стрілки рівно туди. */
+  .kolir-page.support-page .p-stage .p-prev{ left: -14.2rem !important; }
+  .kolir-page.support-page .p-stage .p-next{ right: -14.2rem !important; }
+
+  /* Обидві стрілки — звичайний стан OUTLINED (прозорий фон, біла рамка/стрілка).
+     (next мала is-filled + правило .p-next, що заливало її в спокої → перебиваємо.) */
+  .kolir-page.support-page .portfolio .p-nav.p-prev,
+  .kolir-page.support-page .portfolio .p-nav.p-next,
+  .kolir-page.support-page .portfolio .p-nav.is-filled{
+    background: transparent !important;
+    border-color: rgba(255,255,255,.34) !important;   /* тонка акуратна обводка, як у вертикального */
+    color: #fff !important;
+  }
+  /* Ховер — ЗАЛИВКА білим (обидві) */
+  @media (hover: hover){
+    .kolir-page.support-page .portfolio .p-nav.p-prev:hover,
+    .kolir-page.support-page .portfolio .p-nav.p-next:hover,
+    .kolir-page.support-page .portfolio .p-nav.is-filled:hover{
+      background: #fff !important;
+      border-color: #fff !important;
+      color: #161616 !important;
+    }
+  }
+}
+
+/* ===================== МОБІЛЬНИЙ ХЕРО (≤1000px) ===================== */
+@media (max-width: 1000px){
+  /* Статуя: animations.css ховає .girl, поки нема .video-ok → повертаємо.
+     Розташування дає support-page.css (right 10.8rem / top -5rem / h60rem). */
+  .kolir-page.support-page .hero .hero-right.support-hero-right picture .girl.support-statue{
+    display: block !important;
+  }
+  /* Жовтий скрайбл-png на моб рендериться у потоці на всю ширину (358×338) і
+     забиває хіро — він суто декоративний, ховаємо. */
+  .kolir-page.support-page .hero .support-hero-right .hero-scribble-y{ display: none !important; }
+
+  /* Заголовок: чистий потік замість зсувів t-brand/t-line зі старого хіро */
+  .kolir-page.support-page .hero .hero-title.support-title{
+    margin: 1.6rem 0 0 !important;
+    text-align: left !important; text-indent: 0 !important;
+  }
+  .kolir-page.support-page .hero .support-title .t-brand,
+  .kolir-page.support-page .hero .support-title .t-line{
+    display: inline !important; width: auto !important;
+    margin: 0 !important; padding: 0 !important; transform: none !important;
+  }
+
+  /* Стрічки-вишиванки хіро на моб не масштабовані (378×1037) і вилазять
+     вниз на сусідні секції (hero overflow:visible) — ховаємо. */
+  .kolir-page.support-page .hero .sup-ribbon{ display: none !important; }
+
+  /* Великі декоративні завитки секцій перекривають контент на моб — ховаємо */
+  .kolir-page.support-page .support-trusted .support-left-scribble,
+  .kolir-page.support-page .portfolio .services-scribble-left,
+  .kolir-page.support-page .portfolio .portfolio-decor{ display: none !important; }
+
+  /* Кнопка CTA: загальне правило `.hero .btn{position:absolute}` (для хіро
+     головної) залітало сюди і фіксувало кнопку поверх тексту — на довгому
+     укр. описі текст ліз під неї. Повертаємо кнопку в потік (під опис),
+     relative+z-index щоб лежала над статуєю. */
+  .kolir-page.support-page .hero .support-hero-bottom .btn.support-hero-btn{
+    position: relative !important;
+    inset: auto !important;
+    z-index: 10 !important;
+    width: 100% !important;
+    margin: 2.4rem 0 0 !important;
+  }
+}

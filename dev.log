@@ -1,0 +1,178 @@
+
+> kolir-next@1.0.0 dev
+> cross-env NODE_OPTIONS=--no-deprecation next dev
+
+▲ Next.js 16.2.7 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.140:3000
+- Environments: .env
+✓ Ready in 590ms
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+- Experiments (use with caution):
+  ⨯ turbopackServerFastRefresh
+
+○ Compiling / ...
+⨯ TypeError: {imported module [externals]/payload}.createFolderField is not a function
+    at <unknown> (src\collections\Media.ts:16:22)
+  14 |       required: true,
+  15 |     },
+> 16 |     createFolderField({ relationTo: 'folders' }),
+     |                      ^
+  17 |     createTagField({ relationTo: 'tags' }),
+  18 |   ],
+  19 |   upload: true,
+⨯ TypeError: {imported module [externals]/payload}.createFolderField is not a function
+    at <unknown> (src\collections\Media.ts:16:22)
+  14 |       required: true,
+  15 |     },
+> 16 |     createFolderField({ relationTo: 'folders' }),
+     |                      ^
+  17 |     createTagField({ relationTo: 'tags' }),
+  18 |   ],
+  19 |   upload: true, {
+  page: '/'
+}
+ GET / 500 in 10.8s (next.js: 10.5s, application-code: 276ms)
+✓ Compiled in 53ms
+✓ Compiled in 23ms
+✓ Compiled in 5ms
+[⣷] Pulling schema from database...
+[2K[1G[✓] Pulling schema from database...
+[17:48:32] [33mWARN[39m: [36mNo email adapter provided. Email will be written to console. More info at https://payloadcms.com/docs/email/overview.[39m
+ GET / 200 in 1252ms (next.js: 111ms, application-code: 1141ms)
+ GET / 200 in 68ms (next.js: 5ms, application-code: 63ms)
+○ Compiling /admin/[[...segments]] ...
+⨯ ./src/app/(payload)/admin/importMap.js:4:1
+Module not found: Can't resolve '@payloadcms/plugin-mcp/client'
+  [90m2 |[0m ...[33mHierarchyField[0m [36mas[0m [33mHierarchyField_ab83ff7e88da8d3530831f296ec4756a[0m } [36mfrom[0m [32m'@payloadcms/ui...[0m
+  [90m3 |[0m ...[33mHierarchyButton[0m [36mas[0m [33mHierarchyButton_ab83ff7e88da8d3530831f296ec4756a[0m } [36mfrom[0m [32m'@payloadcms/...[0m
+[31m[1m>[0m [90m4 |[0m ...[33mAccessField[0m [36mas[0m [33mAccessField_210e1789eef737e0b4d9f054258f19bb[0m } [36mfrom[0m [32m'@payloadcms/plugin-m...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m5 |[0m ...[33mFolderIcon[0m [36mas[0m [33mFolderIcon_3817bf644402e67bfe6577f60ef982de[0m } [36mfrom[0m [32m'@payloadcms/ui'[0m
+  [90m6 |[0m ...[33mHierarchySidebarTabServer[0m [36mas[0m [33mHierarchySidebarTabServer_ab83ff7e88da8d3530831f296ec4756a[0m ..[36m.[0m
+  [90m7 |[0m ...[33mTagIcon[0m [36mas[0m [33mTagIcon_3817bf644402e67bfe6577f60ef982de[0m } [36mfrom[0m [32m'@payloadcms/ui'[0m
+
+
+
+Import traces:
+  #1 [Server Component]:
+    ./src/app/(payload)/admin/importMap.js
+    ./src/app/(payload)/admin/[[...segments]]/not-found.tsx
+
+  #2 [Server Component]:
+    ./src/app/(payload)/admin/importMap.js
+    ./src/app/(payload)/admin/[[...segments]]/page.tsx
+
+  #3 [Server Component]:
+    ./src/app/(payload)/admin/importMap.js
+    ./src/app/(payload)/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./src/app/(payload)/admin/importMap.js:3:1
+Export HierarchyButton doesn't exist in target module
+  [90m1 |[0m ... [33mNullField[0m [36mas[0m [33mNullField_3817bf644402e67bfe6577f60ef982de[0m } [36mfrom[0m [32m'@payloadcms/ui'[0m
+  [90m2 |[0m ... [33mHierarchyField[0m [36mas[0m [33mHierarchyField_ab83ff7e88da8d3530831f296ec4756a[0m } [36mfrom[0m [32m'@payloadcms/u...[0m
+[31m[1m>[0m [90m3 |[0m ... [33mHierarchyButton[0m [36mas[0m [33mHierarchyButton_ab83ff7e88da8d3530831f296ec4756a[0m } [36mfrom[0m [32m'@payloadcms...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m4 |[0m ... [33mAccessField[0m [36mas[0m [33mAccessField_210e1789eef737e0b4d9f054258f19bb[0m } [36mfrom[0m [32m'@payloadcms/plugin-...[0m
+  [90m5 |[0m ... [33mFolderIcon[0m [36mas[0m [33mFolderIcon_3817bf644402e67bfe6577f60ef982de[0m } [36mfrom[0m [32m'@payloadcms/ui'[0m
+  [90m6 |[0m ... [33mHierarchySidebarTabServer[0m [36mas[0m [33mHierarchySidebarTabServer_ab83ff7e88da8d3530831f296ec4756a[0m...
+
+The export HierarchyButton was not found in module [project]/node_modules/@payloadcms/ui/dist/exports/rsc/index.js [app-rsc] (ecmascript).
+Did you mean to import CheckIcon?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  #1 [Server Component]:
+    ./src/app/(payload)/admin/importMap.js
+    ./src/app/(payload)/admin/[[...segments]]/not-found.tsx
+
+  #2 [Server Component]:
+    ./src/app/(payload)/admin/importMap.js
+    ./src/app/(payload)/admin/[[...segments]]/page.tsx
+
+  #3 [Server Component]:
+    ./src/app/(payload)/admin/importMap.js
+    ./src/app/(payload)/layout.tsx
+
+
+
+./src/app/(payload)/admin/importMap.js:2:1
+Export HierarchyField doesn't exist in target module
+  [90m1 |[0m ...{ [33mNullField[0m [36mas[0m [33mNullField_3817bf644402e67bfe6577f60ef982de[0m } [36mfrom[0m [32m'@payloadcms/ui'[0m
+[31m[1m>[0m [90m2 |[0m ...{ [33mHierarchyField[0m [36mas[0m [33mHierarchyField_ab83ff7e88da8d3530831f296ec4756a[0m } [36mfrom[0m [32m'@payloadcms/...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m3 |[0m ...{ [33mHierarchyButton[0m [36mas[0m [33mHierarchyButton_ab83ff7e88da8d3530831f296ec4756a[0m } [36mfrom[0m [32m'@payloadcm...[0m
+  [90m4 |[0m ...{ [33mAccessField[0m [36mas[0m [33mAccessField_210e1789eef737e0b4d9f054258f19bb[0m } [36mfrom[0m [32m'@payloadcms/plugin...[0m
+  [90m5 |[0m ...{ [33mFolderIcon[0m [36mas[0m [33mFolderIcon_3817bf644402e67bfe6577f60ef982de[0m } [36mfrom[0m [32m'@payloadcms/ui'[0m
+
+The export HierarchyField was not found in module [project]/node_modules/@payloadcms/ui/dist/exports/rsc/index.js [app-rsc] (ecmascript).
+Did you mean to import FolderField?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  #1 [Server Component]:
+    ./src/app/(payload)/admin/importMap.js
+    ./src/app/(payload)/admin/[[...segments]]/not-found.tsx
+
+  #2 [Server Component]:
+    ./src/app/(payload)/admin/importMap.js
+    ./src/app/(payload)/admin/[[...segments]]/page.tsx
+
+  #3 [Server Component]:
+    ./src/app/(payload)/admin/importMap.js
+    ./src/app/(payload)/layout.tsx
+
+
+
+./src/app/(payload)/admin/importMap.js:6:1
+Export HierarchySidebarTabServer doesn't exist in target module
+  [90m4 |[0m ...[33mld[0m [36mas[0m [33mAccessField_210e1789eef737e0b4d9f054258f19bb[0m } [36mfrom[0m [32m'@payloadcms/plugin-mcp/client'[0m
+  [90m5 |[0m ...[33mn[0m [36mas[0m [33mFolderIcon_3817bf644402e67bfe6577f60ef982de[0m } [36mfrom[0m [32m'@payloadcms/ui'[0m
+[31m[1m>[0m [90m6 |[0m ...[33mSidebarTabServer[0m [36mas[0m [33mHierarchySidebarTabServer_ab83ff7e88da8d3530831f296ec4756a[0m } [36mfrom[0m [32m'@...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m ...[36ms[0m [33mTagIcon_3817bf644402e67bfe6577f60ef982de[0m } [36mfrom[0m [32m'@payloadcms/ui'[0m
+  [90m8 |[0m ...[33mnCards[0m [36mas[0m [33mCollectionCards_ab83ff7e88da8d3530831f296ec4756a[0m } [36mfrom[0m [32m'@payloadcms/ui/rsc'[0m
+  [90m9 |[0m ...
+
+The export HierarchySidebarTabServer was not found in module [project]/node_modules/@payloadcms/ui/dist/exports/rsc/index.js [app-rsc] (ecmascript).
+Did you mean to import _internal_renderFieldHandler?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  #1 [Server Component]:
+    ./src/app/(payload)/admin/importMap.js
+    ./src/app/(payload)/admin/[[...segments]]/not-found.tsx
+
+  #2 [Server Component]:
+    ./src/app/(payload)/admin/importMap.js
+    ./src/app/(payload)/admin/[[...segments]]/page.tsx
+
+  #3 [Server Component]:
+    ./src/app/(payload)/admin/importMap.js
+    ./src/app/(payload)/layout.tsx
+
+
+ GET /admin 500 in 7.9s (next.js: 7.9s, application-code: 34ms)
+ GET /api/users 500 in 730ms (next.js: 720ms, application-code: 9ms)
+✓ Compiled in 1236ms
+Generating import map
+No new imports found, skipping writing import map
+ GET / 200 in 442ms (next.js: 59ms, application-code: 383ms)
+ GET /admin 200 in 9.5s (next.js: 7.9s, application-code: 1578ms)
+[17:51:52] [32mINFO[39m: [36mYou are not allowed to perform this action.[39m
+ GET /api/users 403 in 7.1s (next.js: 7.1s, application-code: 41ms)
+ GET /admin 200 in 1733ms (next.js: 1295ms, application-code: 439ms)
+ GET /api/users/me 200 in 41ms (next.js: 27ms, application-code: 14ms)
+ GET /admin/login 200 in 1104ms (next.js: 388ms, application-code: 716ms)
+ GET /admin/login 200 in 447ms (next.js: 124ms, application-code: 323ms)
+ GET /admin/create-first-user 200 in 323ms (next.js: 21ms, application-code: 302ms)
+ GET /admin/create-first-user 200 in 1366ms (next.js: 46ms, application-code: 1320ms)
+[?25h

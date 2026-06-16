@@ -1,0 +1,4181 @@
+.support-page{
+  --support-dark:#222222;
+  --support-deep:#161616;
+  --support-purple-1:#3e0088;
+  --support-purple-2:#5e00cf;
+  --support-purple-3:#6d00f1;
+  --support-yellow:#fdcc0d;
+  --support-yellow-soft:#ffe373;
+  background:var(--support-dark);
+  color:#fff;
+  overflow-x:clip;
+  overflow-y:visible;
+}
+.support-page *,.support-page *::before,.support-page *::after{box-sizing:border-box;}
+.support-page a{color:inherit;text-decoration:none;}
+.support-shell{position:relative;}
+
+.support-page .hero-card.support-hero-card{
+  min-height:84rem;
+  padding:3.6rem 14rem 10.4rem;
+  border-radius:6rem;
+  background:var(--support-purple-1);
+  overflow:visible;
+  isolation:isolate;
+}
+.support-page .hero-card-decor{position:absolute;inset:0;z-index:0;pointer-events:none;color:#2c0060;overflow:hidden;}
+.support-page .s-scribble{position:absolute;display:block;color:currentColor;opacity:.96;}
+.support-page .s-scribble--left{left:-34rem;top:-20rem;width:74rem;transform:rotate(8deg);}
+.support-page .s-scribble--right{right:-45rem;bottom:-18rem;width:82rem;transform:rotate(-7deg);}
+.support-page .site-header{position:relative;z-index:20;}
+.support-page .hero-head{padding:0 9rem;}
+.support-page .hero-head-center{gap:1.2rem;}
+.support-page .nav{gap:2.2rem;}
+.support-page .nav a{white-space:nowrap;}
+.support-nav-current{display:inline-flex!important;align-items:center;gap:.7rem;}
+.support-nav-flag{width:1.7rem;height:1.7rem;flex:0 0 1.7rem;border-radius:50%;background:linear-gradient(180deg,#36a9e1 0 50%,var(--support-yellow) 50% 100%);}
+
+.support-page .hero-inner.support-hero-inner{
+  min-height:54.6rem;
+  margin-top:6rem;
+  padding:0 0 0 9rem;
+  display:flex;
+  align-items:stretch;
+  justify-content:space-between;
+  overflow:visible;
+}
+.support-page .hero-inner-clip{border-radius:3rem;background:var(--support-purple-2);}
+.support-page .hero-scribble{
+	right: -20rem;
+    top: -2.6rem;
+    width: 80rem;
+    color: var(--support-yellow);
+    transform: rotate(-2deg);
+}
+.support-page .hero-inner-clip::after{
+  content:"";
+  position:absolute;
+  right:-27rem;
+  top:12rem;
+  z-index:1;
+  width:66rem;
+  height:48rem;
+  border:5.5rem solid rgba(75,32,183,.78);
+  border-radius:50%;
+  transform:rotate(-33deg);
+	display:none;
+}
+.support-page .hero-left.support-hero-copy{
+  z-index:7;
+  flex:1 1 auto;
+  max-width:56rem;
+  padding-top:10rem;
+}
+.support-page .pill{
+  min-height:3.7rem;
+  height:auto;
+  padding:0 3.3rem;
+  border:.2rem solid var(--support-yellow);
+  border-radius:0 3rem 3rem 3rem!important;
+  background:transparent;
+  color:#fff;
+  font-size:1.45rem;
+  line-height:1;
+  font-weight:500;
+  white-space:nowrap;
+}
+.support-page .hero-title.support-title{
+  width:55rem;
+  margin:-4.8rem 0 0 26rem;
+  color:#fff;
+  font-size:5.3rem;
+  line-height:1.05;
+  font-weight:300;
+  letter-spacing:0;
+}
+.support-page .hero-title.support-title .t-brand{display:block;width:29rem;padding-left:0;margin:0;margin-left:2rem;}
+.support-page .hero-title.support-title .t-line{display:block;width:58rem;margin-top:0.4rem;margin-left:-26rem;}
+.support-page .hero-bottom.support-hero-bottom{display:block;margin-top:2.8rem;}
+.support-page .hero-info.support-hero-info{display:block;transform:none;}
+.support-page .hero-info.support-hero-info::before,.support-page .hero-line{display:none;}
+.support-page .hero-desc.support-hero-desc{
+width: 36rem;
+    max-width: 100%;
+    margin: 0;
+    color: #fff;
+    font-size: 1.3rem;
+    line-height: 1.4;
+    font-weight: 300;
+}
+.support-page .btn.support-hero-btn{
+display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 5rem;
+    margin-top: 5.2rem;
+    padding: 0 1.4rem;
+    border-radius: 4rem;
+    background: var(--support-yellow);
+    color: var(--support-purple-2);
+    font-size: 1.85rem;
+    line-height: 1;
+    font-weight: 600;
+}
+.support-page .hero-right.support-hero-right{position:absolute;inset:0;z-index:6;display:block;pointer-events:none;}
+.support-page .girl.support-statue{
+position: absolute;
+    right: -2.8rem;
+    bottom: 0;
+    z-index: 6;
+    width: 53.5rem;
+    max-width: none;
+    height: auto;
+    display: block;
+    margin: 0;
+}
+
+.support-trusted{
+  position:relative;
+  z-index:2;
+  padding:8.7rem 0 7.2rem;
+  text-align:center;
+  overflow:visible;
+  background:var(--support-dark);
+}
+.support-left-scribble{
+  position:absolute;
+  left:-49rem;
+  top:3rem;
+  z-index:-1;
+  width:57.2rem;
+  height:122rem;
+  color:#161616;
+  pointer-events:none;
+}
+.support-trusted h2{
+  margin:0;
+  color:var(--support-yellow);
+  font-size:6rem;
+  line-height:1;
+  font-weight:500;
+}
+.support-logo-rail{
+  position:relative;
+  width:calc(100% + 40rem);
+  height:34rem;
+  margin:3.6rem 0 0 -20rem;
+  overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 92%,transparent 100%);
+  mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 92%,transparent 100%);
+}
+.support-logo-track{
+  height:100%;
+  display:flex;
+  align-items:center;
+  gap:9.5rem;
+  width:max-content;
+  padding:0 50vw;
+  transition:transform .82s cubic-bezier(.22,.75,.18,1);
+  will-change:transform;
+}
+.support-logo-item{
+  --logo-current-h:15.5rem;
+  flex:0 0 auto;
+  width:calc(var(--logo-current-h) * var(--logo-w) / var(--logo-h));
+  height:var(--logo-current-h);
+  padding:0;
+  border:0;
+  background:transparent;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  opacity:.22;
+  filter:grayscale(1) brightness(.7);
+  transform:scale(.96);
+  transform-origin:center;
+  transition:opacity .5s ease,filter .5s ease,transform .5s ease,width .5s ease,height .5s ease;
+}
+.support-logo-item.is-active{
+  --logo-current-h:23rem;
+  opacity:1;
+  filter:none;
+  transform:scale(1);
+}
+.support-logo-item img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+  max-width:none;
+}
+.support-trusted-caption{
+  min-height:2.4rem;
+  margin:1.2rem 0 0;
+  color:#fff;
+  font-size:2.2rem;
+  line-height:1.2;
+  font-weight:500;
+  transition:opacity .25s ease;
+}
+.support-trusted-caption.is-changing{opacity:.25;}
+
+.support-projects{position:relative;z-index:3;padding:2.5rem 0 0rem;background:var(--support-dark);}
+.support-section-title{margin:0 0 5rem;color:#fff;font-size:5.2rem;line-height:1.08;font-weight:500;text-align:center;}
+.support-section-title span{color:var(--support-yellow);}
+.support-project-list{display:flex;flex-direction:column;gap:2.4rem;width:100%;}
+.support-project-card{position:relative;min-height:57rem;padding:5.6rem 6.4rem;border-radius:3rem;overflow:hidden;isolation:isolate;}
+.support-project-card--yellow{background:var(--support-yellow);color:var(--support-deep);}
+.support-project-card--purple{background:var(--support-purple-1);color:#fff;}
+.support-project-card--dark{background:#111;color:#fff;}
+.support-project-card::before{content:"";position:absolute;z-index:0;pointer-events:none;}
+.support-project-card--nft::before{right:-16rem;top:-36rem;width:77rem;height:77rem;border-radius:50%;background:rgba(255,255,255,.56);}
+.support-project-card--cyber::before{right:35rem;top:-12rem;width:19rem;height:85rem;border-radius:20rem;background:var(--support-purple-2);transform:rotate(-3deg);}
+.support-project-card--itt::before{right:45rem;bottom:-16rem;width:50rem;height:50rem;border:6rem solid rgba(255,255,255,.045);border-radius:50%;}
+.support-project-copy{position:relative;z-index:5;width:59rem;max-width:48%;}
+.support-project-copy h3{margin:0;color:inherit;font-size:4.3rem;line-height:1.08;font-weight:500;letter-spacing:-.02em;}
+.support-project-copy p{width:46rem;max-width:100%;margin:2.6rem 0 0;color:inherit;font-size:1.3rem;line-height:1.6;font-weight:300;}
+.support-project-site{position:absolute;right:5.6rem;top:5.6rem;z-index:8;display:flex;flex-direction:column;align-items:flex-end;gap:2rem;color:inherit;font-size:1.5rem;line-height:1;}
+.support-project-site span{display:block;width:7rem;height:.3rem;border-radius:99rem;background:linear-gradient(90deg,var(--support-purple-3) 0 31%,var(--support-yellow-soft) 31% 100%);}
+.support-button{display:inline-flex;align-items:center;justify-content:center;min-height:5rem;padding:0 2.2rem;border:0;border-radius:999rem;font-size:1.7rem;line-height:1;font-weight:700;white-space:nowrap;transition:transform .25s ease,opacity .25s ease;}
+.support-project-card .support-button{position:absolute;left:6.4rem;bottom:5.6rem;z-index:8;color:#fff;}
+.support-button:hover{opacity:.92;transform:translateY(-.1rem);}
+.support-button--purple{color:#fff;background:var(--support-purple-3);}
+.support-button--yellow-small{color:var(--support-purple-2);background:var(--support-yellow);}
+.support-nft-stack{position:absolute;right:-2rem;bottom:-11rem;z-index:3;width:80rem;height:60rem;}
+.support-nft{position:absolute;width:33rem;max-width:none;border-radius:1.6rem;box-shadow:0 1.6rem 5rem rgba(0,0,0,.24);}
+.support-nft--one{right:5rem;bottom:-19rem;transform:rotate(-20.5deg);}
+.support-nft--two{right:26rem;bottom:-13rem;transform:rotate(8.3deg);}
+.support-nft--three{right:46rem;bottom:-30rem;transform:rotate(-17.7deg);}
+.support-cyber-visual,.support-itt-visual{position:absolute;right:0;bottom:0;z-index:3;width:50%;height:70%;border-radius:3rem 0 3rem 0;overflow:hidden;box-shadow:-2.2rem 2.4rem 6rem rgba(0,0,0,.22);}
+.support-cyber-visual img,.support-itt-visual img{width:100%;height:100%;object-fit:cover;display:block;}
+
+.support-volunteer{position:relative;z-index:3;display:grid;grid-template-columns:minmax(0,42rem) minmax(0,1fr);gap:5rem;align-items:center;padding:12rem 0 10rem;background:var(--support-dark);}
+.support-kicker{margin-bottom:1rem;color:var(--support-yellow);font-size:1.4rem;font-weight:600;}
+.support-volunteer h2{margin:0;color:#fff;font-size:5.2rem;line-height:1.05;font-weight:500;}
+.support-volunteer p{margin:2.4rem 0 0;color:#fff;font-size:1.8rem;line-height:1.58;}
+.support-case{position:relative;min-height:43rem;border-radius:3rem;overflow:hidden;background:url('/img/support/vyriy-bg.png') center/cover no-repeat;color:#fff;padding:4.6rem 5rem;}
+.support-case-tag{position:relative;z-index:2;display:inline-flex;padding:.9rem 2rem;border:1px solid var(--support-yellow);border-radius:999rem;font-size:1.4rem;}
+.support-case strong{position:relative;z-index:2;display:block;margin-top:2.6rem;font-size:5rem;line-height:1.04;font-weight:500;}
+.support-case-image{position:absolute;right:0;bottom:0;width:64%;z-index:1;}
+.support-case-image img{display:block;width:100%;height:auto;}
+.support-case-logo{position:absolute;right:4rem;top:4rem;z-index:2;width:11rem;}
+.support-case-logo img{width:100%;height:auto;display:block;}
+
+@media (max-width:1200px) and (min-width:1001px){
+  .support-page .hero-card.support-hero-card{padding-left:6rem;padding-right:6rem;}
+  .support-page .hero-inner.support-hero-inner{padding-left:6rem;}
+  .support-page .hero-scribble{right:-16rem;}
+  .support-project-copy{max-width:52%;}
+  .support-nft-stack{right:-12rem;transform:scale(.84);transform-origin:right bottom;}
+}
+@media (max-width:1000px){
+  .support-page{padding:.6rem;}
+  .support-page .hero-card.support-hero-card{min-height:0;padding:2rem 1rem 1rem;border-radius:5rem;background:var(--support-purple-1);}
+  .support-page .s-scribble--left{left:-31rem;top:2rem;width:47rem;}
+  .support-page .s-scribble--right{right:-33rem;bottom:-14rem;width:52rem;}
+  .support-page .hero-inner.support-hero-inner{min-height:0;height:auto;overflow:visible;margin-top:1.5rem;padding:2.5rem 2rem 1.5rem;display:block;}
+  .support-page .hero-inner-clip{border-radius:4rem;}
+  .support-page .hero-scribble{right:-18rem;top:17rem;width:48rem;}
+  .support-page .hero-inner-clip::after{display:none;}
+  .support-page .hero-left.support-hero-copy{width:100%;max-width:none;padding-top:0;}
+  .support-page .pill{min-height:4rem;padding:0 2.7rem;font-size:1.2rem;}
+  .support-page .hero-title.support-title{width:17.2rem;margin:-4.6rem 0 0 17rem;font-size:3.4rem;line-height:1.15;}
+  .support-page .hero-title.support-title .t-brand{width:16rem;}
+  .support-page .hero-title.support-title .t-line{width:32.1rem;margin-top:1.1rem;margin-left:-17rem;}
+  .support-page .hero-desc.support-hero-desc{width:18.5rem;margin-top:2.4rem;font-size:1.2rem;line-height:1.5;}
+  .support-page .btn.support-hero-btn{width:100%;min-height:5rem;margin-top:2rem;padding:0 1.8rem;font-size:1.6rem;}
+  .support-page .girl.support-statue{right:-4rem;bottom:0;width:24rem;}
+  .support-trusted{padding:3rem 0 4.5rem;}
+  .support-left-scribble{left:-25rem;width:36rem;height:76.8rem;}
+  .support-trusted h2{width:35.4rem;margin:0 auto;font-size:3.2rem;line-height:1.16;}
+  .support-logo-rail{width:calc(100% + 12rem);height:23rem;margin:2.8rem 0 0 -6rem;}
+  .support-logo-track{gap:4.2rem;}
+  .support-logo-item{--logo-current-h:9rem;}
+  .support-logo-item.is-active{--logo-current-h:14rem;}
+  .support-trusted-caption{margin-top:0;font-size:1.5rem;}
+  .support-projects{padding-top:0rem;}
+  .support-section-title{width:35.8rem;margin:0 auto 5rem;font-size:3.2rem;line-height:1.18;}
+  .support-section-title span{display:block;}
+  .support-project-list{gap:1.6rem;}
+  .support-project-card{min-height:56rem;padding:3.2rem 2.4rem;border-radius:3rem;}
+  .support-project-card--nft{min-height:67rem;}
+  .support-project-copy{width:100%;max-width:none;}
+  .support-project-copy h3{font-size:3.2rem;line-height:1.05;overflow-wrap:anywhere;}
+  .support-project-copy p{width:100%;margin-top:2.4rem;font-size:1.4rem;line-height:1.55;}
+  .support-project-site{display:none;}
+  .support-project-card .support-button{left:2.4rem;right:2.4rem;bottom:3.2rem;width:auto;min-height:7rem;font-size:2.6rem;}
+  .support-project-card--nft::before{right:-13rem;top:29rem;width:36rem;height:36rem;}
+  .support-nft-stack{right:-13rem;bottom:6rem;width:43rem;height:33rem;transform:scale(.72);transform-origin:right bottom;}
+  .support-cyber-visual,.support-itt-visual{right:0;bottom:0rem;width:100%;height:25rem;border-radius:2.4rem 0 0 0;}
+}
+
+hero-right-support {
+    position: relative;
+    z-index: 6;
+    flex: 0 0 46rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    pointer-events: none;
+    margin-top: -23rem;
+    margin-right: -3rem;
+}
+
+.support-page .hero-inner-clip {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: 4rem;
+  background: var(--support-purple-2);
+  overflow: hidden;
+}
+
+.support-page .hero-right.support-hero-right {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  display: block;
+  pointer-events: none;
+}
+
+.support-page .girl.support-statue {
+position: absolute;
+    right: -2.8rem;
+    bottom: 0;
+    z-index: 6;
+    width: 52.5rem;
+    max-width: none;
+    height: auto;
+    display: block;
+    margin: 0;
+}
+
+.support-page .hero-info.support-hero-info {
+  display: block;
+  transform: none;
+}
+.support-page .hero-info.support-hero-info::before,
+.support-page .hero-line {
+  display: none;
+}
+.support-page .hero-desc.support-hero-desc {
+  width: 36rem;
+  max-width: 100%;
+  margin: 0;
+  color: #fff;
+  font-size: 1.35rem;
+  line-height: 1.56;
+  font-weight: 300;
+}
+
+.support-page .portfolio {
+  background: var(--support-dark);
+  padding-top: 8.5rem;
+  margin-top: 0;
+}
+.support-page .portfolio .p-title,
+.support-page .portfolio .p-sub {
+  color: #fff;
+}
+.support-page .portfolio .services-scribble-left {
+  color: #161616;
+}
+.support-page .portfolio .p-underline {
+  background: var(--support-purple-3);
+}
+.support-page .portfolio .t-topright span:first-child {
+  color: rgba(255,255,255,.4);
+}
+.support-page .portfolio .p-nav {
+  border-color: rgba(255,255,255,.18);
+  color: #fff;
+}
+.support-page .portfolio .p-nav.is-filled {
+  background: var(--support-purple-3);
+  border-color: var(--support-purple-3);
+}
+
+.support-volunteer-text {
+  display: flex;
+  flex-direction: column;
+}
+.support-volunteer-text h2 {
+  margin: .6rem 0 0;
+}
+
+.support-project-badge {
+  position: absolute;
+  right: 5.6rem;
+  top: 5.6rem;
+  z-index: 8;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.support-project-badge img {
+  width: 9rem;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 1000px) {
+
+  .support-page .hero-right.support-hero-right { position: absolute; inset: 0; }
+  .support-page .girl.support-statue {
+	        right: -1rem;
+        bottom: 0;
+        width: 35rem;
+	}
+
+  .support-page .hero-inner.support-hero-inner {
+    position: relative;
+    min-height: 54.4rem;
+    overflow: hidden;
+  }
+
+  .support-page .hero-desc.support-hero-desc {
+    width: 17rem;
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    line-height: 1.72;
+  }
+
+  .support-volunteer {
+    display: block;
+    padding: 6rem 0 4rem;
+  }
+  .support-case { margin-top: 3rem; }
+
+  .support-project-badge { right: 2.4rem; top: 3.2rem; }
+  .support-project-badge img { width: 7rem; }
+
+  .support-page .portfolio { padding-top: 0; }
+}
+
+@media (max-width: 1200px) and (min-width: 1001px) {
+  .support-project-badge { right: 3rem; }
+}
+
+.support-page .support-trusted {
+  position: relative;
+  z-index: 2;
+  padding: 7.2rem 0 7rem;
+  overflow: visible;
+  background: #222222;
+}
+
+.support-page .support-trusted h2 {
+  margin: 0 auto;
+  color: var(--support-yellow, #fdcc0d);
+  font-size: clamp(4.8rem, 4.25vw, 7.4rem);
+  line-height: 1.05;
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: -.02em;
+}
+
+.support-page .support-logo-rail {
+  position: relative;
+  width: 100vw;
+  height: 25rem;
+  margin: 4.6rem 0 0 calc(50% - 50vw);
+  overflow: hidden;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+.support-page .support-logo-track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: clamp(4.2rem, 3.55vw, 7.2rem);
+  width: max-content;
+  height: 100%;
+  padding: 0;
+  will-change: transform;
+  transition: transform .78s cubic-bezier(.22, .75, .2, 1);
+}
+
+.support-page .support-logo-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: auto;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  opacity: .22;
+  filter: grayscale(1) brightness(.54);
+  transform: scale(1);
+  transition: opacity .42s ease, filter .42s ease, transform .42s ease;
+}
+
+.support-page .support-logo-item img {
+  display: block;
+  width: auto !important;
+  height: 13.6rem !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
+}
+
+.support-page .support-logo-item.is-active {
+  z-index: 3;
+  opacity: 1;
+  filter: none;
+}
+
+.support-page .support-logo-item.is-active img {
+  height: 19.2rem !important;
+}
+
+.support-page .support-trusted-caption {
+  min-height: 2.8rem;
+  margin: 1.2rem 0 0;
+  color: #fff;
+  font-size: 2.2rem;
+  line-height: 1.2;
+  font-weight: 500;
+  text-align: center;
+  transition: opacity .22s ease;
+}
+
+.support-page .support-trusted-caption.is-changing {
+  opacity: .25;
+}
+
+@media (max-width: 1000px) {
+  .support-page .support-trusted {
+    padding: 8rem 0 8rem;
+  }
+
+  .support-page .support-trusted h2 {
+    width: 25rem;
+    max-width: 100%;
+    margin: 0 auto;
+    font-size: 3.6rem;
+    line-height: 1.08;
+  }
+
+  .support-page .support-logo-rail {
+    width: 100vw;
+    height: 20.8rem;
+    margin-top: 0.8rem;
+    margin-left: calc(50% - 50vw);
+  }
+
+  .support-page .support-logo-track {
+    gap: 4.2rem;
+  }
+
+  .support-page .support-logo-item img {
+    height: 10.2rem !important;
+  }
+
+  .support-page .support-logo-item.is-active img {
+    height: 15.8rem !important;
+  }
+
+  .support-page .support-trusted-caption {
+    margin-top: -0.4rem;
+    font-size: 1.9rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .support-page .support-trusted h2 {
+    width: 23rem;
+    font-size: 3.2rem;
+  }
+
+  .support-page .support-logo-track {
+    gap: 3.6rem;
+  }
+
+  .support-page .support-logo-item img {
+    height: 9.4rem !important;
+  }
+
+  .support-page .support-logo-item.is-active img {
+    height: 14.6rem !important;
+  }
+}
+
+@media (min-width: 1001px) {
+	.support-page .p-stage, .support-page .p-progress {
+    margin-top: 2rem;
+
+}
+  .support-page .support-logo-rail {
+    width: 100vw;
+    height: 23rem;
+    margin: 4.2rem 0 0 calc(50% - 50vw);
+    overflow: hidden;
+  }
+
+  .support-page .support-logo-track {
+    gap: clamp(7.4rem, 6vw, 11.6rem);
+  }
+
+  .support-page .support-logo-item img {
+    width: auto !important;
+    height: 10.8rem !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: contain;
+  }
+
+  .support-page .support-logo-item.is-active img {
+    height: 16rem !important;
+  }
+
+  .support-page .support-trusted-caption {
+    margin-top: .6rem;
+  }
+}
+
+@media (min-width: 1001px) {
+  .support-page .support-trusted {
+    padding: 7.4rem 0 5.8rem !important;
+  }
+
+  .support-page .support-trusted h2 {
+    font-size: clamp(5.6rem, 3.85vw, 6.6rem) !important;
+    line-height: 1.04 !important;
+    margin: 0 auto !important;
+  }
+
+  .support-page .support-logo-rail {
+    width: 100vw !important;
+    height: 20.2rem !important;
+    margin: 3.8rem 0 0 calc(50% - 50vw) !important;
+    overflow: hidden !important;
+  }
+
+  .support-page .support-logo-track {
+    gap: clamp(4.8rem, 4.15vw, 7.8rem) !important;
+    align-items: center !important;
+  }
+
+  .support-page .support-logo-item {
+    height: 100% !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .support-page .support-logo-item img {
+    width: auto !important;
+    height: 10.7rem !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    object-position: center !important;
+  }
+
+  .support-page .support-logo-item.is-active img {
+    height: 15.4rem !important;
+  }
+
+  .support-page .support-trusted-caption {
+    margin-top: .2rem !important;
+    font-size: 2.1rem !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+  }
+}
+
+@media (min-width: 1001px) {
+  .support-page .support-trusted {
+    padding: 7rem 0 5.6rem !important;
+  }
+
+  .support-page .support-trusted h2 {
+    margin: 0 auto !important;
+    font-size: clamp(5.2rem, 3.6vw, 6.2rem) !important;
+    line-height: 1.04 !important;
+  }
+
+  .support-page .support-logo-rail {
+    width: 100vw !important;
+    height: 17.4rem !important;
+    margin: 3.4rem 0 0 calc(50% - 50vw) !important;
+    overflow: hidden !important;
+  }
+
+  .support-page .support-logo-track {
+    gap: clamp(3.8rem, 3.15vw, 6rem) !important;
+    align-items: center !important;
+    height: 100% !important;
+  }
+
+  .support-page .support-logo-item {
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 0 0 auto !important;
+    opacity: .22 !important;
+    filter: grayscale(1) brightness(.56) !important;
+  }
+
+  .support-page .support-logo-item img {
+    width: auto !important;
+    height: 8.8rem !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    object-position: center !important;
+  }
+
+  .support-page .support-logo-item.is-active {
+    opacity: 1 !important;
+    filter: none !important;
+  }
+
+  .support-page .support-logo-item.is-active img {
+    height: 12.8rem !important;
+  }
+
+  .support-page .support-trusted-caption {
+    display: block !important;
+    width: max-content !important;
+    min-width: 0 !important;
+    max-width: 90vw !important;
+    margin: .2rem 0 0 !important;
+    position: relative !important;
+    left: var(--support-caption-x, 50%) !important;
+    transform: translateX(-50%) !important;
+    text-align: center !important;
+    font-size: 1.9rem !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+  }
+}
+
+@media (min-width: 1600px) {
+  .support-page .support-logo-track {
+    gap: 5rem !important;
+  }
+
+  .support-page .support-logo-item img {
+    height: 9.2rem !important;
+  }
+
+  .support-page .support-logo-item.is-active img {
+    height: 13.2rem !important;
+  }
+}
+
+.support-page .hero-card.support-hero-card {
+  overflow: visible !important;
+}
+
+.support-page .hero-card-decor {
+  overflow: visible !important;
+}
+
+.support-page .s-scribble--left {
+  left: -21rem !important;
+  top: -22rem !important;
+  width: 67rem !important;
+  transform: rotate(0deg) !important;
+  color: #2c0060 !important;
+}
+
+.support-page .s-scribble--right {
+  right: -46rem !important;
+  top: 24rem !important;
+  bottom: auto !important;
+  width: 74rem !important;
+  transform: rotate(0deg) !important;
+  color: #2c0060 !important;
+}
+
+@media (max-width: 1000px) {
+  .support-page .hero-card.support-hero-card {
+    overflow: visible !important;
+  }
+
+  .support-page .hero-card-decor {
+    overflow: visible !important;
+  }
+
+  .support-page .s-scribble--left {
+    left: -4.8rem !important;
+    top: -13rem !important;
+    width: 48rem !important;
+    transform: rotate(352deg) !important;
+    color: #3c0084 !important;
+  }
+
+  .support-page .s-scribble--right {
+    display: none !important;
+  }
+}
+
+.kolir-page.support-page,
+.kolir-page.support-page .shell,
+.kolir-page.support-page .hero,
+.kolir-page.support-page .hero-card.support-hero-card,
+.kolir-page.support-page .hero-card-decor {
+  overflow: visible !important;
+}
+
+.kolir-page.support-page .hero-card.support-hero-card {
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+.kolir-page.support-page .hero-card-decor {
+  z-index: 0 !important;
+  pointer-events: none !important;
+}
+
+.kolir-page.support-page .site-header,
+.kolir-page.support-page .hero-inner.support-hero-inner {
+  position: relative !important;
+  z-index: 4 !important;
+}
+
+.kolir-page.support-page .hero-inner-clip {
+  overflow: hidden !important;
+}
+
+.kolir-page.support-page .s-scribble--left {
+  left: -20rem !important;
+  top: -21rem !important;
+  width: 63rem !important;
+  transform: rotate(0deg) !important;
+  color: #2c0060 !important;
+}
+
+.kolir-page.support-page .s-scribble--right {
+  right: -37rem !important;
+  top: 15rem !important;
+  bottom: auto !important;
+  width: 64rem !important;
+  transform: rotate(0deg) !important;
+  color: #2c0060 !important;
+}
+
+.kolir-page.support-page .support-left-scribble {
+    left: -45rem !important;
+    top: 2rem !important;
+    width: 55rem !important;
+    height: auto !important;
+    color: #161616 !important;
+    opacity: .92 !important;
+}
+
+@media (min-width: 1001px) {
+  .kolir-page.support-page .support-trusted {
+    padding: 7.1rem 0 6.1rem !important;
+  }
+
+  .kolir-page.support-page .support-trusted h2 {
+    font-size: clamp(5.5rem, 3.8vw, 6.7rem) !important;
+    line-height: 1.04 !important;
+    margin: 0 auto !important;
+  }
+
+  .kolir-page.support-page .support-logo-rail {
+    width: 100vw !important;
+    height: 22.4rem !important;
+    margin: 4rem 0 0 calc(50% - 50vw) !important;
+    overflow: hidden !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+  }
+
+  .kolir-page.support-page .support-logo-track {
+    height: 100% !important;
+    align-items: center !important;
+    gap: clamp(4.2rem, 3.6vw, 6.4rem) !important;
+  }
+
+  .kolir-page.support-page .support-logo-item {
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 0 0 auto !important;
+  }
+
+  .kolir-page.support-page .support-logo-item img {
+    width: auto !important;
+    height: 10.7rem !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    object-position: center !important;
+  }
+
+  .kolir-page.support-page .support-logo-item.is-active img {
+    height: 15.2rem !important;
+  }
+
+  .kolir-page.support-page .support-trusted-caption {
+    display: block !important;
+    width: max-content !important;
+    max-width: 90vw !important;
+    margin: .45rem 0 0 !important;
+    position: relative !important;
+    left: var(--support-caption-x, 50%) !important;
+    transform: translateX(-50%) !important;
+    text-align: center !important;
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+  }
+}
+
+@media (min-width: 1600px) {
+  .kolir-page.support-page .support-logo-track {
+    gap: 5.4rem !important;
+  }
+
+  .kolir-page.support-page .support-logo-item img {
+    height: 11rem !important;
+  }
+
+  .kolir-page.support-page .support-logo-item.is-active img {
+    height: 15.6rem !important;
+  }
+}
+
+@media (max-width: 1000px) {
+  .kolir-page.support-page .s-scribble--left {
+    left: -4.8rem !important;
+    top: -13rem !important;
+    width: 48rem !important;
+    transform: rotate(352deg) !important;
+  }
+
+  .kolir-page.support-page .s-scribble--right {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1001px) {
+  .kolir-page.support-page .support-trusted,
+  .support-page .support-trusted {
+    padding: 7.2rem 0 6.2rem !important;
+  }
+
+  .kolir-page.support-page .support-logo-rail,
+  .support-page .support-logo-rail {
+    width: 100vw !important;
+    height: 25.2rem !important;
+    margin: 1.1rem 0 0 calc(50% - 50vw) !important;
+    overflow: hidden !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+  }
+
+  .kolir-page.support-page .support-logo-track,
+  .support-page .support-logo-track {
+    height: 100% !important;
+    align-items: center !important;
+    gap: clamp(7.8rem, 5.7vw, 10.8rem) !important;
+  }
+
+  .kolir-page.support-page .support-logo-item,
+  .support-page .support-logo-item {
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    opacity: .22 !important;
+    filter: grayscale(1) brightness(.56) !important;
+  }
+
+  .kolir-page.support-page .support-logo-item.is-active,
+  .support-page .support-logo-item.is-active {
+    opacity: 1 !important;
+    filter: none !important;
+  }
+
+  .kolir-page.support-page .support-logo-item img,
+  .support-page .support-logo-item img {
+    display: block !important;
+    width: auto !important;
+    height: 11.7rem !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    object-position: center !important;
+  }
+
+  .kolir-page.support-page .support-logo-item.is-active img,
+  .support-page .support-logo-item.is-active img {
+    height: 16.8rem !important;
+  }
+
+  .kolir-page.support-page .support-trusted-caption,
+  .support-page .support-trusted-caption {
+    display: block !important;
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin: .8rem auto 0 !important;
+    position: static !important;
+    left: auto !important;
+    transform: none !important;
+    text-align: center !important;
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+  }
+}
+
+@media (min-width: 1600px) {
+  .kolir-page.support-page .support-logo-track,
+  .support-page .support-logo-track {
+    gap: 8.8rem !important;
+  }
+
+  .kolir-page.support-page .support-logo-item img,
+  .support-page .support-logo-item img {
+    height: 12rem !important;
+  }
+
+  .kolir-page.support-page .support-logo-item.is-active img,
+  .support-page .support-logo-item.is-active img {
+    height: 17.2rem !important;
+  }
+}
+
+.kolir-page.support-page .site-header,
+.support-page .site-header {
+  position: relative !important;
+  z-index: 120 !important;
+}
+
+.kolir-page.support-page .hero-head,
+.kolir-page.support-page .hero-head-center,
+.kolir-page.support-page .hero-head-right,
+.kolir-page.support-page .nav,
+.kolir-page.support-page .cta-top,
+.kolir-page.support-page .lang-switch,
+.support-page .hero-head,
+.support-page .hero-head-center,
+.support-page .hero-head-right,
+.support-page .nav,
+.support-page .cta-top,
+.support-page .lang-switch {
+  position: relative !important;
+  z-index: 121 !important;
+}
+
+.kolir-page.support-page .hero-inner.support-hero-inner,
+.support-page .hero-inner.support-hero-inner {
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+.kolir-page.support-page .hero-right.support-hero-right,
+.kolir-page.support-page .girl.support-statue,
+.support-page .hero-right.support-hero-right,
+.support-page .girl.support-statue {
+  z-index: 6 !important;
+}
+
+.kolir-page.support-page .hero-left.support-hero-copy,
+.support-page .hero-left.support-hero-copy {
+  position: relative !important;
+  z-index: 12 !important;
+}
+
+.kolir-page.support-page .hero-inner-clip,
+.support-page .hero-inner-clip {
+  position: absolute !important;
+  overflow: hidden !important;
+}
+
+.support-page .support-project-site {
+  gap: 1rem;
+}
+
+.support-page .support-project-site span {
+  order: 2;
+}
+
+.support-page .support-card-scribble {
+  display: none;
+}
+
+@media (min-width: 1001px) {
+  .support-page .support-project-card::before {
+    display: none !important;
+  }
+
+  .support-page .support-card-scribble {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    display: block;
+  }
+
+  .support-page .support-card-scribble svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .support-page .support-card-scribble--nft {
+        right: 3rem;
+        top: -9rem;
+        width: 42rem;
+        color: rgba(255, 255, 255, .42);
+
+  }
+
+  .support-page .support-card-scribble--cyber {
+        right: -6rem;
+        top: -3rem;
+        width: 59rem;
+        color: #6d00f1;
+        opacity: .92;
+  }
+
+  .support-page .support-card-scribble--itt {
+        right: -5rem;
+        bottom: -9rem;
+        width: 95rem;
+        color: #222222;
+        opacity: .9;
+  }
+
+  .support-page .support-nft-stack,
+  .support-page .support-cyber-visual,
+  .support-page .support-itt-visual,
+  .support-page .support-project-copy,
+  .support-page .support-project-site,
+  .support-page .support-button {
+    position: absolute;
+  }
+
+  .support-page .support-project-copy {
+    z-index: 5;
+  }
+
+  .support-page .support-project-site {
+    z-index: 8;
+    gap: .85rem;
+    align-items: flex-end;
+  }
+
+  .support-page .support-project-site span {
+    width: 6.7rem;
+    height: .25rem;
+  }
+
+  .support-page .support-nft-stack,
+  .support-page .support-cyber-visual,
+  .support-page .support-itt-visual {
+    z-index: 3;
+  }
+
+  .support-page .support-project-badge {
+    top: 10.6rem !important;
+    right: 45.3% !important;
+    z-index: 9 !important;
+    width: 13.4rem;
+    height: 13.4rem;
+    display: block !important;
+    align-items: initial !important;
+    gap: 0 !important;
+  }
+
+  .support-page .support-project-badge img {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 1000px) {
+  .support-page .support-card-scribble {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1000px) {
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden !important;
+  }
+
+  .kolir-page.support-page,
+  .kolir-page.support-page .shell,
+  .kolir-page.support-page .hero,
+  .kolir-page.support-page .support-projects,
+  .kolir-page.support-page .support-project-list,
+  .kolir-page.support-page .support-project-card {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  .kolir-page.support-page .support-card-scribble,
+  .kolir-page.support-page .support-card-scribble svg {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+    overflow: hidden !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+
+  .kolir-page.support-page .support-project-card::before {
+    display: none !important;
+  }
+
+  .kolir-page.support-page .support-page .support-card-scribble {
+    display: none !important;
+  }
+
+  .kolir-page.support-page .support-nft-stack,
+  .kolir-page.support-page .support-cyber-visual,
+  .kolir-page.support-page .support-itt-visual {
+    max-width: 100% !important;
+  }
+
+  .kolir-page.support-page .hero-card.support-hero-card {
+    max-width: 100% !important;
+  }
+
+  .kolir-page.support-page .hero-inner.support-hero-inner {
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+}
+
+html,
+body {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+.kolir-page.support-page {
+  width: 100% !important;
+  max-width: 100vw !important;
+  overflow-x: clip !important;
+}
+
+@supports not (overflow: clip) {
+  .kolir-page.support-page {
+    overflow-x: hidden !important;
+  }
+}
+
+.kolir-page.support-page .support-projects,
+.kolir-page.support-page .support-project-list {
+  max-width: 100% !important;
+  overflow-x: clip !important;
+}
+
+@supports not (overflow: clip) {
+  .kolir-page.support-page .support-projects,
+  .kolir-page.support-page .support-project-list {
+    overflow-x: hidden !important;
+  }
+}
+
+.kolir-page.support-page .support-project-card {
+  max-width: 100% !important;
+  overflow: hidden !important;
+  contain: paint;
+}
+
+.kolir-page.support-page .support-card-scribble {
+  max-width: none !important;
+  pointer-events: none !important;
+}
+
+@media (min-width: 1001px) {
+  .kolir-page.support-page .support-card-scribble {
+    display: block !important;
+    position: absolute !important;
+    z-index: 1 !important;
+  }
+
+  .kolir-page.support-page .support-card-scribble svg {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+  }
+}
+
+@media (max-width: 1000px) {
+  .kolir-page.support-page {
+    overflow-x: hidden !important;
+  }
+
+  .kolir-page.support-page .support-card-scribble,
+  .kolir-page.support-page .support-card-scribble svg {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .kolir-page.support-page .support-projects,
+  .kolir-page.support-page .support-project-list,
+  .kolir-page.support-page .support-project-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+}
+
+@media (min-width: 1001px) {
+  .kolir-page.support-page .support-project-card--cyber .support-cyber-visual,
+  .support-page .support-project-card--cyber .support-cyber-visual {
+          width: 55% !important;
+        height: 82% !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    top: auto !important;
+  }
+
+  .kolir-page.support-page .support-project-card--cyber .support-cyber-visual img,
+  .support-page .support-project-card--cyber .support-cyber-visual img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+  }
+}
+
+.support-page .support-project-card .support-button.support-button--yellow-small {
+  background: var(--support-yellow) !important;
+  color: var(--support-deep) !important;
+}
+
+.support-page .support-project-card .support-button.support-button--purple {
+  background: var(--support-purple-3) !important;
+  color: #fff !important;
+}
+
+.support-page .support-project-card--itt .support-button {
+  background: var(--support-purple-3) !important;
+  color: #fff !important;
+}
+
+.kolir-page.support-page .portfolio .p-nav,
+.kolir-page.support-page .portfolio .p-nav.is-filled,
+.support-page .portfolio .p-nav,
+.support-page .portfolio .p-nav.is-filled {
+  background: transparent !important;
+  border: .22rem solid #fff !important;
+  color: #fff !important;
+  transform: translateY(-2%) !important;
+  opacity: 1 !important;
+  transition: background .2s ease, border-color .2s ease, color .2s ease !important;
+}
+
+.kolir-page.support-page .portfolio .p-nav svg,
+.support-page .portfolio .p-nav svg {
+  color: inherit !important;
+}
+
+@media (hover:hover) {
+  .kolir-page.support-page .portfolio .p-nav:hover,
+  .kolir-page.support-page .portfolio .p-nav.is-filled:hover,
+  .support-page .portfolio .p-nav:hover,
+  .support-page .portfolio .p-nav.is-filled:hover {
+    background: #fff !important;
+    border-color: #fff !important;
+    color: #161616 !important;
+    transform: translateY(-2%) !important;
+    opacity: 1 !important;
+  }
+}
+
+.kolir-page.support-page .portfolio .p-nav:active,
+.kolir-page.support-page .portfolio .p-nav:focus,
+.support-page .portfolio .p-nav:active,
+.support-page .portfolio .p-nav:focus {
+  transform: translateY(-2%) !important;
+}
+
+.kolir-page.support-page .portfolio .t-topright,
+.support-page .portfolio .t-topright {
+  top: 8.6rem !important;
+  transform: none !important;
+}
+
+.kolir-page.support-page .support-project-card .support-button,
+.support-page .support-project-card .support-button {
+  transform: none !important;
+  opacity: 1 !important;
+  transition: background .22s ease, color .22s ease, border-color .22s ease !important;
+}
+
+.kolir-page.support-page .support-project-card .support-button:hover,
+.support-page .support-project-card .support-button:hover {
+  transform: none !important;
+  opacity: 1 !important;
+  background: #fff !important;
+  color: #161616 !important;
+}
+
+.kolir-page.support-page .support-project-card--nft .support-button,
+.support-page .support-project-card--nft .support-button,
+.kolir-page.support-page .support-project-card--itt .support-button,
+.support-page .support-project-card--itt .support-button {
+  background: var(--support-purple-3) !important;
+  color: #fff !important;
+}
+
+.kolir-page.support-page .support-project-card--cyber .support-button,
+.support-page .support-project-card--cyber .support-button {
+  background: var(--support-yellow) !important;
+  color: var(--support-deep) !important;
+}
+
+.kolir-page.support-page .support-project-card--nft .support-button:hover,
+.support-page .support-project-card--nft .support-button:hover,
+.kolir-page.support-page .support-project-card--cyber .support-button:hover,
+.support-page .support-project-card--cyber .support-button:hover,
+.kolir-page.support-page .support-project-card--itt .support-button:hover,
+.support-page .support-project-card--itt .support-button:hover {
+  background: #fff !important;
+  color: #161616 !important;
+}
+
+.kolir-page.support-page .portfolio .p-nav,
+.support-page .portfolio .p-nav {
+  background: transparent !important;
+  border: .22rem solid #fff !important;
+  color: #fff !important;
+  opacity: 1 !important;
+  transform: translateY(-2%) !important;
+  transition: background .18s ease, border-color .18s ease, color .18s ease !important;
+}
+
+.kolir-page.support-page .portfolio .p-nav.p-next,
+.kolir-page.support-page .portfolio .p-nav.is-filled,
+.support-page .portfolio .p-nav.p-next,
+.support-page .portfolio .p-nav.is-filled {
+  background: #fff !important;
+  border-color: #fff !important;
+  color: #161616 !important;
+  transform: translateY(-2%) !important;
+}
+
+@media (hover:hover) {
+  .kolir-page.support-page .portfolio .p-nav:hover,
+  .support-page .portfolio .p-nav:hover {
+    background: transparent !important;
+    border-color: #fff !important;
+    color: #fff !important;
+    transform: translateY(-2%) !important;
+    opacity: 1 !important;
+  }
+
+  .kolir-page.support-page .portfolio .p-nav.p-next:hover,
+  .kolir-page.support-page .portfolio .p-nav.is-filled:hover,
+  .support-page .portfolio .p-nav.p-next:hover,
+  .support-page .portfolio .p-nav.is-filled:hover {
+    background: #fff !important;
+    border-color: #fff !important;
+    color: #161616 !important;
+    transform: translateY(-2%) !important;
+    opacity: 1 !important;
+  }
+}
+
+.kolir-page.support-page .portfolio .p-nav:active,
+.kolir-page.support-page .portfolio .p-nav:focus,
+.support-page .portfolio .p-nav:active,
+.support-page .portfolio .p-nav:focus {
+  transform: translateY(-2%) !important;
+}
+
+.kolir-page.support-page .support-project-card .support-button,
+.support-page .support-project-card .support-button,
+.kolir-page.support-page .support-project-card .support-button:hover,
+.support-page .support-project-card .support-button:hover,
+.kolir-page.support-page .support-project-card .support-button:focus,
+.support-page .support-project-card .support-button:focus,
+.kolir-page.support-page .support-project-card .support-button:active,
+.support-page .support-project-card .support-button:active {
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+.kolir-page.support-page .support-project-card--nft .support-button,
+.support-page .support-project-card--nft .support-button,
+.kolir-page.support-page .support-project-card--nft .support-button:hover,
+.support-page .support-project-card--nft .support-button:hover,
+.kolir-page.support-page .support-project-card--nft .support-button:focus,
+.support-page .support-project-card--nft .support-button:focus,
+.kolir-page.support-page .support-project-card--nft .support-button:active,
+.support-page .support-project-card--nft .support-button:active,
+.kolir-page.support-page .support-project-card--itt .support-button,
+.support-page .support-project-card--itt .support-button,
+.kolir-page.support-page .support-project-card--itt .support-button:hover,
+.support-page .support-project-card--itt .support-button:hover,
+.kolir-page.support-page .support-project-card--itt .support-button:focus,
+.support-page .support-project-card--itt .support-button:focus,
+.kolir-page.support-page .support-project-card--itt .support-button:active,
+.support-page .support-project-card--itt .support-button:active {
+  background: var(--support-purple-3) !important;
+  color: #fff !important;
+}
+
+.kolir-page.support-page .support-project-card--cyber .support-button,
+.support-page .support-project-card--cyber .support-button,
+.kolir-page.support-page .support-project-card--cyber .support-button:hover,
+.support-page .support-project-card--cyber .support-button:hover,
+.kolir-page.support-page .support-project-card--cyber .support-button:focus,
+.support-page .support-project-card--cyber .support-button:focus,
+.kolir-page.support-page .support-project-card--cyber .support-button:active,
+.support-page .support-project-card--cyber .support-button:active {
+  background: var(--support-yellow) !important;
+  color: var(--support-deep) !important;
+}
+
+.kolir-page.support-page .portfolio .p-title,
+.support-page .portfolio .p-title,
+.kolir-page.support-page .support-volunteer h2,
+.support-page .support-volunteer h2 {
+  color: var(--support-yellow) !important;
+	font-size: 3.2rem;
+}
+
+@media (min-width: 1001px) {
+  .kolir-page.support-page .support-logo-track,
+  .support-page .support-logo-track {
+    gap: clamp(5.7rem, 4.45vw, 8.2rem) !important;
+  }
+
+  .kolir-page.support-page .support-logo-item,
+  .support-page .support-logo-item {
+    opacity: .36 !important;
+    filter: grayscale(1) brightness(.86) contrast(.9) !important;
+  }
+
+  .kolir-page.support-page .support-logo-item img,
+  .support-page .support-logo-item img {
+    height: 12.4rem !important;
+  }
+
+  .kolir-page.support-page .support-logo-item.is-active,
+  .support-page .support-logo-item.is-active {
+    opacity: 1 !important;
+    filter: none !important;
+  }
+
+  .kolir-page.support-page .support-logo-item.is-active img,
+  .support-page .support-logo-item.is-active img {
+    height: 17.6rem !important;
+  }
+}
+
+@media (min-width: 1600px) {
+  .kolir-page.support-page .support-logo-track,
+  .support-page .support-logo-track {
+    gap: 7.2rem !important;
+  }
+
+  .kolir-page.support-page .support-logo-item img,
+  .support-page .support-logo-item img {
+    height: 12.8rem !important;
+  }
+
+  .kolir-page.support-page .support-logo-item.is-active img,
+  .support-page .support-logo-item.is-active img {
+    height: 18rem !important;
+  }
+}
+
+@media (min-width: 1001px) {
+  .kolir-page.support-page .support-logo-track,
+  .support-page .support-logo-track {
+    transition: transform 1.22s cubic-bezier(.18, .88, .22, 1) !important;
+  }
+
+  .kolir-page.support-page .support-logo-item,
+  .support-page .support-logo-item,
+  .kolir-page.support-page .support-logo-item img,
+  .support-page .support-logo-item img {
+    transition: opacity .85s ease, filter .85s ease, transform .85s ease !important;
+  }
+
+  .kolir-page.support-page .support-trusted-caption,
+  .support-page .support-trusted-caption {
+    transition: opacity .36s ease !important;
+  }
+}
+
+@media (max-width: 1000px) {
+  .kolir-page.support-page .support-logo-track,
+  .support-page .support-logo-track {
+    transition: transform 1.08s cubic-bezier(.18, .88, .22, 1) !important;
+  }
+
+  .kolir-page.support-page .support-logo-item,
+  .support-page .support-logo-item,
+  .kolir-page.support-page .support-logo-item img,
+  .support-page .support-logo-item img {
+    transition: opacity .78s ease, filter .78s ease, transform .78s ease !important;
+  }
+}
+
+@media (min-width: 1001px) {
+  .kolir-page.support-page .support-logo-track,
+  .support-page .support-logo-track {
+    transition: transform 1.35s cubic-bezier(.16, .82, .22, 1) !important;
+  }
+
+  .kolir-page.support-page .support-logo-item,
+  .support-page .support-logo-item {
+    height: 21rem !important;
+    overflow: visible !important;
+    transition: opacity .85s ease, filter .85s ease !important;
+  }
+
+  .kolir-page.support-page .support-logo-item img,
+  .support-page .support-logo-item img {
+    height: 12.4rem !important;
+    transform: scale(1) !important;
+    transform-origin: center center !important;
+    transition: transform 1.05s cubic-bezier(.16, .82, .22, 1), opacity .85s ease, filter .85s ease !important;
+  }
+
+  .kolir-page.support-page .support-logo-item.is-active img,
+  .support-page .support-logo-item.is-active img {
+    height: 12.4rem !important;
+    transform: scale(1.42) !important;
+  }
+}
+
+@media (min-width: 1600px) {
+  .kolir-page.support-page .support-logo-item,
+  .support-page .support-logo-item {
+    height: 21.6rem !important;
+  }
+
+  .kolir-page.support-page .support-logo-item img,
+  .support-page .support-logo-item img {
+    height: 12.8rem !important;
+  }
+
+  .kolir-page.support-page .support-logo-item.is-active img,
+  .support-page .support-logo-item.is-active img {
+    height: 12.8rem !important;
+    transform: scale(1.4) !important;
+  }
+}
+
+.support-page .portfolio{
+  position:relative;
+  overflow:hidden!important;
+  isolation:isolate;
+}
+
+.support-page .portfolio-head,
+.support-page .p-stage,
+.support-page .p-progress{
+  position:relative;
+  z-index:2;
+}
+
+.support-page .portfolio-decor{
+  position:absolute;
+  left:-19rem;
+  bottom:-34rem;
+  z-index:0;
+  width:58rem;
+  max-width:none;
+  pointer-events:none;
+  line-height:0;
+}
+
+.support-page .portfolio-decor svg{
+  display:block;
+  width:100%;
+  height:auto;
+  max-width:none;
+}
+
+@media (min-width:1600px){
+  .support-page .portfolio-decor{
+    left:-17rem;
+    bottom:-37rem;
+    width:62rem;
+  }
+}
+
+@media (max-width:1000px){
+  .support-page .portfolio-decor{
+    display:none!important;
+  }
+}
+
+.support-page .portfolio{
+  overflow:hidden!important;
+}
+
+.support-page .portfolio .services-scribble-left{
+  z-index:0!important;
+  pointer-events:none!important;
+}
+
+.support-page .portfolio .portfolio-head > div:not(.services-scribble-left){
+  position:relative;
+  z-index:3;
+}
+
+.support-page .portfolio .p-right{
+  position:relative;
+  z-index:4;
+}
+
+.kolir-page.support-page .portfolio .t-topright,
+.support-page .portfolio .t-topright{
+  top:0!important;
+  transform:none!important;
+}
+
+.support-page .portfolio-decor{
+  left:-31rem!important;
+  bottom:-35rem!important;
+  width:64rem!important;
+}
+
+@media (min-width:1600px){
+  .support-page .portfolio-decor{
+    left:-34rem!important;
+    bottom:-38rem!important;
+    width:72rem!important;
+  }
+}
+
+@media (max-width:1000px){
+  .support-page .portfolio-decor{
+    display:none!important;
+  }
+}
+
+.support-page .portfolio{
+  position:relative;
+  overflow:hidden!important;
+  isolation:isolate;
+}
+
+.support-page .portfolio-head{
+  position:relative;
+  z-index:5!important;
+}
+
+.support-page .portfolio-head > div:not(.services-scribble-left){
+  position:relative;
+  z-index:12!important;
+}
+
+.support-page .portfolio .p-title,
+.support-page .portfolio .p-sub,
+.support-page .portfolio .p-underline,
+.support-page .portfolio .t-topright{
+  position:relative;
+  z-index:14!important;
+}
+
+.support-page .portfolio .services-scribble-left{
+  z-index:0!important;
+  pointer-events:none!important;
+}
+
+.kolir-page.support-page .portfolio .t-topright,
+.support-page .portfolio .t-topright{
+  top:0!important;
+  transform:none!important;
+}
+
+.support-page .p-stage,
+.support-page .p-progress{
+  position:relative;
+  z-index:4!important;
+}
+
+.support-page .portfolio-decor{
+  position:absolute!important;
+  left:-35rem!important;
+  top:auto!important;
+  bottom:-26rem!important;
+  width:72rem!important;
+  max-width:none!important;
+  color:#3C0084!important;
+  transform:rotate(11deg)!important;
+  z-index:1!important;
+  pointer-events:none!important;
+  line-height:0!important;
+}
+
+.support-page .portfolio-decor svg{
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  max-width:none!important;
+}
+
+@media (min-width:1600px){
+  .support-page .portfolio-decor{
+    left:-38rem!important;
+    bottom:-31rem!important;
+    width:78rem!important;
+  }
+}
+
+@media (max-width:1000px){
+  .support-page .portfolio-decor{
+    display:none!important;
+  }
+}
+
+.support-page .portfolio{
+  position:relative!important;
+  overflow:hidden!important;
+  isolation:isolate!important;
+}
+
+.support-page .portfolio-head{
+  position:relative!important;
+  z-index:10!important;
+  align-items:flex-start!important;
+}
+
+.support-page .portfolio-head > div:not(.services-scribble-left){
+  position:relative!important;
+  z-index:20!important;
+}
+
+.support-page .portfolio .p-title,
+.support-page .portfolio .p-sub,
+.support-page .portfolio .p-underline{
+  position:relative!important;
+  z-index:22!important;
+}
+
+.support-page .portfolio .p-right{
+  position:relative!important;
+  z-index:24!important;
+  align-self:flex-start!important;
+}
+
+.kolir-page.support-page .portfolio .t-topright,
+.support-page .portfolio .t-topright{
+  position:relative!important;
+  top:0!important;
+  right:auto!important;
+  transform:none!important;
+  margin-top:.4rem!important;
+  z-index:25!important;
+}
+
+.support-page .portfolio .services-scribble-left{
+  position:absolute!important;
+        left: -58rem !important;
+        top: -27rem !important;
+        width: 62rem !important;
+  height:auto!important;
+  color:#161616!important;
+  opacity:1!important;
+  z-index:1!important;
+  pointer-events:none!important;
+  transform:none!important;
+}
+
+.support-page .p-stage,
+.support-page .p-progress{
+  position:relative!important;
+  z-index:12!important;
+}
+
+.support-page .portfolio-decor{
+  position:absolute!important;
+
+  top:auto!important;
+        left: -43rem !important;
+        bottom: -40rem !important;
+        width: 56rem !important;
+  max-width:none!important;
+  color:#3C0084!important;
+  transform:none!important;
+  z-index:2!important;
+  pointer-events:none!important;
+  line-height:0!important;
+}
+
+.support-page .portfolio-decor svg{
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  max-width:none!important;
+}
+
+@media (min-width:1600px){
+  .support-page .portfolio .services-scribble-left{
+        left: -58rem !important;
+        top: -27rem !important;
+        width: 62rem !important;
+  }
+
+  .support-page .portfolio-decor{
+        left: -43rem !important;
+        bottom: -40rem !important;
+        width: 56rem !important;
+  }
+}
+
+@media (max-width:1000px){
+  .support-page .portfolio .services-scribble-left,
+  .support-page .portfolio-decor{
+    display:none!important;
+  }
+}
+
+html,
+body{
+  max-width:100%!important;
+  overflow-x:hidden!important;
+}
+
+.kolir-page.support-page{
+  max-width:100vw!important;
+  overflow-x:clip!important;
+}
+
+@supports not (overflow:clip){
+  .kolir-page.support-page{
+    overflow-x:hidden!important;
+  }
+}
+
+.kolir-page.support-page .shell,
+.kolir-page.support-page .support-shell,
+.kolir-page.support-page .portfolio,
+.support-page .shell,
+.support-page .support-shell,
+.support-page .portfolio{
+  overflow:visible!important;
+  contain:none!important;
+  clip-path:none!important;
+}
+
+.kolir-page.support-page .portfolio-decor,
+.kolir-page.support-page .portfolio .services-scribble-left,
+.support-page .portfolio-decor,
+.support-page .portfolio .services-scribble-left{
+  overflow:visible!important;
+  contain:none!important;
+  clip-path:none!important;
+}
+
+@media (max-width:1000px){
+  .kolir-page.support-page .portfolio-decor,
+  .kolir-page.support-page .portfolio .services-scribble-left,
+  .support-page .portfolio-decor,
+  .support-page .portfolio .services-scribble-left{
+    display:none!important;
+  }
+}
+
+.kolir-page.support-page,
+.support-page{
+  position:relative!important;
+  overflow-y:hidden!important;
+}
+
+@media (min-width:1001px){
+  .kolir-page.support-page .support-projects,
+  .support-page .support-projects{
+    width:100%!important;
+    max-width:100%!important;
+    overflow:hidden!important;
+  }
+
+  .kolir-page.support-page .support-project-list,
+  .support-page .support-project-list{
+    width:100%!important;
+    max-width:100%!important;
+    overflow:visible!important;
+  }
+
+  .kolir-page.support-page .support-project-card,
+  .support-page .support-project-card{
+    width:100%!important;
+    max-width:100%!important;
+    min-height:57rem!important;
+    padding:4.6rem 4.6rem!important;
+    margin-left:0!important;
+    margin-right:0!important;
+    overflow:hidden!important;
+    contain:paint!important;
+  }
+
+  .kolir-page.support-page .support-project-card--nft,
+  .support-page .support-project-card--nft{
+    min-height:57rem!important;
+  }
+
+  .kolir-page.support-page .support-project-copy,
+  .support-page .support-project-copy{
+    position:relative!important;
+    left:auto!important;
+    right:auto!important;
+    top:auto!important;
+    bottom:auto!important;
+    z-index:5!important;
+    width:59rem!important;
+    max-width:48%!important;
+  }
+
+  .kolir-page.support-page .support-project-copy h3,
+  .support-page .support-project-copy h3{
+    font-size:4.3rem!important;
+    line-height:1.08!important;
+  }
+
+  .kolir-page.support-page .support-project-copy p,
+  .support-page .support-project-copy p{
+    width:46rem!important;
+    max-width:100%!important;
+    margin-top:2.6rem!important;
+    font-size:1.3rem!important;
+    line-height:1.6!important;
+  }
+
+  .kolir-page.support-page .support-project-card .support-button,
+  .support-page .support-project-card .support-button{
+    position:absolute!important;
+    left:6.4rem!important;
+    right:auto!important;
+    bottom:5.6rem!important;
+    width:auto!important;
+    min-height:5rem!important;
+    padding:0 2.2rem!important;
+    font-size:1.7rem!important;
+    line-height:1!important;
+    z-index:8!important;
+  }
+
+  .kolir-page.support-page .support-project-site,
+  .support-page .support-project-site{
+    position:absolute!important;
+    right:5.6rem!important;
+    left:auto!important;
+    top:5.6rem!important;
+    bottom:auto!important;
+    z-index:8!important;
+  }
+
+  .kolir-page.support-page .support-project-badge,
+  .support-page .support-project-badge{
+    position:absolute!important;
+    top:10.6rem!important;
+    right:45.3%!important;
+    left:auto!important;
+    bottom:auto!important;
+  }
+
+  .kolir-page.support-page .support-nft-stack,
+  .support-page .support-nft-stack{
+    position:absolute!important;
+    right:-2rem!important;
+    left:auto!important;
+    bottom:-11rem!important;
+    top:auto!important;
+    width:80rem!important;
+    height:60rem!important;
+    transform:none!important;
+    transform-origin:right bottom!important;
+    z-index:3!important;
+  }
+
+  .kolir-page.support-page .support-nft,
+  .support-page .support-nft{
+    width:33rem!important;
+    max-width:none!important;
+  }
+
+  .kolir-page.support-page .support-nft--one,
+  .support-page .support-nft--one{
+        right: -1rem !important;
+        bottom: 7rem !important;
+        left: auto !important;
+        top: auto !important;
+  }
+
+  .kolir-page.support-page .support-nft--two,
+  .support-page .support-nft--two{
+    right:26rem!important;
+           bottom: 12rem !important;
+    left:auto!important;
+    top:auto!important;
+    transform:rotate(8.3deg)!important;
+  }
+
+  .kolir-page.support-page .support-nft--three,
+  .support-page .support-nft--three{
+        right: 55rem !important;
+        bottom: -1rem !important;
+        left: auto !important;
+        top: auto !important;
+  }
+
+  .kolir-page.support-page .support-cyber-visual,
+  .support-page .support-cyber-visual{
+    position:absolute!important;
+    right:0!important;
+    left:auto!important;
+    bottom:0!important;
+    top:auto!important;
+    width:55%!important;
+    height:82%!important;
+    border-radius:3rem 0 3rem 0!important;
+    z-index:3!important;
+  }
+
+  .kolir-page.support-page .support-itt-visual,
+  .support-page .support-itt-visual{
+    position:absolute!important;
+    right:0!important;
+    left:auto!important;
+    bottom:0!important;
+    top:auto!important;
+    width:50%!important;
+    height:70%!important;
+    border-radius:3rem 0 3rem 0!important;
+    z-index:3!important;
+  }
+
+  .kolir-page.support-page .support-cyber-visual img,
+  .kolir-page.support-page .support-itt-visual img,
+  .support-page .support-cyber-visual img,
+  .support-page .support-itt-visual img{
+    width:100%!important;
+    height:100%!important;
+    object-fit:cover!important;
+    display:block!important;
+  }
+
+  .kolir-page.support-page .support-cyber-visual img,
+  .support-page .support-cyber-visual img{
+    object-position:center top!important;
+  }
+
+  .kolir-page.support-page .support-itt-visual img,
+  .support-page .support-itt-visual img{
+    object-position:center center!important;
+  }
+}
+
+@media (max-width:1000px){
+  .kolir-page.support-page .support-projects,
+  .support-page .support-projects,
+  .kolir-page.support-page .support-project-list,
+  .support-page .support-project-list,
+  .kolir-page.support-page .support-project-card,
+  .support-page .support-project-card{
+    width:100%!important;
+    max-width:100%!important;
+    overflow-x:hidden!important;
+  }
+
+  .kolir-page.support-page .support-project-card,
+  .support-page .support-project-card{
+    min-height:56rem!important;
+    padding:3.2rem 2.4rem!important;
+    border-radius:3rem!important;
+  }
+
+  .kolir-page.support-page .support-project-card--nft,
+  .support-page .support-project-card--nft{
+    min-height:67rem!important;
+  }
+
+  .kolir-page.support-page .support-project-copy,
+  .support-page .support-project-copy{
+    position:relative!important;
+    left:auto!important;
+    right:auto!important;
+    top:auto!important;
+    bottom:auto!important;
+    width:100%!important;
+    max-width:none!important;
+  }
+
+  .kolir-page.support-page .support-project-copy h3,
+  .support-page .support-project-copy h3{
+    font-size:3.2rem!important;
+    line-height:1.05!important;
+    overflow-wrap:anywhere!important;
+  }
+
+  .kolir-page.support-page .support-project-copy p,
+  .support-page .support-project-copy p{
+    width:100%!important;
+    margin-top:2.4rem!important;
+    font-size:1.4rem!important;
+    line-height:1.55!important;
+  }
+
+  .kolir-page.support-page .support-project-site,
+  .support-page .support-project-site{
+    display:none!important;
+  }
+
+  .kolir-page.support-page .support-project-badge,
+  .support-page .support-project-badge{
+    right:2.4rem!important;
+    left:auto!important;
+    top:3.2rem!important;
+    bottom:auto!important;
+  }
+
+  .kolir-page.support-page .support-project-card .support-button,
+  .support-page .support-project-card .support-button{
+    position:absolute!important;
+    left:2.4rem!important;
+    right:2.4rem!important;
+    bottom:3.2rem!important;
+    width:auto!important;
+    min-height:7rem!important;
+    font-size:2.6rem!important;
+  }
+
+  .kolir-page.support-page .support-nft-stack,
+  .support-page .support-nft-stack{
+    position:absolute!important;
+    right:-13rem!important;
+    left:auto!important;
+    bottom:6rem!important;
+    top:auto!important;
+    width:43rem!important;
+    height:33rem!important;
+    transform:scale(.72)!important;
+    transform-origin:right bottom!important;
+    z-index:3!important;
+  }
+
+  .kolir-page.support-page .support-cyber-visual,
+  .kolir-page.support-page .support-itt-visual,
+  .support-page .support-cyber-visual,
+  .support-page .support-itt-visual{
+    position:absolute!important;
+    right:0!important;
+    left:auto!important;
+    bottom:0!important;
+    top:auto!important;
+    width:100%!important;
+    height:25rem!important;
+    border-radius:2.4rem 0 0 0!important;
+    z-index:3!important;
+  }
+
+  .kolir-page.support-page .support-cyber-visual img,
+  .kolir-page.support-page .support-itt-visual img,
+  .support-page .support-cyber-visual img,
+  .support-page .support-itt-visual img{
+    width:100%!important;
+    height:100%!important;
+    object-fit:cover!important;
+    object-position:center top!important;
+    display:block!important;
+  }
+}
+
+@media (max-width:1000px){
+  .kolir-page.support-page .hero-right.support-hero-right picture,
+  .support-page .hero-right.support-hero-right picture{
+    position:absolute!important;
+    inset:0!important;
+    display:block!important;
+    pointer-events:none!important;
+  }
+
+  .kolir-page.support-page .hero-right.support-hero-right picture .girl.support-statue,
+  .support-page .hero-right.support-hero-right picture .girl.support-statue{
+    position:absolute!important;
+    right:-1.6rem!important;
+    bottom:0!important;
+    width:auto!important;
+    height:54rem!important;
+    max-width:none!important;
+    object-fit:contain!important;
+    object-position:right bottom!important;
+  }
+}
+
+@media (min-width:1001px){
+  .kolir-page.support-page .hero-right.support-hero-right picture,
+  .support-page .hero-right.support-hero-right picture{
+    position:absolute!important;
+    inset:0!important;
+    display:block!important;
+    pointer-events:none!important;
+  }
+
+  .kolir-page.support-page .support-project-card--nft .support-nft-stack,
+  .support-page .support-project-card--nft .support-nft-stack{
+    right:-3rem!important;
+    bottom:-8rem!important;
+    width:64rem!important;
+    height:48rem!important;
+    transform:none!important;
+    transform-origin:right bottom!important;
+  }
+
+  .kolir-page.support-page .support-project-card--nft .support-nft,
+  .support-page .support-project-card--nft .support-nft{
+    width:27.4rem!important;
+    max-width:none!important;
+  }
+
+  .kolir-page.support-page .support-project-card--nft .support-nft--one,
+  .support-page .support-project-card--nft .support-nft--one{
+    right:2rem!important;
+    bottom:-8rem!important;
+    left:auto!important;
+    top:auto!important;
+    transform:rotate(-20.5deg)!important;
+  }
+
+  .kolir-page.support-page .support-project-card--nft .support-nft--two,
+  .support-page .support-project-card--nft .support-nft--two{
+    right:19rem!important;
+    bottom:-2rem!important;
+    left:auto!important;
+    top:auto!important;
+    transform:rotate(8.3deg)!important;
+  }
+
+  .kolir-page.support-page .support-project-card--nft .support-nft--three,
+  .support-page .support-project-card--nft .support-nft--three{
+    right:36rem!important;
+    bottom:-14rem!important;
+    left:auto!important;
+    top:auto!important;
+    transform:rotate(-17.7deg)!important;
+  }
+}
+
+@media (min-width:1600px){
+  .kolir-page.support-page .support-project-card--nft .support-nft-stack,
+  .support-page .support-project-card--nft .support-nft-stack{
+    right:-2rem!important;
+    bottom:-9rem!important;
+    width:68rem!important;
+    height:50rem!important;
+  }
+
+  .kolir-page.support-page .support-project-card--nft .support-nft,
+  .support-page .support-project-card--nft .support-nft{
+    width:28.6rem!important;
+  }
+
+  .kolir-page.support-page .support-project-card--nft .support-nft--one,
+  .support-page .support-project-card--nft .support-nft--one{
+    right:2rem!important;
+    bottom:-8rem!important;
+  }
+
+  .kolir-page.support-page .support-project-card--nft .support-nft--two,
+  .support-page .support-project-card--nft .support-nft--two{
+    right:20.6rem!important;
+    bottom:-2rem!important;
+  }
+
+  .kolir-page.support-page .support-project-card--nft .support-nft--three,
+  .support-page .support-project-card--nft .support-nft--three{
+    right:39rem!important;
+    bottom:-14rem!important;
+  }
+}
+
+@media (max-width:1000px){
+  .kolir-page.support-page .support-project-card--nft .support-nft-stack,
+  .support-page .support-project-card--nft .support-nft-stack{
+    right:-13rem!important;
+    bottom:6rem!important;
+    width:43rem!important;
+    height:33rem!important;
+    transform:scale(.72)!important;
+    transform-origin:right bottom!important;
+  }
+}
+
+@media (max-width:1000px){
+  .kolir-page.support-page .hero-right.support-hero-right picture,
+  .support-page .hero-right.support-hero-right picture{
+    position:absolute!important;
+    inset:0!important;
+    display:block!important;
+    pointer-events:none!important;
+  }
+
+  .kolir-page.support-page .hero-right.support-hero-right picture .girl.support-statue,
+  .support-page .hero-right.support-hero-right picture .girl.support-statue{
+    position:absolute!important;
+    right:10.8rem!important;
+    top:-5rem!important;
+    bottom:auto!important;
+    width:auto!important;
+    height:60rem!important;
+    max-width:none!important;
+    object-fit:contain!important;
+    object-position:right bottom!important;
+  }
+}
+
+@media (min-width:1001px){
+  .kolir-page.support-page .hero-right.support-hero-right picture,
+  .support-page .hero-right.support-hero-right picture{
+    position:absolute!important;
+    inset:0!important;
+    display:block!important;
+    pointer-events:none!important;
+  }
+
+  .kolir-page.support-page .hero-right.support-hero-right picture .girl.support-statue,
+  .support-page .hero-right.support-hero-right picture .girl.support-statue{
+    position:absolute!important;
+    right:-2.8rem!important;
+    top:auto!important;
+    bottom:0!important;
+    width:52.5rem!important;
+    height:auto!important;
+    max-width:none!important;
+    object-fit:contain!important;
+    object-position:right bottom!important;
+  }
+}
+
+@media (max-width:1000px){
+  .kolir-page.support-page .hero,
+  .kolir-page.support-page .hero-card.support-hero-card,
+  .kolir-page.support-page .hero-inner.support-hero-inner,
+  .kolir-page.support-page .hero-right.support-hero-right,
+  .kolir-page.support-page .hero-right.support-hero-right picture,
+  .support-page .hero,
+  .support-page .hero-card.support-hero-card,
+  .support-page .hero-inner.support-hero-inner,
+  .support-page .hero-right.support-hero-right,
+  .support-page .hero-right.support-hero-right picture{
+    overflow:visible!important;
+  }
+
+  .kolir-page.support-page .hero-card.support-hero-card,
+  .support-page .hero-card.support-hero-card{
+    isolation:isolate!important;
+	          min-height: 67rem;
+  }
+
+  .kolir-page.support-page .hero-right.support-hero-right,
+  .kolir-page.support-page .hero-right.support-hero-right picture,
+  .kolir-page.support-page .hero-right.support-hero-right picture .girl.support-statue,
+  .support-page .hero-right.support-hero-right,
+  .support-page .hero-right.support-hero-right picture,
+  .support-page .hero-right.support-hero-right picture .girl.support-statue{
+    z-index:6!important;
+  }
+
+  .kolir-page.support-page .site-header,
+  .kolir-page.support-page .m-top,
+  .support-page .site-header,
+  .support-page .m-top{
+    position:relative!important;
+    z-index:20!important;
+  }
+}
+
+@media (max-width:1000px){
+  .kolir-page.support-page .hero,
+  .kolir-page.support-page .hero-card.support-hero-card,
+  .kolir-page.support-page .hero-inner.support-hero-inner,
+  .kolir-page.support-page .hero-right.support-hero-right,
+  .support-page .hero,
+  .support-page .hero-card.support-hero-card,
+  .support-page .hero-inner.support-hero-inner,
+  .support-page .hero-right.support-hero-right{
+    overflow:visible!important;
+  }
+
+  .kolir-page.support-page .hero-right.support-hero-right picture,
+  .support-page .hero-right.support-hero-right picture{
+    overflow:visible!important;
+    clip-path:inset(-14rem 0 0 0)!important;
+  }
+
+.kolir-page.support-page .support-left-scribble {
+    left: -23rem !important;
+    top: -5rem !important;
+    width: 30rem !important;
+    height: auto !important;
+    color: #161616 !important;
+
+}
+}
+
+@media (max-width:1000px){
+  .kolir-page.support-page .hero-right.support-hero-right,
+  .support-page .hero-right.support-hero-right{
+    position:absolute!important;
+    inset:0!important;
+  }
+
+  .kolir-page.support-page .hero-right.support-hero-right::before,
+  .support-page .hero-right.support-hero-right::before{
+    content:"";
+    position:absolute;
+    right:0.8rem;
+    top:7.4rem;
+    width:26.8rem;
+    height:52.2rem;
+    background-image:url("data:image/svg+xml,%3Csvg%20width%3D%22268%22%20height%3D%22522%22%20viewBox%3D%220%200%20268%20522%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M265.123%20337.156C272.351%20310.462%20262.051%20275.467%20236.14%20238.574C216.495%20210.605%20187.411%20181.819%20154.302%20161.629C158.264%2084.3828%20198.556%2030.8944%20199.002%2030.2839C204.728%2022.8068%20203.142%2011.3276%20195.414%204.65083C187.728%20-2.02747%20176.807%20-1.4625%20171.038%206.01623C168.896%208.74723%20127.664%2063.0473%20120.217%20144.808C106.175%20139.428%2091.8004%20135.93%2077.3817%20134.898C41.1372%20132.302%2024.6768%20146.814%2017.1981%20159.468C4.33495%20181.32%205.63013%20211.969%2020.94%20248.137C28.5237%20265.995%2044.7655%20295.968%2098.3596%20350.252C99.8032%20351.746%20101.474%20353.324%20103.33%20354.984C93.0423%20350.46%2081.1996%20344.948%2067.6012%20338.227C53.7701%20331.378%2036.7905%20327.892%2023.2187%20329.153C13.2502%20330.045%204.93064%20336.575%201.59066%20346.148C-1.76032%20355.631%200.268053%20366.818%206.86849%20375.273C14.9196%20385.632%2022.2916%20396.473%2031.5289%20411.53C62.3362%20461.734%2070.4891%20504.34%2070.5393%20504.749C72.3289%20514.349%2080.848%20521.451%2089.8834%20521.097L89.9698%20521.094C90.3156%20521.08%2090.7049%20521.066%2091.0507%20521.052C100.484%20520.044%20106.696%20511.225%20104.857%20501.215C104.475%20499.174%2095.5272%20451.172%2060.4779%20394.021C53.9065%20383.33%2048.1806%20374.568%2042.495%20366.488C46.9145%20367.456%2051.401%20368.968%2055.1485%20370.829C113.804%20399.871%20153.904%20413.675%20174.331%20411.643C183.262%20410.792%20190.025%20404.323%20191.551%20395.186C193.114%20386.002%20189.039%20376.536%20181.153%20371.052C152.125%20350.84%20129.864%20333.737%20121.534%20325.351C67.2887%20270.362%2056.3324%20244.516%2052.7261%20236.036C46.7899%20222.036%2038.175%20196.144%2047.4086%20180.456C51.7196%20173.125%2062.1063%20169.982%2078.1904%20171.131C91.9062%20172.1%20105.823%20176.116%20119.349%20182.247C119.618%20188.668%20120.163%20195.216%20120.94%20201.891C122.883%20218.739%20132.964%20277.372%20180.117%20323.788C193.362%20336.818%20228.501%20371.388%20253.717%20354.253C259.129%20350.575%20263.094%20344.671%20265.123%20337.156ZM232.114%20321.662C228.026%20319.86%20219.108%20314.461%20202.851%20298.493C174.191%20270.329%20160.062%20232.109%20156.039%20204.349C177.154%20220.264%20195.672%20239.793%20208.68%20258.306C225.742%20282.59%20234.502%20306.469%20232.114%20321.662Z%22%20fill%3D%22%23FDCC0D%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:contain;
+    z-index:1;
+    pointer-events:none;
+  }
+
+  .kolir-page.support-page .hero-right.support-hero-right picture,
+  .support-page .hero-right.support-hero-right picture{
+    position:relative!important;
+    z-index:2!important;
+  }
+
+  .kolir-page.support-page .hero-right.support-hero-right picture .girl.support-statue,
+  .support-page .hero-right.support-hero-right picture .girl.support-statue{
+    position:relative!important;
+    z-index:2!important;
+  }
+}
+
+@media (max-width:1000px){
+  .kolir-page.support-page .hero-right.support-hero-right,
+  .support-page .hero-right.support-hero-right{
+    position:absolute !important;
+    inset:0 !important;
+    overflow:hidden !important;
+    border-radius:0 3rem 3rem 0 !important;
+    -webkit-clip-path:inset(-20rem 0 0 0 round 0 3rem 3rem 0) !important;
+    clip-path:inset(-20rem 0 0 0 round 0 3rem 3rem 0) !important;
+  }
+
+  .kolir-page.support-page .hero-right.support-hero-right picture,
+  .support-page .hero-right.support-hero-right picture{
+    position:absolute !important;
+    inset:0 !important;
+    overflow:visible !important;
+    z-index:2 !important;
+  }
+
+  .kolir-page.support-page .hero-right.support-hero-right::before,
+  .support-page .hero-right.support-hero-right::before{
+        right: -9.6rem !important;
+        top: 7.6rem !important;
+        z-index: 1 !important;
+  }
+
+  .kolir-page.support-page .hero-right.support-hero-right picture .girl.support-statue,
+  .support-page .hero-right.support-hero-right picture .girl.support-statue,
+  .kolir-page.support-page .girl.support-statue,
+  .support-page .girl.support-statue{
+        position: absolute !important;
+        right: 11.2rem !important;
+        bottom: 0 !important;
+        top: auto !important;
+        width: 20rem !important;
+        height: auto !important;
+        max-width: none !important;
+        object-fit: contain !important;
+        object-position: right bottom !important;
+        z-index: 2 !important;
+  }
+}
+
+@media (max-width:1000px){
+  .kolir-page.support-page .hero-right.support-hero-right,
+  .support-page .hero-right.support-hero-right{
+    overflow: visible !important;
+    border-radius: 0 3rem 3rem 0 !important;
+    isolation: isolate !important;
+    -webkit-clip-path: inset(-30rem 0 0 0 round 0 3rem 3rem 0) !important;
+    clip-path: inset(-30rem 0 0 0 round 0 3rem 3rem 0) !important;
+  }
+
+  .kolir-page.support-page .hero-right.support-hero-right picture,
+  .support-page .hero-right.support-hero-right picture,
+  .kolir-page.support-page .hero-right.support-hero-right::before,
+  .support-page .hero-right.support-hero-right::before,
+  .kolir-page.support-page .hero-right.support-hero-right picture .girl.support-statue,
+  .support-page .hero-right.support-hero-right picture .girl.support-statue,
+  .kolir-page.support-page .girl.support-statue,
+  .support-page .girl.support-statue{
+    -webkit-clip-path: none !important;
+    clip-path: none !important;
+  }
+}
+
+@media (min-width:1001px){
+  .kolir-page.support-page .support-project-card--nft .support-nft,
+  .support-page .support-project-card--nft .support-nft{
+    width:28.6rem!important;
+  }
+
+  .kolir-page.support-page .support-project-card--nft .support-nft--one,
+  .support-page .support-project-card--nft .support-nft--one{
+    right:0!important;
+    bottom:4rem!important;
+  }
+
+  .kolir-page.support-page .support-project-card--nft .support-nft--two,
+  .support-page .support-project-card--nft .support-nft--two{
+right: 24rem !important;
+        bottom: 10rem !important;
+  }
+
+  .kolir-page.support-page .support-project-card--nft .support-nft--three,
+  .support-page .support-project-card--nft .support-nft--three{
+        right: 48rem !important;
+        bottom: -2rem !important;
+  }
+}
+
+@media (max-width:1000px){
+  .kolir-page.support-page .support-project-card--itt,
+  .support-page .support-project-card--itt{
+    overflow:hidden!important;
+  }
+
+  .kolir-page.support-page .support-project-card--itt .support-project-badge,
+  .support-page .support-project-card--itt .support-project-badge{
+    display:block!important;
+    position:absolute!important;
+    left:8.8rem!important;
+    right:auto!important;
+    top:auto!important;
+    bottom:20.9rem!important;
+    z-index:9!important;
+    width:7.4rem!important;
+    height:7.4rem!important;
+    pointer-events:none!important;
+  }
+
+  .kolir-page.support-page .support-project-card--itt .support-project-badge img,
+  .support-page .support-project-card--itt .support-project-badge img{
+    display:block!important;
+    width:100%!important;
+    height:100%!important;
+    object-fit:contain!important;
+  }
+
+  .kolir-page.support-page .portfolio,
+  .support-page .portfolio{
+    padding-top:0rem!important;
+	          padding-bottom: 0;
+  }
+
+  .kolir-page.support-page .portfolio-head,
+  .support-page .portfolio-head{
+    padding-top:0!important;
+  }
+
+  .kolir-page.support-page .support-portfolio-title,
+  .support-page .support-portfolio-title{
+    color:var(--support-yellow)!important;
+  }
+
+  .kolir-page.support-page .support-portfolio-sub,
+  .support-page .support-portfolio-sub{
+    color:#fff!important;
+	  font-size:1.2rem;
+		font-weight:300;
+  }
+
+  .kolir-page.support-page .support-portfolio-underline,
+  .support-page .support-portfolio-underline{
+    background:var(--support-yellow)!important;
+
+  }
+
+  .kolir-page.support-page .support-portfolio-marker,
+  .support-page .support-portfolio-marker{
+    margin-top:0!important;
+  }
+
+  .kolir-page.support-page .support-portfolio-marker .lines .l2,
+  .support-page .support-portfolio-marker .lines .l2{
+    background:var(--support-yellow)!important;
+  }
+}
+
+@media (max-width:1000px){
+  .kolir-page.support-page .support-project-card--cyber,
+  .kolir-page.support-page .support-project-card--itt,
+  .support-page .support-project-card--cyber,
+  .support-page .support-project-card--itt{
+    overflow:hidden!important;
+  }
+
+  .kolir-page.support-page .support-project-card--cyber .support-cyber-visual,
+  .kolir-page.support-page .support-project-card--itt .support-itt-visual,
+  .support-page .support-project-card--cyber .support-cyber-visual,
+  .support-page .support-project-card--itt .support-itt-visual{
+    position:absolute!important;
+    left:1.4rem!important;
+    right:1.4rem!important;
+    bottom:0!important;
+    top:auto!important;
+    width:auto!important;
+    height:25rem!important;
+    border-radius:2.4rem 2.4rem 0 0!important;
+    overflow:hidden!important;
+    z-index:3!important;
+    box-shadow:none!important;
+  }
+
+  .kolir-page.support-page .support-project-card--cyber .support-cyber-visual img,
+  .kolir-page.support-page .support-project-card--itt .support-itt-visual img,
+  .support-page .support-project-card--cyber .support-cyber-visual img,
+  .support-page .support-project-card--itt .support-itt-visual img{
+    width:100%!important;
+    height:100%!important;
+    display:block!important;
+    object-fit:cover!important;
+  }
+
+  .kolir-page.support-page .support-project-card--cyber .support-cyber-visual img,
+  .support-page .support-project-card--cyber .support-cyber-visual img{
+    object-position:center top!important;
+  }
+
+  .kolir-page.support-page .support-project-card--itt .support-itt-visual img,
+  .support-page .support-project-card--itt .support-itt-visual img{
+    object-position:center center!important;
+  }
+}
+
+.kolir-page.support-page .support-project-site,
+.support-page .support-project-site{
+  align-items:center!important;
+  gap:.8rem!important;
+  font-size:1.65rem!important;
+  line-height:1!important;
+  font-weight:400!important;
+  letter-spacing:-.01em!important;
+}
+
+.kolir-page.support-page .support-project-site span,
+.support-page .support-project-site span{
+  display:block!important;
+  width:6.7rem!important;
+  height:.26rem!important;
+  border-radius:99rem!important;
+  background:linear-gradient(90deg,#161616 0 48%,transparent 48% 61%,var(--support-yellow) 61% 100%)!important;
+}
+
+.kolir-page.support-page .support-project-card--nft .support-project-site,
+.support-page .support-project-card--nft .support-project-site{
+  color:var(--support-deep)!important;
+}
+
+.kolir-page.support-page .support-project-card--nft .support-project-site span,
+.support-page .support-project-card--nft .support-project-site span{
+  background:linear-gradient(90deg,var(--support-yellow-soft) 0 48%,transparent 48% 61%,var(--support-purple-3) 61% 100%)!important;
+}
+
+.kolir-page.support-page .support-project-card--cyber .support-project-site,
+.kolir-page.support-page .support-project-card--itt .support-project-site,
+.support-page .support-project-card--cyber .support-project-site,
+.support-page .support-project-card--itt .support-project-site{
+  color:#fff!important;
+}
+
+.kolir-page.support-page .support-project-card--cyber .support-project-site span,
+.support-page .support-project-card--cyber .support-project-site span{
+  background:linear-gradient(90deg,#161616 0 48%,transparent 48% 61%,var(--support-purple-3) 61% 100%)!important;
+}
+
+.kolir-page.support-page .support-project-card--itt .support-project-site span,
+.support-page .support-project-card--itt .support-project-site span{
+  background:linear-gradient(90deg,#161616 0 48%,transparent 48% 61%,var(--support-yellow) 61% 100%)!important;
+}
+
+.kolir-page.support-page .portfolio .t-topright span:first-child,
+.kolir-page.support-page .support-portfolio-marker span:first-child,
+.support-page .portfolio .t-topright span:first-child,
+.support-page .support-portfolio-marker span:first-child{
+  color:#fff!important;
+}
+
+.kolir-page.support-page .support-project-site,
+.support-page .support-project-site{
+  width:max-content!important;
+  min-width:0!important;
+  align-items:flex-end!important;
+  text-align:right!important;
+}
+
+.kolir-page.support-page .support-project-site span,
+.support-page .support-project-site span{
+  width:7.8rem!important;
+  margin-left:auto!important;
+  margin-right:0!important;
+  background:linear-gradient(90deg,#161616 0 55%,transparent 55% 68%,var(--support-yellow) 68% 100%)!important;
+}
+
+.kolir-page.support-page .support-project-card--nft .support-project-site span,
+.support-page .support-project-card--nft .support-project-site span{
+  background:linear-gradient(90deg,var(--support-yellow-soft) 0 55%,transparent 55% 68%,var(--support-purple-3) 68% 100%)!important;
+}
+
+.kolir-page.support-page .support-project-card--cyber .support-project-site span,
+.support-page .support-project-card--cyber .support-project-site span{
+  background:linear-gradient(90deg,#161616 0 55%,transparent 55% 68%,var(--support-purple-3) 68% 100%)!important;
+}
+
+.kolir-page.support-page .support-project-card--itt .support-project-site span,
+.support-page .support-project-card--itt .support-project-site span{
+  background:linear-gradient(90deg,#161616 0 55%,transparent 55% 68%,var(--support-yellow) 68% 100%)!important;
+}
+
+.kolir-page.support-page .support-project-card--itt .support-project-badge img,
+.support-page .support-project-card--itt .support-project-badge img{
+  animation:supportTroopsBadgeSpin 14s linear infinite!important;
+  transform-origin:center center!important;
+  will-change:transform!important;
+}
+
+@keyframes supportTroopsBadgeSpin{
+  from{transform:rotate(0deg);}
+  to{transform:rotate(360deg);}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .kolir-page.support-page .support-project-card--itt .support-project-badge img,
+  .support-page .support-project-card--itt .support-project-badge img{
+    animation:none!important;
+  }
+}
+
+@media (min-width:1001px){
+  .kolir-page.support-page .hero-head,
+  .support-page .hero-head{
+    position:relative!important;
+    padding-left:9rem!important;
+    padding-right:9rem!important;
+  }
+
+  .kolir-page.support-page .hero-head-left,
+  .support-page .hero-head-left{
+    position:relative!important;
+    z-index:4!important;
+    flex:0 0 auto!important;
+  }
+
+  .kolir-page.support-page .brand,
+  .support-page .brand{
+    display:flex!important;
+    align-items:center!important;
+    transform:scale(1.075)!important;
+    transform-origin:left center!important;
+  }
+
+  .kolir-page.support-page .hero-head-center,
+  .support-page .hero-head-center{
+    position:absolute!important;
+    top:50%!important;
+    right:16.5rem!important;
+    transform:translateY(-50%)!important;
+    z-index:5!important;
+    display:flex!important;
+    align-items:center!important;
+    gap:1.2rem!important;
+    margin:0!important;
+  }
+
+  .kolir-page.support-page .nav,
+  .support-page .nav{
+    display:flex!important;
+    align-items:center!important;
+    gap:2.2rem!important;
+	  font-size: 1.4rem;
+  }
+
+  .kolir-page.support-page .nav a,
+  .support-page .nav a{
+    white-space:nowrap!important;
+    font-size:inherit!important;
+  }
+
+  .kolir-page.support-page .support-nav-current,
+  .support-page .support-nav-current{
+    display:inline-flex!important;
+    align-items:center!important;
+    gap:.7rem!important;
+  }
+
+  .kolir-page.support-page .support-nav-flag,
+  .support-page .support-nav-flag{
+    width:1.7rem!important;
+    height:1.7rem!important;
+    flex:0 0 1.7rem!important;
+  }
+
+  .kolir-page.support-page .cta-top,
+  .support-page .cta-top{
+    white-space:nowrap!important;
+  }
+
+  .kolir-page.support-page .hero-head-right,
+  .support-page .hero-head-right{
+    position:absolute!important;
+    top:50%!important;
+    right:9rem!important;
+    transform:translateY(-50%)!important;
+    z-index:6!important;
+    margin:0!important;
+  }
+}
+
+@media (min-width:1001px) and (max-width:1280px){
+  .kolir-page.support-page .hero-head,
+  .support-page .hero-head{
+    padding-left:6rem!important;
+    padding-right:6rem!important;
+  }
+
+  .kolir-page.support-page .hero-head-center,
+  .support-page .hero-head-center{
+    right:15rem!important;
+    gap:.85rem!important;
+  }
+
+  .kolir-page.support-page .nav,
+  .support-page .nav{
+    gap:1.05rem!important;
+  }
+
+  .kolir-page.support-page .nav a,
+  .support-page .nav a,
+  .kolir-page.support-page .cta-top,
+  .support-page .cta-top{
+    font-size:1.12rem!important;
+  }
+
+  .kolir-page.support-page .hero-head-right,
+  .support-page .hero-head-right{
+    right:6rem!important;
+  }
+}
+
+@media (min-width:1001px){
+  .kolir-page.support-page .site-header .brand img,
+  .support-page .site-header .brand img{
+    height:4rem!important;
+    width:auto!important;
+    display:block!important;
+    max-width:none!important;
+  }
+
+  .kolir-page.support-page .site-header .brand,
+  .support-page .site-header .brand{
+    display:flex!important;
+    align-items:center!important;
+  }
+}
+
+@media (min-width:1001px){
+  .kolir-page.support-page .hero-title.support-title .t-brand,
+  .support-page .hero-title.support-title .t-brand{
+    display:block!important;
+    width:29rem!important;
+    padding-left:0!important;
+    margin:0!important;
+    margin-left:-6rem!important;
+  }
+
+  .kolir-page.support-page .support-project-card--itt .support-itt-visual,
+  .support-page .support-project-card--itt .support-itt-visual{
+    width:47.5%!important;
+    height:68%!important;
+    right:0!important;
+    bottom:0!important;
+    top:auto!important;
+  }
+
+  .kolir-page.support-page .support-project-card--itt .support-itt-visual img,
+  .support-page .support-project-card--itt .support-itt-visual img{
+    width:100%!important;
+    height:100%!important;
+    object-fit:cover!important;
+    object-position:center center!important;
+    image-rendering:auto!important;
+    transform:translateZ(0)!important;
+    backface-visibility:hidden!important;
+  }
+}
+
+.kolir-page.support-page .support-nav-flag,
+.support-page .support-nav-flag,
+.support-nav-flag{
+  background:linear-gradient(180deg,#338AF3 0 50%,#FFDA44 50% 100%)!important;
+}
+
+@media (min-width:1001px){
+  .kolir-page.support-page .support-project-card--itt .support-itt-visual,
+  .support-page .support-project-card--itt .support-itt-visual{
+    width:50%!important;
+    height:70%!important;
+    right:0!important;
+    bottom:0!important;
+    top:auto!important;
+    left:auto!important;
+  }
+
+  .kolir-page.support-page .support-project-card--itt .support-itt-visual img,
+  .support-page .support-project-card--itt .support-itt-visual img{
+    width:100%!important;
+    height:100%!important;
+    object-fit:cover!important;
+    object-position:center center!important;
+    image-rendering:auto!important;
+    transform:none!important;
+    backface-visibility:visible!important;
+  }
+}
+
+@media (max-width:1000px){
+  .kolir-page.support-page .footerk-mid,
+  .support-page .footerk-mid{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:center!important;
+    justify-content:center!important;
+    text-align:center!important;
+    gap:3.8rem!important;
+  }
+
+  .kolir-page.support-page .footerk-legal,
+  .support-page .footerk-legal{
+    width:100%!important;
+    display:flex!important;
+    justify-content:center!important;
+    text-align:center!important;
+  }
+
+  .kolir-page.support-page .footerk-legal .footerk-copy,
+  .support-page .footerk-legal .footerk-copy{
+        width: 100% !important;
+        max-width: 31rem !important;
+        margin: 0 auto !important;
+        text-align: center !important;
+        color: rgba(255, 255, 255, .32) !important;
+        font-size: 1rem !important;
+        line-height: 1.5 !important;
+        font-weight: 300 !important;
+  }
+
+  .kolir-page.support-page .footerk-links,
+  .support-page .footerk-links{
+    width:100%!important;
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    align-items:start!important;
+    justify-content:center!important;
+    gap:2.8rem!important;
+    margin:0 auto!important;
+    text-align:center!important;
+  }
+
+  .kolir-page.support-page .footerk-link,
+  .support-page .footerk-link{
+    display:block!important;
+    width:100%!important;
+    max-width:15rem!important;
+    margin:0 auto!important;
+    color:#fff!important;
+    font-size:1.4rem!important;
+    line-height:1.22!important;
+    font-weight:600!important;
+    text-align:center!important;
+    text-decoration:underline!important;
+    text-underline-offset:.18em!important;
+    text-decoration-thickness:.08em!important;
+  }
+}
+
+@media (max-width:1000px){
+  .kolir-page.support-page .support-logo-item,
+  .support-page .support-logo-item{
+    opacity:.4!important;
+    filter:grayscale(1) brightness(.82) contrast(.92)!important;
+  }
+
+  .kolir-page.support-page .support-logo-item img,
+  .support-page .support-logo-item img{
+    height:11.2rem!important;
+  }
+
+  .kolir-page.support-page .support-logo-item.is-active,
+  .support-page .support-logo-item.is-active{
+    opacity:1!important;
+    filter:none!important;
+  }
+
+  .kolir-page.support-page .support-logo-item.is-active img,
+  .support-page .support-logo-item.is-active img{
+    height:16.8rem!important;
+  }
+}
+
+@media (max-width:420px){
+  .kolir-page.support-page .support-logo-item img,
+  .support-page .support-logo-item img{
+    height:10.4rem!important;
+  }
+
+  .kolir-page.support-page .support-logo-item.is-active img,
+  .support-page .support-logo-item.is-active img{
+    height:16.2rem!important;
+  }
+}
+
+@media (max-width:1000px){
+  .kolir-page.support-page .site-header,
+  .support-page .site-header{
+    position:relative!important;
+    z-index:300!important;
+    overflow:visible!important;
+  }
+
+  .kolir-page.support-page .m-top,
+  .support-page .m-top{
+    position:relative!important;
+    z-index:320!important;
+    overflow:visible!important;
+  }
+
+  .kolir-page.support-page .m-burger,
+  .kolir-page.support-page .m-brand,
+  .kolir-page.support-page .lang-switch--mob,
+  .support-page .m-burger,
+  .support-page .m-brand,
+  .support-page .lang-switch--mob{
+    position:relative!important;
+    z-index:330!important;
+  }
+
+  .kolir-page.support-page .m-menu,
+  .support-page .m-menu{
+    position:absolute!important;
+    left:0!important;
+    right:0!important;
+    top:0!important;
+    z-index:310!important;
+    overflow:visible!important;
+    pointer-events:none!important;
+  }
+
+  .kolir-page.support-page .m-menu[aria-hidden="false"],
+  .support-page .m-menu[aria-hidden="false"]{
+    pointer-events:auto!important;
+  }
+
+  .kolir-page.support-page .m-menu-card,
+  .support-page .m-menu-card{
+    position:absolute!important;
+    top:1.2rem!important;
+    left:50%!important;
+    transform:translateX(-50%)!important;
+    z-index:310!important;
+    width:min(18.4rem,58vw)!important;
+    max-width:18.4rem!important;
+    padding:5.6rem 1.2rem 1.3rem!important;
+    border-radius:2.4rem!important;
+    background:var(--support-purple-3)!important;
+    box-shadow:none!important;
+  }
+
+  .kolir-page.support-page .m-menu-card a,
+  .support-page .m-menu-card a{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    min-height:4.4rem!important;
+    padding:.7rem .6rem!important;
+    border-bottom:.1rem solid rgba(255,255,255,.14)!important;
+    color:#fff!important;
+    font-size:1.35rem!important;
+    line-height:1.1!important;
+    font-weight:600!important;
+    text-align:center!important;
+  }
+
+  .kolir-page.support-page .m-menu-card a:last-child,
+  .support-page .m-menu-card a:last-child{
+    border-bottom:0!important;
+  }
+}
+
+@media (max-width:420px){
+  .kolir-page.support-page .m-menu-card,
+  .support-page .m-menu-card{
+    width:18rem!important;
+    max-width:18rem!important;
+    padding-top:5.4rem!important;
+  }
+
+  .kolir-page.support-page .m-menu-card a,
+  .support-page .m-menu-card a{
+    min-height:4.25rem!important;
+    font-size:1.28rem!important;
+  }
+}
+
+@media (max-width:1000px){
+  .kolir-page.support-page .site-header,
+  .support-page .site-header{
+    position:relative!important;
+    z-index:400!important;
+    overflow:visible!important;
+  }
+
+  .kolir-page.support-page .m-top,
+  .support-page .m-top{
+    position:relative!important;
+    z-index:430!important;
+    overflow:visible!important;
+  }
+
+  .kolir-page.support-page .m-burger,
+  .kolir-page.support-page .m-brand,
+  .kolir-page.support-page .m-brand img,
+  .kolir-page.support-page .lang-switch--mob,
+  .support-page .m-burger,
+  .support-page .m-brand,
+  .support-page .m-brand img,
+  .support-page .lang-switch--mob{
+    position:relative!important;
+    z-index:450!important;
+  }
+
+  .kolir-page.support-page .m-menu,
+  .support-page .m-menu{
+    position:absolute!important;
+    top:100%!important;
+    left:0!important;
+    right:0!important;
+    z-index:410!important;
+    overflow:visible!important;
+    pointer-events:none!important;
+  }
+
+  .kolir-page.support-page .m-menu[aria-hidden="false"],
+  .support-page .m-menu[aria-hidden="false"]{
+    pointer-events:auto!important;
+  }
+
+  .kolir-page.support-page .m-menu-card,
+  .support-page .m-menu-card{
+    position:absolute!important;
+    top:.8rem!important;
+    left:50%!important;
+    transform:translateX(-50%)!important;
+    z-index:410!important;
+    width:min(20.2rem,64vw)!important;
+    max-width:20.2rem!important;
+    padding:1rem 1.2rem!important;
+    border-radius:2.4rem!important;
+    background:var(--support-purple-3)!important;
+    box-shadow:none!important;
+  }
+
+  .kolir-page.support-page .m-menu-card a,
+  .support-page .m-menu-card a{
+    min-height:4.2rem!important;
+    padding:.7rem .6rem!important;
+    color:#fff!important;
+    font-size:1.34rem!important;
+    line-height:1.12!important;
+    font-weight:600!important;
+    text-align:center!important;
+    justify-content:center!important;
+    border-bottom:.1rem solid rgba(255,255,255,.14)!important;
+  }
+
+  .kolir-page.support-page .m-menu-card a:last-child,
+  .support-page .m-menu-card a:last-child{
+    border-bottom:0!important;
+  }
+}
+
+@media (max-width:420px){
+  .kolir-page.support-page .m-menu-card,
+  .support-page .m-menu-card{
+    width:19rem!important;
+    max-width:19rem!important;
+    padding:1rem 1.1rem!important;
+  }
+
+  .kolir-page.support-page .m-menu-card a,
+  .support-page .m-menu-card a{
+    min-height:4rem!important;
+    font-size:1.25rem!important;
+  }
+}
+
+@media (max-width:1000px){
+  .kolir-page.support-page .site-header,
+  .support-page .site-header{
+    position:relative!important;
+    z-index:500!important;
+    overflow:visible!important;
+  }
+
+  .kolir-page.support-page .m-top,
+  .support-page .m-top{
+    position:relative!important;
+    z-index:540!important;
+    overflow:visible!important;
+  }
+
+  .kolir-page.support-page .m-burger,
+  .kolir-page.support-page .m-brand,
+  .kolir-page.support-page .m-brand img,
+  .kolir-page.support-page .lang-switch--mob,
+  .support-page .m-burger,
+  .support-page .m-brand,
+  .support-page .m-brand img,
+  .support-page .lang-switch--mob{
+    position:relative!important;
+    z-index:560!important;
+  }
+
+  .kolir-page.support-page .m-menu,
+  .support-page .m-menu{
+    position:absolute!important;
+    left:0!important;
+    right:0!important;
+    top:0!important;
+    z-index:520!important;
+    overflow:visible!important;
+    pointer-events:none!important;
+  }
+
+  .kolir-page.support-page .m-menu[aria-hidden="false"],
+  .support-page .m-menu[aria-hidden="false"]{
+    pointer-events:auto!important;
+  }
+
+  .kolir-page.support-page .m-menu-card,
+  .support-page .m-menu-card{
+    position:absolute!important;
+            top: 7.7rem !important;
+        left: 37% !important;
+    transform:translateX(-50%)!important;
+    z-index:520!important;
+    width:18.4rem!important;
+    max-width:18.4rem!important;
+    padding:5.05rem 1.25rem 1.25rem!important;
+    border-radius:3rem!important;
+    background:var(--c-5e00cf) !important;
+    box-shadow:none!important;
+  }
+
+  .kolir-page.support-page .m-menu-card a,
+  .support-page .m-menu-card a{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    min-height:4.15rem!important;
+    padding:.65rem .5rem!important;
+    border-bottom:.1rem solid rgba(255,255,255,.16)!important;
+    color:#fff!important;
+    font-size:1.28rem!important;
+    line-height:1.1!important;
+    font-weight:700!important;
+    text-align:center!important;
+    text-decoration:none!important;
+  }
+
+  .kolir-page.support-page .m-menu-card a:last-child,
+  .support-page .m-menu-card a:last-child{
+    border-bottom:0!important;
+  }
+}
+
+@media (max-width:420px){
+  .kolir-page.support-page .m-menu-card,
+  .support-page .m-menu-card{
+        top: 7.45rem !important;
+        width: 18rem !important;
+        max-width: 18rem !important;
+        padding: 5rem 1.15rem 1.15rem !important;
+	  box-shadow: 0 1.4rem 3.6rem rgba(0, 0, 0, .22) !important;
+  }
+
+  .kolir-page.support-page .m-menu-card a,
+  .support-page .m-menu-card a{
+    min-height:3.95rem!important;
+    font-size:1.22rem!important;
+  }
+}
+
+@media (max-width:1000px){
+  .kolir-page.support-page .hero-card.support-hero-card,
+  .support-page .hero-card.support-hero-card{
+    background:#3E0088 !important;
+  }
+
+  .kolir-page.support-page .m-menu-card a:nth-child(6),
+  .support-page .m-menu-card a:nth-child(6){
+    display:none!important;
+  }
+
+  .kolir-page.support-page .m-menu-card a:nth-child(5),
+  .support-page .m-menu-card a:nth-child(5){
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:.7rem!important;
+  }
+
+  .kolir-page.support-page .m-menu-card a:nth-child(5)::before,
+  .support-page .m-menu-card a:nth-child(5)::before{
+    content:""!important;
+    display:block!important;
+    width:1.45rem!important;
+    height:1.45rem!important;
+    flex:0 0 1.45rem!important;
+    border-radius:50%!important;
+    background:linear-gradient(180deg,#338AF3 0 50%,#FFDA44 50% 100%)!important;
+  }
+}
+
+html:has(.kolir-page.support-page),
+body:has(.kolir-page.support-page){
+  overflow-x:clip!important;
+}
+
+@supports not (overflow:clip){
+  html:has(.kolir-page.support-page),
+  body:has(.kolir-page.support-page){
+    overflow-x:hidden!important;
+  }
+}
+
+.kolir-page.support-page,
+.support-page{
+  overflow-x:clip!important;
+  overflow-y:visible!important;
+  max-width:100%!important;
+}
+
+.kolir-page.support-page .shell,
+.kolir-page.support-page .support-shell,
+.support-page .shell,
+.support-page .support-shell{
+  overflow:visible!important;
+  overflow-y:visible!important;
+  contain:none!important;
+}
+
+.kolir-page.support-page .support-projects,
+.support-page .support-projects{
+  position:relative!important;
+  overflow:visible!important;
+  overflow-y:visible!important;
+  overflow-x:visible!important;
+  isolation:isolate!important;
+	    background-color: #ffffff00;
+
+}
+
+.kolir-page.support-page .support-project-list,
+.support-page .support-project-list{
+  display:block!important;
+  position:relative!important;
+  overflow:visible!important;
+  overflow-y:visible!important;
+  overflow-x:visible!important;
+  width:100%!important;
+  max-width:100%!important;
+  gap:0!important;
+  isolation:isolate!important;
+}
+
+.kolir-page.support-page .support-project-card,
+.support-page .support-project-card{
+  position:sticky!important;
+  top:clamp(5.8rem,7.2vh,9rem)!important;
+  width:100%!important;
+  max-width:100%!important;
+  margin:0 0 2.4rem!important;
+  transform:translate3d(0,var(--support-stack-y,0px),0) scale(var(--support-stack-scale,1))!important;
+  transform-origin:center top!important;
+  will-change:transform!important;
+  backface-visibility:hidden!important;
+}
+
+.kolir-page.support-page .support-project-card--nft,
+.support-page .support-project-card--nft{
+  z-index:11!important;
+}
+
+.kolir-page.support-page .support-project-card--cyber,
+.support-page .support-project-card--cyber{
+  z-index:12!important;
+}
+
+.kolir-page.support-page .support-project-card--itt,
+.support-page .support-project-card--itt{
+  z-index:13!important;
+}
+
+.kolir-page.support-page .support-project-card::after,
+.support-page .support-project-card::after{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:80!important;
+  pointer-events:none!important;
+  border-radius:inherit!important;
+  background:rgba(0,0,0,var(--support-stack-dim,0))!important;
+}
+
+.kolir-page.support-page .support-project-card:last-child,
+.support-page .support-project-card:last-child{
+  margin-bottom:0!important;
+}
+
+@media (max-width:1000px){
+  html:has(.kolir-page.support-page),
+  body:has(.kolir-page.support-page){
+    overflow-x:hidden!important;
+  }
+
+  .kolir-page.support-page,
+  .support-page{
+    overflow-x:hidden!important;
+    overflow-y:visible!important;
+  }
+
+  .kolir-page.support-page .support-projects,
+  .support-page .support-projects{
+    overflow:visible!important;
+    padding-bottom:8rem!important;
+  }
+
+  .kolir-page.support-page .support-project-list,
+  .support-page .support-project-list{
+    overflow:visible!important;
+  }
+
+  .kolir-page.support-page .support-project-card,
+  .support-page .support-project-card{
+    position:sticky!important;
+    top:1.2rem!important;
+    margin:0 0 1.6rem!important;
+    transform:translate3d(0,var(--support-stack-y,0px),0) scale(var(--support-stack-scale,1))!important;
+  }
+}
+
+.kolir-page.support-page .support-project-card--nft,
+.support-page .support-project-card--nft{
+  --support-stack-card-top:clamp(5.8rem,7.2vh,9rem);
+}
+
+.kolir-page.support-page .support-project-card--cyber,
+.support-page .support-project-card--cyber{
+  --support-stack-card-top:calc(clamp(5.8rem,7.2vh,9rem) + 2.2rem);
+}
+
+.kolir-page.support-page .support-project-card--itt,
+.support-page .support-project-card--itt{
+  --support-stack-card-top:calc(clamp(5.8rem,7.2vh,9rem) + 4.4rem);
+}
+
+.kolir-page.support-page .support-project-card,
+.support-page .support-project-card{
+  top:var(--support-stack-card-top)!important;
+}
+
+@media (max-width:1000px){
+  .kolir-page.support-page .support-projects,
+  .support-page .support-projects{
+    padding-bottom:6.5rem!important;
+  }
+
+  .kolir-page.support-page .support-project-card--nft,
+  .support-page .support-project-card--nft{
+    --support-stack-card-top:1.2rem;
+  }
+
+  .kolir-page.support-page .support-project-card--cyber,
+  .support-page .support-project-card--cyber{
+    --support-stack-card-top:2.8rem;
+  }
+
+  .kolir-page.support-page .support-project-card--itt,
+  .support-page .support-project-card--itt{
+    --support-stack-card-top:4.4rem;
+  }
+
+  .kolir-page.support-page .support-project-card,
+  .support-page .support-project-card{
+    position:sticky!important;
+    top:var(--support-stack-card-top)!important;
+    margin:0 0 1.6rem!important;
+  }
+}
+
+.kolir-page.support-page .footerk,
+.support-page .footerk{
+  position:relative!important;
+  overflow:hidden!important;
+}
+
+@media (max-width:1000px){
+  html:has(.kolir-page.support-page),
+  body:has(.kolir-page.support-page){
+    overflow-x:clip!important;
+  }
+
+  @supports not (overflow:clip){
+    html:has(.kolir-page.support-page),
+    body:has(.kolir-page.support-page){
+      overflow-x:hidden!important;
+    }
+  }
+
+  .kolir-page.support-page,
+  .support-page{
+    overflow-x:clip!important;
+    overflow-y:visible!important;
+  }
+
+  .kolir-page.support-page .shell,
+  .kolir-page.support-page .support-shell,
+  .support-page .shell,
+  .support-page .support-shell,
+  .kolir-page.support-page .support-projects,
+  .support-page .support-projects,
+  .kolir-page.support-page .support-project-list,
+  .support-page .support-project-list{
+    overflow:visible!important;
+    overflow-y:visible!important;
+    contain:none!important;
+  }
+
+  .kolir-page.support-page .support-projects,
+  .support-page .support-projects{
+    position:relative!important;
+    isolation:isolate!important;
+    padding-bottom:7rem!important;
+  }
+
+  .kolir-page.support-page .support-project-list,
+  .support-page .support-project-list{
+    display:block!important;
+    position:relative!important;
+    gap:0!important;
+    isolation:isolate!important;
+  }
+
+  .kolir-page.support-page .support-project-card--nft,
+  .support-page .support-project-card--nft{
+    --support-stack-card-top:1.6rem!important;
+    z-index:11!important;
+  }
+
+  .kolir-page.support-page .support-project-card--cyber,
+  .support-page .support-project-card--cyber{
+    --support-stack-card-top:3.2rem!important;
+    z-index:12!important;
+  }
+
+  .kolir-page.support-page .support-project-card--itt,
+  .support-page .support-project-card--itt{
+    --support-stack-card-top:4.8rem!important;
+    z-index:13!important;
+  }
+
+  .kolir-page.support-page .support-project-card,
+  .support-page .support-project-card{
+    position:sticky!important;
+    top:var(--support-stack-card-top)!important;
+    width:100%!important;
+    max-width:100%!important;
+    margin:0 0 1.6rem!important;
+    transform:translate3d(0,var(--support-stack-y,0px),0) scale(var(--support-stack-scale,1))!important;
+    transform-origin:center top!important;
+    will-change:transform!important;
+    backface-visibility:hidden!important;
+  }
+
+  .kolir-page.support-page .support-project-card:last-child,
+  .support-page .support-project-card:last-child{
+    margin-bottom:0!important;
+  }
+}
+
+@media (min-width:1001px){
+  .kolir-page.support-page,
+  .support-page{
+    overflow-x:clip!important;
+
+  }
+
+  @supports not (overflow:clip){
+    .kolir-page.support-page,
+    .support-page{
+      overflow-x:hidden!important;
+      overflow-y:visible!important;
+    }
+  }
+
+  .kolir-page.support-page .shell,
+  .support-page .shell{
+    overflow:visible!important;
+    contain:none!important;
+    clip-path:inset(-220rem -220rem 0 -220rem)!important;
+  }
+
+  .kolir-page.support-page .portfolio,
+  .support-page .portfolio,
+  .kolir-page.support-page .footerk,
+  .support-page .footerk{
+    overflow:visible!important;
+    contain:none!important;
+    clip-path:none!important;
+	          background-color: #ffffff00;
+  }
+
+  .kolir-page.support-page .portfolio-decor,
+  .kolir-page.support-page .portfolio .services-scribble-left,
+  .support-page .portfolio-decor,
+  .support-page .portfolio .services-scribble-left{
+    display:block!important;
+    overflow:visible!important;
+    contain:none!important;
+    clip-path:none!important;
+  }
+}
+
+@media (max-width:1000px){
+  .kolir-page.support-page .support-project-card,
+  .support-page .support-project-card{
+    clip-path:none!important;
+  }
+
+  .kolir-page.support-page .support-project-card--nft,
+  .support-page .support-project-card--nft{
+    --support-stack-card-top:1.6rem!important;
+  }
+
+  .kolir-page.support-page .support-project-card--cyber,
+  .support-page .support-project-card--cyber{
+    --support-stack-card-top:3.2rem!important;
+  }
+
+  .kolir-page.support-page .support-project-card--itt,
+  .support-page .support-project-card--itt{
+    --support-stack-card-top:4.8rem!important;
+  }
+}
+
+@media (max-width:1000px){
+  .kolir-page.support-page .support-trusted,
+  .support-page .support-trusted{
+    padding-top:4.6rem!important;
+    padding-bottom:4.2rem!important;
+  }
+
+  .kolir-page.support-page .support-logo-rail,
+  .support-page .support-logo-rail{
+    width:100vw!important;
+    height:22.5rem!important;
+    margin-top:1.8rem!important;
+    margin-left:calc(50% - 50vw)!important;
+    overflow:hidden!important;
+    -webkit-mask-image:none!important;
+    mask-image:none!important;
+  }
+
+  .kolir-page.support-page .support-logo-track,
+  .support-page .support-logo-track{
+    height:100%!important;
+    align-items:center!important;
+    gap:3.6rem!important;
+    will-change:transform!important;
+  }
+
+  .kolir-page.support-page .support-logo-item,
+  .support-page .support-logo-item{
+    height:100%!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    flex:0 0 auto!important;
+    width:auto!important;
+    opacity:.42!important;
+    filter:grayscale(1) brightness(.74) contrast(.92)!important;
+  }
+
+  .kolir-page.support-page .support-logo-item img,
+  .support-page .support-logo-item img{
+    display:block!important;
+    width:auto!important;
+    height:10.8rem!important;
+    max-width:none!important;
+    max-height:none!important;
+    object-fit:contain!important;
+    object-position:center!important;
+  }
+
+  .kolir-page.support-page .support-logo-item.is-active,
+  .support-page .support-logo-item.is-active{
+    opacity:1!important;
+    filter:none!important;
+  }
+
+  .kolir-page.support-page .support-logo-item.is-active img,
+  .support-page .support-logo-item.is-active img{
+    height:16.4rem!important;
+  }
+
+  .kolir-page.support-page .support-trusted-caption,
+  .support-page .support-trusted-caption{
+    margin-top:.2rem!important;
+    font-size:1.9rem!important;
+    line-height:1.2!important;
+    text-align:center!important;
+  }
+}
+
+@media (max-width:420px){
+  .kolir-page.support-page .support-trusted,
+  .support-page .support-trusted{
+    padding-top:8rem!important;
+    padding-bottom:8rem!important;
+  }
+
+  .kolir-page.support-page .support-logo-rail,
+  .support-page .support-logo-rail{
+    height:21.5rem!important;
+    margin-top:1.5rem!important;
+  }
+
+  .kolir-page.support-page .support-logo-track,
+  .support-page .support-logo-track{
+    gap:3.1rem!important;
+  }
+
+  .kolir-page.support-page .support-logo-item img,
+  .support-page .support-logo-item img{
+    height:10.1rem!important;
+  }
+
+  .kolir-page.support-page .support-logo-item.is-active img,
+  .support-page .support-logo-item.is-active img{
+    height:15.6rem!important;
+  }
+}
+
+html:has(.kolir-page.support-page),
+body:has(.kolir-page.support-page){
+  min-height:0!important;
+  padding-bottom:0!important;
+  margin-bottom:0!important;
+}
+
+.kolir-page.support-page,
+.support-page,
+.kolir-page.support-page .shell,
+.support-page .shell{
+  min-height:0!important;
+  padding-bottom:0!important;
+  margin-bottom:0!important;
+}
+
+.kolir-page.support-page footer.footerk,
+.support-page footer.footerk,
+.kolir-page.support-page .footerk,
+.support-page .footerk{
+  min-height:0!important;
+  height:auto!important;
+  padding-bottom:0!important;
+  margin-bottom:0!important;
+}
+
+.kolir-page.support-page .footerk-shell,
+.support-page .footerk-shell,
+.kolir-page.support-page .footerk-top,
+.support-page .footerk-top,
+.kolir-page.support-page .footerk-mid,
+.support-page .footerk-mid{
+  min-height:0!important;
+  height:auto!important;
+  padding-bottom:0!important;
+  margin-bottom:0!important;
+}
+
+.kolir-page.support-page .footerk::after,
+.support-page .footerk::after{
+  display:none!important;
+  content:none!important;
+}
+
+@media (max-width:1000px){
+  .kolir-page.support-page footer.footerk,
+  .support-page footer.footerk,
+  .kolir-page.support-page .footerk,
+  .support-page .footerk{
+    padding-bottom:env(safe-area-inset-bottom,0px)!important;
+    margin-bottom:4rem!important;
+  }
+
+  .kolir-page.support-page .footerk-shell,
+  .support-page .footerk-shell{
+    padding-bottom:0!important;
+    margin-bottom:0!important;
+  }
+}
+
+@media (max-width: 1000px) {
+  .kolir-page.support-page .support-section-title,
+  .support-page .support-section-title {
+    width: 37.2rem !important;
+    max-width: calc(100% - 3.2rem) !important;
+    margin: 0 auto 4rem !important;
+    color: #fff !important;
+    font-size: 3.55rem !important;
+    line-height: 1.08 !important;
+    font-weight: 400 !important;
+    text-align: center !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  .kolir-page.support-page .support-section-title br,
+  .support-page .support-section-title br {
+    display: block !important;
+  }
+
+  .kolir-page.support-page .support-section-title span,
+  .support-page .support-section-title span {
+    display: inline !important;
+    color: var(--support-yellow, #fdcc0d) !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .kolir-page.support-page .support-section-title,
+  .support-page .support-section-title {
+    width: 34rem !important;
+    max-width: calc(100% - 2.4rem) !important;
+    font-size: 3.25rem !important;
+  }
+}
+
+@media (min-width: 1001px) {
+  .kolir-page.support-page .portfolio-decor,
+  .support-page .portfolio-decor {
+        left: -38rem !important;
+        bottom: -6rem !important;
+        width: 52rem !important;
+        max-width: none !important;
+
+        color: #3C0084 !important;
+        pointer-events: none !important;
+        transform: rotate(36deg) !important;
+  }
+
+  .kolir-page.support-page .portfolio-decor svg,
+  .support-page .portfolio-decor svg {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    max-width: none !important;
+  }
+}
+
+.kolir-page.support-page,
+.support-page {
+  --support-portfolio-card-title-pc: 2.4rem;
+  --support-portfolio-card-title-mobile: 2.45rem;
+  --support-portfolio-card-title-line-pc: 1.06;
+  --support-portfolio-card-title-line-mobile: 1.08;
+}
+
+.kolir-page.support-page .portfolio .p-underline,
+.support-page .portfolio .p-underline,
+.kolir-page.support-page .portfolio .support-portfolio-underline,
+.support-page .portfolio .support-portfolio-underline {
+  background: var(--support-yellow, var(--yellow, var(--c-yellow, #fdcc0d))) !important;
+}
+
+.kolir-page.support-page .support-portfolio-swiper .support-portfolio-card-title,
+.support-page .support-portfolio-swiper .support-portfolio-card-title {
+  margin: 1.7rem 0 0 !important;
+  color: var(--c-white, #fff) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.02em !important;
+  position: relative !important;
+  z-index: 2 !important;
+  max-width: 28rem !important;
+  transition: color .18s ease !important;
+}
+
+@media (min-width: 1001px) {
+  .kolir-page.support-page .support-portfolio-swiper .support-portfolio-card-title,
+  .support-page .support-portfolio-swiper .support-portfolio-card-title {
+    font-size: var(--support-portfolio-card-title-pc) !important;
+    line-height: var(--support-portfolio-card-title-line-pc) !important;
+  }
+}
+
+@media (max-width: 1000px) {
+  .kolir-page.support-page .support-portfolio-swiper .support-portfolio-card-title,
+  .support-page .support-portfolio-swiper .support-portfolio-card-title {
+    font-size: var(--support-portfolio-card-title-mobile) !important;
+    line-height: var(--support-portfolio-card-title-line-mobile) !important;
+  }
+}
+
+.kolir-page.support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card,
+.support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card {
+  cursor: pointer;
+}
+
+.kolir-page.support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card .support-portfolio-card-title,
+.support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card .support-portfolio-card-title {
+  color: var(--c-white, #fff) !important;
+}
+
+@media (hover: hover) {
+  .kolir-page.support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card,
+  .kolir-page.support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card .support-portfolio-card-pill,
+  .kolir-page.support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card .support-portfolio-card-title,
+  .kolir-page.support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card .support-portfolio-card-go,
+  .kolir-page.support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card .support-portfolio-card-shot img,
+  .kolir-page.support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card .support-portfolio-card-zigzag,
+  .kolir-page.support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card .support-portfolio-card-link,
+  .support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card,
+  .support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card .support-portfolio-card-pill,
+  .support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card .support-portfolio-card-title,
+  .support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card .support-portfolio-card-go,
+  .support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card .support-portfolio-card-shot img,
+  .support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card .support-portfolio-card-zigzag,
+  .support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card .support-portfolio-card-link {
+    transition: background .18s ease, color .18s ease, filter .18s ease, opacity .18s ease, transform .18s ease !important;
+  }
+
+  .kolir-page.support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card:hover,
+  .support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card:hover {
+    background: var(--c-white, #fff) !important;
+  }
+
+  .kolir-page.support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card:hover .support-portfolio-card-title,
+  .support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card:hover .support-portfolio-card-title {
+    color: var(--c-161616, #161616) !important;
+  }
+
+  .kolir-page.support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card:hover .support-portfolio-card-pill,
+  .support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card:hover .support-portfolio-card-pill {
+    background: var(--c-0A54FF, #0a54ff) !important;
+    color: var(--c-white, #fff) !important;
+  }
+
+  .kolir-page.support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card:hover .support-portfolio-card-zigzag,
+  .support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card:hover .support-portfolio-card-zigzag {
+    color: rgba(10,84,255,.14) !important;
+  }
+
+  .kolir-page.support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card:hover .support-portfolio-card-shot img,
+  .support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card:hover .support-portfolio-card-shot img {
+    filter: none !important;
+    opacity: 1 !important;
+  }
+
+  .kolir-page.support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card:hover .support-portfolio-card-go,
+  .support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card:hover .support-portfolio-card-go {
+    background: var(--support-yellow, var(--yellow, var(--c-yellow, #fdcc0d))) !important;
+  }
+
+  .kolir-page.support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card:hover .support-portfolio-card-go svg path,
+  .support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card:hover .support-portfolio-card-go svg path {
+    stroke: var(--c-161616, #161616) !important;
+  }
+
+  .kolir-page.support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card:hover .support-portfolio-card-link,
+  .support-page .support-portfolio-swiper .swiper-slide-active .support-portfolio-card:hover .support-portfolio-card-link {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+}
+
+.kolir-page.support-page .portfolio .support-portfolio-title,
+.support-page .portfolio .support-portfolio-title{
+  color:var(--support-yellow,#fdcc0d)!important;
+  font-weight:500!important;
+  letter-spacing:-.02em!important;
+}
+
+.kolir-page.support-page .portfolio .support-portfolio-sub,
+.support-page .portfolio .support-portfolio-sub{
+  color:#fff!important;
+  font-weight:300!important;
+}
+
+@media (min-width:1001px){
+  .kolir-page.support-page .portfolio .support-portfolio-title,
+  .support-page .portfolio .support-portfolio-title{
+    font-size:5rem!important;
+    line-height:1.06!important;
+  }
+
+  .kolir-page.support-page .portfolio .support-portfolio-sub,
+  .support-page .portfolio .support-portfolio-sub{
+    font-size:1.4rem!important;
+    line-height:1.55!important;
+  }
+}
+
+@media (max-width:1000px){
+  .kolir-page.support-page .portfolio .support-portfolio-title,
+  .support-page .portfolio .support-portfolio-title{
+    font-size:3.2rem!important;
+    line-height:1.08!important;
+  }
+
+  .kolir-page.support-page .portfolio .support-portfolio-sub,
+  .support-page .portfolio .support-portfolio-sub{
+    font-size:1.2rem!important;
+    line-height:1.55!important;
+  }
+}

@@ -1,0 +1,147 @@
+/* =========================================================================
+   Kolir · Next — локальні правки поверх перенесених стилів статики.
+   Підключається ОСТАННІМ.
+   ========================================================================= */
+
+/* Статичний animations.css ховає .hero-head, показуючи лише всередині .hero-card.
+   У Next спільний хедер стоїть standalone у layout — повертаємо показ на десктопі. */
+@media (min-width: 1001px) {
+  /* Хедер-плашка за актуальним макетом (Figma node 5596-159587): єдиний
+     скруглений бар — ліворуч лого+навігація, праворуч UA/EN-тоглер + жовта
+     кнопка «Розпочати проєкт». Розміри шрифтів лишаємо як у поточному хедері
+     (вони вже у потрібному масштабі). */
+  .site-header .hero-head {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    width: min(120rem, calc(100% - 4rem));
+    margin: 0 auto;
+    padding: 1.5rem 2.4rem;
+    background: rgba(44, 0, 96, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 100px;
+    -webkit-backdrop-filter: blur(12.5px);
+    backdrop-filter: blur(12.5px);
+    box-shadow: 0 1.8rem 5rem rgba(20, 0, 50, 0.38);
+  }
+  .site-header .hh-left {
+    display: flex;
+    align-items: center;
+    gap: 3.9rem;
+  }
+  .site-header .hh-left .nav {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+  }
+  .site-header .hh-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  /* UA/EN тоглер: бордер, повне скруглення, активний сегмент — жовтий */
+  .site-header .hh-right .lang-cap {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 100px;
+    overflow: hidden;
+    padding: 0;
+  }
+  .site-header .hh-right .lang-cap-b {
+    font: inherit;
+    line-height: 1;
+    color: #fff;
+    background: transparent;
+    border: 0;
+    padding: 1.05rem 1.5rem;
+    cursor: pointer;
+  }
+  .site-header .hh-right .lang-cap-b.is-active {
+    background: #fdcc0d;
+    color: #380279;
+  }
+  /* Жовта кнопка CTA */
+  .site-header .hh-right .cta-top {
+    background: #fdcc0d;
+    color: #161616;
+    font-weight: 500;
+    border-radius: 30px;
+    padding: 1.05rem 1.5rem;
+    border: 0;
+  }
+  .site-header .hh-right .cta-top:hover {
+    filter: brightness(1.05);
+  }
+}
+
+/* Fixed-хедер оверлеїть контент, тож на сторінках-героях прибираємо НАДЛИШКОВИЙ
+   верхній відступ (раніше резервувався під хедер усередині картки + зайві
+   маржини) — контент піднімається ближче до хедера. Картковий padding-top, що
+   очищає сам хедер, лишаємо. */
+.kolir-page {
+  padding-top: 0 !important;
+}
+/* support-page.css імпортується у самій сторінці (ПІСЛЯ layout-овського
+   override.css), тож виграє каскад при рівній специфічності — піднімаємо
+   специфічність через html body, щоб гарантовано перебити. Десктоп. */
+@media (min-width: 1001px) {
+  html body .kolir-page.support-page .hero-inner.support-hero-inner {
+    margin-top: 0 !important;
+  }
+}
+/* Support/Volunteer: support-redesign.css ставить картці padding-top:11.5rem
+   !important (селектор 0,5,0 — «місце під накладений nav»). Контент через те
+   сидить надто низько. Перебиваємо ID-селектором (#heroCard = 1,x,0 > 0,5,0):
+   зменшуємо верхній відступ — pill і так глибоко всередині картки, тож під хедер
+   не ховається. */
+/* Однаковий відступ від хедера до контенту героя на home та support: рухаємо
+   лише внутрішній padding-top картки (плашка лишається на місці). support має
+   більший внутрішній зсув контенту (flex min-height), тож його pt більший. */
+.support-page #heroCard {
+  padding-top: 8rem !important;
+}
+.kolir-page:not(.support-page) #heroCard {
+  padding-top: 5.3rem !important;
+}
+
+/* Плаваюча пілюля-хедер: НАЇЖДЖАЄ поверх контенту (герой іде під неї) і лишається
+   зверху при скролі — як у статичному .sticky-nav (position:fixed). Не резервує
+   місце у потоці, тож секції-герої починаються від самого верху сторінки. */
+.site-header {
+  position: fixed;
+  top: 1.4rem;
+  left: 0;
+  right: 0;
+  z-index: 55;
+}
+
+/* Інлайн-стилі зі статичного <head> (позиціювання свайперів) */
+.p-swiper {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  overflow: visible;
+  padding: 2.2rem 0 3.5rem;
+  user-select: none;
+  perspective: 1400px;
+}
+@media (min-width: 1001px) {
+  .t-swiper {
+    position: absolute;
+    left: 16rem;
+    right: 0;
+    top: 1rem;
+    z-index: 6;
+    padding: 0 1rem;
+  }
+}
+
+/* Swiper за замовчуванням ставить overflow:hidden на .swiper. Картка-відгук
+   по висоті точно дорівнює свайперу, тож верхній край (тінь/скруглення)
+   підрізається. Кліппінг має робити стаціонарний .t-cards-clip (його clip-path
+   по вертикалі не ріже) — тому самому свайперу повертаємо overflow:visible. */
+.testimonials .t-cards-clip .t-swiper {
+  overflow: visible;
+}

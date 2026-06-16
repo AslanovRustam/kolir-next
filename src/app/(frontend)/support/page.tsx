@@ -1,0 +1,540 @@
+import '../../../site-css/support-page.css'
+import '../../../site-css/support-redesign.css'
+import { getLocale } from '../../../lib/locale'
+import { makeT } from '../../../lib/t'
+import SupportPortfolioSwiper from '../../../components/SupportPortfolioSwiper'
+import ScriptOnMount from '../../../components/ScriptOnMount'
+
+// Підтримка України — порт зі статичного support.html (1:1, без редизайну).
+// Хедер/футер успадковуються з (frontend)/layout.tsx. Сторінкові стилі:
+// support-page.css + support-redesign.css (підключені вище, в тому ж порядку,
+// що й у статиці). Слайдер/логорейл на статиці керуються JS — тут лишаємо
+// статичну розмітку без скриптів (порт макета).
+export const metadata = {
+  title: 'Підтримка України · Kolir',
+  description:
+    'Kolir — креативна агенція з Одеси. Дізнайтесь, як ми допомагаємо Україні: NFT-колекція, кіберармія, волонтерство та візуальна підтримка ЗСУ.',
+}
+
+export default async function SupportPage() {
+  const locale = await getLocale()
+  const t = makeT(locale)
+  return (
+    <main className="kolir-page support-page">
+      <SupportPortfolioSwiper />
+      <ScriptOnMount src="/js/support-page.js" />
+      <div className="shell">
+        {/* ============================ HERO ============================ */}
+        <section className="hero" aria-label="Hero">
+          <div className="hero-card support-hero-card" id="heroCard">
+            <div className="hero-card-decor" aria-hidden="true">
+              <img className="sup-ribbon sup-ribbon--left" src="/img/hero/ribbon.png" alt="" />
+              <img className="sup-ribbon sup-ribbon--right" src="/img/hero/ribbon-right.png" alt="" />
+              <svg
+                className="s-scribble s-scribble--left"
+                width="895"
+                height="1078"
+                viewBox="0 0 895 1078"
+                xmlns="http://www.w3.org/2000/svg"
+                focusable="false"
+              >
+                <path
+                  d="M0.112479 1026.72C1.53646 1005.63 16.9597 987.404 38.6337 983.255C145.829 962.645 175.308 907.241 181.277 864.334C195.573 759.299 134.5 619.205 109.804 574.014C98.5748 553.665 103.791 528.179 122.023 513.844C140.254 499.509 166.247 500.417 183.412 515.978L208.753 539.081C318.41 638.827 405.017 717.638 448.227 738.03C506.825 765.814 559.492 766.935 592.895 741.235C610.332 727.694 619.796 708.319 619.483 687.86C583.023 696.093 546.797 694.599 511.332 683.414C468.298 669.812 432.059 641.844 406.452 602.31C389.668 576.397 388.212 544.636 402.462 517.113C416.706 489.695 444.696 471.995 475.491 470.793L479.21 470.62C496.628 469.89 518.398 469.031 539.846 474.504C595.432 488.848 640.399 519.312 671.086 562.048C744.608 514.702 792.22 435.426 798.229 346.456C805.321 241.464 753.644 142.563 663.256 88.3815C640.761 74.8961 633.413 45.7023 646.907 23.1051C660.394 0.61328 689.591 -6.73337 712.192 6.75922C833.422 79.4372 902.733 212.039 893.22 352.872C884.819 477.261 815.72 587.701 709.845 649.911C710.489 652.919 711.133 655.928 711.77 659.042C723.007 718.467 699.76 778.845 651.037 816.535C588.353 864.931 499.519 867.72 407.469 824.016C371.756 807.097 325.501 770.616 264.304 717.029C276.3 768.351 282.796 824.279 275.503 877.369C261.152 981.659 183.505 1052.45 56.5683 1076.81C30.8169 1081.74 5.89956 1064.91 0.868017 1039.05C0.0842853 1034.98 -0.165198 1030.83 0.105358 1026.82L0.112479 1026.72ZM576.522 597.913C560.459 583.273 540.197 572.798 516.254 566.627C511.469 565.351 504.707 565.106 497.502 565.149C509.328 578.231 523.532 587.451 539.919 592.581C552.154 596.479 564.214 598.246 576.522 597.913Z"
+                  fill="currentColor"
+                />
+              </svg>
+
+              <svg
+                className="s-scribble s-scribble--right"
+                width="993"
+                height="1028"
+                viewBox="0 0 993 1028"
+                xmlns="http://www.w3.org/2000/svg"
+                focusable="false"
+              >
+                <path
+                  d="M27.0299 4.46107C27.8734 4.06773 28.8224 3.62521 29.666 3.23187C53.5522 -6.10878 80.5105 5.4549 89.9005 29.4468C91.7967 34.3394 136.534 149.554 131.605 316.554C130.647 347.811 129.051 373.845 126.611 398.346C135.821 390.842 144.441 382.073 150.818 373.451C250.743 238.665 327.387 159.665 378.906 139.108C401.379 130.041 426.414 135.827 442.63 153.811C459.001 171.852 462.311 197.396 451.052 218.949C409.636 298.339 380.082 362.699 371.758 391.099C318.066 576.858 327.513 646.396 330.584 669.226C335.697 706.894 350.788 773.672 394.408 796.466C414.78 807.12 443.881 801.254 480.661 779.097C512.043 760.228 539.709 734.49 563.531 704.64C555.333 690.362 547.62 675.473 540.286 660.021C521.729 621.048 465.064 481.356 513.638 322.888C527.294 278.394 563.521 160.344 647.251 166.745C665.223 168.122 682.806 176.098 697.991 189.942C751.977 239.097 775.58 327.708 764.56 439.524C756.206 524.295 726.459 622.378 675.278 706.706C791.061 869.668 960.789 936.614 962.694 937.394C986.644 946.638 998.662 973.512 989.419 997.463C980.282 1021.36 953.457 1033.49 929.401 1024.29C920.538 1020.98 747.444 953.422 617.135 784.91C591.05 813.762 561.578 838.929 528.608 858.796C445.732 908.737 386.498 897.332 351.241 878.983C290.481 847.236 251.38 779.074 238.112 681.792C231.618 633.728 229.099 548.764 282.207 365.332C283.593 360.321 285.408 354.853 287.547 348.978C269.238 371.379 248.579 397.829 225.396 429.05C201.834 460.834 166.134 489.162 132.027 503.012C107.023 513.259 78.1922 509.244 57.0481 492.53C36.0024 476.027 25.4395 449.244 29.5452 422.81C34.4892 390.466 37.149 357.903 38.4556 313.903C42.83 167.188 3.62723 64.6686 3.18472 63.7196C-5.76275 40.6767 4.78107 14.8354 26.819 4.55939L27.0299 4.46107ZM620.617 611.78C649.074 551.399 666.363 486.34 671.905 430.224C679.173 356.615 667.195 294.034 640.586 263.95C633.316 272.86 619.477 295.488 602.683 350.047C573.091 446.261 592.003 546.559 620.617 611.78Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+
+            {/* ===== HERO INNER ===== */}
+            <div className="hero-inner support-hero-inner">
+              <div className="hero-inner-clip" aria-hidden="true" />
+
+              <div className="hero-left support-hero-copy">
+                <div className="pill">{t('Ukraine support')}</div>
+
+                <h1 className="hero-title support-title" data-reveal="up">
+                  <span className="t-brand">{t('Як ми')}</span>{' '}
+                  <span className="t-line t-line--1">{t('Допомогаємо')}</span>
+                </h1>
+
+                <div className="hero-bottom support-hero-bottom">
+                  <div className="hero-info support-hero-info">
+                    <p className="hero-desc support-hero-desc">
+                      {t(
+                        'Від початку війни ми адаптували робочі процеси та розширили напрямки діяльності. Попри вимушену релокацію частини фахівців, команда залишається єдиною у прагненні бути максимально корисною для України.',
+                      )}
+                    </p>
+                  </div>
+                  <span className="support-hero-line" aria-hidden="true" />
+                  <a className="btn support-hero-btn" href="#support-projects">
+                    {t('Переглянути наші проєкти')}
+                  </a>
+                </div>
+              </div>
+
+              <div className="hero-right support-hero-right">
+                <img className="hero-scribble-y" src="/img/hero/scribble.png" alt="" aria-hidden="true" />
+                <picture>
+                  <source media="(max-width: 1000px)" srcSet="/img/support/main-hero-s-mob.png" />
+                  <img className="girl support-statue" src="/img/support/hero-statue.png" alt="Ukraine support hero" />
+                </picture>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ============================ TRUSTED ============================ */}
+        <section className="support-trusted" aria-label="Trusted organizations">
+          <svg
+            className="support-left-scribble"
+            viewBox="0 0 849 1080"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path
+              d="M782.018 3.16527C762.279 10.7093 749.373 30.8009 751.763 52.7385C763.495 161.265 719.172 205.695 679.901 223.985C583.676 268.455 431.832 251.15 381.386 240.793C358.638 236.025 335.803 248.486 327.444 270.12C319.086 291.754 327.577 316.337 347.488 328.184L377.006 345.636C504.525 421.22 605.269 480.907 637.435 516.238C681.182 564.112 697.7 614.134 682.925 653.605C675.092 674.247 659.345 688.976 639.694 694.677C636.872 657.406 624.821 623.211 603.727 592.584C578.103 555.431 540.737 528.988 495.432 516.1C465.736 507.653 434.945 515.576 412.811 537.271C390.776 558.928 382.062 590.879 389.943 620.673L390.869 624.278C395.28 641.145 400.842 662.209 412.364 681.109C442.378 730.046 484.69 764.101 534.546 780.906C510.842 865.08 449.015 933.848 365.719 965.683C267.423 1003.25 157.715 982.852 79.4092 912.327C59.9197 894.776 29.8546 896.312 12.2081 915.84C-5.3396 935.329 -3.80078 965.398 15.7264 983.048C120.761 1077.63 267.859 1105.01 399.71 1054.62C516.166 1010.11 601.486 911.658 629.913 792.195C632.978 791.928 636.043 791.662 639.207 791.358C699.314 784.674 750.22 744.742 771.965 687.109C799.851 612.988 776.466 527.241 707.689 452.056C681.04 422.874 632.598 389.352 563.422 346.56C616.005 342.978 671.379 332.787 719.996 310.246C815.492 265.941 860.397 170.949 846.461 42.4499C843.624 16.3843 820.231 -2.50317 794.032 0.270291C789.904 0.716611 785.867 1.69417 782.116 3.12754L782.018 3.16527ZM541.102 679.982C522.396 668.919 506.439 652.619 493.518 631.539C490.895 627.338 488.678 620.946 486.606 614.045C502.581 621.514 515.561 632.391 525.272 646.553C532.585 657.106 537.812 668.118 541.102 679.982Z"
+              fill="currentColor"
+            />
+          </svg>
+
+          <h2 data-reveal="up">{t('Маємо Честь Допомагати')}</h2>
+
+          <div className="support-logo-rail" id="supportLogoRail">
+            <div className="support-logo-track" id="supportLogoTrack" data-active-start="4">
+              <button className="support-logo-item" type="button" data-caption="79 ОДШБр" aria-label="79 ОДШБр">
+                <img src="/img/support/support-logo-79-odshbr.png" alt="Шеврон 79 ОДШБр" loading="lazy" />
+              </button>
+              <button className="support-logo-item" type="button" data-caption="73 МЦСпО" aria-label="73 МЦСпО">
+                <img src="/img/support/support-logo-73-mcspo.png" alt="Шеврон 73 МЦСпО" loading="lazy" />
+              </button>
+              <button className="support-logo-item" type="button" data-caption="НЗ ССО" aria-label="НЗ ССО">
+                <img src="/img/support/support-logo-nz-sso.png" alt="Шеврон НЗ ССО" loading="lazy" />
+              </button>
+              <button className="support-logo-item" type="button" data-caption="25 ОПДБр" aria-label="25 ОПДБр">
+                <img src="/img/support/support-logo-25-opdbr.png" alt="Шеврон 25 ОПДБр" loading="lazy" />
+              </button>
+              <button className="support-logo-item is-active" type="button" data-caption="95 ОДШБр" aria-label="95 ОДШБр">
+                <img src="/img/support/support-logo-95-odshbr.png" alt="Шеврон 95 ОДШБр" loading="lazy" />
+              </button>
+              <button className="support-logo-item" type="button" data-caption="3 ОШБр" aria-label="3 ОШБр">
+                <img src="/img/support/support-logo-3-oshbr.png" alt="Шеврон 3 ОШБр" loading="lazy" />
+              </button>
+              <button className="support-logo-item" type="button" data-caption="77 ОАЕМБр" aria-label="77 ОАЕМБр">
+                <img src="/img/support/support-logo-77-oaembr.png" alt="Шеврон 77 ОАЕМБр" loading="lazy" />
+              </button>
+              <button className="support-logo-item" type="button" data-caption="28 ОМБр" aria-label="28 ОМБр">
+                <img src="/img/support/support-logo-28-ombr.png" alt="Шеврон 28 ОМБр" loading="lazy" />
+              </button>
+              <button className="support-logo-item" type="button" data-caption="Волонтерорист" aria-label="Волонтерорист">
+                <img src="/img/support/support-logo-volonterorist.png" alt="Шеврон Волонтерорист" loading="lazy" />
+              </button>
+              <button className="support-logo-item" type="button" data-caption="ГУР МО України" aria-label="ГУР МО України">
+                <img src="/img/support/support-logo-hur.png" alt="Шеврон ГУР МО України" loading="lazy" />
+              </button>
+              <button className="support-logo-item" type="button" data-caption="ДСНС" aria-label="ДСНС">
+                <img src="/img/support/support-logo-dsns.png" alt="Шеврон ДСНС" loading="lazy" />
+              </button>
+              <button className="support-logo-item" type="button" data-caption="НЗ ППО СВ" aria-label="НЗ ППО СВ">
+                <img src="/img/support/support-logo-nz-ppo-sv.png" alt="Шеврон НЗ ППО СВ" loading="lazy" />
+              </button>
+              <button className="support-logo-item" type="button" data-caption="ССО ЗСУ" aria-label="ССО ЗСУ">
+                <img src="/img/support/support-logo-sso-zsu.png" alt="Шеврон ССО ЗСУ" loading="lazy" />
+              </button>
+            </div>
+          </div>
+
+          <p className="support-trusted-caption" id="supportTrustedCaption" aria-live="polite">
+            95 ОДШБр
+          </p>
+        </section>
+
+        {/* ============================ SUPPORT PROJECTS ============================ */}
+        <section className="support-projects" id="support-projects" aria-label="Support projects">
+          <h2 className="support-section-title" data-reveal="up">
+            <span>{t('Наші Способи Допомоги')}</span>
+            <span>
+              {' '}
+              <span>{t('Україні')}</span>
+            </span>
+          </h2>
+
+          <div className="support-project-list">
+            {/* NFT */}
+            <div className="support-project-card support-project-card--yellow support-project-card--nft">
+              <div className="support-card-scribble support-card-scribble--nft" aria-hidden="true">
+                <svg width="724" height="1315" viewBox="0 0 724 1315" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                  <path
+                    d="M190.119 0.00519985C191.042 0.0151983 192.081 0.0264467 193.005 0.0364451C218.384 1.92755 237.542 23.8401 235.65 49.3346C235.247 54.5256 225.842 176.804 149.781 324.106C135.513 351.66 122.915 374.268 110.22 395.143C121.68 392.381 133.155 388.233 142.56 383.255C289.794 305.533 392.262 267.735 447.176 271.447C471.173 272.977 491.09 288.894 497.883 311.942C504.79 335.108 496.792 359.382 477.47 373.835C406.353 427.097 352.298 472 332.665 493.839C204.927 637.003 183.544 703.272 176.497 725.016C164.91 760.912 149.761 827.133 179.009 866.242C192.665 884.516 221.219 891.752 263.633 887.709C299.806 884.29 335.601 873.133 369.722 856.646C368.513 840.354 368.001 823.723 368.069 806.753C368.186 763.921 377.423 614.625 488.872 493.683C520.181 459.732 603.242 369.655 675.41 411.307C690.899 420.249 703.208 434.929 710.854 453.83C738.067 520.972 721.166 610.38 663.333 705.696C619.487 777.956 550.79 852.949 468.818 906.44C502.491 1101.92 625.626 1234.64 626.995 1236.15C644.458 1254.7 643.68 1283.9 625.134 1301.36C606.704 1318.83 577.502 1318.17 559.923 1299.62C553.416 1292.85 427.532 1158.14 383.243 951.464C347.525 966.086 310.359 975.959 272.336 979.588C176.759 988.713 128.655 953.094 104.983 921.551C64.2413 867.078 58.5025 789.316 88.3693 696.584C103.181 650.794 137.381 573.696 263.598 432.363C266.989 428.474 270.958 424.361 275.393 420.022C249.4 432.209 219.568 447.011 185.431 464.998C150.713 483.325 106.617 493.354 70.159 491.112C43.3912 489.552 19.3193 473.59 7.57246 449.564C-4.17683 425.769 -2.13652 397.275 12.8782 375.386C31.1789 348.568 47.5297 320.575 67.5765 281.769C134.438 152.377 143.349 43.8327 143.36 42.7937C145.241 18.3381 165.762 -0.258508 189.888 0.00270049L190.119 0.00519985ZM460.64 798.057C512.006 756.242 555.388 705.45 584.423 657.621C622.508 594.881 638.64 533.75 627.741 495.417C617.414 500.27 595.323 514.578 556.889 556.186C489.133 629.573 463.021 727.426 460.64 798.057Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+
+              <div className="support-project-copy">
+                <h3>{t('Унікальна Колекція NFT На Підтримку України')}</h3>
+                <p>
+                  {t(
+                    'Поки наші українські воїни захищають рідні землі, команда Kolir також допомагає нашій країні наблизити перемогу. Ми не носимо форму та зброю. У нас в руках ручка та комп\'ютерна миша — так ми допомагаємо українській армії у цій страшній війні. Світ має можливість купувати NFT для підтримки України та українських збройних сил.',
+                  )}
+                </p>
+              </div>
+
+              <div className="support-project-site" aria-hidden="true">
+                ukrnft.in.ua
+                <span />
+              </div>
+
+              <a
+                className="support-button support-button--purple"
+                href="https://cyberarmy.in.ua/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t('Детальніше')}
+              </a>
+
+              <div className="support-nft-stack" aria-hidden="true">
+                <img className="support-nft support-nft--three" src="/img/support/nft-card-3.png" alt="" />
+                <img className="support-nft support-nft--two" src="/img/support/nft-card-2.png" alt="" />
+                <img className="support-nft support-nft--one" src="/img/support/nft-card-1.png" alt="" />
+              </div>
+            </div>
+
+            {/* Cyber Army */}
+            <div className="support-project-card support-project-card--purple support-project-card--cyber">
+              <div className="support-card-scribble support-card-scribble--cyber" aria-hidden="true">
+                <svg width="871" height="1137" viewBox="0 0 871 1137" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                  <path
+                    d="M59.6569 2.0751C60.5408 1.80758 61.5353 1.50662 62.4193 1.2391C87.1964 -4.57064 112.046 10.5849 117.89 35.4728C119.063 40.5455 146.775 160.013 118.409 323.349C113.064 353.914 107.829 379.26 101.982 402.982C112.085 396.909 121.787 389.51 129.265 381.94C246.4 263.627 332.808 196.829 386.307 183.895C409.658 178.155 433.432 187.364 446.827 207.313C460.365 227.339 460.018 252.895 445.923 272.479C394.06 344.623 355.966 403.674 343.789 430.397C264.885 605.288 264.368 674.92 264.169 697.777C263.884 735.496 269.3 803.211 308.933 831.744C327.443 845.079 356.852 843.416 396.1 826.835C429.581 812.722 460.38 791.339 487.983 765.375C481.942 750.197 476.464 734.486 471.438 718.276C458.7 677.382 422.722 532.192 492.754 383.386C512.435 341.606 564.647 230.759 645.986 248.842C663.444 252.725 679.591 263.036 692.556 278.773C738.657 334.658 749.358 425.019 722.783 533.294C702.636 615.38 659.601 707.528 597.452 783.147C688.22 959.52 845.499 1049.18 847.259 1050.22C869.482 1062.67 877.5 1090.76 865.048 1112.98C852.706 1135.17 824.65 1143.3 802.317 1130.88C794.079 1126.38 633.58 1035.64 529.327 851.769C499.641 876.433 467.148 897.002 431.966 911.871C343.529 949.249 286.955 929.702 254.91 906.713C199.703 866.972 170.9 794.514 171.571 697.094C171.963 648.969 181.458 565.162 259.461 392.473C261.528 387.747 264.081 382.632 267.009 377.162C245.87 396.586 221.853 419.655 194.685 447.056C167.064 474.955 128.008 497.75 92.5568 506.549C66.554 513.092 38.8022 505.086 20.3886 485.691C2.04186 466.517 -4.56036 438.723 3.19598 413.338C12.6083 382.265 19.8078 350.656 27.2893 307.623C52.2532 164.133 28.1892 57.9151 27.8883 56.9206C22.3459 33.0272 36.3424 9.13083 59.4359 2.14197L59.6569 2.0751ZM557.136 682.209C593.592 626.91 619.738 565.444 633.086 511.107C650.595 439.831 647.644 376.676 625.747 343.379C617.351 351.106 600.57 371.382 576.389 422.605C533.771 512.939 538.217 614.117 557.136 682.209Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+
+              <div className="support-project-copy">
+                <h3>{t('Український Інтернет-Опір – Кіберармія')}</h3>
+                <p>
+                  {t(
+                    'Не кожен може тримати в руках кулемет, але абсолютно кожен може допомогти в інформаційній війні! Приєднуйтесь до ІТ-армії України. Разом ми сильніші! Приєднуйтесь до інтернет-армії за посиланням нижче.',
+                  )}
+                </p>
+              </div>
+
+              <div className="support-project-site" aria-hidden="true">
+                cyberarmy.in.ua
+                <span />
+              </div>
+
+              <a
+                className="support-button support-button--yellow-small"
+                href="https://ukrnft.in.ua/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t('Детальніше')}
+              </a>
+
+              <div className="support-cyber-visual" aria-hidden="true">
+                <img src="/img/support/cyberarmy.png" alt="Cyberarmy platform screenshot" loading="lazy" />
+              </div>
+            </div>
+
+            {/* ITT */}
+            <div className="support-project-card support-project-card--dark support-project-card--itt">
+              <div className="support-card-scribble support-card-scribble--itt" aria-hidden="true">
+                <svg width="1500" height="899" viewBox="0 0 1500 899" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                  <path
+                    d="M1498.88 160.137C1499.02 161.237 1499.17 162.475 1499.31 163.575C1501.12 194.065 1478.13 220.364 1447.5 222.197C1441.26 222.549 1294.31 230.948 1106.91 164.069C1071.85 151.511 1042.94 140.148 1016.08 128.391C1021.2 141.58 1027.97 154.564 1035.4 164.954C1151.43 327.636 1212.8 443.465 1217.18 509.379C1219.21 538.168 1203.46 564.407 1177.14 576.179C1150.69 588.106 1120.53 582.48 1100.25 561.813C1025.5 485.752 963.433 428.647 934.311 408.793C743.561 279.783 661.31 264.962 634.317 260.063C589.764 252.03 508.569 244.618 466.735 285.672C447.186 304.842 443.152 339.965 454.755 389.768C464.615 432.248 483.621 473.038 508.697 510.984C527.882 506.936 547.582 503.663 567.779 501.026C618.745 494.305 797.808 481.377 959.517 594.572C1004.92 626.375 1125.36 710.746 1087.38 803.259C1079.23 823.115 1063.74 840.109 1042.48 852.231C966.972 895.354 857.916 889.572 735.278 836.048C642.303 795.469 542.096 725.767 465.341 636.831C238.216 708.196 100.074 875.92 98.4903 877.791C79.2274 901.534 44.3688 905.286 20.6258 886.023C-3.10011 866.898 -6.98949 832.057 12.2564 808.177C19.2629 799.352 159.335 628.039 398.079 542.253C374.965 502.111 357.269 459.483 346.861 414.837C320.698 302.613 355.361 239.689 389.09 206.479C447.358 149.292 538.935 130.011 654.02 150.683C710.859 160.967 808.043 189.298 996.373 316.792C1001.54 320.202 1007.07 324.265 1012.94 328.844C994.281 299.878 971.897 266.766 945.034 229.041C917.673 190.68 898.681 139.836 895.508 96.111C893.075 64.0215 908.206 32.8318 934.903 15.0109C961.325 -2.77598 995.545 -4.91324 1023.99 9.44035C1058.82 26.9131 1094.73 41.8781 1144.1 59.5076C1308.72 118.313 1439.26 111.525 1440.5 111.372C1469.89 109.692 1495.29 131.123 1498.85 159.862L1498.88 160.137ZM592.95 609.743C650.915 664.145 718.279 707.611 779.822 734.486C860.55 769.738 935.848 779.135 979.698 760.031C972.271 748.524 951.714 724.539 896.066 685.488C797.921 616.648 677.345 601.262 592.95 609.743Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+
+              <div className="support-project-copy">
+                <h3>{t('Співпраця З ITT – IT-Військовими')}</h3>
+                <p>
+                  {t(
+                    'Найкращі спеціалісти з різних галузей об\'єднуються, щоб захистити Україну — ці люди відчули себе зобов\'язаними призупинити свою звичайну кар\'єру, щоб спрямувати свою енергію та ресурси на захист своєї країни.',
+                  )}
+                </p>
+              </div>
+
+              <div className="support-project-site" aria-hidden="true">
+                itt.fund
+                <span />
+              </div>
+
+              <a
+                className="support-button support-button--purple"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t('Детальніше')}
+              </a>
+
+              <div className="support-project-site support-project-badge" aria-hidden="true">
+                <img src="/img/support/black-colo.png" alt="Troops badge" loading="lazy" />
+              </div>
+
+              <div className="support-itt-visual" aria-hidden="true">
+                <img src="/img/support/itt-aid-photo.jpg" alt="ITT humanitarian aid" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ============================ PORTFOLIO ============================ */}
+        <section className="portfolio" id="Portfolio" aria-label="Portfolio">
+          <div className="portfolio-decor" aria-hidden="true">
+            <svg width="776" height="752" viewBox="0 0 776 752" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+              <path
+                d="M505.66 699.6L502.66 696.046L547.66 751.1L500.16 694.046L488.16 680.045L485.194 676.046L490.66 672.6C490.66 672.6 594.176 606.47 627.162 571.903C672.019 525.067 689.704 475.446 675.859 435.639C668.512 414.82 653.114 399.726 633.602 393.566C629.908 430.761 617.058 464.664 595.253 494.787C568.765 531.33 530.79 556.889 485.194 568.712C455.309 576.461 424.712 567.819 403.092 545.611C381.571 523.443 373.609 491.297 382.186 461.696L383.196 458.113C388.001 441.354 394.055 420.426 406.017 401.801C437.17 353.581 480.268 320.528 530.505 304.896C508.781 220.189 448.581 149.991 366.055 116.212C268.667 76.3489 158.511 94.1716 78.5731 162.843C58.6776 179.933 28.6567 177.692 11.4729 157.756C-5.61315 137.86 -3.3701 107.836 16.5655 90.6486C123.788 -1.45081 271.487 -25.3711 402.121 28.0997C517.501 75.327 600.492 175.747 626.11 295.845C629.168 296.184 632.226 296.522 635.382 296.9C695.316 304.991 745.272 346.105 765.66 404.232C791.8 478.986 766.412 564.16 695.892 637.714C668.566 666.263 547.66 751.1 547.66 751.1L528.66 728.6L518.084 716.1L511.16 706.1L505.66 699.6ZM534.694 405.945C515.733 416.567 499.399 432.488 485.987 453.26C483.266 457.398 480.9 463.737 478.667 470.587C494.813 463.494 508.043 452.925 518.084 438.995C525.643 428.616 531.126 417.73 534.694 405.945Z"
+                fill="currentColor"
+              />
+            </svg>
+          </div>
+
+          <div className="portfolio-head">
+            <div className="services-scribble-left" aria-hidden="true">
+              <svg viewBox="0 0 849 1080" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M782.018 3.16527C762.279 10.7093 749.373 30.8009 751.763 52.7385C763.495 161.265 719.172 205.695 679.901 223.985C583.676 268.455 431.832 251.15 381.386 240.793C358.638 236.025 335.803 248.486 327.444 270.12C319.086 291.754 327.577 316.337 347.488 328.184L377.006 345.636C504.525 421.22 605.269 480.907 637.435 516.238C681.182 564.112 697.7 614.134 682.925 653.605C675.092 674.247 659.345 688.976 639.694 694.677C636.872 657.406 624.821 623.211 603.727 592.584C578.103 555.431 540.737 528.988 495.432 516.1C465.736 507.653 434.945 515.576 412.811 537.271C390.776 558.928 382.062 590.879 389.943 620.673L390.869 624.278C395.28 641.145 400.842 662.209 412.364 681.109C442.378 730.046 484.69 764.101 534.546 780.906C510.842 865.08 449.015 933.848 365.719 965.683C267.423 1003.25 157.715 982.852 79.4092 912.327C59.9197 894.776 29.8546 896.312 12.2081 915.84C-5.3396 935.329 -3.80078 965.398 15.7264 983.048C120.761 1077.63 267.859 1105.01 399.71 1054.62C516.166 1010.11 601.486 911.658 629.913 792.195C632.978 791.928 636.043 791.662 639.207 791.358C699.314 784.674 750.22 744.742 771.965 687.109C799.851 612.988 776.466 527.241 707.689 452.056C681.04 422.874 632.598 389.352 563.422 346.56C616.005 342.978 671.379 332.787 719.996 310.246C815.492 265.941 860.397 170.949 846.461 42.4499C843.624 16.3843 820.231 -2.50317 794.032 0.270291C789.904 0.716611 785.867 1.69417 782.116 3.12754L782.018 3.16527ZM541.102 679.982C522.396 668.919 506.439 652.619 493.518 631.539C490.895 627.338 488.678 620.946 486.606 614.045C502.581 621.514 515.561 632.391 525.272 646.553C532.585 657.106 537.812 668.118 541.102 679.982Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+
+            <div data-reveal="up">
+              <h2 className="p-title support-portfolio-title">{t('Волонтерська Діяльність')}</h2>
+              <p className="p-sub support-portfolio-sub">
+                {t(
+                  'Ми конвертуємо наш досвід у реальну допомогу. Створюємо візуальні рішення для військових підрозділів, медичних ініціатив та гуманітарних фондів. Для нас це спосіб підсилювати країну там, де ми найкращі – у креативі.',
+                )}
+              </p>
+              <div className="p-underline support-portfolio-underline" aria-hidden="true" />
+            </div>
+
+            <div className="p-right">
+              <div className="t-topright support-portfolio-marker" aria-hidden="true">
+                <span>{t('Кейси')}</span>
+                <span className="lines">
+                  <span className="l1" />
+                  <span className="l2" />
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="p-stage">
+            <div className="p-stage-inner">
+              <svg aria-hidden="true" focusable="false" style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden' }}>
+                <symbol id="pZigTop" viewBox="0 0 546 300">
+                  <path
+                    d="M1.71738 115.561C1.87124 115.226 2.04434 114.849 2.19821 114.514C7.01317 105.571 18.0825 102.175 27.0272 107.039C28.8457 108.036 71.6932 131.487 112.779 183.337C120.458 193.05 126.614 201.345 132.124 209.391C132.986 204.761 133.348 199.899 133.071 195.655C128.816 129.252 131.768 85.7058 142.048 66.2936C146.507 57.7955 155.524 53.1411 164.994 54.4387C174.525 55.7138 182.033 62.6044 184.136 72.015C191.896 106.663 199.399 133.723 204.131 144.456C235.308 214.467 255.88 233.114 262.625 239.244C273.768 249.346 295.336 265.712 314.288 261.453C323.142 259.467 330.413 250.242 335.846 234.117C340.49 220.37 342.263 205.493 341.831 190.354C335.721 188.127 329.602 185.591 323.454 182.787C307.929 175.731 255.248 147.917 229.486 87.4827C222.258 70.5094 203.079 25.4784 229.936 5.98871C235.701 1.80613 243.031 -0.277788 251.135 0.0297689C279.929 1.10324 309.628 21.9047 334.812 58.5964C353.904 86.4134 369.945 123.738 376.023 162.381C452.445 182.114 520.644 158.955 521.417 158.704C530.988 155.374 541.46 160.439 544.78 170.06C548.121 179.639 543.129 190.177 533.539 193.548C530.024 194.813 460.655 218.647 378.442 200.951C377.938 216.367 375.475 231.533 370.607 245.989C358.37 282.328 337.617 294.032 322.318 297.497C295.921 303.431 266.766 292.79 237.97 266.717C223.761 253.819 201.344 228.726 170.584 159.569C169.724 157.696 168.877 155.576 168.024 153.249C168.218 164.72 168.737 178.019 169.712 193.41C170.715 209.068 167.181 226.786 160.437 239.711C155.516 249.214 145.807 255.376 135.176 255.724C124.629 256.111 114.62 250.702 109.118 241.644C102.363 230.58 94.8631 220.036 84.0407 206.373C47.9587 160.81 10.0148 139.788 9.63953 139.614C1.07003 134.924 -2.3408 124.397 1.67891 115.644L1.71738 115.561ZM335.358 147.615C328.539 122.042 317.163 97.9091 304.528 79.4923C287.953 55.3342 268.392 39.4431 252.707 37.1397C252.788 41.6994 254.387 52.0958 263.235 72.9207C278.847 109.639 310.111 135.182 335.358 147.615Z"
+                    fill="currentColor"
+                  />
+                </symbol>
+              </svg>
+
+              <button className="p-nav p-prev" type="button" aria-label="Previous slide">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M14.5 5.5L8 12l6.5 6.5" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+
+              <button className="p-nav p-next is-filled" type="button" aria-label="Next slide">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M9.5 5.5L16 12l-6.5 6.5" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+
+              <div className="swiper p-swiper support-portfolio-swiper" id="portfolioSwiper" aria-label="Portfolio slider">
+                <div className="swiper-wrapper">
+                  <article className="swiper-slide">
+                    <a href="https://www.behance.net/kolir_agency" target="_blank" rel="noopener">
+                      <div className="p-card support-portfolio-card">
+                        <svg className="p-zigzag support-portfolio-card-zigzag" aria-hidden="true" focusable="false">
+                          <use href="#pZigTop" />
+                        </svg>
+                        <div className="p-c">
+                          <span className="p-pill support-portfolio-card-pill">{t('Брендинг')}</span>
+                          <h3 className="p-h3 support-portfolio-card-title">
+                            Шеврон
+                            <br />
+                            79 ОДШБр
+                          </h3>
+                        </div>
+                        <div className="p-shot support-portfolio-card-shot">
+                          <img src="/img/support/nft-card-1.png" alt="Шеврон 79 ОДШБр" />
+                        </div>
+                        <span
+                          className="p-link support-portfolio-card-link"
+                          aria-hidden="true"
+                          style={{ ['--pIcon' as string]: "url('/img/behance.svg')" }}
+                        />
+                        <span className="p-go support-portfolio-card-go" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M7 17L17 7" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" />
+                            <path d="M9 7h8v8" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </span>
+                      </div>
+                    </a>
+                  </article>
+
+                  <article className="swiper-slide">
+                    <a href="https://www.behance.net/kolir_agency" target="_blank" rel="noopener">
+                      <div className="p-card support-portfolio-card">
+                        <svg className="p-zigzag support-portfolio-card-zigzag" aria-hidden="true" focusable="false">
+                          <use href="#pZigTop" />
+                        </svg>
+                        <div className="p-c">
+                          <span className="p-pill support-portfolio-card-pill">{t('Айдентика')}</span>
+                          <h3 className="p-h3 support-portfolio-card-title">
+                            Патч
+                            <br />
+                            95 ОДШБр
+                          </h3>
+                        </div>
+                        <div className="p-shot support-portfolio-card-shot">
+                          <img src="/img/support/nft-card-2.png" alt="Патч 95 ОДШБр" />
+                        </div>
+                        <span
+                          className="p-link support-portfolio-card-link"
+                          aria-hidden="true"
+                          style={{ ['--pIcon' as string]: "url('/img/behance.svg')" }}
+                        />
+                        <span className="p-go support-portfolio-card-go" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M7 17L17 7" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" />
+                            <path d="M9 7h8v8" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </span>
+                      </div>
+                    </a>
+                  </article>
+
+                  <article className="swiper-slide">
+                    <a href="https://www.behance.net/kolir_agency" target="_blank" rel="noopener">
+                      <div className="p-card support-portfolio-card">
+                        <svg className="p-zigzag support-portfolio-card-zigzag" aria-hidden="true" focusable="false">
+                          <use href="#pZigTop" />
+                        </svg>
+                        <div className="p-c">
+                          <span className="p-pill support-portfolio-card-pill">{t('NFT')}</span>
+                          <h3 className="p-h3 support-portfolio-card-title">
+                            NFT Колекція
+                            <br />
+                            для України
+                          </h3>
+                        </div>
+                        <div className="p-shot support-portfolio-card-shot">
+                          <img src="/img/support/nft-card-3.png" alt="NFT Collection for Ukraine" />
+                        </div>
+                        <span
+                          className="p-link support-portfolio-card-link"
+                          aria-hidden="true"
+                          style={{ ['--pIcon' as string]: "url('/img/behance.svg')" }}
+                        />
+                        <span className="p-go support-portfolio-card-go" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M7 17L17 7" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" />
+                            <path d="M9 7h8v8" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </span>
+                      </div>
+                    </a>
+                  </article>
+
+                  <article className="swiper-slide">
+                    <a href="https://www.behance.net/kolir_agency" target="_blank" rel="noopener">
+                      <div className="p-card support-portfolio-card">
+                        <svg className="p-zigzag support-portfolio-card-zigzag" aria-hidden="true" focusable="false">
+                          <use href="#pZigTop" />
+                        </svg>
+                        <div className="p-c">
+                          <span className="p-pill support-portfolio-card-pill">{t('Візуал')}</span>
+                          <h3 className="p-h3 support-portfolio-card-title">
+                            ITT Fund
+                            <br />
+                            Брендинг
+                          </h3>
+                        </div>
+                        <div className="p-shot support-portfolio-card-shot">
+                          <img src="/img/support/itt-aid-photo.jpg" alt="ITT Fund Branding" />
+                        </div>
+                        <span
+                          className="p-link support-portfolio-card-link"
+                          aria-hidden="true"
+                          style={{ ['--pIcon' as string]: "url('/img/behance.svg')" }}
+                        />
+                        <span className="p-go support-portfolio-card-go" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M7 17L17 7" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" />
+                            <path d="M9 7h8v8" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </span>
+                      </div>
+                    </a>
+                  </article>
+
+                  <article className="swiper-slide">
+                    <a href="https://www.behance.net/kolir_agency" target="_blank" rel="noopener">
+                      <div className="p-card support-portfolio-card">
+                        <svg className="p-zigzag support-portfolio-card-zigzag" aria-hidden="true" focusable="false">
+                          <use href="#pZigTop" />
+                        </svg>
+                        <div className="p-c">
+                          <span className="p-pill support-portfolio-card-pill">{t('Моушн')}</span>
+                          <h3 className="p-h3 support-portfolio-card-title">
+                            Кіберармія
+                            <br />
+                            Кампанія
+                          </h3>
+                        </div>
+                        <div className="p-shot support-portfolio-card-shot">
+                          <img src="/img/support/cyberarmy.png" alt="Cyberarmy Campaign" />
+                        </div>
+                        <span
+                          className="p-link support-portfolio-card-link"
+                          aria-hidden="true"
+                          style={{ ['--pIcon' as string]: "url('/img/behance.svg')" }}
+                        />
+                        <span className="p-go support-portfolio-card-go" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M7 17L17 7" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" />
+                            <path d="M9 7h8v8" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </span>
+                      </div>
+                    </a>
+                  </article>
+                </div>
+              </div>
+
+              <div className="p-progress" aria-hidden="true">
+                <span className="p-progress-bar" id="pProgressBar" />
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  )
+}
