@@ -22,8 +22,22 @@ if (DST_URL.startsWith('libsql://') && !DST_TOKEN) {
   process.exit(1)
 }
 
-// payload_migrations НЕ копіюємо — у Turso вже свій стан міграцій після `npm run ci`.
-const SKIP = new Set(['payload_migrations'])
+// НЕ чіпаємо системні та прод-керовані таблиці:
+// - payload_migrations: у Turso свій стан міграцій (npm run ci);
+// - users/users_sessions: адмін-користувачів заводять на проді, локальні не переносимо;
+// - media: файли живуть у Vercel Blob, керуються на проді;
+// - payload_kv/locked/preferences: службові, специфічні для середовища.
+const SKIP = new Set([
+  'payload_migrations',
+  'users',
+  'users_sessions',
+  'media',
+  'payload_kv',
+  'payload_locked_documents',
+  'payload_locked_documents_rels',
+  'payload_preferences',
+  'payload_preferences_rels',
+])
 
 const src = createClient({ url: SRC_URL })
 const dst = createClient({ url: DST_URL, authToken: DST_TOKEN })
@@ -47,10 +61,16 @@ for (const table of tables) {
   const colList = cols.map((c) => `"${c}"`).join(', ')
   const placeholders = cols.map(() => '?').join(', ')
 
-  const stmts = rows.map((row) => ({
-    sql: `INSERT OR REPLACE INTO "${table}" (${colList}) VALUES (${placeholders})`,
-    args: cols.map((c) => row[c]),
-  }))
+  // Спочатку очищаємо таблицю, потім вставляємо актуальні рядки —
+  // так видалені локально записи не лишаються «висіти» в Turso.
+  // DELETE + INSERT в одному batch = атомарна транзакція.
+  const stmts = [
+    { sql: `DELETE FROM "${table}"`, args: [] },
+    ...rows.map((row) => ({
+      sql: `INSERT INTO "${table}" (${colList}) VALUES (${placeholders})`,
+      args: cols.map((c) => row[c]),
+    })),
+  ]
 
   await dst.batch(stmts, 'write')
   totalRows += rows.length
