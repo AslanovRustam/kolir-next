@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { LOCALE_COOKIE } from '../lib/locale-cookie'
 
 export type HeaderLabels = {
   services: string
@@ -45,14 +46,14 @@ export default function Header({ labels = DEFAULT_LABELS }: { labels?: HeaderLab
 
   // Поточна локаль із cookie (клієнт)
   useEffect(() => {
-    const m = document.cookie.match(/(?:^|;\s*)locale=(uk|en)/)
+    const m = document.cookie.match(new RegExp(`(?:^|;\\s*)${LOCALE_COOKIE}=(uk|en)`))
     if (m) setLocale(m[1] as 'uk' | 'en')
   }, [])
 
   // Перемикання мови: cookie + refresh серверних компонентів (вони перечитають CMS)
   const changeLocale = (l: 'uk' | 'en') => {
     if (l === locale) return
-    document.cookie = `locale=${l};path=/;max-age=31536000`
+    document.cookie = `${LOCALE_COOKIE}=${l};path=/;max-age=31536000`
     setLocale(l)
     router.refresh()
   }
@@ -119,14 +120,20 @@ export default function Header({ labels = DEFAULT_LABELS }: { labels?: HeaderLab
           <img src={logo} alt="Kolir" />
         </Link>
 
-        <div className="lang-switch lang-switch--mob">
+        <div className="lang-cap lang-cap--mob">
           <button
-            className="m-lang"
+            className={`lang-cap-b${locale === 'uk' ? ' is-active' : ''}`}
             type="button"
-            onClick={() => changeLocale(locale === 'uk' ? 'en' : 'uk')}
+            onClick={() => changeLocale('uk')}
           >
-            <span className="m-lang__text">{locale.toUpperCase()}</span>
-            <span className="chev" aria-hidden="true" />
+            UA
+          </button>
+          <button
+            className={`lang-cap-b${locale === 'en' ? ' is-active' : ''}`}
+            type="button"
+            onClick={() => changeLocale('en')}
+          >
+            EN
           </button>
         </div>
       </div>

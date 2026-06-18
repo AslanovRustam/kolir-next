@@ -862,7 +862,7 @@
     font-size: 1.2rem; color: var(--c-white); opacity: .4;
   }
   .testimonials .t-rate{
-    margin-left: auto; width: 3.6rem; height: 3.6rem;
+    margin-left: auto; width: 3.6rem; height: 3.6rem; flex-shrink: 0;
     display: grid; place-items: center;
     background: url("/img/testimonials/star.svg") center/contain no-repeat;
     color: var(--c-161616);

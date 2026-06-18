@@ -29,10 +29,12 @@ export default function SupportPortfolioSwiper() {
       wrapper.querySelectorAll('[data-dup]').forEach((n) => n.remove())
     }
     const realSlidesCount = wrapper ? wrapper.querySelectorAll('.swiper-slide').length : 0
-    // Дублюємо ЛИШЕ коли слайдів справді мало (volunteer=3). support=5 вже лупиться —
-    // не чіпаємо (gate < 5). Ціль ~9 слайдів, щоб loop надійно увімкнувся.
-    const DUP_BELOW = 5
+    // Swiper 12 із slidesPerView:'auto' не клонує слайди для loop, поки їх мало —
+    // це ламало і volunteer (3), і support (5: loop не вмикався, clones=0).
+    // Дублюємо реальні слайди до ~9, щойно їх менше за ціль, щоб loop/autoplay
+    // надійно працювали на обох сторінках.
     const DUP_TARGET = 9
+    const DUP_BELOW = DUP_TARGET
     if (wrapper && realSlidesCount > 0 && realSlidesCount < DUP_BELOW) {
       const originals = Array.from(wrapper.querySelectorAll('.swiper-slide'))
       const copies = Math.ceil(DUP_TARGET / realSlidesCount) - 1

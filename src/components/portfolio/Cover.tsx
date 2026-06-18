@@ -61,6 +61,93 @@ export default function Cover({
           </div>
         </>
       )}
+      {work.id === 'vyriy' && (
+        <>
+          <img
+            src="/images/vyriy/Cover.jpg"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-ink/10"></div>
+          <div className={`absolute inset-0 flex flex-col justify-between ${padding}`}>
+            <div
+              className={`flex items-center justify-between font-mono ${labelSize} uppercase tracking-[0.2em] text-white drop-shadow`}
+            >
+              <span>vyriy · autonomous</span>
+              <span>’26</span>
+            </div>
+          </div>
+        </>
+      )}
+      {work.id === '252b' && (
+        <>
+          <img
+            src="/images/252b/cover.png"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className={`absolute inset-0 flex flex-col justify-between ${padding}`}>
+            <div
+              className={`flex items-center justify-between font-mono ${labelSize} uppercase tracking-[0.2em] text-ink/70`}
+            >
+              <span>252 ошб · штурм</span>
+              <span>’26</span>
+            </div>
+          </div>
+        </>
+      )}
+      {work.id === 'nakotne' && (
+        <>
+          <img
+            src="/images/Nakotne/cover.png"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className={`absolute inset-0 flex flex-col justify-between ${padding}`}>
+            <div
+              className={`flex items-center justify-between font-mono ${labelSize} uppercase tracking-[0.2em] text-white/70`}
+            >
+              <span>nākotne · kindergarten</span>
+              <span>’24</span>
+            </div>
+          </div>
+        </>
+      )}
+      {work.id === 'ice-dating' && (
+        <>
+          <img
+            src="/images/ice_dating/cover.jpg"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className={`absolute inset-0 flex flex-col justify-between ${padding}`}>
+            <div
+              className={`flex items-center justify-between font-mono ${labelSize} uppercase tracking-[0.2em] text-ink/55`}
+            >
+              <span>ice dating · ux/ui</span>
+              <span>’23</span>
+            </div>
+          </div>
+        </>
+      )}
+      {work.id === '1st-legion' && (
+        <>
+          <img
+            src="/images/1st_legion/cover.jpg"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-ink/10"></div>
+          <div className={`absolute inset-0 flex flex-col justify-between ${padding}`}>
+            <div
+              className={`flex items-center justify-between font-mono ${labelSize} uppercase tracking-[0.2em] text-white drop-shadow`}
+            >
+              <span>1st legion · recruitment</span>
+              <span>’25</span>
+            </div>
+          </div>
+        </>
+      )}
       {work.id === 'wirex-brand' && (
         <>
           <img

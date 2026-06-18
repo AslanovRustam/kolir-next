@@ -247,6 +247,14 @@
         margin-top:-.2rem;
       }
 
+      /* Мобільний перемикач мови — та сама капсула UA/EN, що й на десктопі */
+      .lang-cap--mob{ border-color: var(--c-5e00cf); }
+      .lang-cap--mob .lang-cap-b{
+        font-size:1.5rem;
+        letter-spacing:.1em;
+        padding:1rem 1.6rem;
+      }
+
       .m-menu{
         display:flex;
         flex-direction:column;
@@ -2664,6 +2672,7 @@ border-radius: 999rem;
   margin-left: auto;
   width: 4rem;
   height: 4rem;
+  flex-shrink: 0;
   display: grid;
   place-items: center;
 
@@ -3268,11 +3277,11 @@ display: inline-flex;
 }
 
   .contactk-card{
-    padding: 4.2rem 1rem 0.8rem;
+    padding: 4.2rem 1rem 3.5rem;
     border-radius: 4rem;
-    margin-top: 5rem;
+    margin-top: 11rem;        /* відступ від блоку «Про нас» (він має від'ємний margin-bottom) */
     overflow: visible;
-	  margin-bottom: 31rem;
+	  margin-bottom: 6rem;      /* нормальний відступ до футера (раніше 31rem — компенсація хака) */
   }
   .contactk-head{
     flex-direction: column-reverse;
@@ -3286,7 +3295,7 @@ display: inline-flex;
   .contactk-grid{
     grid-template-columns: 1fr;
     gap: .8rem;
-            margin-bottom: -32rem;
+    margin-bottom: 0;   /* було -32rem: синя плашка не доходила до низу блоку */
   }
 
   .ck-card--studio{ grid-column: auto; padding: 2rem; }
@@ -3337,6 +3346,14 @@ display: inline-flex;
   /* поля вводу: прибираємо завеликий лівий відступ (базово 4.6rem під іконку, якої нема) */
   .contactk .kform-field input,
   .contactk .kform-field textarea{ padding: 1.1rem 1.6rem !important; }
+
+  /* текст у картках контактів («Зв'яжіться…», адреса) — більший і читабельніший
+     (базово успадковував ~1rem) */
+  .contactk .ck-body{
+    font-family: "Stolzl", sans-serif; font-weight: 400;
+    font-size: 1.7rem; line-height: 2.6rem; color: var(--c-white);
+  }
+  .contactk .ck-card{ padding: 2.4rem; }
 }
 
 
@@ -3679,15 +3696,9 @@ clip-path: inset(0 0 var(--cutB) var(--bleedL) round 3rem);
   .br-desktop { display: none; }
 }
 
-/* 
- */
- video {
-        position: absolute;
-        opacity: 0;
-        pointer-events: none;
-        width: 1px;
-        height: 1px;
-      }
+/* Видалено orphan-правило `video { position:absolute; opacity:0; width:1px }`,
+   яке ховало всі відео сайту (ламало відео в кейсах). Реальних прихованих
+   відео в застосунку немає — єдині <video> рендеряться в CaseDetail. */
 
       canvas {
         background: transparent;

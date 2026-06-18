@@ -94,7 +94,6 @@ export default function Testimonials({ content: c }: { content: TestimonialsCont
                   <div className="swiper-slide" key={r.name}>
                     <article className="t-card">
                       <div className="t-card-top">
-                        <img className="t-ava" src="/img/rew-img.png" alt="" />
                         <div className="t-meta">
                           <div className="t-name">{r.name}</div>
                           <div className="t-role">{r.role}</div>

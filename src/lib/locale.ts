@@ -1,7 +1,8 @@
 import { cookies } from 'next/headers'
+import { LOCALE_COOKIE } from './locale-cookie'
 
 export type Locale = 'uk' | 'en'
-export const LOCALE_COOKIE = 'locale'
+export { LOCALE_COOKIE }
 
 // Поточна локаль із cookie (server). Дефолт — українська.
 export async function getLocale(): Promise<Locale> {

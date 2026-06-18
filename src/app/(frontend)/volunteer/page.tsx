@@ -114,7 +114,8 @@ export default async function VolunteerPage() {
               <div className="vol-cards-wrap">
                 <div className="vol-cards" id="volCards">
                   <div className="vol-cards-track">
-                    <article className="vol-card vol-card--light">
+                    <article className="vol-card">
+                      <div className="vol-card-num">01</div>
                       <div className="vol-card-body">
                         <h3>{t('UI/UX Дизайн')}</h3>
                         <p>{t('Інтерфейси сайтів, застосунків, дашбордів.')}</p>
@@ -127,7 +128,8 @@ export default async function VolunteerPage() {
                       </span>
                     </article>
 
-                    <article className="vol-card vol-card--yellow">
+                    <article className="vol-card">
+                      <div className="vol-card-num">02</div>
                       <div className="vol-card-body">
                         <h3>{t('Графіка / Ілюстрація')}</h3>
                         <p>{t('Айдентика, постери, соцмережі, ілюстрації.')}</p>
@@ -140,27 +142,29 @@ export default async function VolunteerPage() {
                       </span>
                     </article>
 
-                    <article className="vol-card vol-card--purple">
+                    <article className="vol-card">
+                      <div className="vol-card-num">03</div>
                       <div className="vol-card-body">
-                        <h3>{t('Веброзробка')}</h3>
-                        <p>{t('Лендінги, сайти, інтеграції.')}</p>
+                        <h3>{t('Front-End')}</h3>
+                        <p>{t('React, TypeScript, верстка, інтеграції.')}</p>
                       </div>
                       <span className="vol-card-ico" aria-hidden="true">
                         <svg viewBox="0 0 24 24" fill="none">
-                          <path d="M8 9l-3 3 3 3M16 9l3 3-3 3M13 7l-2 10" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                          <rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" strokeWidth="1.8" />
+                          <path d="M9 4v16" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
                         </svg>
                       </span>
                     </article>
 
-                    <article className="vol-card vol-card--dark">
+                    <article className="vol-card">
+                      <div className="vol-card-num">04</div>
                       <div className="vol-card-body">
-                        <h3>{t('Моушн / Відео')}</h3>
-                        <p>{t('Анімація, ролики, контент для соцмереж.')}</p>
+                        <h3>{t('Back-End')}</h3>
+                        <p>{t('API, бази даних, інфраструктура, інтеграції.')}</p>
                       </div>
                       <span className="vol-card-ico" aria-hidden="true">
                         <svg viewBox="0 0 24 24" fill="none">
-                          <rect x="3" y="6" width="13" height="12" rx="2" stroke="currentColor" strokeWidth="1.8" />
-                          <path d="M16 10l5-3v10l-5-3" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+                          <path d="M8 9l-3 3 3 3M16 9l3 3-3 3M13 7l-2 10" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                       </span>
                     </article>
@@ -341,44 +345,27 @@ export default async function VolunteerPage() {
                 <img className="contactk-pattern contactk-pattern--bl" src="/img/contact/pattern.png" alt="" />
                 <img className="contactk-pattern contactk-pattern--br" src="/img/contact/pattern.png" alt="" />
               </div>
-              <div className="contactk-head" data-reveal="up">
-                <div className="contactk-head-left">
-                  <h2 className="contactk-title">{t('Залиш заявку — підберемо проєкт під твої навички.')}</h2>
-                  <p className="contactk-sub">
+              {/* Макет як у Figma: зліва текст на фіолеті, справа жовта форма */}
+              <div className="vol-apply-grid">
+                <div className="vol-apply-left" data-reveal="up">
+                  <div className="vol-apply-pill">{t('Долучайся')}</div>
+                  <h2 className="vol-apply-title">
+                    {t('Залиш заявку — підберемо проєкт під твої навички.')}
+                  </h2>
+                  <p className="vol-apply-sub">
                     {t(
                       'Ми не питатимемо про десятирічний досвід і не вимагатимемо тестових на тиждень. Розкажи, що вмієш і скільки часу можеш виділити — далі домовимося.',
                     )}
                   </p>
-                  <span className="contactk-line" aria-hidden="true" />
+                  <ul className="vol-apply-points">
+                    <li>{t('Реальні проєкти для ЗСУ та фондів')}</li>
+                    <li>{t('Кейси, які не соромно додати в портфоліо')}</li>
+                    <li>{t('Жодної бюрократії — пишемо в Telegram')}</li>
+                  </ul>
                 </div>
-                <div className="contactk-head-right">
-                  <span>{t('Заявка')}</span>
-                  <div className="contactk-underlines" aria-hidden="true">
-                    <span className="line line--purple" />
-                    <span className="line line--yellow" />
-                  </div>
-                </div>
-              </div>
 
-              <div className="contactk-grid">
-                {/* Жовта карточка-форма (структура з головної) */}
-                <div className="ck-form">
-                  <div className="ck-form-left">
-                    <span className="ck-form-scribble" aria-hidden="true" />
-                    <div className="ck-form-body">
-                      <div className="ck-form-title">
-                        {t(
-                          'Долучайся — реальні волонтерські проєкти для ЗСУ та фондів, кейси для портфоліо й жодної бюрократії.',
-                        )}
-                      </div>
-                      <ul className="ck-form-points">
-                        <li>{t('Реальні проєкти для ЗСУ та фондів')}</li>
-                        <li>{t('Кейси, які не соромно додати в портфоліо')}</li>
-                        <li>{t('Жодної бюрократії — пишемо в Telegram')}</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div className="ck-form-right">
+                <div className="vol-apply-right">
+                  <div className="vol-apply-form">
                     <VolunteerForm locale={locale} />
                   </div>
                 </div>

@@ -88,13 +88,6 @@ export default function Services({ content: c }: { content: ServicesContent }) {
         <div className="services-content">
           <div className="services-head" data-reveal="up">
             <h2 className="services-title">{c.title}</h2>
-            <div className="services-label">
-              <div>{c.kicker}</div>
-              <div className="lines" aria-hidden="true">
-                <span className="l1" />
-                <span className="l2" />
-              </div>
-            </div>
           </div>
 
           <svg aria-hidden="true" focusable="false" style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden' }}>

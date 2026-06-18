@@ -233,6 +233,10 @@ export default function CaseDetail({
   locale?: 'uk' | 'en'
 }) {
   const work = localizeCase(rawWork, locale)
+  // Locale-aware media: paths may carry a `{lang}` token (e.g. localized image
+  // folders ua/ vs en/). uk → 'ua', en → 'en'. No-op when the token is absent.
+  const mediaLang = locale === 'en' ? 'en' : 'ua'
+  const lAsset = (s: string) => asset(s.replace('{lang}', mediaLang))
   const UI = getUI(locale)
   const catsLocalized = catsLine(work.categories, locale)
   const [infoOpen, setInfoOpen] = useState(false)
@@ -263,7 +267,10 @@ export default function CaseDetail({
           }
         })
       },
-      { threshold: 0.08 },
+      // threshold 0 + a small bottom margin: reveal as soon as the block enters
+      // the viewport. (A fixed % threshold never fires for very tall blocks —
+      // e.g. a single `group` of 12 full-width boards taller than the viewport.)
+      { threshold: 0, rootMargin: '0px 0px -8% 0px' },
     )
     els.forEach((el) => io.observe(el))
     return () => io.disconnect()
@@ -271,9 +278,9 @@ export default function CaseDetail({
 
   return (
     <div className="bg-void pt-[6.4rem] md:pt-[10rem]">
-      {/* MOBILE nav bar — на десктопі навігація живе у правій колонці (над текстом) */}
-      <div className="md:hidden sticky top-[6.4rem] z-10 bg-void/85 backdrop-blur border-b border-white/10">
-        <div className="flex items-center justify-between px-4 py-4">
+      {/* MOBILE nav — плаваюча плашка-капсула (як фільтри на портфоліо), не на всю ширину */}
+      <div className="md:hidden sticky top-[6.4rem] z-10 px-4 py-3">
+        <div className="flex items-center justify-between gap-3 backdrop-blur-[8px] bg-void/80 border border-white/20 px-2 py-1.5 rounded-full">
           <BackLink label={UI.backToPortfolio} />
           <NavControls prevId={prevId} nextId={nextId} />
         </div>
@@ -308,16 +315,53 @@ export default function CaseDetail({
                     return (
                       <figure key={i} className="col-span-12 reveal">
                         <div className="relative w-full rounded-2xl overflow-hidden bg-grape leading-[0] text-center">
-                          {item.images.map((img, j) => (
-                            <img
-                              key={j}
-                              src={asset(img.src)}
-                              alt=""
-                              className="block max-w-full h-auto mx-auto"
-                              style={{ marginTop: 0, marginBottom: 0 }}
-                              loading="lazy"
-                            />
-                          ))}
+                          {item.images.map((img, j) =>
+                            /\.(mp4|webm)$/i.test(img.src) ? (
+                              <video
+                                key={j}
+                                className="block w-full h-auto"
+                                style={{ marginTop: 0, marginBottom: 0 }}
+                                autoPlay
+                                muted
+                                loop
+                                playsInline
+                                preload="metadata"
+                              >
+                                <source src={lAsset(img.src)} type="video/mp4" />
+                              </video>
+                            ) : img.topFade ? (
+                              <div
+                                key={j}
+                                className="relative block leading-[0]"
+                                style={{ margin: 0 }}
+                              >
+                                <img
+                                  src={lAsset(img.src)}
+                                  alt=""
+                                  className="block max-w-full h-auto mx-auto"
+                                  style={{ marginTop: 0, marginBottom: 0 }}
+                                  loading="lazy"
+                                />
+                                <div
+                                  className="absolute inset-x-0 top-0 pointer-events-none"
+                                  style={{
+                                    height: '18%',
+                                    background:
+                                      'linear-gradient(to bottom, #26272e 0%, rgba(38,39,46,0.7) 35%, rgba(38,39,46,0) 100%)',
+                                  }}
+                                />
+                              </div>
+                            ) : (
+                              <img
+                                key={j}
+                                src={lAsset(img.src)}
+                                alt=""
+                                className="block max-w-full h-auto mx-auto"
+                                style={{ marginTop: 0, marginBottom: 0 }}
+                                loading="lazy"
+                              />
+                            ),
+                          )}
                         </div>
                       </figure>
                     )

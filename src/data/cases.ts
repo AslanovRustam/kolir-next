@@ -24,6 +24,9 @@ export interface GalleryImage {
   cls?: string;
   /** CSS aspect-ratio string (e.g. '1600/800') — only present on some `bento` images. */
   aspect?: string;
+  /** group only: overlay a dark→transparent gradient on the top edge for a
+   *  seamless transition from a dark block above (e.g. video → image). */
+  topFade?: boolean;
 }
 
 /** group: a vertical stack of images (objects with `src`). */
@@ -149,6 +152,46 @@ export const UK_OVERRIDES: Record<string, UkOverride> = {
     description: 'Strichka — спільнота, що обʼєднує українців по всьому світу, щоб діяти заради України: координувати кампанії, ініціативи та медіа. Ми спроєктували повний веб-досвід — чіткий, впевнений інтерфейс навколо національної ідентичності, від промо-сайту до продуктових сценаріїв.',
     scope: ['UX/UI дизайн','Веб-дизайн','Візуальна айдентика','Адаптивна верстка'],
     results: ['Промо-сайт','Адаптивний UI','Дизайн-система','Візуал у дусі бренду'],
+  },
+  'vyriy': {
+    title: 'Vyriy Industries',
+    client: 'Vyriy · автономні системи',
+    teaser: 'Бренд і сайт для Vyriy — української компанії автономних систем.',
+    description: 'Vyriy — українська технологічна компанія, що розробляє та серійно виробляє автономні системи, адаптовані до реальних бойових умов. Ми створили цілісну екосистему рішень, де інженерні розробки формуються на основі практичного досвіду їх застосування, і дали їй відповідні бренд та веб-присутність.',
+    scope: ['Айдентика','Веб-дизайн','UI/UX','Арт-дирекшн'],
+    results: ['Айдентика','Промо-сайт','UI-система','Арт-дирекшн'],
+  },
+  '252b': {
+    title: '252 ОШБ «Штурм»',
+    client: 'Штурм · 252-й окремий штурмовий батальйон',
+    teaser: 'Сайт-рекрутинг та айдентика для 252-го окремого штурмового батальйону «Штурм».',
+    description: 'Сайт для набору та візуальна айдентика 252-го окремого штурмового батальйону «Штурм» ЗСУ. Ми зробили впевнений, кінематографічний веб-досвід — емблема підрозділу, типографіка й лендинг, що кличе нових воїнів приєднатися до побратимів і гартуватися разом зі штурмовим підрозділом.',
+    scope: ['Айдентика','Веб-дизайн','UI/UX','Арт-дирекшн'],
+    results: ['Сайт-рекрутинг','Емблема та айдентика підрозділу','Кінематографічний лендинг','Флоу приєднання'],
+  },
+  '1st-legion': {
+    title: 'Перший інтернаціональний Легіон',
+    client: 'Перший інтернаціональний Легіон · Збройні сили України',
+    teaser: 'Айдентика та сайт-рекрутинг для Першого інтернаціонального Легіону.',
+    description: 'Айдентика та сайт для набору Першого інтернаціонального Легіону Збройних сил України — підрозділу, що обʼєднує іноземних добровольців, які воюють за Україну. Ми зробили впевнений, кінематографічний лендинг із чітким закликом вступити до лав, а також емблему й візуальну систему, що тримаються на вебі, мобільному та в моушні.',
+    scope: ['Айдентика','Веб-дизайн','UI/UX','Моушн','Арт-дирекшн'],
+    results: ['Айдентика','Сайт-рекрутинг','Адаптивна UI-система','Моушн та арт-дирекшн'],
+  },
+  'ice-dating': {
+    title: 'ICE Dating',
+    client: 'ICE Dating · платформа онлайн-знайомств',
+    teaser: 'Концепція сайту та UX/UI для ICE Dating — платформи онлайн-знайомств.',
+    description: 'Концепція сайту для ICE Dating — платформи онлайн-знайомств, що допомагає людям знайомитися, знаходити пару та разом планувати реальні вечірки. Ми спроєктували весь продукт із нуля: інформаційну архітектуру, вайрфрейми, теплу пастельну візуальну мову, повний UI-кіт і ключові сценарії — від головної сторінки та «пошуку вечірки» до системних сторінок, попапів і мобільної версії.',
+    scope: ['UX-дослідження','Інформаційна архітектура','Вайрфрейми','UI-дизайн','Дизайн-система'],
+    results: ['Концепція сайту','Архітектура та вайрфрейми','UI-кіт і дизайн-система','Адаптив / мобільна версія'],
+  },
+  'nakotne': {
+    title: 'Nākotne',
+    client: 'Nākotne · дитячий садок, Рига',
+    teaser: 'Бренд і сайт для Nākotne — дитячого садка в Ризі.',
+    description: 'Бренд і сайт для Nākotne — дитячого садка в мікрорайоні Іманта (Рига), де про кожну дитину дбають, де вона розвивається та з радістю навчається. Ми створили теплу, грайливу айдентику з власним персонажем-маскотом і набором ілюстрацій, а потім спроєктували повний сайт, де батьки дізнаються про філософію, програму, викладачів і новини садка.',
+    scope: ['Айдентика','Ілюстрація','Веб-дизайн','UI/UX','Дизайн-система'],
+    results: ['Айдентика та маскот','Набір ілюстрацій','Промо-сайт','UI-кіт і дизайн-система'],
   },
   'hc': {
     title: 'HC Healthcare',
@@ -620,6 +663,140 @@ export const CASES: CaseItem[] = [
         { src: 'images/strichka/12.jpg' },
         { src: 'images/strichka/13.jpg' },
         { src: 'images/strichka/14.jpg' },
+      ]},
+    ],
+    links: [
+      { label: 'View on Behance', url: '#', kind: 'social' },
+    ],
+  },
+  {
+    id: 'vyriy', title: 'Vyriy Industries', client: 'Vyriy · Autonomous systems', year: 2026,
+    categories: ['Branding','Web','Product'], color: 'ink', text: 'cream',
+    teaser: 'Brand & website for Vyriy — a Ukrainian autonomous-systems company.',
+    scope: ['Brand identity','Web design','UI/UX','Art direction'],
+    description: 'Vyriy is a Ukrainian technology company that develops and mass-produces autonomous systems adapted to real combat conditions. We built a cohesive ecosystem of solutions, where engineering is shaped by the practical experience of its use — and gave it the brand and web presence to match.',
+    results: ['Brand identity','Marketing website','UI system','Art direction'],
+    gallery: [
+      { type: 'group', images: [
+        { src: 'images/vyriy/Block_1.jpg' },
+        { src: 'images/vyriy/Block_2.jpg' },
+        { src: 'images/vyriy/Block_3.jpg' },
+        { src: 'images/vyriy/Block_4.jpg' },
+        { src: 'images/vyriy/Block_5.jpg' },
+        { src: 'images/vyriy/Block_6.jpg' },
+        { src: 'images/vyriy/Block_7.jpg' },
+        { src: 'images/vyriy/Block_8.jpg' },
+        { src: 'images/vyriy/Block_9.jpg' },
+        { src: 'images/vyriy/Block_10.jpg' },
+        { src: 'images/vyriy/Block_11.jpg' },
+        { src: 'images/vyriy/Block_12.jpg' },
+        { src: 'images/vyriy/Block_13.jpg' },
+      ]},
+    ],
+    links: [
+      { label: 'vyriy.com', url: 'https://vyriy.com', kind: 'site' },
+    ],
+  },
+  {
+    id: '252b', title: '252 Assault Battalion', client: 'Shturm · 252nd Assault Battalion', year: 2026,
+    categories: ['Branding','Web'], color: 'ink', text: 'cream',
+    teaser: 'Recruitment website & identity for the 252nd Assault Battalion “Shturm”.',
+    scope: ['Brand identity','Web design','UI/UX','Art direction'],
+    description: 'A recruitment website and visual identity for the 252nd Separate Assault Battalion “Shturm” of the Ukrainian Armed Forces. We built a confident, cinematic web experience — the unit emblem, typography and a landing flow that calls on new soldiers to join the brotherhood and temper themselves alongside the assault unit.',
+    results: ['Recruitment website','Unit emblem & identity','Cinematic landing flow','Join / careers flow'],
+    gallery: [
+      { type: 'group', images: [
+        { src: 'images/252b/1.jpg' },
+        { src: 'images/252b/2.jpg' },
+        { src: 'images/252b/3.jpg' },
+        { src: 'images/252b/4.jpg' },
+        { src: 'images/252b/5.jpg' },
+        { src: 'images/252b/6.jpg' },
+        { src: 'images/252b/7.jpg' },
+        { src: 'images/252b/8.jpg' },
+        { src: 'images/252b/9.jpg' },
+        { src: 'images/252b/10.jpg' },
+      ]},
+    ],
+    links: [
+      { label: 'View on Behance', url: '#', kind: 'social' },
+    ],
+  },
+  {
+    id: '1st-legion', title: 'First International Legion', client: 'First International Legion · Armed Forces of Ukraine', year: 2025,
+    categories: ['Branding','Web'], color: 'ink', text: 'cream',
+    teaser: 'Brand identity & recruitment website for the First International Legion.',
+    scope: ['Brand identity','Web design','UI/UX','Motion','Art direction'],
+    description: 'A brand identity and recruitment website for the First International Legion of the Armed Forces of Ukraine — the unit that unites foreign volunteers fighting for Ukraine. We built a confident, cinematic landing flow with a clear call to enlist, paired with an emblem and a visual system that holds up across web, mobile and motion.',
+    results: ['Brand identity','Recruitment website','Responsive UI system','Motion & art direction'],
+    gallery: [
+      { type: 'group', images: [
+        { src: 'images/1st_legion/1.mp4' },
+        { src: 'images/1st_legion/2.jpg', topFade: true },
+        { src: 'images/1st_legion/3.jpg' },
+        { src: 'images/1st_legion/4.jpg' },
+        { src: 'images/1st_legion/5.mp4' },
+        { src: 'images/1st_legion/6.jpg' },
+        { src: 'images/1st_legion/7.jpg' },
+        { src: 'images/1st_legion/10.mp4' },
+        { src: 'images/1st_legion/8.jpg' },
+        { src: 'images/1st_legion/9.jpg' },
+      ]},
+    ],
+    links: [
+      { label: 'View on Behance', url: '#', kind: 'social' },
+    ],
+  },
+  {
+    id: 'ice-dating', title: 'ICE Dating', client: 'ICE Dating · Online dating platform', year: 2023,
+    categories: ['Web','Product'], color: 'lilac', text: 'ink',
+    teaser: 'Website concept & UX/UI for ICE Dating — an online dating platform.',
+    scope: ['UX research','Information architecture','Wireframes','UI design','Design system'],
+    description: 'A website concept for ICE Dating — an online dating platform that helps people meet, match and plan real-world parties together. We shaped the full product surface from the ground up: information architecture, wireframes, a warm pastel visual language, a complete UI kit and the key flows — from the main page and “find a party” to system pages, pop-ups and the mobile experience.',
+    results: ['Website concept','Architecture & wireframes','UI kit & design system','Responsive / mobile design'],
+    gallery: [
+      { type: 'group', images: [
+        { src: 'images/ice_dating/{lang}/1.jpg' },
+        { src: 'images/ice_dating/{lang}/2.jpg' },
+        { src: 'images/ice_dating/{lang}/3.jpg' },
+        { src: 'images/ice_dating/{lang}/4.jpg' },
+        { src: 'images/ice_dating/{lang}/5.jpg' },
+        { src: 'images/ice_dating/{lang}/6.jpg' },
+        { src: 'images/ice_dating/{lang}/7.jpg' },
+        { src: 'images/ice_dating/{lang}/8.jpg' },
+        { src: 'images/ice_dating/{lang}/9.jpg' },
+        { src: 'images/ice_dating/{lang}/10.jpg' },
+        { src: 'images/ice_dating/{lang}/11.jpg' },
+        { src: 'images/ice_dating/{lang}/12.jpg' },
+      ]},
+    ],
+    links: [
+      { label: 'View on Behance', url: '#', kind: 'social' },
+    ],
+  },
+  {
+    id: 'nakotne', title: 'Nākotne', client: 'Nākotne · Kindergarten, Riga', year: 2024,
+    categories: ['Branding','Web'], color: 'ink', text: 'cream',
+    teaser: 'Brand & website for Nākotne — a kindergarten in Riga.',
+    scope: ['Brand identity','Illustration','Web design','UI/UX','Design system'],
+    description: 'A brand and website for Nākotne — a kindergarten in the Imanta district of Riga that puts care, development and joyful learning at the centre of every child. We built a warm, playful identity with a custom mascot and a set of illustrations, then designed the full website where parents discover the philosophy, programme, teachers and news of the kindergarten.',
+    results: ['Brand identity & mascot','Custom illustration set','Marketing website','UI kit & design system'],
+    gallery: [
+      { type: 'group', images: [
+        { src: 'images/Nakotne/1.jpg' },
+        { src: 'images/Nakotne/2.jpg' },
+        { src: 'images/Nakotne/3.jpg' },
+        { src: 'images/Nakotne/4.jpg' },
+        { src: 'images/Nakotne/5.jpg' },
+        { src: 'images/Nakotne/6.jpg' },
+        { src: 'images/Nakotne/7.jpg' },
+        { src: 'images/Nakotne/8.jpg' },
+        { src: 'images/Nakotne/9.jpg' },
+        { src: 'images/Nakotne/10.jpg' },
+        { src: 'images/Nakotne/11.jpg' },
+        { src: 'images/Nakotne/12.jpg' },
+        { src: 'images/Nakotne/13.jpg' },
+        { src: 'images/Nakotne/14.jpg' },
       ]},
     ],
     links: [

@@ -55,7 +55,7 @@ export default async function Hero() {
         </div>
 
         <div className="trusted">
-          <div className="label">{t('Нам Довіряють')}</div>
+          <div className="label">{t('Нам довіряють')}</div>
           <div className="logos" id="logos">
             <div className="logos-track" id="logosTrack" aria-label="Trusted logos">
               {logos.map((l, i) => (
