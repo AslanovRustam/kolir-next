@@ -35,8 +35,6 @@ export default function Header({ labels = DEFAULT_LABELS }: { labels?: HeaderLab
     { href: '/#briefs', label: labels.brief },
     { href: '/#contact', label: labels.contact },
     { href: '/support', label: labels.help, help: true },
-    // TODO: тимчасове посилання для тесту — прибрати пізніше
-    { href: '/volunteer', label: 'Волонтерство' },
   ]
 
   const [open, setOpen] = useState(false)
