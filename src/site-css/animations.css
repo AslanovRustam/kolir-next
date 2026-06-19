@@ -405,17 +405,17 @@ html.lenis, html.lenis body { height: auto; }
   .to-top { transition: opacity .2s; }
 }
 
-/* ── Анімація «малювання» лінії в хіро ──────────────────────────────
-   Спільна для всіх хіро з .hero-scribble-y (головна / support / volunteer).
-   На завантаженні лінія проявляється по діагоналі: справа-наліво, зверху-вниз
-   (маска-градієнт зсувається з верхнього-правого кута в нижній-лівий). */
+/* ── Анімація «малювання» лінії в хіро (всі хіро з .hero-scribble-y) ──
+   На завантаженні лінія проявляється градієнтною маскою по діагоналі —
+   з верхнього-правого кута в нижній-лівий (справа-наліво, зверху-вниз),
+   у напрямку загального плину розчерку. */
 .hero-scribble-y{
-  -webkit-mask-image: linear-gradient(225deg, #000 38%, rgba(0,0,0,0) 60%);
-          mask-image: linear-gradient(225deg, #000 38%, rgba(0,0,0,0) 60%);
+  -webkit-mask-image: linear-gradient(225deg, #000 36%, rgba(0,0,0,0) 60%);
+          mask-image: linear-gradient(225deg, #000 36%, rgba(0,0,0,0) 60%);
   -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
-  -webkit-mask-size: 260% 260%;   mask-size: 260% 260%;
+  -webkit-mask-size: 280% 280%;   mask-size: 280% 280%;
   -webkit-mask-position: 0% 0%;   mask-position: 0% 0%;
-  animation: heroScribbleDraw 1.6s cubic-bezier(.45,0,.2,1) .25s both;
+  animation: heroScribbleDraw 1.8s cubic-bezier(.45,0,.2,1) .25s both;
 }
 @keyframes heroScribbleDraw{
   from{ -webkit-mask-position: 0% 0%;     mask-position: 0% 0%; }
