@@ -404,23 +404,3 @@ html.lenis, html.lenis body { height: auto; }
   .t-brand { animation: none; }
   .to-top { transition: opacity .2s; }
 }
-
-/* ── Анімація «малювання» лінії в хіро (всі хіро з .hero-scribble-y) ──
-   На завантаженні лінія проявляється градієнтною маскою по діагоналі —
-   з верхнього-правого кута в нижній-лівий (справа-наліво, зверху-вниз),
-   у напрямку загального плину розчерку. */
-.hero-scribble-y{
-  /* «Малювання» діагональним зрізом clip-path: на старті лінія повністю
-     схована (зріз у верхньому-правому куті), далі зріз сходить у нижній-лівий
-     кут — лінія проявляється справа-наліво, зверху-вниз. */
-  animation: heroScribbleDraw 1.7s cubic-bezier(.4,0,.2,1) .3s both;
-}
-@keyframes heroScribbleDraw{
-  from{ -webkit-clip-path: polygon(100% -40%, 140% 0%, 140% 0%, 100% -40%);
-                clip-path: polygon(100% -40%, 140% 0%, 140% 0%, 100% -40%); }
-  to  { -webkit-clip-path: polygon(100% -40%, 140% 0%, 40% 140%, -40% 100%);
-                clip-path: polygon(100% -40%, 140% 0%, 40% 140%, -40% 100%); }
-}
-@media (prefers-reduced-motion: reduce){
-  .hero-scribble-y{ -webkit-mask-image: none; mask-image: none; animation: none; }
-}
