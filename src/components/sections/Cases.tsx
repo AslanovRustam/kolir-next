@@ -7,7 +7,7 @@ const CASES = [
     title: '15 кроків незалежності',
     p: 'Сайт «15 кроків до української єдності» — це послідовне знайомство з розвитком нашої країни. Його першочергова мета полягає в ознайомленні громадськості з історією українського державотворення, а також у пошуку нових кандидатів для майбутніх проєктів.',
     site: 'historyofukrainianunity.com',
-    href: '/portfolio',
+    href: '/portfolio/15-krokiv',
     visual: '/img/cases/15krokiv.png',
     layers: [
       { cls: 'hcase-l-dots', src: '/img/cases/15krokiv-shape.png' },
@@ -19,7 +19,7 @@ const CASES = [
     title: 'Strichka',
     p: "Strichka — цифровий простір для українців за кордоном, що об'єднує спільноту, ініціативи та корисні матеріали в одному місці. Ми створили платформу, яка допомагає легко знайти все найважливіше: опис проєкту, підказки, блоги, ініціативи та швидкий доступ до застосунку. Це єдина точка входу в екосистему Strichka — для взаємодії, координації та підтримки українців по всьому світу.",
     site: 'strichka.org.ua',
-    href: '/portfolio',
+    href: '/portfolio/strichka',
     visual: '/img/cases/strichka.png',
     layers: [
       { cls: 'hcase-l-dots hcase-l-dots--strichka', src: '/img/cases/strichka-dots.png' },
@@ -31,7 +31,7 @@ const CASES = [
     title: 'Vyriy Industries',
     p: 'Українська технологічна компанія, що розробляє та серійно виробляє автономні системи, адаптовані до реальних бойових умов. Ми створили багатосторінковий сайт, який відображає цілісну екосистему рішень компанії, де інженерні розробки формуються на основі практичного досвіду їх застосування.',
     site: 'vyriy.com',
-    href: '/portfolio',
+    href: '/portfolio/vyriy',
     visual: '/img/cases/vyriy.png',
     layers: [
       { cls: 'hcase-l-dots', src: '/img/cases/vyriy-dots.png' },

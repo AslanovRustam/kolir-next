@@ -101,7 +101,7 @@
    лише внутрішній padding-top картки (плашка лишається на місці). support має
    більший внутрішній зсув контенту (flex min-height), тож його pt більший. */
 .support-page #heroCard {
-  padding-top: 8rem !important;
+  padding-top: 5.3rem !important;   /* як на головній (було 8rem — підкладка сиділа нижче) */
 }
 .kolir-page:not(.support-page) #heroCard {
   padding-top: 5.3rem !important;

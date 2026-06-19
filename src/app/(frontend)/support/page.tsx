@@ -64,7 +64,7 @@ export default async function SupportPage() {
               <div className="hero-inner-clip" aria-hidden="true" />
 
               <div className="hero-left support-hero-copy">
-                <div className="pill">{t('Ukraine support')}</div>
+                <div className="pill">{t('Допомога Україні')}</div>
 
                 <h1 className="hero-title support-title" data-reveal="up">
                   <span className="t-brand">{t('Як ми')}</span>{' '}
@@ -194,14 +194,9 @@ export default async function SupportPage() {
                 </p>
               </div>
 
-              <div className="support-project-site" aria-hidden="true">
-                ukrnft.in.ua
-                <span />
-              </div>
-
               <a
                 className="support-button support-button--purple"
-                href="https://cyberarmy.in.ua/"
+                href="https://ukrnft.in.ua/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -235,14 +230,9 @@ export default async function SupportPage() {
                 </p>
               </div>
 
-              <div className="support-project-site" aria-hidden="true">
-                cyberarmy.in.ua
-                <span />
-              </div>
-
               <a
                 className="support-button support-button--yellow-small"
-                href="https://ukrnft.in.ua/"
+                href="https://cyberarmy.in.ua/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -274,14 +264,9 @@ export default async function SupportPage() {
                 </p>
               </div>
 
-              <div className="support-project-site" aria-hidden="true">
-                itt.fund
-                <span />
-              </div>
-
               <a
                 className="support-button support-button--purple"
-                href="#"
+                href="https://itt.fund/"
                 target="_blank"
                 rel="noopener noreferrer"
               >

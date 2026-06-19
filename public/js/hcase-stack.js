@@ -14,26 +14,21 @@
     if (!section || cards.length < 2 || section.dataset.stackReady === '1') return;
     section.dataset.stackReady = '1';
 
-    var mq = window.matchMedia('(min-width: 1001px)');
     var raf = 0;
     function clamp(v, a, b) { return Math.min(Math.max(v, a), b); }
 
     function stickyTopPx() {
-      // має збігатися з top першої картки (9rem) у поточних px
-      var fs = parseFloat(getComputedStyle(document.documentElement).fontSize) || 10;
-      return 9 * fs;
+      // фактичний top залипання першої картки (9rem десктоп / 1.6rem мобілка) у px
+      var t = parseFloat(getComputedStyle(cards[0]).top);
+      if (!isFinite(t)) {
+        var fs = parseFloat(getComputedStyle(document.documentElement).fontSize) || 10;
+        t = 9 * fs;
+      }
+      return t;
     }
 
     function update() {
       raf = 0;
-      if (!mq.matches) {
-        cards.forEach(function (c) {
-          c.style.removeProperty('--hc-stack-scale');
-          c.style.removeProperty('--hc-stack-y');
-          c.style.removeProperty('--hc-stack-dim');
-        });
-        return;
-      }
       var top = stickyTopPx();
       var startOffset = Math.min(window.innerHeight * 0.34, 280);
       cards.forEach(function (card, i) {

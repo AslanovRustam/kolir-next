@@ -577,8 +577,25 @@
     font-family: "Unbounded", sans-serif; font-weight: 600;
     font-size: 3.2rem; color: var(--c-white);
   }
-  .hcases-list{ display: flex; flex-direction: column; gap: 1.6rem; }
-  .hcase-card{ position: relative; overflow: hidden; border-radius: 3rem; padding: 3rem 2.4rem; }
+  /* Sticky-стек як на support: картки залипають staggered top + z-index і
+     наїжджають одна на одну при скролі (scale/dim рахує hcase-stack.js). */
+  .hcases-list{ display: flex; flex-direction: column; gap: 0; isolation: isolate; }
+  .hcase-card{
+    position: sticky;
+    margin: 0 0 1.6rem;
+    overflow: hidden; border-radius: 3rem; padding: 3rem 2.4rem;
+    transform: translate3d(0, var(--hc-stack-y, 0px), 0) scale(var(--hc-stack-scale, 1));
+    transform-origin: center top; will-change: transform; backface-visibility: hidden;
+  }
+  .hcases-list .hcase-card:nth-child(1){ top: 1.6rem; z-index: 1; }
+  .hcases-list .hcase-card:nth-child(2){ top: 3.2rem; z-index: 2; }
+  .hcases-list .hcase-card:nth-child(3){ top: 4.8rem; z-index: 3; }
+  .hcase-card:last-child{ margin-bottom: 0; }
+  .hcase-card::after{
+    content: ""; position: absolute; inset: 0; z-index: 80;
+    pointer-events: none; border-radius: inherit;
+    background: rgba(0, 0, 0, var(--hc-stack-dim, 0));
+  }
   .hcase-card--yellow{ background: var(--c-yellow);  color: var(--c-380279); }
   .hcase-card--purple{ background: var(--c-3e0088);  color: var(--c-white); }
   .hcase-card--dark{   background: var(--c-161616);  color: var(--c-white); }

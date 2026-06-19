@@ -117,7 +117,7 @@
   .kolir-page.support-page .hero .support-hero-btn{
     display: inline-flex !important; align-items: center !important; justify-content: center !important;
     margin: 3rem 0 0 !important;
-    padding: .8rem 1.8rem !important; height: auto !important;
+    padding: .8rem 1.8rem !important; height: auto !important; min-height: 0 !important;
     border-radius: 3rem !important;
     background: var(--yellow) !important; color: var(--c-5e00cf) !important;
     font-family: "Stolzl", sans-serif !important; font-weight: 500 !important;
@@ -236,5 +236,24 @@
     z-index: 10 !important;
     width: 100% !important;
     margin: 2.4rem 0 0 !important;
+  }
+}
+
+/* Кнопки в картках підтримки — приводимо до стандартної кнопки сайту
+   (компактна пілюля, як CTA на хіро). Кольори лишаються по картці. */
+@media (min-width: 1001px){
+  .kolir-page.support-page .support-project-card .support-button{
+    min-height: 0 !important; height: auto !important;
+    padding: .8rem 1.8rem !important;
+    font-size: 1.35rem !important; font-weight: 500 !important;
+    line-height: 1.65rem !important; border-radius: 3rem !important;
+  }
+}
+@media (max-width: 1000px){
+  .kolir-page.support-page .support-project-card .support-button{
+    min-height: 0 !important; height: auto !important;
+    padding: 1.1rem 2.2rem !important;
+    font-size: 1.6rem !important; font-weight: 500 !important;
+    border-radius: 3rem !important;
   }
 }
