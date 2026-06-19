@@ -15,9 +15,10 @@
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
+    height: 6.4rem;            /* нижчий хедер (було 8.4rem) */
     width: min(120rem, calc(100% - 4rem));
     margin: 0 auto;
-    padding: 1.5rem 2.4rem;
+    padding: 0.8rem 2.4rem;
     background: rgba(44, 0, 96, 0.9);
     border: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: 100px;
@@ -55,7 +56,7 @@
     color: #fff;
     background: transparent;
     border: 0;
-    padding: 1.05rem 1.5rem;
+    padding: 0.7rem 1.5rem;
     cursor: pointer;
   }
   .site-header .hh-right .lang-cap-b.is-active {
@@ -68,7 +69,7 @@
     color: #161616;
     font-weight: 500;
     border-radius: 30px;
-    padding: 1.05rem 1.5rem;
+    padding: 0.7rem 1.5rem;
     border: 0;
   }
   .site-header .hh-right .cta-top:hover {
