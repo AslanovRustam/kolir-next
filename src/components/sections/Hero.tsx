@@ -46,11 +46,20 @@ export default async function Hero() {
           </div>
 
           <div className="hero-right">
-            <img
+            <video
               className="hero-mascot"
-              src="/img/hero/mascot.png"
-              alt="Дівчина у вишиванці з соняшником"
-            />
+              autoPlay
+              muted
+              loop
+              playsInline
+              poster="/video/hero/mascot-poster.png"
+              aria-label="Дівчина у вишиванці з соняшником"
+            >
+              {/* Chrome / Firefox / Edge — VP9 з альфа-каналом.
+                  Safari не грає VP9-alpha → показує poster. Для анімації в Safari
+                  додати mascot.mov (HEVC+alpha, hvc1) другим <source>. */}
+              <source src="/video/hero/mascot.webm" type='video/webm; codecs="vp9"' />
+            </video>
           </div>
         </div>
 
