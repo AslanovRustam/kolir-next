@@ -2,6 +2,7 @@ import { getPayload } from 'payload'
 import config from '../../payload.config'
 import { getLocale } from '../../lib/locale'
 import { makeT } from '../../lib/t'
+import HeroMascot from './HeroMascot'
 
 const LOGOS = [
   { d: '/img/Logo=Strichka.svg', w: '/img/Logo=Strichka-w.svg', alt: 'Strichka' },
@@ -46,20 +47,7 @@ export default async function Hero() {
           </div>
 
           <div className="hero-right">
-            <video
-              className="hero-mascot"
-              autoPlay
-              muted
-              loop
-              playsInline
-              poster="/video/hero/mascot-poster.png"
-              aria-label="Дівчина у вишиванці з соняшником"
-            >
-              {/* Chrome / Firefox / Edge — VP9 з альфа-каналом.
-                  Safari не грає VP9-alpha → показує poster. Для анімації в Safari
-                  додати mascot.mov (HEVC+alpha, hvc1) другим <source>. */}
-              <source src="/video/hero/mascot.webm" type='video/webm; codecs="vp9"' />
-            </video>
+            <HeroMascot alt="Дівчина у вишиванці з соняшником" />
           </div>
         </div>
 
