@@ -1,11 +1,12 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import HeroMascotAlpha from './HeroMascotAlpha'
 
 // Маскот героя.
-// Chrome/Firefox/Edge: VP9-webm з альфа-каналом (анімація, прозорий фон).
-// Safari НЕ підтримує альфу VP9 — програє відео з непрозорою підкладкою.
-// Тому на Safari показуємо прозорий PNG (той самий кадр), без анімації.
+// Chrome/Firefox/Edge: VP9-webm з альфа-каналом (анімація, прозорий фон) — нативно.
+// Safari НЕ підтримує альфу VP9 (показував би непрозору підкладку), тож на Safari
+// рендеримо анімацію через WebGL-canvas з «упакованого» mascot-alpha.mp4 (HeroMascotAlpha).
 export default function HeroMascot({ alt }: { alt: string }) {
   const [isSafari, setIsSafari] = useState(false)
 
@@ -17,14 +18,7 @@ export default function HeroMascot({ alt }: { alt: string }) {
   }, [])
 
   if (isSafari) {
-    return (
-      <img
-        className="hero-mascot"
-        src="/video/hero/mascot-poster.png"
-        alt={alt}
-        decoding="async"
-      />
-    )
+    return <HeroMascotAlpha alt={alt} />
   }
 
   return (
