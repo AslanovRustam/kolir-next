@@ -1,24 +1,28 @@
 // Копіює дані з локальної SQLite-бази (kolir.db) у віддалену Turso (libSQL).
-// Схема в Turso має вже існувати (її створює `npm run ci` → payload migrate).
-// Запуск (з кореня проєкту), підставивши свої значення Turso:
-//   DATABASE_URI=libsql://<db>.turso.io DATABASE_AUTH_TOKEN=<token> node scripts/copy-local-db-to-turso.mjs
+// Джерело — локальний файл kolir.db; призначення — Turso з .env (TURSO_*).
+// Запуск (з кореня проєкту):
+//   node scripts/copy-local-db-to-turso.mjs
 //
-// На Windows у PowerShell:
-//   $env:DATABASE_URI="libsql://<db>.turso.io"; $env:DATABASE_AUTH_TOKEN="<token>"; node scripts/copy-local-db-to-turso.mjs
+// Креди Turso беруться з .env: TURSO_DATABASE_URI + TURSO_AUTH_TOKEN
+// (fallback на DATABASE_URI / DATABASE_AUTH_TOKEN, якщо TURSO_* не задані).
 
 import 'dotenv/config'
 import { createClient } from '@libsql/client'
 
 const SRC_URL = process.env.SOURCE_DB || 'file:./kolir.db'
-const DST_URL = process.env.DATABASE_URI
-const DST_TOKEN = process.env.DATABASE_AUTH_TOKEN
+const DST_URL = process.env.TURSO_DATABASE_URI || process.env.DATABASE_URI
+const DST_TOKEN = process.env.TURSO_AUTH_TOKEN || process.env.DATABASE_AUTH_TOKEN
 
 if (!DST_URL) {
-  console.error('✗ Не задано DATABASE_URI (URL цільової Turso-бази).')
+  console.error('✗ Не задано TURSO_DATABASE_URI (URL цільової Turso-бази) у .env.')
   process.exit(1)
 }
-if (DST_URL.startsWith('libsql://') && !DST_TOKEN) {
-  console.error('✗ Для Turso потрібен DATABASE_AUTH_TOKEN.')
+if (!DST_URL.startsWith('libsql://')) {
+  console.error(`✗ Призначення не схоже на Turso: ${DST_URL}. Очікується libsql://...`)
+  process.exit(1)
+}
+if (!DST_TOKEN) {
+  console.error('✗ Для Turso потрібен TURSO_AUTH_TOKEN у .env.')
   process.exit(1)
 }
 
