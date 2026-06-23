@@ -146,3 +146,76 @@
 .testimonials .t-cards-clip .t-swiper {
   overflow: visible;
 }
+
+/* Свайпер позиціонується відносно телефону і сідає ~5px ВИЩЕ контейнера
+   .t-cards-clip, чия верхня кромка зрізала картам верх (плоско обрізані верхні
+   кути). Контейнер і свайпер рухаються разом, тож зсуваємо лише КОНТЕНТ свайпера
+   вниз через padding-top — картки сідають у межі кліпу, верх більше не ріже. */
+@media (min-width: 1001px) {
+  .testimonials .t-cards-clip .t-swiper {
+    padding-top: 0.9rem;
+  }
+}
+
+/* Коверфлоу-портфоліо (support): секція .portfolio мала overflow:hidden, щоб
+   ховати бічні картки по горизонталі — але вона ж зрізала ВЕРХ збільшеної
+   центральної картки. overflow-x:clip ховає горизонталь, overflow-y:visible
+   (з clip це працює, на відміну від hidden) повертає верх. override.css іде
+   останнім, тож перебиває всі дублі support-page.css на десктопі. */
+@media (min-width: 1001px) {
+  .support-page .portfolio {
+    overflow-x: clip !important;
+    overflow-y: visible !important;
+  }
+}
+
+/* swiper/css ставить .swiper{overflow:hidden} і перебиває .p-swiper{overflow:visible}
+   (рівна специфічність, swiper/css вантажиться пізніше) → верх збільшеної
+   центральної картки коверфлоу зрізало свайпером. Перебиваємо через ID. Горизонталь
+   не тече: дальні картки коверфлоу мають opacity:0, а html має overflow-x:clip. */
+#portfolioSwiper.p-swiper {
+  overflow: visible !important;
+}
+
+/* Картки коверфлоу — мельче (слот вужчий → і картинка нижча, бо масштабується по
+   ширині; min-height теж нижчий, щоб картка не лишалась високою). */
+@media (min-width: 1001px) {
+  .support-portfolio-swiper .swiper-slide {
+    width: 27rem !important;
+  }
+  .support-portfolio-swiper .p-card {
+    min-height: 36rem !important;
+  }
+}
+
+/* Стрілка ↗ на картках слайдера support/volunteer: колір дефолтний (синя без
+   ховера, жовта на ховері). Робимо кружок+стрілку МЕНШИМИ і повертаємо стрілку
+   проти годинникової на 90°. Беханс-попап (.p-link) прибрано з розмітки. */
+.support-portfolio-swiper .support-portfolio-card-go {
+  width: 3.2rem !important;
+  height: 3.2rem !important;
+}
+.support-portfolio-swiper .support-portfolio-card-go svg {
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+  transform: rotate(-90deg) !important;
+}
+
+/* Довгі назви кейсів (укр) не повинні вилазити за межі картки. */
+.support-portfolio-swiper .support-portfolio-card-title {
+  overflow-wrap: break-word !important;
+}
+
+/* Мобілка: фото в картці слайдера притискаємо до НИЗУ картки. Коротка назва (1 рядок)
+   інакше лишала порожнечу під фото. .p-card → flex-колонка, .p-shot → margin-top:auto
+   (зайвий простір іде між назвою і фото, фото завжди врівень з низом). */
+@media (max-width: 1000px) {
+  .support-portfolio-swiper .p-card {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .support-portfolio-swiper .p-shot {
+    margin-top: auto !important;
+    flex-shrink: 0 !important;
+  }
+}

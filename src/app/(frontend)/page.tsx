@@ -11,6 +11,7 @@ export default function HomePage() {
   return (
     <main className="kolir-page">
       <ScriptOnMount src="/js/hcase-stack.js" />
+      <ScriptOnMount src="/js/logo-marquee.js" />
       <div className="shell">
         <Hero />
         <Cases />

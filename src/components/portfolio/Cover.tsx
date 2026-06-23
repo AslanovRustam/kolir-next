@@ -241,7 +241,7 @@ export default function Cover({
       {work.id === 'planty' && (
         <>
           <img
-            src="/images/planty/1. First Screen.jpg"
+            src="/images/planty/cover.jpg"
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -295,7 +295,7 @@ export default function Cover({
       {work.id === 'citf' && (
         <>
           <img
-            src="/images/CITF/1. Overview.jpg"
+            src="/images/CITF/cover.jpg"
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />

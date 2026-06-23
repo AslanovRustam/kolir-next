@@ -3,6 +3,7 @@ import '../../../site-css/support-redesign.css'
 import { getLocale } from '../../../lib/locale'
 import { makeT } from '../../../lib/t'
 import SupportPortfolioSwiper from '../../../components/SupportPortfolioSwiper'
+import SupportCaseSlides from '../../../components/portfolio/SupportCaseSlides'
 import ScriptOnMount from '../../../components/ScriptOnMount'
 
 // Підтримка України — порт зі статичного support.html (1:1, без редизайну).
@@ -154,6 +155,9 @@ export default async function SupportPage() {
               </button>
               <button className="support-logo-item" type="button" data-caption="ССО ЗСУ" aria-label="ССО ЗСУ">
                 <img src="/img/support/support-logo-sso-zsu.png" alt="Шеврон ССО ЗСУ" loading="lazy" />
+              </button>
+              <button className="support-logo-item" type="button" data-caption="Медбат" aria-label="Медбат">
+                <img src="/img/support/support-logo-med_bat.png" alt="Шеврон Медбат" loading="lazy" />
               </button>
             </div>
           </div>
@@ -351,165 +355,7 @@ export default async function SupportPage() {
 
               <div className="swiper p-swiper support-portfolio-swiper" id="portfolioSwiper" aria-label="Portfolio slider">
                 <div className="swiper-wrapper">
-                  <article className="swiper-slide">
-                    <a href="https://www.behance.net/kolir_agency" target="_blank" rel="noopener">
-                      <div className="p-card support-portfolio-card">
-                        <svg className="p-zigzag support-portfolio-card-zigzag" aria-hidden="true" focusable="false">
-                          <use href="#pZigTop" />
-                        </svg>
-                        <div className="p-c">
-                          <span className="p-pill support-portfolio-card-pill">{t('Брендинг')}</span>
-                          <h3 className="p-h3 support-portfolio-card-title">
-                            Шеврон
-                            <br />
-                            79 ОДШБр
-                          </h3>
-                        </div>
-                        <div className="p-shot support-portfolio-card-shot">
-                          <img src="/img/support/nft-card-1.png" alt="Шеврон 79 ОДШБр" />
-                        </div>
-                        <span
-                          className="p-link support-portfolio-card-link"
-                          aria-hidden="true"
-                          style={{ ['--pIcon' as string]: "url('/img/behance.svg')" }}
-                        />
-                        <span className="p-go support-portfolio-card-go" aria-hidden="true">
-                          <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M7 17L17 7" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" />
-                            <path d="M9 7h8v8" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
-                          </svg>
-                        </span>
-                      </div>
-                    </a>
-                  </article>
-
-                  <article className="swiper-slide">
-                    <a href="https://www.behance.net/kolir_agency" target="_blank" rel="noopener">
-                      <div className="p-card support-portfolio-card">
-                        <svg className="p-zigzag support-portfolio-card-zigzag" aria-hidden="true" focusable="false">
-                          <use href="#pZigTop" />
-                        </svg>
-                        <div className="p-c">
-                          <span className="p-pill support-portfolio-card-pill">{t('Айдентика')}</span>
-                          <h3 className="p-h3 support-portfolio-card-title">
-                            Патч
-                            <br />
-                            95 ОДШБр
-                          </h3>
-                        </div>
-                        <div className="p-shot support-portfolio-card-shot">
-                          <img src="/img/support/nft-card-2.png" alt="Патч 95 ОДШБр" />
-                        </div>
-                        <span
-                          className="p-link support-portfolio-card-link"
-                          aria-hidden="true"
-                          style={{ ['--pIcon' as string]: "url('/img/behance.svg')" }}
-                        />
-                        <span className="p-go support-portfolio-card-go" aria-hidden="true">
-                          <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M7 17L17 7" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" />
-                            <path d="M9 7h8v8" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
-                          </svg>
-                        </span>
-                      </div>
-                    </a>
-                  </article>
-
-                  <article className="swiper-slide">
-                    <a href="https://www.behance.net/kolir_agency" target="_blank" rel="noopener">
-                      <div className="p-card support-portfolio-card">
-                        <svg className="p-zigzag support-portfolio-card-zigzag" aria-hidden="true" focusable="false">
-                          <use href="#pZigTop" />
-                        </svg>
-                        <div className="p-c">
-                          <span className="p-pill support-portfolio-card-pill">{t('NFT')}</span>
-                          <h3 className="p-h3 support-portfolio-card-title">
-                            NFT Колекція
-                            <br />
-                            для України
-                          </h3>
-                        </div>
-                        <div className="p-shot support-portfolio-card-shot">
-                          <img src="/img/support/nft-card-3.png" alt="NFT Collection for Ukraine" />
-                        </div>
-                        <span
-                          className="p-link support-portfolio-card-link"
-                          aria-hidden="true"
-                          style={{ ['--pIcon' as string]: "url('/img/behance.svg')" }}
-                        />
-                        <span className="p-go support-portfolio-card-go" aria-hidden="true">
-                          <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M7 17L17 7" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" />
-                            <path d="M9 7h8v8" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
-                          </svg>
-                        </span>
-                      </div>
-                    </a>
-                  </article>
-
-                  <article className="swiper-slide">
-                    <a href="https://www.behance.net/kolir_agency" target="_blank" rel="noopener">
-                      <div className="p-card support-portfolio-card">
-                        <svg className="p-zigzag support-portfolio-card-zigzag" aria-hidden="true" focusable="false">
-                          <use href="#pZigTop" />
-                        </svg>
-                        <div className="p-c">
-                          <span className="p-pill support-portfolio-card-pill">{t('Візуал')}</span>
-                          <h3 className="p-h3 support-portfolio-card-title">
-                            ITT Fund
-                            <br />
-                            Брендинг
-                          </h3>
-                        </div>
-                        <div className="p-shot support-portfolio-card-shot">
-                          <img src="/img/support/itt-aid-photo.jpg" alt="ITT Fund Branding" />
-                        </div>
-                        <span
-                          className="p-link support-portfolio-card-link"
-                          aria-hidden="true"
-                          style={{ ['--pIcon' as string]: "url('/img/behance.svg')" }}
-                        />
-                        <span className="p-go support-portfolio-card-go" aria-hidden="true">
-                          <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M7 17L17 7" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" />
-                            <path d="M9 7h8v8" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
-                          </svg>
-                        </span>
-                      </div>
-                    </a>
-                  </article>
-
-                  <article className="swiper-slide">
-                    <a href="https://www.behance.net/kolir_agency" target="_blank" rel="noopener">
-                      <div className="p-card support-portfolio-card">
-                        <svg className="p-zigzag support-portfolio-card-zigzag" aria-hidden="true" focusable="false">
-                          <use href="#pZigTop" />
-                        </svg>
-                        <div className="p-c">
-                          <span className="p-pill support-portfolio-card-pill">{t('Моушн')}</span>
-                          <h3 className="p-h3 support-portfolio-card-title">
-                            Кіберармія
-                            <br />
-                            Кампанія
-                          </h3>
-                        </div>
-                        <div className="p-shot support-portfolio-card-shot">
-                          <img src="/img/support/cyberarmy.png" alt="Cyberarmy Campaign" />
-                        </div>
-                        <span
-                          className="p-link support-portfolio-card-link"
-                          aria-hidden="true"
-                          style={{ ['--pIcon' as string]: "url('/img/behance.svg')" }}
-                        />
-                        <span className="p-go support-portfolio-card-go" aria-hidden="true">
-                          <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M7 17L17 7" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" />
-                            <path d="M9 7h8v8" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
-                          </svg>
-                        </span>
-                      </div>
-                    </a>
-                  </article>
+                  <SupportCaseSlides locale={locale} />
                 </div>
               </div>
 

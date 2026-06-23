@@ -33,7 +33,10 @@ export default function SupportPortfolioSwiper() {
     // це ламало і volunteer (3), і support (5: loop не вмикався, clones=0).
     // Дублюємо реальні слайди до ~9, щойно їх менше за ціль, щоб loop/autoplay
     // надійно працювали на обох сторінках.
-    const DUP_TARGET = 9
+    // Swiper 12 з loop:true + slidesPerView:'auto' НЕ клонує, поки слайдів не
+    // ~> 2× видимих карток коверфлоу (видно ~7). 10 (5+5) було замало → clones=0,
+    // луп «стрибав». Піднімаємо ціль, щоб слайдів вистачило на клони/безшовний цикл.
+    const DUP_TARGET = 21
     const DUP_BELOW = DUP_TARGET
     if (wrapper && realSlidesCount > 0 && realSlidesCount < DUP_BELOW) {
       const originals = Array.from(wrapper.querySelectorAll('.swiper-slide'))

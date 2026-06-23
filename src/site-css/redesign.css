@@ -175,11 +175,11 @@
     /* Відео 960×960: суб'єкт ~74% ширини, по центру кадру (прозорі поля ~13%
        з боків). Збільшуємо до 84rem, щоб фігура за розміром збіглася зі старим
        маскотом (~62rem суб'єкт); прозорі поля просто звисають невидимо. */
-    width: 84rem; height: auto;
+    width: 74rem; height: auto;    /* мельче (було 84rem) */
     max-width: none;               /* глобальний img{max-width:100%} тиснув у колонку */
     display: block;
     margin-right: -7rem;           /* центр суб'єкта = центр старого png */
-    margin-top: -15rem;            /* низ суб'єкта врівень із низом плашки, голова визирає вгору */
+    margin-top: -7rem;             /* компенсуємо меншу висоту, щоб низ лишився ~врівень */
     margin-bottom: 0;
     transform: none;
   }
@@ -831,11 +831,11 @@
   .testimonials .t-ph{ position: absolute; display: block; height: auto; }
   .testimonials .t-ph--iphone{ left: 0; top: 0; width: 100%; }
   .testimonials .t-ph--screen{ left: calc(18 * var(--s)); top: calc(15.5 * var(--s)); width: calc(351 * var(--s)); }
-  .testimonials .t-ph--hand{   left: calc(18 * var(--s)); top: calc(130.5 * var(--s)); width: calc(257 * var(--s)); }
+  .testimonials .t-ph--hand{   left: calc(18 * var(--s)); top: calc(45 * var(--s)); width: calc(257 * var(--s)); }   /* рука піднята вище (було 130.5) */
   .testimonials .t-finger{
     position: absolute;
     left: calc(var(--ph-x) + 79 * var(--s));
-    top:  calc(var(--ph-y) + 331 * var(--s));
+    top:  calc(var(--ph-y) + 331 * var(--s) - 6rem);   /* палець піднятий разом із картками */
     width: calc(90 * var(--s)); height: auto;
     z-index: 7; pointer-events: none;
   }
@@ -849,8 +849,8 @@
   /* Клип-обгортка: ЖОРСТКА обрізка по лінії (червона лінія в макеті) — картка
      при драгу зникає рівно на цій лінії (лівий край картки над екраном). */
   .testimonials .t-cards-clip{
-    position: absolute; inset: 0; z-index: 6; pointer-events: none;
-    --t-clip: calc(var(--ph-x) - 4 * var(--s));   /* лінія обрізки — на самому лівому краї телефону */
+    position: absolute; inset: -6rem 0 0 0; z-index: 6; pointer-events: none;   /* верх піднято на 6rem → картки + лінія обрізу їдуть вгору разом (клип не повертається) */
+    --t-clip: calc(var(--ph-x) + 18 * var(--s));   /* лінія обрізки — ЛІВИЙ край жовтого екрана телефону (картка ховається біля лівого краю екрана) */
     clip-path: inset(-30rem -30rem -30rem var(--t-clip));
     /* праворуч картки плавно йдуть В АЛЬФУ (а не у тёмний колір), вузько,
        на всю висоту картки — замість старого тёмного overlay .t-fadeRight. */

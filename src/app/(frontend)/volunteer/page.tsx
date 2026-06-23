@@ -3,6 +3,7 @@ import '../../../site-css/support-redesign.css'
 import '../../../site-css/volunteer.css'
 import VolunteerForm from '../../../components/VolunteerForm'
 import SupportPortfolioSwiper from '../../../components/SupportPortfolioSwiper'
+import SupportCaseSlides from '../../../components/portfolio/SupportCaseSlides'
 import ScriptOnMount from '../../../components/ScriptOnMount'
 import { getLocale } from '../../../lib/locale'
 import { makeT } from '../../../lib/t'
@@ -245,86 +246,7 @@ export default async function VolunteerPage() {
 
               <div className="swiper p-swiper support-portfolio-swiper" id="portfolioSwiper" aria-label="Cases slider">
                 <div className="swiper-wrapper">
-                  <article className="swiper-slide">
-                    <a href="/portfolio" rel="noopener">
-                      <div className="p-card support-portfolio-card">
-                        <svg className="p-zigzag support-portfolio-card-zigzag" aria-hidden="true" focusable="false">
-                          <use href="#pZigTop" />
-                        </svg>
-                        <div className="p-c">
-                          <span className="p-pill support-portfolio-card-pill">UI / UX</span>
-                          <h3 className="p-h3 support-portfolio-card-title">
-                            VYRIY —
-                            <br />
-                            Вебсайт
-                          </h3>
-                        </div>
-                        <div className="p-shot support-portfolio-card-shot">
-                          <img src="/img/cases/vyriy.png" alt="VYRIY — Вебсайт" />
-                        </div>
-                        <span className="p-go support-portfolio-card-go" aria-hidden="true">
-                          <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M7 17L17 7" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" />
-                            <path d="M9 7h8v8" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
-                          </svg>
-                        </span>
-                      </div>
-                    </a>
-                  </article>
-
-                  <article className="swiper-slide">
-                    <a href="/portfolio" rel="noopener">
-                      <div className="p-card support-portfolio-card">
-                        <svg className="p-zigzag support-portfolio-card-zigzag" aria-hidden="true" focusable="false">
-                          <use href="#pZigTop" />
-                        </svg>
-                        <div className="p-c">
-                          <span className="p-pill support-portfolio-card-pill">{t('Брендинг')}</span>
-                          <h3 className="p-h3 support-portfolio-card-title">
-                            Перший інтернаціональний
-                            <br />
-                            Легіон
-                          </h3>
-                        </div>
-                        <div className="p-shot support-portfolio-card-shot">
-                          <img src="/img/cases/strichka.png" alt="Перший інтернаціональний Легіон" />
-                        </div>
-                        <span className="p-go support-portfolio-card-go" aria-hidden="true">
-                          <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M7 17L17 7" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" />
-                            <path d="M9 7h8v8" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
-                          </svg>
-                        </span>
-                      </div>
-                    </a>
-                  </article>
-
-                  <article className="swiper-slide">
-                    <a href="/portfolio" rel="noopener">
-                      <div className="p-card support-portfolio-card">
-                        <svg className="p-zigzag support-portfolio-card-zigzag" aria-hidden="true" focusable="false">
-                          <use href="#pZigTop" />
-                        </svg>
-                        <div className="p-c">
-                          <span className="p-pill support-portfolio-card-pill">UI / UX</span>
-                          <h3 className="p-h3 support-portfolio-card-title">
-                            «Будь у Курсі» —
-                            <br />
-                            Вебсайт
-                          </h3>
-                        </div>
-                        <div className="p-shot support-portfolio-card-shot">
-                          <img src="/img/cases/15krokiv.png" alt="«Будь у Курсі» — Вебсайт" />
-                        </div>
-                        <span className="p-go support-portfolio-card-go" aria-hidden="true">
-                          <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M7 17L17 7" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" />
-                            <path d="M9 7h8v8" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
-                          </svg>
-                        </span>
-                      </div>
-                    </a>
-                  </article>
+                  <SupportCaseSlides locale={locale} />
                 </div>
               </div>
 

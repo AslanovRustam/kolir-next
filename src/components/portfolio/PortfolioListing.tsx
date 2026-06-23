@@ -7,11 +7,21 @@ import Filters from './Filters'
 import WorkCard from './WorkCard'
 import { getUI, getCatLabels, getSortOptions, type FilterKey, type SortKey } from './i18n'
 
-export default function PortfolioListing({ locale = 'uk' }: { locale?: 'uk' | 'en' }) {
+export default function PortfolioListing({
+  locale = 'uk',
+  allowedIds,
+}: {
+  locale?: 'uk' | 'en'
+  /** Ids видимих на цій локалі кейсів (рахується на сервері по наявності картинок). */
+  allowedIds?: string[]
+}) {
   const [filter, setFilter] = useState<FilterKey>('All')
   const [sort, setSort] = useState<SortKey>('newest')
 
-  const localizedAll = useMemo(() => CASES.map((w) => localizeCase(w, locale)), [locale])
+  const localizedAll = useMemo(() => {
+    const src = allowedIds ? CASES.filter((w) => allowedIds.includes(w.id)) : CASES
+    return src.map((w) => localizeCase(w, locale))
+  }, [locale, allowedIds])
   const UI = getUI(locale)
   const catLabels = getCatLabels(locale)
   const sortOptions = getSortOptions(locale)
@@ -28,9 +38,20 @@ export default function PortfolioListing({ locale = 'uk' }: { locale?: 'uk' | 'e
     return list
   }, [filter, sort, localizedAll])
 
-  // Reveal-on-scroll (transcribed from the static App effect).
+  // Reveal-on-scroll. Залежить від `filtered`: при зміні локалі/фільтра/сортування
+  // набір карток змінюється, тож ефект перезапускається. Картки, що ВЖЕ у вьюпорті,
+  // проявляємо СИНХРОННО (не чекаємо асинхронний колбек обсервера) — інакше при
+  // клієнтському перемиканні мови нові/перемонтовані картки лишались прозорими
+  // «дірками». Решту (нижче згину) довідкривають обсервером на скролі.
   useEffect(() => {
-    const els = document.querySelectorAll('.reveal')
+    const els = Array.from(document.querySelectorAll<HTMLElement>('.reveal'))
+    const inView = (el: HTMLElement) => {
+      const r = el.getBoundingClientRect()
+      return r.top < window.innerHeight && r.bottom > 0
+    }
+    els.forEach((el) => {
+      if (inView(el)) el.classList.add('in')
+    })
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -42,9 +63,11 @@ export default function PortfolioListing({ locale = 'uk' }: { locale?: 'uk' | 'e
       },
       { threshold: 0.06 },
     )
-    els.forEach((el) => io.observe(el))
+    els.forEach((el) => {
+      if (!el.classList.contains('in')) io.observe(el)
+    })
     return () => io.disconnect()
-  }, [filter, sort])
+  }, [filtered])
 
   return (
     <div className="min-h-screen pt-[7.5rem] md:pt-[12rem] pb-12">
