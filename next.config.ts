@@ -14,6 +14,11 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // public/ (відео/великі картинки кейсів, ~900МБ) роздається статикою через CDN
+  // і НЕ має потрапляти в бандл serverless-функцій (інакше перевищується ліміт 300МБ).
+  outputFileTracingExcludes: {
+    '*': ['public/**'],
+  },
   webpack: (webpackConfig) => {
     webpackConfig.resolve.extensionAlias = {
       '.cjs': ['.cts', '.cjs'],
