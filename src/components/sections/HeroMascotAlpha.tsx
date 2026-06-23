@@ -22,7 +22,9 @@ void main(){
   // маска прозорості — нижня (t∈[0,0.5]). uv.y: 0 — низ, 1 — верх.
   vec3 rgb = texture2D(tex, vec2(uv.x, 0.5 + uv.y * 0.5)).rgb;
   float a  = texture2D(tex, vec2(uv.x, uv.y * 0.5)).r;
-  gl_FragColor = vec4(rgb, a);
+  // Premultiplied: canvas композититься як premultiplied, тож множимо колір на альфу.
+  // Інакше напівпрозорі ділянки (краї, серпанок) проступають повним кольором (рожева підкладка).
+  gl_FragColor = vec4(rgb * a, a);
 }
 `
 
@@ -34,10 +36,9 @@ export default function HeroMascotAlpha({ alt }: { alt: string }) {
     const canvas = canvasRef.current
     if (!canvas) return
 
-    const gl = (canvas.getContext('webgl', { premultipliedAlpha: false, alpha: true }) ||
-      canvas.getContext('experimental-webgl', { premultipliedAlpha: false, alpha: true })) as
-      | WebGLRenderingContext
-      | null
+    const opts = { premultipliedAlpha: true, alpha: true }
+    const gl = (canvas.getContext('webgl', opts) ||
+      canvas.getContext('experimental-webgl', opts)) as WebGLRenderingContext | null
     if (!gl) {
       setFailed(true)
       return
