@@ -2,6 +2,31 @@
 
 This template comes configured with the bare minimum to get started on anything you need.
 
+## Кейси портфоліо та зображення (важливо перед деплоєм)
+
+Зображення кейсів лежать у `public/images/<case>/...`. Для локалізованих кейсів
+використовуються підпапки `ua` та `en` (шлях у даних кейса містить `{lang}`,
+напр. `images/edu-lms/{lang}/1.jpg`).
+
+Видимість кейса по локалях визначається наявністю папок `ua`/`en` і
+**предвичислюється на білді** у файл `src/data/case-locales.json` скриптом
+[`scripts/gen-case-locales.ts`](scripts/gen-case-locales.ts). У рантаймі застосунок
+читає лише цей JSON — папка `public/` не сканується (інакше вона цілком потрапляє
+у serverless-функцію Vercel і перевищує ліміт розміру).
+
+**Що робити при додаванні / оновленні картинок кейсів:**
+
+1. Поклади зображення у `public/images/<case>/` (для локалізованих — у `ua` / `en`).
+2. Перегенеруй карту локалей:
+   ```bash
+   npm run gen:case-locales
+   ```
+3. Закоміть разом зі зображеннями і `src/data/case-locales.json`, потім пуш — Vercel задеплоїть.
+
+> Скрипт також автоматично запускається перед кожною збіркою (`prebuild`), тож на
+> Vercel карта завжди свіжа. Ручний запуск потрібен, щоб одразу побачити зміни
+> локально (`npm run dev`) і щоб закоммітити актуальний JSON.
+
 ## Quick start
 
 This template can be deployed directly from our Cloud hosting and it will setup MongoDB and cloud S3 object storage for media.
