@@ -21,7 +21,7 @@ export default function Testimonials({ content: c }: { content: TestimonialsCont
   useEffect(() => {
     const el = elRef.current
     if (!el) return
-    const mq = window.matchMedia('(max-width: 1000px)')
+    const mq = window.matchMedia('(max-width: 1199px)') /* мобільна раскладка відгуків до 1199 (планшет) → центруємо картки */
     const isMobile = () => mq.matches
     let sw: Swiper | null = null
     let lastMobile = isMobile()

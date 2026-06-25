@@ -6,7 +6,7 @@
    Figma px @1920 × 0.075 = rem. Підключається ОСТАННІМ.
    ========================================================================= */
 
-@media (min-width: 1001px){
+@media (min-width: 768px){
 
   /* ─────────────────────────  ХЕРО — 3 статуї  ───────────────────────── */
 
@@ -85,7 +85,7 @@
 
   /* ─────────────────────────  БЛОК «Робимо все»  ─────────────────────── */
   .volunteer-page .vol-about{
-    width: min(120rem, calc(100% - 4rem));
+    width: min(140rem, calc(100% - 4rem));
     margin: 8rem auto 0;
   }
   .volunteer-page .vol-about-inner{
@@ -214,7 +214,7 @@
   /* ─────────────  ФОРМА ЗАЯВКИ — клон секції з головної (.contactk)  ───────────── */
   /* Темна підкладка секції */
   .volunteer-page .contactk{ margin-top: 9rem; }
-  .volunteer-page .contactk-shell{ width: min(120rem, calc(100% - 4rem)); margin: 0 auto; }
+  .volunteer-page .contactk-shell{ width: min(140rem, calc(100% - 4rem)); margin: 0 auto; }
   .volunteer-page .contactk-card{
     position: relative; overflow: hidden;
     background: var(--c-2c0060);
@@ -373,7 +373,7 @@
 }
 
 /* ─────────────────────────  МОБІЛЬНІ  ───────────────────────── */
-@media (max-width: 1000px){
+@media (max-width: 767px){
   /* ── ХЕРО (моб): текст зверху, 3 статуї стрічкою знизу (стек) ──
      Скидаємо успадковану від support-page.css машинерію статуї:
      ::before-скрайбл, absolute-picture, фіксовану ширину «однієї статуї». */

@@ -13,8 +13,12 @@ const LOGOS = [
 ]
 
 export default async function Hero() {
-  // дублюємо логотипи для безшовної стрічки
-  const logos = [...LOGOS, ...LOGOS]
+  // Безшовна стрічка: трек = кілька копій набору. Анімація зсуває рівно на ОДНУ
+  // копію (logo-marquee.js рахує зсув по data-copy-len). Двох копій було мало —
+  // одна копія (~5 лого) вужча за контейнер, тож праворуч під час циклу
+  // з'являвся розрив. 5 копій ⇒ після зсуву на 1 копію лишається 4 — стрічка
+  // завжди заповнена.
+  const logos = Array.from({ length: 5 }, () => LOGOS).flat()
 
   // Контент героя з Payload CMS за поточною локаллю (uk/en)
   const locale = await getLocale()
@@ -54,7 +58,7 @@ export default async function Hero() {
         <div className="trusted">
           <div className="label">{t('Нам довіряють')}</div>
           <div className="logos" id="logos">
-            <div className="logos-track" id="logosTrack" aria-label="Trusted logos">
+            <div className="logos-track" id="logosTrack" data-copy-len={LOGOS.length} aria-label="Trusted logos">
               {logos.map((l, i) => (
                 <div className="logo-item logo-swap" key={i}>
                   <img className="logo-img logo-img-default" src={l.d} alt={l.alt} />

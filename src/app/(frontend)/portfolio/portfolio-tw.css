@@ -78,8 +78,9 @@
 .portfolio-root {
   /* Плавна одиниця як на решті сайту: 1u = 1rem головної = calc(100vw/1440*10).
      Дає контент шириною 120u по центру (як хедер/футер) + гатери 4u — точно
-     як у статичному portfolio.html. */
-  --u: calc(100vw / 1440 * 10);
+     як у статичному portfolio.html. РЕЗИНА: застигає на 10px (дизайн) — як root
+     font-size, контент не зумиться, а центрується полями. */
+  --u: 10px;
 
   /* Tailwind v4 рахує всі p-/m-/gap-/w-/h- від --spacing (деф. 0.25rem), а radius
      від --radius-*. На решті сайту html font-size плавний (~8px), тож rem-утиліти
@@ -99,9 +100,14 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-@media (max-width: 1000px) {
+@media (max-width: 1199px) and (min-width: 768px) {
   .portfolio-root {
-    --u: calc(100vw / 390 * 10);
+    --u: min(calc(100vw / 1024 * 10), 10px); /* tablet → стеля 10px (резина) */
+  }
+}
+@media (max-width: 767px) {
+  .portfolio-root {
+    --u: min(calc(100vw / 390 * 10), 12.3px);
   }
 }
 .portfolio-root h1,

@@ -74,7 +74,7 @@ export default function PortfolioListing({
       {/* Контент = 120u по центру (як хедер/футер сайту), гатери 4u — як у статиці */}
       <div
         style={{
-          width: 'min(calc(120 * var(--u)), calc(100% - calc(4 * var(--u))))',
+          width: 'min(calc(160 * var(--u)), calc(100% - calc(4 * var(--u))))',
           marginLeft: 'auto',
           marginRight: 'auto',
         }}

@@ -1,8 +1,34 @@
-    /* Контент масштабується з шириною до 1920px, далі — стоп: root застигає на
-       значенні @1920 (13.3333px), тож контент (120rem) лишається 1600px і не
-       росте на ширших екранах (>1920) — лише збільшуються бічні поля. */
-    html { font-size: min(calc(100vw / 1440 * 10), 13.3333px); }
-    @media (max-width: 1000px) { html { font-size: calc(100vw / 390 * 10); } }
+    /* ═══════════════════════════════════════════════════════════════════════
+       СИСТЕМА БРЕЙКПОЇНТІВ KOLIR — ЄДИНЕ ДЖЕРЕЛО ПРАВДИ
+       Нових значень НЕ вводити; усе — лише з цього набору.
+       ───────────────────────────────────────────────────────────────────────
+       БАЗОВІ (раскладка + шкала):
+         sm   ≤ 420px   телефон (дрібний) — точкові правки розмірів.
+         md   768px     мобілка (≤767) ↔ планшет/десктоп (≥768). Кінець
+                        мобільної вёрстки. ГОЛОВНИЙ брейкпоінт (≈163 правила).
+         lg   1200px    планшет (768–1199) ↔ десктоп (≥1200). Зміна канви
+                        1024→1440; rubber-елементи стають constant.
+         xl   1600px    стеля контенту: плашка .shell=160rem=1600px, колонка
+                        140rem=1400px; ширше — лише центрування полями.
+       ХРОМОВІ (тільки хедер):
+         900px          бургер (≤899) ↔ повне меню (≥900).
+         1300px         «Контакти» у меню показуються (>1300).
+       ───────────────────────────────────────────────────────────────────────
+       РЕЗИНА (не зум): весь сайт у rem; root font-size ПОСТІЙНИЙ = дизайн 10px
+       на ≥1024 (768→1024 плавний підйом, моб — 390-канва). Тож текст/відступи
+       НЕ зумляться з шириною — лишаються дизайн-розміру; ширини контенту
+       (.shell 160rem=1600, колонка 140rem=1400, --u·140 портфоліо) центруються
+       полями на широких. Хедер/футер мають ще й власну clamp-шкалу (constant
+       на десктопі, стеля 1200) — див. override.css.
+       NB: app/(frontend)/styles.css = мертвий boilerplate Payload (не
+       імпортується) — до системи НЕ належить.
+       ═══════════════════════════════════════════════════════════════════════ */
+    /* РЕЗИНА (не зум): root застигає на дизайн-розмірі 10px на десктопі/планшеті
+       (≥1024) — текст і відступи ПОСТІЙНІ, не ростуть з шириною; контент центрується
+       полями. 768→1024 — плавний підйом до 10px. Мобілка (390-канва) без змін. */
+    html { font-size: 10px; }
+    @media (max-width: 1199px) and (min-width: 768px) { html { font-size: min(calc(100vw / 1024 * 10), 10px); } }
+    @media (max-width: 767px) { html { font-size: min(calc(100vw / 390 * 10), 12.3px); } }
 
 
 
@@ -75,11 +101,11 @@
   overflow-x: clip;
   overflow-y: clip;
     }
-    @media (max-width: 1000px) { .kolir-page { padding: .6rem; } }
+    @media (max-width: 767px) { .kolir-page { padding: .6rem; } }
 
-    .shell { max-width: 137.6rem; margin: 0 auto; }
+    .shell { max-width: 160rem; margin: 0 auto; }
 
-    @media (max-width: 1000px) {
+    @media (max-width: 767px) {
       html { height: 100%; overflow: hidden; }
       body {
         height: 100%;
@@ -101,7 +127,7 @@
       overflow: visible;
     }
 
-    @media (max-width: 1000px){
+    @media (max-width: 767px){
       .hero-card{
         background: var(--c-2c0060);
         border-radius: 5rem;
@@ -176,7 +202,7 @@
     .m-top{ display:none; }
     .m-menu{ display:none; }
 
-    @media (max-width: 1000px){
+    @media (max-width: 899px){   /* хедер: бургер до 899 (контентний брейкпоінт лишається 768) */
       .hero-head{ display:none; }
 
       .m-top{
@@ -511,7 +537,7 @@
       );
     }
 
-    @media (max-width: 1000px){
+    @media (max-width: 767px){
       .logos::before,
       .logos::after{
         width: 6rem;
@@ -581,7 +607,7 @@
       100%{ transform: translateX(calc(-1 * var(--shift))); }
     }
 
-    @media (max-width: 1000px){
+    @media (max-width: 767px){
       .hero { overflow: visible; }
 		
 	
@@ -732,7 +758,7 @@
 
 .services-content{ position: relative; z-index: 2; }
 
-@media (max-width: 1000px){
+@media (max-width: 767px){
       .services-scribble-left {
         left: 26rem;
         top: -15rem;
@@ -762,7 +788,7 @@
 
 .aboutss-content{ position: relative; z-index: 2; }
 
-@media (max-width: 1000px){
+@media (max-width: 767px){
   .aboutss-scribble-left{
     left: -10rem;
     top: -12rem;
@@ -789,7 +815,7 @@
   height: auto;
   display: block;
 }
-@media (max-width: 1000px){
+@media (max-width: 767px){
   .aboutss-scribble-right{ display: none; }
 }
 
@@ -812,7 +838,7 @@
   height: auto;
   display: block;
 }
-@media (max-width: 1000px){
+@media (max-width: 767px){
   .footer-scribble-left{ display: none; }
 }
 
@@ -835,7 +861,7 @@
   height: auto;
   display: block;
 }
-@media (max-width: 1000px){
+@media (max-width: 767px){
   .footer-scribble-right{ display: none; }
 }
 
@@ -1151,7 +1177,7 @@
 .vector-s1{ left:-15rem; top:4rem; width:51rem; transform:rotate(0deg); color: var(--c-yellow2); }
 .vector-s2{ right:0rem; top:-2rem; width:37rem; transform:rotate(0deg); color: var(--c-yellow2); }
 
-@media (max-width: 1000px){
+@media (max-width: 767px){
   .services{
     margin-top: 4rem;     /* більший відступ від секції кейсів (не налазить на CTA) */
     padding: .6rem;
@@ -1276,7 +1302,7 @@
     margin-top: 0rem;
     position: relative;
     }
-    @media (max-width: 1000px){
+    @media (max-width: 767px){
       .portfolio{ padding: 4.4rem 1rem 5.2rem; margin-top: 1.2rem; }
     }
 
@@ -1287,7 +1313,7 @@
       gap: 3rem;
       padding: 0 9rem;
     }
-    @media (max-width: 1000px){
+    @media (max-width: 767px){
       .portfolio-head{ padding: 0 2.2rem; flex-direction:column; gap: 1.6rem; }
     }
 
@@ -1299,7 +1325,7 @@
       letter-spacing: -0.02em;
       color: var(--yellow);
     }
-    @media (max-width:1000px){
+    @media (max-width:767px){
       .p-title{ font-size: 5.2rem; }
     }
 
@@ -1311,7 +1337,7 @@
       color: var(--c-white);
       font-weight: 400;
     }
-    @media (max-width:1000px){
+    @media (max-width:767px){
       .p-sub{ margin-top: 1.2rem; font-size: 1.4rem; max-width: 34rem; }
     }
 
@@ -1330,7 +1356,7 @@
       padding-top: .6rem;
       min-width: 18rem;
     }
-    @media (max-width:1000px){
+    @media (max-width:767px){
       .p-right{ padding-top: 0; justify-content:flex-start; }
       .p-mini{display: none !important;}
     }
@@ -1357,7 +1383,7 @@
       padding: 0 9rem;
       position: relative;
     }
-    @media (max-width: 1000px){
+    @media (max-width: 767px){
       .p-stage{ padding: 0 2.2rem; margin-top: 3.2rem; }
     }
 
@@ -1384,7 +1410,7 @@
     .p-stage-inner::after{
       right: -1rem;
     }
-    @media (max-width: 1000px){
+    @media (max-width: 767px){
       .p-stage-inner::before,
       .p-stage-inner::after{ width: 10rem; }
     }
@@ -1402,7 +1428,7 @@
       pointer-events:none;
       user-select:none;
     }
-    @media (max-width:1000px){
+    @media (max-width:767px){
       .p-back-scribble{ width: 64rem; top: 6.2rem; opacity:.14; }
     }
 
@@ -1426,7 +1452,7 @@
       will-change: transform, filter, opacity;
       transition: transform 650ms ease, filter 350ms ease, opacity 350ms ease;
     }
-    @media (max-width:1000px){
+    @media (max-width:767px){
       .p-swiper .swiper-slide{ width: 29.0rem; }
     }
 
@@ -1478,7 +1504,7 @@
       z-index: 2;
       max-width: 28rem;
     }
-    @media (max-width:1000px){
+    @media (max-width:767px){
       .p-h3{ font-size: 2.8rem; }
     }
 
@@ -1492,7 +1518,7 @@
       justify-content:center;
       z-index: 2;
     }
-    @media (max-width:1000px){
+    @media (max-width:767px){
       .p-shot{ height: 26.6rem; border-radius: 3.0rem; }
     }
 
@@ -1564,7 +1590,7 @@
       }
     }
 
-    @media (max-width:1000px){
+    @media (max-width:767px){
       .p-nav{ width: 5.6rem; height: 5.6rem; }
       .p-prev{ left: 0.8rem; }
       .p-next{ right: 0.8rem; }
@@ -1676,7 +1702,7 @@
       background: var(--yellow);
       width: 5rem;
     }
-    @media (max-width:1000px){
+    @media (max-width:767px){
       .p-progress-bar{ width: 30rem; height: 4.4rem; background: #ffffff00; }
       .p-progress-dot{ width: 5.2rem; background-color: var(--c-161616); }
     }
@@ -1709,7 +1735,7 @@
       z-index: 3;
     }
 
-    @media (max-width:1000px){
+    @media (max-width:767px){
       .p-zigzag{
     top: -23rem;
             left: 29rem;
@@ -1784,7 +1810,7 @@
   position: relative;
 	margin-bottom: 10rem;
 }
-@media (max-width:1000px){
+@media (max-width:767px){
   .briefs{ padding: 0rem 1rem 0rem ; margin-top: 0rem; margin-bottom:4rem; }
 }
 
@@ -1796,7 +1822,7 @@
   overflow:hidden;
   isolation:isolate;
 }
-@media (max-width:1000px){
+@media (max-width:767px){
   .briefs-card{
      overflow: visible;
     border-radius: 3rem;
@@ -2036,7 +2062,7 @@ position: absolute;
   height:auto;
 }
 
-@media (min-width: 1001px) {
+@media (min-width: 768px) {
 	
 	.briefs-panel-left, .briefs-panel-right{
 		
@@ -2062,7 +2088,7 @@ position: absolute;
 }
 
 .briefs-heroimg{ display:none; }
-@media (max-width:1000px){
+@media (max-width:767px){
 
   .briefs-tab{
 border-radius: 999rem;
@@ -2240,7 +2266,7 @@ border-radius: 999rem;
 .briefs-head,
 .briefs-body{ position: relative; z-index: 2; }
 
-@media (max-width:1000px){
+@media (max-width:767px){
   .briefs-bg-right{
     display: none;
   }
@@ -2278,7 +2304,7 @@ border-radius: 999rem;
     background: linear-gradient(90deg, rgba(26, 26, 26, 0) 0%, rgba(26, 26, 26, 0.55) 45%, rgba(26, 26, 26, 1) 100%);
 }
 
-@media (min-width: 1001px){
+@media (min-width: 768px){
  
   .briefs-tab:last-child.is-active::after{
     content: none;
@@ -2290,14 +2316,14 @@ border-radius: 999rem;
 }
 
 /*  */
-@media (min-width: 1001px){
+@media (min-width: 768px){
 
   .briefs-tab:last-child.is-active::after{
     content: none;
   }
 }
 
-@media (min-width: 1001px){
+@media (min-width: 768px){
 
   .briefs-tabs{ overflow: visible; position: relative; }
 
@@ -2405,7 +2431,7 @@ border-radius: 999rem;
 .briefs-panel-left,
 .briefs-panel-right{ position:relative; z-index:2; }
 
-@media (max-width:1000px){
+@media (max-width:767px){
   .briefs-panel-scribble{ display:none; }
 }
 
@@ -2437,7 +2463,7 @@ border-radius: 999rem;
   z-index: 2;
 }
 
-@media (max-width: 1000px){
+@media (max-width: 1199px){  /* tablet → мобільна раскладка відгуків */
   .t-scribble{
     left: -45rem;
     top: 40%;
@@ -2734,14 +2760,14 @@ border-radius: 999rem;
   background: var(--ts-yellow);
 }
 
-@media (min-width:1001px){
+@media (min-width:1200px){
  .t-kicker {
   margin-bottom: 3rem;
   display: none;
  } 
  
 }
-@media (max-width:1000px){
+@media (max-width:1199px){
   .testimonials{ padding: 2.6rem 0 2.6rem; }   /* менші відступи над/під блоком */
   .t-shell{ width: 100%; }
 
@@ -2797,7 +2823,7 @@ border-radius: 999rem;
     bottom: 0;
     padding: 0;
   }
-  .t-swiper .swiper-slide{ width: calc(97vw - 5rem); }
+  .t-swiper .swiper-slide{ width: min(calc(97vw - 5rem), 60rem); }   /* стеля 600px — на планшеті картка не на всю ширину */
   .t-progress{
     position:relative;
     left:auto;
@@ -2962,7 +2988,7 @@ display: inline-flex;
 }
 
 
-@media (max-width: 1000px){
+@media (max-width: 767px){
   .aboutk{ padding: 4rem 0 4.5rem; }
   .aboutk-shell{ 
   padding: 0;
@@ -3231,7 +3257,7 @@ display: inline-flex;
 .ck-send:hover{
   opacity: 0.9;
 }
-@media (min-width: 1001px){
+@media (min-width: 768px){
       .contactk-head-right {
         display: flex;
         flex-direction: column;
@@ -3267,7 +3293,7 @@ display: inline-flex;
   }
 }
 
-@media (max-width: 1000px){
+@media (max-width: 767px){
   .ck-txt{
   font-size: 1.5rem;
   color: var(--c-white);
@@ -3317,7 +3343,7 @@ display: inline-flex;
 }
 
 /* ===== Контакти — мобільні доопрацювання ===== */
-@media (max-width: 1000px){
+@media (max-width: 767px){
   /* 2 декоративні завитки прибираємо */
   .contactk .contactk-deco{ display: none; }
 
@@ -3363,11 +3389,11 @@ display: inline-flex;
 /* FOOTER  */
 .footerk{
 
-  padding: 4rem 0 0rem 0;
+  padding: 4rem 0 3rem 0;   /* відступ знизу, щоб нижній рядок не липнув до краю */
 	background-color: var(--c-222222);
 }
 .footerk-shell{
-  width: min(120rem, calc(100% - 4rem));   /* однаковий футер на всіх сторінках (як на головній) */
+  width: min(160rem, calc(100% - 4rem));   /* однаковий футер на всіх сторінках (як на головній) */
   margin: 0 auto;
 }
 .footerk-top{
@@ -3447,7 +3473,7 @@ opacity: 0.6;
   text-underline-offset: .25em;
 }
 
-@media (max-width: 1000px){
+@media (max-width: 767px){
 
   .footerk-legal{
       text-align: center;
@@ -3648,7 +3674,7 @@ clip-path: inset(0 0 var(--cutB) var(--bleedL) round 3rem);
   display: block;
 }
 
-@media (max-width: 1000px){
+@media (max-width: 767px){
   .aboutk-shell{
     padding: 0 !important;
   }
@@ -3695,7 +3721,7 @@ clip-path: inset(0 0 var(--cutB) var(--bleedL) round 3rem);
 
 .br-desktop { display: inline; }
 
-@media (max-width: 1000px){
+@media (max-width: 767px){
   .br-desktop { display: none; }
 }
 
@@ -3715,7 +3741,7 @@ clip-path: inset(0 0 var(--cutB) var(--bleedL) round 3rem);
 /* 	 mob	 */
 .lang-switch--mob{ display:none; }
 
-@media (max-width: 1000px){
+@media (max-width: 767px){
   .lang-switch--mob{ display:inline-flex; position:relative; }
 
   .lang-switch--mob .m-lang{
@@ -3970,7 +3996,7 @@ clip-path: inset(0 0 var(--cutB) var(--bleedL) round 3rem);
 }
 .lang-dd__pill:hover{ filter: brightness(1.06); }
 
-@media (max-width: 1000px){
+@media (max-width: 767px){
   .lang-switch--pc{ display: none; }
 }
 
@@ -3982,7 +4008,7 @@ clip-path: inset(0 0 var(--cutB) var(--bleedL) round 3rem);
 
 
 
-@media (max-width: 1000px) {
+@media (max-width: 767px) {
   .briefs-tabs{
     --fade: 2.5rem;
     -webkit-mask-image: linear-gradient(to right,
@@ -4070,7 +4096,7 @@ article a {
 }
 
 .pp-container{
-  width: min(122rem, calc(100% - 3rem));
+  width: min(142rem, calc(100% - 3rem));
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -4167,7 +4193,7 @@ article a {
 }
 
 
-@media (max-width: 1000px){
+@media (max-width: 767px){
   .pp{
     padding: 2.5rem 0 4rem;
     --pp-radius: 1.75rem;
@@ -4309,7 +4335,7 @@ article a {
 
 /*  */
 
-@media (min-width: 1001px) {
+@media (min-width: 768px) {
   #logos {
     overflow: hidden !important;
   }

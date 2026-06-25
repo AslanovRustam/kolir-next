@@ -3,7 +3,7 @@
    Макет-точні стилі для секцій, переверстаних під Figma «Kolir | UI Website 1.0».
    Підключається ОСТАННІМ — перекриває style.css там, де секція оновлена.
    Конвертація розмірів: px(макет@1920) × 0.075 = rem (бо root = 1rem≈10px@1440).
-   Десктоп: @media (min-width:1001px). Мобільне лишається на старих правилах.
+   Десктоп: @media (min-width:768px). Мобільне лишається на старих правилах.
    ========================================================================= */
 
 /* Декоративні завитки форми — лише на десктопі (на мобільному ховаємо) */
@@ -12,7 +12,7 @@
 /* Стрілковий навігатор брифів — лише на мобільному (десктоп ховаємо) */
 .briefs2-tabnav{ display: none; }
 /* Пагінація слайдера послуг — лише на мобільному (на десктопі ховаємо) */
-@media (min-width: 1001px){ .services-dots{ display: none; } }
+@media (min-width: 768px){ .services-dots{ display: none; } }
 
 /* ===================== ХЕДЕР: пункт «Допомога Україні» ===================== */
 .nav-help{ display: inline-flex; align-items: center; }
@@ -27,25 +27,25 @@
 }
 
 /* ===================== HERO ===================== */
-@media (min-width: 1001px){
+@media (min-width: 768px){
 
   /* Двошарка: світла карточка (#5e00cf) на темному фоні (#3e0088) —
      лишаємо як у style.css, нічого не перекриваємо. */
 
   /* ── Хедер і контент однакової ширини: 120rem = 1600px @1920 ── */
-  .sticky-nav{ width: min(120rem, calc(100% - 4rem)); }
+  .sticky-nav{ width: min(160rem, calc(100% - 4rem)); }
 
   /* Прибираємо бічні падінги зовнішньої карточки, центруємо контент у 120rem */
   .hero .hero-card{ padding-left: 0; padding-right: 0; }
   .hero .hero-inner{
-    width: min(120rem, calc(100% - 4rem));
+    width: min(140rem, calc(100% - 4rem));
     margin-left: auto;
     margin-right: auto;
     padding: 0 0 0 6rem;        /* лівий інсет 80px@1920, як у макеті */
     min-height: 51rem;          /* висота карточки 680px@1920 */
   }
   .hero .trusted{
-    width: min(120rem, calc(100% - 4rem));
+    width: min(140rem, calc(100% - 4rem));
     margin-left: auto;
     margin-right: auto;
     padding: 0 6rem;
@@ -188,7 +188,7 @@
 /* ===================== HERO — МОБІЛЬНИЙ (≤1000px) =====================
    Прибираємо «кашу»: текст більше не лежить поверх дівчини. Вертикальний
    стек — спершу весь текст+CTA, нижче по центру дівчина (contained). */
-@media (max-width: 1000px){
+@media (max-width: 767px){
   /* Декор-стрічки (вишиванка) на моб не масштабовані (~106rem заввишки) і
      вилазили далеко вниз за плашку хіро — аж на «Нам Довіряють» і заголовок
      «Портфоліо». Обрізаємо декор по плашці (overflow:hidden десктоп має, на моб
@@ -241,7 +241,7 @@
 /* ===================== КОНТАКТИ (секція з формою) ===================== */
 /* Макет: контент 1442px@1920 = 108rem; фон секції #2c0060 r80;
    жовта карточка-форма зверху, ряд із 3 карток #3e0088 знизу. */
-@media (min-width: 1001px){
+@media (min-width: 768px){
 
   /* Темна підкладка секції */
   .contactk-card{
@@ -434,18 +434,18 @@
 /* ===================== ПОРТФОЛІО — кейси під hero ===================== */
 /* Копія блоку 3 кейсів зі сторінки support, контент замінено, додано нижній
    рядок з кнопкою. Контент 1600px@1920 = 120rem (як hero/хедер). */
-@media (min-width: 1001px){
+@media (min-width: 768px){
   .hcases{
-    width: min(120rem, calc(100% - 4rem));
+    width: min(160rem, calc(100% - 4rem));
     margin: 9rem auto 0;
   }
   /* «Наші послуги» мали negative margin-top (наїзд на hero); після блоку
      портфоліо з нижнім рядком-кнопкою опускаємо секцію нижче. */
   .hcases + .services{ margin-top: 12rem; }
 
-  /* Жовта карточка послуг — на 120rem (1600@1920), вровень з рештою.
-     .services 137.6rem; padding 8.8rem → карточка 120rem, по центру. */
-  .services{ padding-left: 8.8rem; padding-right: 8.8rem; }
+  /* Жовта карточка послуг — на ВСЮ ширину контенту (.services = 160rem = 1600).
+     Прибрали бічний padding 8.8rem (раніше звужував картку до 1424). */
+  .services{ padding-left: 0; padding-right: 0; }
   .hcases-title{
     margin: 0 0 3rem;
     text-align: center;
@@ -571,7 +571,7 @@
 }
 
 /* ── ПОРТФОЛІО — мобільна версія (щоб не ламалось) ── */
-@media (max-width: 1000px){
+@media (max-width: 767px){
   .hcases{ width: auto; margin: 6rem 0 0; }
   .hcases-title{
     margin: 0 0 3rem; text-align: center;
@@ -638,7 +638,7 @@
 /* ===================== МАЄТЕ ІДЕЮ — брифи v2 (node 5596-8983) ===================== */
 /* Шапка + рядок табів зверху + БІЛА карточка (текст лівор., шар правор.) + точки.
    Контент 1596px@1920 = 120rem. */
-@media (min-width: 1001px){
+@media (min-width: 768px){
   .briefs--v2{ position: relative; }
   .briefs--v2 .briefs2{
     position: relative;
@@ -655,7 +655,7 @@
   .briefs2-head,
   .briefs2-component{
     position: relative; z-index: 1;
-    width: min(120rem, calc(100% - 8rem));
+    width: min(140rem, calc(100% - 8rem));
     margin-left: auto;
     margin-right: auto;
   }
@@ -771,7 +771,7 @@
 }
 
 /* ── Брифи v2 — мобільне (щоб не ламалось) ── */
-@media (max-width: 1000px){
+@media (max-width: 767px){
   .briefs--v2 .briefs2{ background: var(--c-3e0088); border-radius: 4rem; padding: 4rem 2.4rem; }
   .briefs2-decor, .briefs2-ribbon{ display: none; }   /* стрічки прибираємо на мобілці */
   .briefs2-head{ display: flex; flex-direction: column; align-items: flex-start; gap: 2.4rem; margin-bottom: 3.2rem; }
@@ -815,7 +815,7 @@
 }
 
 /* ===================== ВІДГУКИ — testimonials v2 (node 5596-57157) ===================== */
-@media (min-width: 1001px){
+@media (min-width: 1200px){
   /* Телефон зі слоїв (iphone/screen/hand/finger). ВАЖЛИВО: усі шари рухаються
      та масштабуються як ОДНЕ ціле — позиції/розміри рахуються від спільних
      --ph-x/--ph-y/--ph-w і єдиного масштабу --s (= --ph-w/386, ширина айфона
@@ -896,11 +896,11 @@
 }
 
 /* ===================== ПРО КОЛІР — about v2 (node 5596-105378) ===================== */
-@media (min-width: 1001px){
+@media (min-width: 768px){
   /* прибираємо базовий margin-bottom:-6rem — він затягував секцію контактів
      угору й перекривав цитату «Засновник» унизу картки */
   .aboutk--v2{ margin-bottom: 0 !important; padding-bottom: 4rem; }
-  .aboutk--v2 .aboutk-shell{ width: min(120rem, calc(100% - 4rem)); max-width: none; margin: 0 auto; padding: 0 !important; }
+  .aboutk--v2 .aboutk-shell{ width: min(140rem, calc(100% - 4rem)); max-width: none; margin: 0 auto; padding: 0 !important; }
   .aboutk--v2 .aboutk-card{
     display: block;               /* перекриваємо старий grid */
     position: relative;
@@ -975,6 +975,7 @@
   .aboutk-quote{
     position: absolute; left: 2.4rem; bottom: 4.5rem; width: 38rem;
     display: flex; flex-direction: column; gap: 1.8rem; z-index: 3;
+    text-align: right;   /* цитата вирівняна праворуч, як автор (ім'я + роль) */
   }
   .aboutk-quote-text{
     margin: 0;
@@ -989,8 +990,9 @@
   .aboutk-quote-author strong{ font-weight: 700; }
 }
 
-/* ── Про Колір — мобільне ── */
-@media (max-width: 1000px){
+/* ── Про Колір — мобільне + планшет (стек). 2-кол лише на десктопі ≥1200, бо
+   на планшеті колонка тексту затискалась фіксованим фото (баг). ── */
+@media (max-width: 1199px){
   .aboutk--v2 .aboutk-card{
     background: var(--c-yellow); border-radius: 3rem; padding: 3rem 2.4rem 4rem;
     display: flex; flex-direction: column; gap: 2.4rem; align-items: stretch;
@@ -1001,19 +1003,81 @@
   .aboutk--v2 .aboutk-pill{ order: 1; align-self: flex-start; display: inline-flex; padding: .6rem 1.6rem; border: .1rem solid var(--c-white); border-radius: .6rem 2rem 2rem 2rem; font-family: "Stolzl", sans-serif; font-size: 1.5rem; color: var(--c-161616); }
   .aboutk--v2 .aboutk-title{ order: 2; margin: 0; font-family: "Unbounded", sans-serif; font-weight: 600; font-size: 3rem; color: var(--c-161616); }
   .aboutk--v2 .aboutk-text{ order: 3; margin: 0; font-family: "Stolzl", sans-serif; font-size: 1.6rem; line-height: 1.5; color: var(--c-161616); }
-  .aboutk--v2 .aboutk-founder{ order: 4; width: 100%; max-width: none; height: auto; align-self: stretch; border-radius: 2.4rem; }
-  .aboutk-quote{ order: 5; display: flex; flex-direction: column; gap: 1.4rem; }
+  .aboutk--v2 .aboutk-founder{ order: 4; position: static; width: 100%; max-width: 48rem; height: auto; align-self: center; margin: 0 auto; border-radius: 2.4rem; }
+  .aboutk-quote{ order: 5; position: static; display: flex; flex-direction: column; gap: 1.4rem; }
+  .aboutk--v2 .aboutk-swirl{ display: none; }   /* декоративний завиток у стеку стирчав за картку */
   .aboutk--v2 .aboutk-btn{ order: 6; width: 100%; display: flex; align-items: center; justify-content: center; padding: 1.4rem 2.4rem; border-radius: 3rem; background: var(--c-6D00F1); color: var(--c-white); font-family: "Stolzl", sans-serif; font-weight: 500; font-size: 1.6rem; text-decoration: none; }
   .aboutk-quote-text{ margin: 0; font-family: "Unbounded", sans-serif; font-weight: 600; font-size: 2rem; color: var(--c-161616); }
   .aboutk-quote-author{ margin: 0; font-family: "Stolzl", sans-serif; font-size: 1.4rem; color: var(--c-161616); }
   .aboutk-quote-author strong{ font-weight: 700; }
 }
 
+/* ── Про Колір — ПЛАНШЕТ 768–1199: не вертикальний стек (порожньо й нелогічно),
+   а 2 колонки: зліва текст (pill→title→опис→кнопка), справа фото + цитата під ним. ── */
+@media (min-width: 768px) and (max-width: 1199px){
+  /* на планшеті — на всю ширину контенту (як інші секції): прибираємо бічний
+     гатер shell і лівий відступ картки з десктопної розкладки */
+  .aboutk--v2 .aboutk-shell{ width: 100% !important; max-width: none !important; margin: 0 !important; }
+  .aboutk--v2 .aboutk-card{
+    margin-left: 0 !important; margin-right: 0 !important;
+    width: 100% !important;                      /* скидаємо desktop calc(100%-6rem) */
+    display: grid !important;
+    grid-template-columns: 2fr minmax(0, 3fr);   /* фото зліва, текст справа — як на десктопі */
+    grid-template-rows: auto auto;
+    column-gap: 4rem; row-gap: 2.4rem;
+    align-items: start;
+    padding: 4rem;
+  }
+  /* права колонка — контент у потоці (скасовуємо display:contents зі стеку) */
+  .aboutk--v2 .aboutk-content{
+    display: flex !important; flex-direction: column; gap: 1.8rem;
+    position: static !important;   /* скидаємо absolute з десктопної розкладки */
+    inset: auto !important;
+    grid-column: 2; grid-row: 1 / span 2; min-width: 0;
+  }
+  .aboutk--v2 .aboutk-btn{ order: 6; width: auto; align-self: flex-start; margin-top: .6rem; }
+  /* ліва колонка, верх — фото */
+  .aboutk--v2 .aboutk-founder{
+    grid-column: 1; grid-row: 1;
+    position: static !important;
+    width: 100% !important; max-width: none !important; height: auto !important;
+    margin: 0 !important; align-self: start !important; border-radius: 2.4rem !important;
+  }
+  /* ліва колонка, низ — цитата під фото, вирівняна праворуч (як на десктопі) */
+  .aboutk--v2 .aboutk-quote{
+    grid-column: 1; grid-row: 2;
+    position: static !important; width: auto !important; margin: 0 !important;
+    text-align: right;
+  }
+}
+
+/* Автор цитати «Про Колір»: клікабельне ім'я + іконка LinkedIn зліва */
+.aboutk-quote-author-link{
+  display: inline-flex; align-items: center; gap: .6rem;
+  color: inherit; text-decoration: none;
+}
+/* ім'я+прізвище — одразу жирне й підкреслене */
+.aboutk-quote-author-name{ font-weight: 700; text-decoration: underline; }
+.aboutk-quote-author-link:hover .aboutk-quote-author-name{ text-decoration-thickness: .12em; }
+.aboutk-quote-li{ width: 1.5rem; height: 1.5rem; flex: 0 0 auto; }
+
 /* ===================== ФУТЕР ===================== */
 /* Контент футера = ширині хедера (120rem), вирівняний як решта секцій
    (прибираємо старий бічний padding 20rem, що звужував і зміщував контент). */
-@media (min-width: 1001px){
+@media (min-width: 768px){
   .footerk{ padding-left: 0; padding-right: 0; }
-  .footerk-shell{ width: min(120rem, calc(100% - 4rem)); margin: 0 auto; }
+  .footerk-shell{ width: min(160rem, calc(100% - 4rem)); margin: 0 auto; }
 }
 
+
+
+/* ── 768–1100: на вузькому десктопі арти кейс-карток (колаж/стрічка/дрон)
+   наїжджали на текст. Зсуваємо їх праворуч (вони й так блідуть за правий
+   край картки — overflow:hidden обрізає свес), щоб звільнити лівий текст. ── */
+@media (min-width:768px) and (max-width:1100px){
+  .hcase-l-collage{ right:-13rem!important; }
+  .hcase-l-ribbon { right:-12rem!important; }
+  .hcase-l-drone  { right:-22rem!important; }
+  /* + трохи вужчий текст, щоб гарантовано не торкатись артів (особливо дрона) */
+  .hcase-copy{ max-width:42%!important; }
+}

@@ -16,7 +16,10 @@
 .support-shell{position:relative;}
 
 .support-page .hero-card.support-hero-card{
-  min-height:84rem;
+  min-height:0;              /* висоту задає КОНТЕНТ (текст) + тонкий низ-паддинг, а не
+                                статуя. Статуя на сапорті стає низом до краю картки, на
+                                волонтерці обрізається нижнім краєм (overflow) — темна
+                                підкладка під яркою хіро-картою більше не тягнеться вниз. */
   padding:3.6rem 14rem 10.4rem;
   border-radius:6rem;
   background:var(--support-purple-1);
@@ -231,7 +234,7 @@ position: absolute;
 .support-project-card--nft::before{right:-16rem;top:-36rem;width:77rem;height:77rem;border-radius:50%;background:rgba(255,255,255,.56);}
 .support-project-card--cyber::before{right:35rem;top:-12rem;width:19rem;height:85rem;border-radius:20rem;background:var(--support-purple-2);transform:rotate(-3deg);}
 .support-project-card--itt::before{right:45rem;bottom:-16rem;width:50rem;height:50rem;border:6rem solid rgba(255,255,255,.045);border-radius:50%;}
-.support-project-copy{position:relative;z-index:5;width:59rem;max-width:48%;}
+.support-project-copy{position:relative;z-index:5;width:59rem;max-width:44%;}
 .support-project-copy h3{margin:0;color:inherit;font-size:4.3rem;line-height:1.08;font-weight:500;letter-spacing:-.02em;}
 .support-project-copy p{width:46rem;max-width:100%;margin:2.6rem 0 0;color:inherit;font-size:1.3rem;line-height:1.6;font-weight:300;}
 .support-project-site{position:absolute;right:5.6rem;top:5.6rem;z-index:8;display:flex;flex-direction:column;align-items:flex-end;gap:2rem;color:inherit;font-size:1.5rem;line-height:1;}
@@ -261,14 +264,14 @@ position: absolute;
 .support-case-logo{position:absolute;right:4rem;top:4rem;z-index:2;width:11rem;}
 .support-case-logo img{width:100%;height:auto;display:block;}
 
-@media (max-width:1200px) and (min-width:1001px){
+@media (max-width:1200px) and (min-width:768px){
   .support-page .hero-card.support-hero-card{padding-left:6rem;padding-right:6rem;}
   .support-page .hero-inner.support-hero-inner{padding-left:6rem;}
   .support-page .hero-scribble{right:-16rem;}
-  .support-project-copy{max-width:52%;}
+  .support-project-copy{max-width:44%;}
   .support-nft-stack{right:-12rem;transform:scale(.84);transform-origin:right bottom;}
 }
-@media (max-width:1000px){
+@media (max-width:767px){
   .support-page{padding:.6rem;}
   .support-page .hero-card.support-hero-card{min-height:0;padding:2rem 1rem 1rem;border-radius:5rem;background:var(--support-purple-1);}
   .support-page .s-scribble--left{left:-31rem;top:2rem;width:47rem;}
@@ -417,7 +420,7 @@ position: absolute;
   display: block;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 767px) {
 
   .support-page .hero-right.support-hero-right { position: absolute; inset: 0; }
   .support-page .girl.support-statue {
@@ -451,7 +454,7 @@ position: absolute;
   .support-page .portfolio { padding-top: 0; }
 }
 
-@media (max-width: 1200px) and (min-width: 1001px) {
+@media (max-width: 1200px) and (min-width: 768px) {
   .support-project-badge { right: 3rem; }
 }
 
@@ -550,7 +553,7 @@ position: absolute;
   opacity: .25;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 767px) {
   .support-page .support-trusted {
     padding: 8rem 0 8rem;
   }
@@ -607,7 +610,7 @@ position: absolute;
   }
 }
 
-@media (min-width: 1001px) {
+@media (min-width: 768px) {
 	.support-page .p-stage, .support-page .p-progress {
     margin-top: 2rem;
 
@@ -640,7 +643,7 @@ position: absolute;
   }
 }
 
-@media (min-width: 1001px) {
+@media (min-width: 768px) {
   .support-page .support-trusted {
     padding: 7.4rem 0 5.8rem !important;
   }
@@ -690,7 +693,7 @@ position: absolute;
   }
 }
 
-@media (min-width: 1001px) {
+@media (min-width: 768px) {
   .support-page .support-trusted {
     padding: 7rem 0 5.6rem !important;
   }
@@ -797,7 +800,7 @@ position: absolute;
   color: #2c0060 !important;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 767px) {
   .support-page .hero-card.support-hero-card {
     overflow: visible !important;
   }
@@ -873,7 +876,7 @@ position: absolute;
     opacity: .92 !important;
 }
 
-@media (min-width: 1001px) {
+@media (min-width: 768px) {
   .kolir-page.support-page .support-trusted {
     padding: 7.1rem 0 6.1rem !important;
   }
@@ -949,7 +952,7 @@ position: absolute;
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 767px) {
   .kolir-page.support-page .s-scribble--left {
     left: -4.8rem !important;
     top: -13rem !important;
@@ -962,7 +965,7 @@ position: absolute;
   }
 }
 
-@media (min-width: 1001px) {
+@media (min-width: 768px) {
   .kolir-page.support-page .support-trusted,
   .support-page .support-trusted {
     padding: 7.2rem 0 6.2rem !important;
@@ -1112,7 +1115,7 @@ position: absolute;
   display: none;
 }
 
-@media (min-width: 1001px) {
+@media (min-width: 768px) {
   .support-page .support-project-card::before {
     display: none !important;
   }
@@ -1203,13 +1206,13 @@ position: absolute;
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 767px) {
   .support-page .support-card-scribble {
     display: none !important;
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 767px) {
   html,
   body {
     max-width: 100%;
@@ -1304,7 +1307,7 @@ body {
   pointer-events: none !important;
 }
 
-@media (min-width: 1001px) {
+@media (min-width: 768px) {
   .kolir-page.support-page .support-card-scribble {
     display: block !important;
     position: absolute !important;
@@ -1319,7 +1322,7 @@ body {
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 767px) {
   .kolir-page.support-page {
     overflow-x: hidden !important;
   }
@@ -1345,7 +1348,7 @@ body {
   }
 }
 
-@media (min-width: 1001px) {
+@media (min-width: 768px) {
   .kolir-page.support-page .support-project-card--cyber .support-cyber-visual,
   .support-page .support-project-card--cyber .support-cyber-visual {
           width: 55% !important;
@@ -1562,7 +1565,7 @@ body {
 	font-size: 3.2rem;
 }
 
-@media (min-width: 1001px) {
+@media (min-width: 768px) {
   .kolir-page.support-page .support-logo-track,
   .support-page .support-logo-track {
     gap: clamp(5.7rem, 4.45vw, 8.2rem) !important;
@@ -1608,7 +1611,7 @@ body {
   }
 }
 
-@media (min-width: 1001px) {
+@media (min-width: 768px) {
   .kolir-page.support-page .support-logo-track,
   .support-page .support-logo-track {
     transition: transform 1.22s cubic-bezier(.18, .88, .22, 1) !important;
@@ -1627,7 +1630,7 @@ body {
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 767px) {
   .kolir-page.support-page .support-logo-track,
   .support-page .support-logo-track {
     transition: transform 1.08s cubic-bezier(.18, .88, .22, 1) !important;
@@ -1641,7 +1644,7 @@ body {
   }
 }
 
-@media (min-width: 1001px) {
+@media (min-width: 768px) {
   .kolir-page.support-page .support-logo-track,
   .support-page .support-logo-track {
     transition: transform 1.35s cubic-bezier(.16, .82, .22, 1) !important;
@@ -1726,7 +1729,7 @@ body {
   }
 }
 
-@media (max-width:1000px){
+@media (max-width:767px){
   .support-page .portfolio-decor{
     display:none!important;
   }
@@ -1771,7 +1774,7 @@ body {
   }
 }
 
-@media (max-width:1000px){
+@media (max-width:767px){
   .support-page .portfolio-decor{
     display:none!important;
   }
@@ -1847,7 +1850,7 @@ body {
   }
 }
 
-@media (max-width:1000px){
+@media (max-width:767px){
   .support-page .portfolio-decor{
     display:none!important;
   }
@@ -1948,7 +1951,7 @@ body {
   }
 }
 
-@media (max-width:1000px){
+@media (max-width:767px){
   .support-page .portfolio .services-scribble-left,
   .support-page .portfolio-decor{
     display:none!important;
@@ -1992,7 +1995,7 @@ body{
   clip-path:none!important;
 }
 
-@media (max-width:1000px){
+@media (max-width:767px){
   .kolir-page.support-page .portfolio-decor,
   .kolir-page.support-page .portfolio .services-scribble-left,
   .support-page .portfolio-decor,
@@ -2007,7 +2010,7 @@ body{
   overflow-y:hidden!important;
 }
 
-@media (min-width:1001px){
+@media (min-width:768px){
   .kolir-page.support-page .support-projects,
   .support-page .support-projects{
     width:100%!important;
@@ -2191,7 +2194,7 @@ body{
   }
 }
 
-@media (max-width:1000px){
+@media (max-width:767px){
   .kolir-page.support-page .support-projects,
   .support-page .support-projects,
   .kolir-page.support-page .support-project-list,
@@ -2306,7 +2309,7 @@ body{
   }
 }
 
-@media (max-width:1000px){
+@media (max-width:767px){
   .kolir-page.support-page .hero-right.support-hero-right picture,
   .support-page .hero-right.support-hero-right picture{
     position:absolute!important;
@@ -2328,7 +2331,7 @@ body{
   }
 }
 
-@media (min-width:1001px){
+@media (min-width:768px){
   .kolir-page.support-page .hero-right.support-hero-right picture,
   .support-page .hero-right.support-hero-right picture{
     position:absolute!important;
@@ -2414,7 +2417,7 @@ body{
   }
 }
 
-@media (max-width:1000px){
+@media (max-width:767px){
   .kolir-page.support-page .support-project-card--nft .support-nft-stack,
   .support-page .support-project-card--nft .support-nft-stack{
     right:-13rem!important;
@@ -2426,7 +2429,7 @@ body{
   }
 }
 
-@media (max-width:1000px){
+@media (max-width:767px){
   .kolir-page.support-page .hero-right.support-hero-right picture,
   .support-page .hero-right.support-hero-right picture{
     position:absolute!important;
@@ -2449,7 +2452,7 @@ body{
   }
 }
 
-@media (min-width:1001px){
+@media (min-width:768px){
   .kolir-page.support-page .hero-right.support-hero-right picture,
   .support-page .hero-right.support-hero-right picture{
     position:absolute!important;
@@ -2472,7 +2475,7 @@ body{
   }
 }
 
-@media (max-width:1000px){
+@media (max-width:767px){
   .kolir-page.support-page .hero,
   .kolir-page.support-page .hero-card.support-hero-card,
   .kolir-page.support-page .hero-inner.support-hero-inner,
@@ -2510,7 +2513,7 @@ body{
   }
 }
 
-@media (max-width:1000px){
+@media (max-width:767px){
   .kolir-page.support-page .hero,
   .kolir-page.support-page .hero-card.support-hero-card,
   .kolir-page.support-page .hero-inner.support-hero-inner,
@@ -2538,7 +2541,7 @@ body{
 }
 }
 
-@media (max-width:1000px){
+@media (max-width:767px){
   .kolir-page.support-page .hero-right.support-hero-right,
   .support-page .hero-right.support-hero-right{
     position:absolute!important;
@@ -2574,7 +2577,7 @@ body{
   }
 }
 
-@media (max-width:1000px){
+@media (max-width:767px){
   .kolir-page.support-page .hero-right.support-hero-right,
   .support-page .hero-right.support-hero-right{
     position:absolute !important;
@@ -2617,7 +2620,7 @@ body{
   }
 }
 
-@media (max-width:1000px){
+@media (max-width:767px){
   .kolir-page.support-page .hero-right.support-hero-right,
   .support-page .hero-right.support-hero-right{
     overflow: visible !important;
@@ -2640,7 +2643,7 @@ body{
   }
 }
 
-@media (min-width:1001px){
+@media (min-width:768px){
   .kolir-page.support-page .support-project-card--nft .support-nft,
   .support-page .support-project-card--nft .support-nft{
     width:28.6rem!important;
@@ -2665,7 +2668,7 @@ right: 24rem !important;
   }
 }
 
-@media (max-width:1000px){
+@media (max-width:767px){
   .kolir-page.support-page .support-project-card--itt,
   .support-page .support-project-card--itt{
     overflow:hidden!important;
@@ -2733,7 +2736,7 @@ right: 24rem !important;
   }
 }
 
-@media (max-width:1000px){
+@media (max-width:767px){
   .kolir-page.support-page .support-project-card--cyber,
   .kolir-page.support-page .support-project-card--itt,
   .support-page .support-project-card--cyber,
@@ -2882,7 +2885,7 @@ right: 24rem !important;
   }
 }
 
-@media (min-width:1001px){
+@media (min-width:768px){
   .kolir-page.support-page .hero-head,
   .support-page .hero-head{
     position:relative!important;
@@ -2962,7 +2965,7 @@ right: 24rem !important;
   }
 }
 
-@media (min-width:1001px) and (max-width:1280px){
+@media (min-width:768px) and (max-width:1200px){ /* зведено до канону lg (було 1280) */
   .kolir-page.support-page .hero-head,
   .support-page .hero-head{
     padding-left:6rem!important;
@@ -2993,7 +2996,7 @@ right: 24rem !important;
   }
 }
 
-@media (min-width:1001px){
+@media (min-width:768px){
   .kolir-page.support-page .site-header .brand img,
   .support-page .site-header .brand img{
     height:4rem!important;
@@ -3009,7 +3012,7 @@ right: 24rem !important;
   }
 }
 
-@media (min-width:1001px){
+@media (min-width:768px){
   .kolir-page.support-page .hero-title.support-title .t-brand,
   .support-page .hero-title.support-title .t-brand{
     display:block!important;
@@ -3046,7 +3049,7 @@ right: 24rem !important;
   background:linear-gradient(180deg,#338AF3 0 50%,#FFDA44 50% 100%)!important;
 }
 
-@media (min-width:1001px){
+@media (min-width:768px){
   .kolir-page.support-page .support-project-card--itt .support-itt-visual,
   .support-page .support-project-card--itt .support-itt-visual{
     width:50%!important;
@@ -3069,7 +3072,7 @@ right: 24rem !important;
   }
 }
 
-@media (max-width:1000px){
+@media (max-width:767px){
   .kolir-page.support-page .footerk-mid,
   .support-page .footerk-mid{
     display:flex!important;
@@ -3129,7 +3132,7 @@ right: 24rem !important;
   }
 }
 
-@media (max-width:1000px){
+@media (max-width:767px){
   .kolir-page.support-page .support-logo-item,
   .support-page .support-logo-item{
     opacity:.4!important;
@@ -3165,7 +3168,7 @@ right: 24rem !important;
   }
 }
 
-@media (max-width:1000px){
+@media (max-width:767px){
   .kolir-page.support-page .site-header,
   .support-page .site-header{
     position:relative!important;
@@ -3257,7 +3260,7 @@ right: 24rem !important;
   }
 }
 
-@media (max-width:1000px){
+@media (max-width:767px){
   .kolir-page.support-page .site-header,
   .support-page .site-header{
     position:relative!important;
@@ -3349,7 +3352,7 @@ right: 24rem !important;
   }
 }
 
-@media (max-width:1000px){
+@media (max-width:767px){
   .kolir-page.support-page .site-header,
   .support-page .site-header{
     position:relative!important;
@@ -3446,7 +3449,7 @@ right: 24rem !important;
   }
 }
 
-@media (max-width:1000px){
+@media (max-width:767px){
   .kolir-page.support-page .hero-card.support-hero-card,
   .support-page .hero-card.support-hero-card{
     background:#3E0088 !important;
@@ -3573,7 +3576,7 @@ body:has(.kolir-page.support-page){
   margin-bottom:0!important;
 }
 
-@media (max-width:1000px){
+@media (max-width:767px){
   html:has(.kolir-page.support-page),
   body:has(.kolir-page.support-page){
     overflow-x:hidden!important;
@@ -3625,7 +3628,7 @@ body:has(.kolir-page.support-page){
   top:var(--support-stack-card-top)!important;
 }
 
-@media (max-width:1000px){
+@media (max-width:767px){
   .kolir-page.support-page .support-projects,
   .support-page .support-projects{
     padding-bottom:6.5rem!important;
@@ -3660,7 +3663,7 @@ body:has(.kolir-page.support-page){
   overflow:hidden!important;
 }
 
-@media (max-width:1000px){
+@media (max-width:767px){
   html:has(.kolir-page.support-page),
   body:has(.kolir-page.support-page){
     overflow-x:clip!important;
@@ -3744,7 +3747,7 @@ body:has(.kolir-page.support-page){
   }
 }
 
-@media (min-width:1001px){
+@media (min-width:768px){
   .kolir-page.support-page,
   .support-page{
     overflow-x:clip!important;
@@ -3787,7 +3790,7 @@ body:has(.kolir-page.support-page){
   }
 }
 
-@media (max-width:1000px){
+@media (max-width:767px){
   .kolir-page.support-page .support-project-card,
   .support-page .support-project-card{
     clip-path:none!important;
@@ -3809,7 +3812,7 @@ body:has(.kolir-page.support-page){
   }
 }
 
-@media (max-width:1000px){
+@media (max-width:767px){
   .kolir-page.support-page .support-trusted,
   .support-page .support-trusted{
     padding-top:4.6rem!important;
@@ -3951,7 +3954,7 @@ body:has(.kolir-page.support-page){
   content:none!important;
 }
 
-@media (max-width:1000px){
+@media (max-width:767px){
   .kolir-page.support-page footer.footerk,
   .support-page footer.footerk,
   .kolir-page.support-page .footerk,
@@ -3967,7 +3970,7 @@ body:has(.kolir-page.support-page){
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 767px) {
   .kolir-page.support-page .support-section-title,
   .support-page .support-section-title {
     width: 37.2rem !important;
@@ -3993,7 +3996,7 @@ body:has(.kolir-page.support-page){
   }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 420px) { /* зведено до канону sm (було 380) */
   .kolir-page.support-page .support-section-title,
   .support-page .support-section-title {
     width: 34rem !important;
@@ -4002,7 +4005,7 @@ body:has(.kolir-page.support-page){
   }
 }
 
-@media (min-width: 1001px) {
+@media (min-width: 768px) {
   .kolir-page.support-page .portfolio-decor,
   .support-page .portfolio-decor {
         left: -38rem !important;
@@ -4051,7 +4054,7 @@ body:has(.kolir-page.support-page){
   transition: color .18s ease !important;
 }
 
-@media (min-width: 1001px) {
+@media (min-width: 768px) {
   .kolir-page.support-page .support-portfolio-swiper .support-portfolio-card-title,
   .support-page .support-portfolio-swiper .support-portfolio-card-title {
     font-size: var(--support-portfolio-card-title-pc) !important;
@@ -4059,7 +4062,7 @@ body:has(.kolir-page.support-page){
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 767px) {
   .kolir-page.support-page .support-portfolio-swiper .support-portfolio-card-title,
   .support-page .support-portfolio-swiper .support-portfolio-card-title {
     font-size: var(--support-portfolio-card-title-mobile) !important;
@@ -4152,7 +4155,7 @@ body:has(.kolir-page.support-page){
   font-weight:300!important;
 }
 
-@media (min-width:1001px){
+@media (min-width:768px){
   .kolir-page.support-page .portfolio .support-portfolio-title,
   .support-page .portfolio .support-portfolio-title{
     font-size:5rem!important;
@@ -4166,7 +4169,7 @@ body:has(.kolir-page.support-page){
   }
 }
 
-@media (max-width:1000px){
+@media (max-width:767px){
   .kolir-page.support-page .portfolio .support-portfolio-title,
   .support-page .portfolio .support-portfolio-title{
     font-size:3.2rem!important;
@@ -4182,9 +4185,28 @@ body:has(.kolir-page.support-page){
 
 /* Десктоп: бічні картки слайдера кейсів плавно зводяться в альфу градієнтною
    маскою по краях (замість різкого зрізу). Спільний слайдер support + volunteer. */
-@media (min-width: 1001px){
+@media (min-width: 768px){
   .support-portfolio-swiper{
     -webkit-mask-image: linear-gradient(to right, transparent 0, #000 13%, #000 87%, transparent 100%);
             mask-image: linear-gradient(to right, transparent 0, #000 13%, #000 87%, transparent 100%);
+  }
+}
+
+
+/* ── ВИПРАВЛЕННЯ НАЛЯГАННЯ: на НЕ-повній ширині (768–1599) текст карток
+   «Наші Способи Допомоги» налягав на картинки. Повна 2-кол розкладка
+   вміщується лише на широких (≥1600). Тут: вужчий текст (щоб не лізти під
+   cyber/itt 50%) + зменшена і відсунута праворуч NFT-стопка. ── */
+@media (min-width:768px) and (max-width:1599px){
+  .kolir-page.support-page .support-project-copy,
+  .support-page .support-project-copy{ max-width:38%!important; }
+  /* NFT-стопка велика й правоприв'язана — на вузьких залазить лівіше; тому її текст
+     ще вужчий, щоб гарантовано не перетинатись із картинками. */
+  .kolir-page.support-page .support-project-card--nft .support-project-copy,
+  .support-page .support-project-card--nft .support-project-copy{ max-width:30%!important; }
+  .kolir-page.support-page .support-project-card--nft .support-nft-stack,
+  .support-page .support-project-card--nft .support-nft-stack{
+    right:-22rem!important; width:36rem!important; height:28rem!important;
+    transform:none!important;
   }
 }

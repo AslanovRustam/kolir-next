@@ -108,7 +108,7 @@ html.lenis, html.lenis body { height: auto; }
 }
 
 /* ---- Брифи: плавна плашка-індикатор активної вкладки (десктоп) ---- */
-@media (min-width: 1001px){
+@media (min-width: 768px){
   /* Коли індикатор активний — фон самих вкладок прибираємо, його малює плашка */
   .briefs-tabs.has-tab-ind .briefs-tab{
     position: relative;
@@ -165,7 +165,7 @@ html.lenis, html.lenis body { height: auto; }
   top: 5.6rem;
   left: 50%;
   transform: translateX(-50%);
-  width: min(120rem, calc(100% - 4rem));   /* однакова ширина шапки на всіх сторінках (як на головній) */
+  width: min(160rem, calc(100% - 4rem));   /* однакова ширина шапки на всіх сторінках (як на головній) */
   z-index: 95;
   transition: box-shadow .4s ease;
 }
@@ -179,15 +179,15 @@ html.lenis, html.lenis body { height: auto; }
 }
 /* На внутрішніх сторінках (без hero) плашка завжди зафіксована вгорі */
 .sticky-nav.sticky-nav--top{ position: fixed; top: 1.4rem; }
-@media (min-width: 1001px){
+@media (min-width: 768px){
   body:has(.sticky-nav--top){ padding-top: 9.5rem; }
 }
 /* Плашка — основний хедер. Старий хедер усередині hero прибираємо. */
-@media (min-width: 1001px){
+@media (min-width: 768px){
   .hero-head{ display: none; }
   .hero-card{ padding-top: 11.5rem; }
 }
-@media (max-width: 1000px){
+@media (max-width: 767px){
   /* на мобільному лишаємо рідний m-top / бургер усередині hero */
   .sticky-nav{ display: none; }
 }
@@ -271,7 +271,7 @@ html.lenis, html.lenis body { height: auto; }
 .p-all-btn svg{ transition: transform .25s ease; }
 .p-all-btn:hover svg{ transform: translate(2px, -2px); }
 
-@media (max-width:1000px){
+@media (max-width:767px){
   .sticky-nav{ top:.8rem; width: calc(100% - 1.6rem); }
   .sticky-nav__inner{ padding:.7rem .7rem .7rem 1.5rem; gap:1rem; }
   .sticky-nav__links{ display:none; }
@@ -286,7 +286,7 @@ html.lenis, html.lenis body { height: auto; }
 /* ---- Хедер і футер — на ширину контенту сторінки (десктоп) ----
    Раніше їхній вміст був вужчий за секційні картки (зайвий боковий відступ).
    Вирівнюємо лого/навігацію/перемикач та футер по тих самих краях, що й картки. */
-@media (min-width: 1001px){
+@media (min-width: 768px){
   /* Тільки головна/сторінки в .shell — у брифів інша (повноширинна) розкладка */
   .hero-card .hero-head{
     padding-left: 0;
@@ -317,7 +317,7 @@ html.lenis, html.lenis body { height: auto; }
 /* коли відео працює — ховаємо статичний PNG */
 .hero-right.video-ok .girl-fallback{ display: none; }
 
-@media (max-width: 1000px){
+@media (max-width: 767px){
   .hero-right .girl-fallback{
     width: 44rem;
     height: 47rem;

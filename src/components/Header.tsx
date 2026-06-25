@@ -72,7 +72,11 @@ export default function Header({ labels = DEFAULT_LABELS }: { labels?: HeaderLab
                   {n.label}
                 </Link>
               ) : (
-                <Link key={n.href} href={n.href}>
+                <Link
+                  key={n.href}
+                  className={n.href === '/#contact' ? 'nav-contact' : undefined}
+                  href={n.href}
+                >
                   {n.label}
                 </Link>
               ),

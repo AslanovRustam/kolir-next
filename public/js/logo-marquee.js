@@ -16,10 +16,13 @@
     if (items.length < 2) return;
     track.dataset.marqueeReady = '1';
 
-    var half = Math.floor(items.length / 2); // індекс першого елемента 2-ї копії
+    // Зсув = ширина ОДНІЄЇ копії набору. copyLen = к-ть лого в одній копії
+    // (data-copy-len). Фолбек на половину треку (старе припущення «2 копії»).
+    var copyLen = parseInt(track.getAttribute('data-copy-len') || '', 10);
+    if (!(copyLen > 0) || copyLen >= items.length) copyLen = Math.floor(items.length / 2);
 
     function update() {
-      var shift = items[half].offsetLeft - items[0].offsetLeft;
+      var shift = items[copyLen].offsetLeft - items[0].offsetLeft;
       if (shift > 0) track.style.setProperty('--shift', shift + 'px');
     }
 

@@ -277,16 +277,16 @@ export default function CaseDetail({
   }, [rawWork.id])
 
   return (
-    <div className="bg-void pt-[6.4rem] md:pt-[10rem]">
+    <div className="bg-void pt-[9.5rem] md:pt-[10rem]">
       {/* MOBILE nav — плаваюча плашка-капсула (як фільтри на портфоліо), не на всю ширину */}
-      <div className="md:hidden sticky top-[6.4rem] z-10 px-4 py-3">
+      <div className="md:hidden sticky top-[9.5rem] z-10 px-4 py-3">
         <div className="flex items-center justify-between gap-3 backdrop-blur-[8px] bg-void/80 border border-white/20 px-2 py-1.5 rounded-full">
           <BackLink label={UI.backToPortfolio} />
           <NavControls prevId={prevId} nextId={nextId} />
         </div>
       </div>
 
-      <article className="detail-scope max-w-[1920px] mx-auto">
+      <article className="detail-scope max-w-[1600px] mx-auto">
         <div className="md:grid md:grid-cols-12 md:gap-x-8 px-4 md:px-8 pt-6 md:pt-8 md:items-start">
           {/* LEFT — case content (скролиться: галерея → інші кейси внизу) */}
           <div className="md:col-span-8 min-w-0">

@@ -8,13 +8,14 @@
    Перебиваємо агресивні !important з support-page.css тими ж селекторами.
    ========================================================================= */
 
-@media (min-width: 1001px){
+@media (min-width: 768px){
 
   /* ── Зовнішня тёмна карточка (#3e0088), як на головній ── */
   .kolir-page.support-page .hero .hero-card.support-hero-card{
     background: var(--outer) !important;          /* #3e0088 */
     border-radius: var(--rOuter) !important;      /* 6rem */
-    padding: 11.5rem 0 6rem !important;           /* верх 11.5rem — місце під накладений nav, як на головній */
+    padding: 11.5rem 0 2rem !important;           /* верх 11.5rem — місце під накладений nav; низ тонкий —
+                                                     темна підкладка під яркою хіро-картою більше не тягнеться вниз */
     overflow: visible !important;
     box-shadow: none !important;
   }
@@ -35,7 +36,9 @@
     display: flex !important;
     align-items: stretch !important;
     justify-content: space-between !important;
-    width: min(120rem, calc(100% - 4rem)) !important;
+    width: min(160rem, calc(100% - 4rem)) !important;  /* було 140rem → завеликі темні «вуха».
+                                                     160rem − 4rem = по 2rem темної рамки з боків,
+                                                     рівно як знизу (padding-bottom 2rem) */
     max-width: none !important;
     margin: 6rem auto 0 !important;
     padding: 0 0 0 6rem !important;
@@ -160,12 +163,12 @@
 
   /* ── «Наші Способи Допомоги»: картки = ширині хедера (120rem), по центру ── */
   .kolir-page.support-page .support-project-list{
-    width: min(120rem, calc(100% - 4rem)) !important;
+    width: min(160rem, calc(100% - 4rem)) !important;
     max-width: none !important;
     margin-left: auto !important; margin-right: auto !important;
   }
   .kolir-page.support-page .support-section-title{
-    width: min(120rem, calc(100% - 4rem)) !important;
+    width: min(140rem, calc(100% - 4rem)) !important;
     margin-left: auto !important; margin-right: auto !important;
   }
 
@@ -196,7 +199,7 @@
 }
 
 /* ===================== МОБІЛЬНИЙ ХЕРО (≤1000px) ===================== */
-@media (max-width: 1000px){
+@media (max-width: 767px){
   /* Статуя: animations.css ховає .girl, поки нема .video-ok → повертаємо.
      Розташування дає support-page.css (right 10.8rem / top -5rem / h60rem). */
   .kolir-page.support-page .hero .hero-right.support-hero-right picture .girl.support-statue{
@@ -241,7 +244,7 @@
 
 /* Кнопки в картках підтримки — приводимо до стандартної кнопки сайту
    (компактна пілюля, як CTA на хіро). Кольори лишаються по картці. */
-@media (min-width: 1001px){
+@media (min-width: 768px){
   .kolir-page.support-page .support-project-card .support-button{
     min-height: 0 !important; height: auto !important;
     padding: .8rem 1.8rem !important;
@@ -249,7 +252,7 @@
     line-height: 1.65rem !important; border-radius: 3rem !important;
   }
 }
-@media (max-width: 1000px){
+@media (max-width: 767px){
   .kolir-page.support-page .support-project-card .support-button{
     min-height: 0 !important; height: auto !important;
     padding: 1.1rem 2.2rem !important;
@@ -257,3 +260,6 @@
     border-radius: 3rem !important;
   }
 }
+
+/* Кнопку «Детальніше» на 3 картках «Наші Способи Допомоги» приховуємо */
+.kolir-page.support-page .support-project-card .support-button{ display: none !important; }

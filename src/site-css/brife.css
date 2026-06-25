@@ -320,7 +320,7 @@ button {
     overflow: hidden
 }
 
-@media (max-width:1000px) {
+@media (max-width:767px) {
     .container__brifes {
 /*         max-width: 23.75em */
     }
@@ -346,7 +346,7 @@ button {
     padding: 5em 0
 }
 
-@media (min-width:1001px) {
+@media (min-width:768px) {
 
 .brief__brifes{
 	margin-top:5rem;
@@ -666,7 +666,7 @@ button {
     top: 0.2rem;
     width: 1.6rem;
 }
-@media (max-width:1000px) {
+@media (max-width:767px) {
 	.brief__field-checkbox-name__brifes:before {
     top: 0.5rem;
 	}
@@ -732,7 +732,7 @@ button {
     flex: 0 0 auto
 }
 
-@media (max-width:1000px) {
+@media (max-width:767px) {
 	.wrapper__brifes {
 
 		padding:.6rem;
@@ -953,7 +953,7 @@ button {
     justify-content: center
 }
 
-@media (max-width:1000px) {
+@media (max-width:767px) {
 	
 	.popups__title__brifes h2 {
     font-size: 2em;
@@ -1028,7 +1028,7 @@ button {
 
 /*  */
 
-@media (max-width:1000px) {
+@media (max-width:767px) {
 
 .brief__field-radio-name__brifes {
 font-size: 1.4em;
@@ -1065,7 +1065,7 @@ font-size: 1.4em;
   line-height: 1.5em;
 }
 
-@media (max-width:1000px){
+@media (max-width:767px){
   .brief__field-input__brifes textarea{
     font-size: 1.4em;
     line-height: 1.4285714286em;

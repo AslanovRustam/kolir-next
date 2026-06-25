@@ -90,7 +90,7 @@ export default async function SupportPage() {
               <div className="hero-right support-hero-right">
                 <img className="hero-scribble-y" src="/img/hero/scribble.png" alt="" aria-hidden="true" />
                 <picture>
-                  <source media="(max-width: 1000px)" srcSet="/img/support/main-hero-s-mob.png" />
+                  <source media="(max-width: 767px)" srcSet="/img/support/main-hero-s-mob.png" />
                   <img className="girl support-statue" src="/img/support/hero-statue.png" alt="Ukraine support hero" />
                 </picture>
               </div>
@@ -190,7 +190,7 @@ export default async function SupportPage() {
               </div>
 
               <div className="support-project-copy">
-                <h3>{t('Унікальна Колекція NFT На Підтримку України')}</h3>
+                <h3>{t('Колекція NFT На Підтримку України')}</h3>
                 <p>
                   {t(
                     'Поки наші українські воїни захищають рідні землі, команда Kolir також допомагає нашій країні наблизити перемогу. Ми не носимо форму та зброю. У нас в руках ручка та комп\'ютерна миша — так ми допомагаємо українській армії у цій страшній війні. Світ має можливість купувати NFT для підтримки України та українських збройних сил.',
