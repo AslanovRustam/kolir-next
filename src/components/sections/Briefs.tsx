@@ -1,6 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import SphereSequence from './SphereSequence'
 
 type Tab = { label: string; tag: string; title: string; desc: string }
 type Anim = { from: number; to: number; start: number; dur: number }
@@ -24,6 +25,19 @@ const HREFS = [
   '/brief/video',
   '/brief/banner',
 ]
+
+// Папки рендер-секвенсів сфери (по 48 кадрів) — за індексом табу.
+// Джерело: public/images/3D Renders for Kolir/*
+const SPHERE_BASE = '/images/3D Renders for Kolir'
+const SPHERE_DIRS = [
+  `${SPHERE_BASE}/Sphere_Logo_Kolir`, // 0 — логотип
+  `${SPHERE_BASE}/Sphere_Web`, // 1 — сайт
+  `${SPHERE_BASE}/Sphere_Brandbook`, // 2 — брендбук
+  `${SPHERE_BASE}/Sphere_landing`, // 3 — лендинг
+  `${SPHERE_BASE}/Sphere_Video`, // 4 — відео
+  `${SPHERE_BASE}/Sphere_Baner`, // 5 — банер
+]
+const SPHERE_FRAMES = 48
 
 export default function Briefs({ content: c }: { content: BriefsContent }) {
   const TABS = c.tabs
@@ -59,14 +73,50 @@ export default function Briefs({ content: c }: { content: BriefsContent }) {
     path.setAttribute(
       'd',
       [
-        'M', f(ox - e), f(H),
-        'A', f(e), f(e), 0, 0, 0, f(ox), f(H - e),
-        'L', f(ox), f(r),
-        'A', f(r), f(r), 0, 0, 1, f(ox + r), 0,
-        'L', f(x2 - r), 0,
-        'A', f(r), f(r), 0, 0, 1, f(x2), f(r),
-        'L', f(x2), f(H - e),
-        'A', f(e), f(e), 0, 0, 0, f(x2 + e), f(H),
+        'M',
+        f(ox - e),
+        f(H),
+        'A',
+        f(e),
+        f(e),
+        0,
+        0,
+        0,
+        f(ox),
+        f(H - e),
+        'L',
+        f(ox),
+        f(r),
+        'A',
+        f(r),
+        f(r),
+        0,
+        0,
+        1,
+        f(ox + r),
+        0,
+        'L',
+        f(x2 - r),
+        0,
+        'A',
+        f(r),
+        f(r),
+        0,
+        0,
+        1,
+        f(x2),
+        f(r),
+        'L',
+        f(x2),
+        f(H - e),
+        'A',
+        f(e),
+        f(e),
+        0,
+        0,
+        0,
+        f(x2 + e),
+        f(H),
         'Z',
       ].join(' '),
     )
@@ -130,7 +180,8 @@ export default function Briefs({ content: c }: { content: BriefsContent }) {
   useEffect(() => {
     const onR = () => placeRef.current(false)
     window.addEventListener('resize', onR)
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => placeRef.current(false))
+    if (document.fonts && document.fonts.ready)
+      document.fonts.ready.then(() => placeRef.current(false))
     return () => {
       window.removeEventListener('resize', onR)
       if (rafRef.current) cancelAnimationFrame(rafRef.current)
@@ -188,7 +239,11 @@ export default function Briefs({ content: c }: { content: BriefsContent }) {
       <div className="briefs2">
         <div className="briefs2-decor" aria-hidden="true">
           <img className="briefs2-ribbon briefs2-ribbon--left" src="/img/hero/ribbon.png" alt="" />
-          <img className="briefs2-ribbon briefs2-ribbon--right" src="/img/hero/ribbon-right.png" alt="" />
+          <img
+            className="briefs2-ribbon briefs2-ribbon--right"
+            src="/img/hero/ribbon-right.png"
+            alt=""
+          />
         </div>
 
         <div className="briefs2-head" data-reveal="up">
@@ -206,8 +261,18 @@ export default function Briefs({ content: c }: { content: BriefsContent }) {
         </div>
 
         <div className="briefs2-component">
-          <div className="briefs-tabs has-tab-ind" role="tablist" aria-label="Briefs categories" ref={tabsRef}>
-            <svg className="briefs-ind-svg" aria-hidden="true" preserveAspectRatio="none" ref={svgRef}>
+          <div
+            className="briefs-tabs has-tab-ind"
+            role="tablist"
+            aria-label="Briefs categories"
+            ref={tabsRef}
+          >
+            <svg
+              className="briefs-ind-svg"
+              aria-hidden="true"
+              preserveAspectRatio="none"
+              ref={svgRef}
+            >
               <path ref={pathRef} />
             </svg>
             {TABS.map((tab, i) => (
@@ -226,15 +291,37 @@ export default function Briefs({ content: c }: { content: BriefsContent }) {
 
           {/* Мобільний навігатор брифів: стрілки + назва поточної категорії */}
           <div className="briefs2-tabnav" aria-hidden="true">
-            <button className="briefs2-tabarrow briefs2-tabarrow--prev" type="button" aria-label="Попередній" onClick={() => go(idx - 1)}>
+            <button
+              className="briefs2-tabarrow briefs2-tabarrow--prev"
+              type="button"
+              aria-label="Попередній"
+              onClick={() => go(idx - 1)}
+            >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M15 5l-7 7 7 7" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+                <path
+                  d="M15 5l-7 7 7 7"
+                  stroke="currentColor"
+                  strokeWidth="2.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </button>
             <span className="briefs2-tabnav-label">{t.label}</span>
-            <button className="briefs2-tabarrow briefs2-tabarrow--next" type="button" aria-label="Наступний" onClick={() => go(idx + 1)}>
+            <button
+              className="briefs2-tabarrow briefs2-tabarrow--next"
+              type="button"
+              aria-label="Наступний"
+              onClick={() => go(idx + 1)}
+            >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+                <path
+                  d="M9 5l7 7-7 7"
+                  stroke="currentColor"
+                  strokeWidth="2.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </button>
           </div>
@@ -250,7 +337,12 @@ export default function Briefs({ content: c }: { content: BriefsContent }) {
             </div>
             <div className="briefs2-visual" aria-hidden="true">
               <span className="briefs2-yellow" />
-              <img className="briefs2-ball" src="/img/briefs/ball.png" alt="" />
+              <SphereSequence
+                className="briefs2-ball"
+                dir={SPHERE_DIRS[idx]}
+                count={SPHERE_FRAMES}
+                fps={16}
+              />
             </div>
           </div>
 
