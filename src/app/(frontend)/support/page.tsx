@@ -88,7 +88,7 @@ export default async function SupportPage() {
               </div>
 
               <div className="hero-right support-hero-right">
-                <img className="hero-scribble-y" src="/img/hero/scribble.png" alt="" aria-hidden="true" />
+                <img className="hero-scribble-y" src="/img/brand_line/Vector.svg" alt="" aria-hidden="true" />
                 <picture>
                   <source media="(max-width: 767px)" srcSet="/img/support/main-hero-s-mob.png" />
                   <img className="girl support-statue" src="/img/support/hero-statue.png" alt="Ukraine support hero" />

@@ -94,7 +94,7 @@ export default function Briefs({ content: c }: { content: BriefsContent }) {
       const tabs = tabsRef.current,
         svg = svgRef.current
       if (!tabs || !svg) return
-      if (!window.matchMedia('(min-width: 1001px)').matches) return
+      if (!window.matchMedia('(min-width: 768px)').matches) return
       const btn = tabs.querySelectorAll<HTMLElement>('.briefs-tab')[idx]
       if (!btn) return
       svg.setAttribute('viewBox', `0 0 ${tabs.clientWidth} ${tabs.clientHeight}`)

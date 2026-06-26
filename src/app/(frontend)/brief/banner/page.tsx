@@ -55,7 +55,7 @@ export default async function BriefBannerPage() {
 
                   <div className="brief__field__brifes">
                     <label className="brief__field-name__brifes" htmlFor="kolir-contact">
-                      <p>{t('Ваша контактна особа у Clickable Agency *')}</p>
+                      <p>{t('Ваша контактна особа в Kolir Agency *')}</p>
                     </label>
                     <div className="brief__field-input__brifes">
                       <select id="kolir-contact" name="kolir_contact" required defaultValue="">

@@ -7,7 +7,11 @@
 }
 
 html {
-  font-size: 18px;
+  /* 10px — щоб збігалося з site-css/style.css (html{font-size:10px}); інакше при
+     завантаженні в деві (CSS інжектиться через JS у різному порядку) на мить
+     перемагало 18px → 1rem=18px, хедер min(160rem,…) не капався і спалахував на
+     всю ширину. Збіг значень прибирає цей FOUC. */
+  font-size: 10px;
   line-height: 32px;
 
   background: rgb(0, 0, 0);

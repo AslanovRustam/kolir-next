@@ -471,15 +471,19 @@
 
   /* ── Форма заявки (клон головної) ── */
   .volunteer-page .contactk{ margin-top: 5rem; }
-  .volunteer-page .contactk-shell{ width: calc(100% - 3rem); margin: 0 auto; }
+  /* підложка (.contactk-card) — на всю ширину секції/героя (гаттер ~6px);
+     контент (текст/буллети/форма) лишається на місці завдяки гор. padding картки */
+  .volunteer-page .contactk-shell{ width: 100%; margin: 0 auto; }
   /* base .contactk-card мав margin-bottom:31rem (під декор-засновника на головній) —
      на волонтерці це порожня діра до футера. Прибираємо до звичайного відступу. */
-  .volunteer-page .contactk-card{ position: relative; overflow: hidden; background: var(--c-2c0060); border-radius: 2.4rem; padding: 3rem 0; margin-bottom: 4rem !important; }
+  .volunteer-page .contactk-card{ position: relative; overflow: hidden; background: var(--c-2c0060); border-radius: 2.4rem; padding: 3rem 1.4rem; margin-bottom: 4rem !important; }
   .volunteer-page .contactk-deco{ display: none; }
   .volunteer-page .contactk-head,
   .volunteer-page .contactk-grid{ width: calc(100% - 3rem); margin: 0 auto; }
   /* МОБ: макет «Залиш заявку» — стек (текст → жовта форма), на всю ширину */
-  .volunteer-page .vol-apply-grid{ width: calc(100% - 3rem); margin: 0 auto; display: flex; flex-direction: column; gap: 2.4rem; }
+  /* був подвійний інсет (секція + grid) → ~34px, ширше за решту секцій (~20px).
+     width:100% → апплай-контент на тому ж бічному марджині, що й vol-about/contactk. */
+  .volunteer-page .vol-apply-grid{ width: 100%; margin: 0 auto; display: flex; flex-direction: column; gap: 2.4rem; }
   .volunteer-page .vol-apply-left{ display: flex; flex-direction: column; align-items: flex-start; gap: 1.6rem; }
   .volunteer-page .vol-apply-pill{ padding: .55rem 1.6rem; border: .15rem solid var(--yellow); border-radius: 2.2rem; color: var(--c-white); font-family: "Stolzl", sans-serif; font-weight: 400; font-size: 1.4rem; line-height: 1; }
   .volunteer-page .vol-apply-title{ margin: 0; font-family: "Unbounded", sans-serif; font-weight: 600; font-size: 2.2rem; line-height: 1.2; color: var(--c-white); max-width: none; }

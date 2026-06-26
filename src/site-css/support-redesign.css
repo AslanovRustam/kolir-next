@@ -10,19 +10,24 @@
 
 @media (min-width: 768px){
 
-  /* ── Зовнішня тёмна карточка (#3e0088), як на головній ── */
+  /* ── Зовнішня тёмна карточка (#3e0088) = ФОН: ширше за контент, кап 176rem(1760),
+     виходить за shell(1600) і центрується на вьюпорті (як на головній). ── */
   .kolir-page.support-page .hero .hero-card.support-hero-card{
     background: var(--outer) !important;          /* #3e0088 */
-    border-radius: var(--rOuter) !important;      /* 6rem */
+    border-radius: 0 0 var(--rOuter) var(--rOuter) !important;   /* верхні кути прямі */
     padding: 11.5rem 0 2rem !important;           /* верх 11.5rem — місце під накладений nav; низ тонкий —
                                                      темна підкладка під яркою хіро-картою більше не тягнеться вниз */
     overflow: visible !important;
     box-shadow: none !important;
+    width: min(176rem, calc(100vw - 4rem)) !important;
+    max-width: none !important;
+    margin-left: 50% !important;
+    transform: translateX(-50%) !important;
   }
 
   /* Ленти-вишиванки — два кластери, як у макеті головної */
   .support-page .hero .hero-card-decor .s-scribble{ display: none !important; }
-  .support-page .hero .hero-card-decor{ overflow: hidden !important; border-radius: var(--rOuter) !important; }
+  .support-page .hero .hero-card-decor{ overflow: hidden !important; border-radius: 0 0 var(--rOuter) var(--rOuter) !important; }
   .support-page .hero .sup-ribbon{
     position: absolute; width: auto; height: auto;
     pointer-events: none; user-select: none; opacity: .9; z-index: 0;
@@ -55,7 +60,10 @@
     position: absolute !important; inset: 0 !important;
     width: auto !important; height: auto !important;
     background: var(--inner) !important;          /* #5e00cf */
-    border-radius: var(--rInner) !important;      /* 3rem */
+    /* радіус плашки = радіус тёмної карти (--rOuter 6rem) − зазор/«вухо» (2rem на
+       немаксимальній ширині) → кути концентричні: відстань на згині = відстані на
+       прямих ділянках (бічних/нижньому). */
+    border-radius: calc(var(--rOuter, 6rem) - 2rem) !important;
     overflow: hidden !important;                  /* скрайбл всередині картки, як на головній */
     z-index: 1 !important;
   }

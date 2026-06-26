@@ -120,7 +120,7 @@
 
     .hero-card{
       width: 100%;
-      border-radius: var(--rOuter);
+      border-radius: 0 0 var(--rOuter) var(--rOuter);   /* верхні кути прямі — фон-підкладка хіро без скруглення зверху */
       padding: 3.6rem 14rem 10.4rem 14rem;
       background: var(--outer);
       position: relative;
@@ -700,11 +700,15 @@
       .trusted{
         margin-top:2.2rem;
         padding:0 3rem;
-        gap:1.6rem;
+        gap:.4rem;                    /* лого ближче до «Нам довіряють» */
         flex-direction:column;
-        align-items:flex-start;
+        align-items:center;          /* «Нам довіряють» + ряд лого по центру ширини */
+        text-align:center;
+        justify-content:center;
       }
-      .logos{ -webkit-mask-image:none; mask-image:none; width:100%; }
+      .trusted .label{ width:100%; text-align:center; }
+      /* вужча плашка логотипів, по центру; ряд лого вертикально центрований у ній */
+      .logos{ -webkit-mask-image:none; mask-image:none; width:86%; margin:0 auto; display:flex; align-items:center; }
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -1183,19 +1187,27 @@
     padding: .6rem;
   }
 
+  /* «без підложки»: прибираємо жовту плашку секції + узори, лишаємо слайдер на тёмному фоні */
   .services-card{
-    border-radius:4rem;
-    padding: 3.4rem 1.2rem 4rem;   /* менше «повітря» знизу */
+    border-radius:0;
+    padding: 0;
+    background: transparent !important;
   }
-  .services-clip{ border-radius:4rem; }
+  .services-clip{ display:none !important; }
+  .services-content{ padding: 0; }
 
-  .services-title{ font-size:4.4rem; }
+  /* заголовок секції — як інші заголовки сторінки (Портфоліо/Маєте ідею): Unbounded 600 */
+  .services-head{ min-height: 0; }   /* прибираємо десктопний резерв 6.8rem → заголовок впритул до карток */
+  .services-title{ font-family:"Unbounded", sans-serif; font-weight:600; font-size:3rem; line-height:1.05; letter-spacing:0; color: var(--c-white); }
   .services-label{ display:none; }
 
   /* На мобілці ховер недоступний → робимо горизонтальний свайп-слайдер
      із картками, що ВЖЕ розкриті (без потреби наводити). */
   .services-grid{
-    margin-top: 3.2rem;
+    /* слайдер на всю ширину вьюпорта (full-bleed) → peek-картки зрізаються краєм
+       екрана, а не гаттером секції. margin-top 2rem зберігаємо. */
+    margin: 2rem calc(50% - 50vw) 0;
+    width: 100vw;
     display: flex;
     grid-template-columns: none;
     grid-auto-rows: auto;
@@ -1203,39 +1215,47 @@
     overflow-x: auto;
     overflow-y: visible;
     scroll-snap-type: x mandatory;
+    scroll-padding: 0 1.2rem;        /* активна картка не впритул до краю */
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    padding-bottom: .8rem;
+    padding: 0 1.2rem .8rem;         /* перша/остання картка з невеликим відступом від краю */
     align-items: stretch;            /* усі картки однакової висоти (по найвищій) */
   }
   .services-grid::-webkit-scrollbar{ display: none; }
 
   .svc{
-    flex: 0 0 100%;                  /* на всю ширину, без підрізаних боків */
+    flex: 0 0 86%;                   /* вужче за екран → сусідні картки визирають (як на відгуках) */
+    max-width: 450px;                /* але не ширше 450px */
     scroll-snap-align: center;
-    border-radius: 1.8rem;
+    border-radius: 2.4rem;
     padding: 2.6rem 2.4rem 3rem;
     min-height: auto;
 
     --svc-head-h: 3.6rem;
 
     /* форс «відкритого» стану (як .is-open на десктопі) */
-    background: var(--c-5e00cf);
+    background: var(--yellow);        /* жовті картки */
+    color: var(--c-380279);
   }
 
   .svc-title{
     font-size: 1.6rem;
-    color: var(--c-white);
+    color: var(--c-380279);
   }
+  .svc-desc{ color: var(--c-222222); }
+  .svc-line{ background: var(--c-380279); }
   .svc-line{ margin-top: 1.8rem; max-height: 1rem; opacity: 1; transform: none; }
   .svc-desc{ margin-top: 1.8rem; max-height: 40rem; opacity: 1; transform: none; }
   .svc-corner{ opacity: 1; transform: none; }
   .svc-ico{ display: none; }         /* прибираємо іконку-стрілку у слайдері */
 
-  /* Пагінація слайдера послуг (картка жовта → крапки темні) */
-  .services-dots{ display: flex; justify-content: center; gap: .6rem; margin-top: 2.4rem; }
-  .services-dots span{ width: 2.4rem; height: .3rem; border-radius: 9rem; background: rgba(94,0,207,.28); transition: width .2s ease, background .2s ease; }
-  .services-dots span.is-active{ width: 4.8rem; background: var(--c-5e00cf); }
+  /* завиток на жовтій картці — світло-жовтий (а не синій) */
+  .svc-corner{ color: var(--c-yellow2) !important; }
+
+  /* Пагінація слайдера послуг (тёмний фон секції → світлі крапки, активна — жовта) */
+  .services-dots{ display: flex; justify-content: center; gap: .6rem; margin-top: 2.4rem; margin-bottom: 3.2rem; }
+  .services-dots span{ width: 2.4rem; height: .3rem; border-radius: 9rem; background: rgba(255,255,255,.3); transition: width .2s ease, background .2s ease; }
+  .services-dots span.is-active{ width: 4.8rem; background: var(--yellow); }
 
   .svc-ico{
     width: 4.2rem;
@@ -2483,12 +2503,19 @@ border-radius: 999rem;
   padding: 7.2rem 0 6.8rem;
   background: var(--ts-bg);
   overflow:hidden;
-  width: 103% !important;
+  width: 100% !important;   /* було 103% — секція вилазила за shell праворуч і зсувала контент */
 }
 
 .t-shell{
-  width:min(132rem, 100% - 12rem);
+  width:min(160rem, 100%);   /* мобілка/планшет: повна ширина (інсети — окремими правилами) */
   margin:0 auto;
+}
+@media (min-width: 1200px){
+  /* десктоп: контент 1600, бічні поля рахуємо від вьюпорта (як у briefs/contacts:
+     фон min(176rem,100vw-4rem) мінус гаттер 16rem == min(160rem, 100vw-20rem)).
+     Раніше було calc(100% - 16rem), де 100% = смуга .testimonials, що капається на
+     1600 → на макс. ширині виходило 1440 (вужче за контент сусідів). */
+  .t-shell{ width:min(160rem, calc(100vw - 20rem)); }
 }
 
 .t-head{
@@ -2546,7 +2573,7 @@ border-radius: 999rem;
 
 .t-topright{
   position:absolute;
-  right:21rem;
+  right:0;            /* було 21rem — маркер «Відгуки» вирівнюємо по правому краю контенту (1752), як решта */
   top: 1.2rem;
   display:flex;
   flex-direction:column;
@@ -3052,6 +3079,12 @@ display: inline-flex;
   border-radius: 5rem;
   padding: 14.6rem 23rem 6rem 23rem;
   overflow: hidden;
+  /* синя підкладка = ФОН: ширше за контент, кап 176rem(1760), виходить за shell(1600)
+     і центрується на вьюпорті (як фон хіро) */
+  width: min(176rem, calc(100vw - 4rem));
+  max-width: none;
+  margin-left: 50%;
+  transform: translateX(-50%);
 }
 
 .contactk-head{
@@ -3083,12 +3116,20 @@ display: inline-flex;
   margin-top: 3rem;
 }
 .contactk-head-right{
-  margin-top: 1.2rem;
   color: var(--c-white);
   font-size: 1.4rem;
   text-decoration: none;
-  position: relative;
+  /* виносимо на правий край КОНТЕНТУ (1752) широкої картки-фону (1760):
+     right = рамка фон/контент = (картка − контент)/2, робастно по ширинах */
+  position: absolute;
+  top: 15rem;
+  right: calc((100% - min(160rem, calc(100% - 16rem))) / 2);
   padding-bottom: 1.2rem;
+}
+/* щоб маркер «Контакти» рахувався від картки-фону (1760), а не від вузької
+   шапки (1080) — робимо шапку static на десктопі (containing block = картка) */
+@media (min-width: 768px){
+  .contactk-card .contactk-head{ position: static; }
 }
 .contactk-head-underline{
   position: absolute;

@@ -18,7 +18,8 @@
     justify-content: space-between;
     gap: 2rem;
     height: 6.4rem;            /* нижчий хедер (було 8.4rem) */
-    width: min(160rem, calc(100% - 4rem));
+    width: min(160rem, calc(100vw - 8rem));   /* успадковує ширину ЯСКРАВОЇ плашки хіро (контент 1600), щоб бар збігався з нею по краях.
+                                                  (плашка = фон min(176rem,100vw-4rem) мінус 4rem інсет == min(160rem, 100vw-8rem)) */
     margin: 0 auto;
     padding: 0.8rem 2.4rem;
     background: rgba(44, 0, 96, 0.9);
@@ -112,6 +113,25 @@
   padding-bottom: 0.7rem !important;
 }
 
+/* Support / Volunteer: на цих сторінках немає смуги trusted-лого знизу хіро, тож
+   нижній просвіт (між яскравою плашкою і низом тёмної картки) має дорівнювати
+   «вуху» (бічному просвіту) на всіх ширинах. Вухо = (фон − контент)/2, де
+   фон = min(176rem,100vw-4rem), контент = min(160rem, 100%-4rem):
+   на макс. ширині 8rem (80px), на проміжних спадає до 2rem (20px).
+   Та сама формула від вьюпорта: clamp(2rem, 50vw - 82rem, 8rem). */
+.support-page #heroCard.support-hero-card,
+.volunteer-page .hero #heroCard.vol-hero-card {
+  padding-bottom: clamp(2rem, calc(50vw - 82rem), 8rem) !important;
+}
+/* Мобілка: нижнє «вухо» = верхньому (1rem), а не 2rem (clamp-мінімум розрахований
+   під десктопні бічні «вуха»). + min-height знято → блоки нижче піднімаються. */
+@media (max-width: 767px){
+  .support-page #heroCard.support-hero-card,
+  .volunteer-page .hero #heroCard.vol-hero-card{
+    padding-bottom: 1rem !important;
+  }
+}
+
 /* МОБІЛКА: плаваючий хедер (низ ~8.5rem) перекривав верх хіро-плашки. Опускаємо
    плашку нижче хедера (margin-top) і прибираємо «заходовий» верхній паддинг
    (5.3rem був, щоб контент не ховався під хедер — тепер це робить відступ). */
@@ -119,8 +139,13 @@
   .support-page #heroCard,
   .kolir-page:not(.support-page) #heroCard{
     margin-top: 9.5rem !important;
-    padding-top: 2.6rem !important;
+    /* верхній просвіт тёмного фону над яскравою плашкою = бічному «вуху» (1rem),
+       як вирівнювали на десктопі. Хедер уже відведено margin-top, тож контент не ховається. */
+    padding-top: 1rem !important;
   }
+  /* головна: смуга лого візуально по центру висоти між текстом «Нам довіряють»
+     і низом картки (нижнім «вухом») → нижній зазор ≈ верхньому */
+  .kolir-page:not(.support-page) #heroCard{ padding-bottom: 1.8rem !important; }
 }
 
 /* Плаваюча пілюля-хедер: НАЇЖДЖАЄ поверх контенту (герой іде під неї) і лишається

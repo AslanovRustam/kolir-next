@@ -35,28 +35,38 @@
   /* ── Хедер і контент однакової ширини: 120rem = 1600px @1920 ── */
   .sticky-nav{ width: min(160rem, calc(100% - 4rem)); }
 
-  /* Прибираємо бічні падінги зовнішньої карточки, центруємо контент у 120rem */
-  .hero .hero-card{ padding-left: 0; padding-right: 0; }
+  /* ФОН (тёмна карта) ширше за контент: кап 176rem(1760), виходить за shell(1600)
+     і центрується на вьюпорті. КОНТЕНТ усередині — кап 160rem(1600). */
+  .hero .hero-card{
+    padding-left: 0; padding-right: 0;
+    width: min(176rem, calc(100vw - 4rem));
+    max-width: none;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
   .hero .hero-inner{
-    width: min(140rem, calc(100% - 4rem));
+    width: min(160rem, calc(100% - 4rem));
     margin-left: auto;
     margin-right: auto;
     padding: 0 0 0 6rem;        /* лівий інсет 80px@1920, як у макеті */
     min-height: 51rem;          /* висота карточки 680px@1920 */
   }
   .hero .trusted{
-    width: min(140rem, calc(100% - 4rem));
+    width: min(160rem, calc(100% - 4rem));
     margin-left: auto;
     margin-right: auto;
     padding: 0 6rem;
-    margin-top: 3rem;           /* 40px@1920 від низу карточки */
+    /* центруємо рядок логотипів у тёмній смузі (низ яскравої області → низ картки):
+       зверху 1.8rem + знизу 1.1rem (+0.7rem паддінг картки = 1.8rem) → симетрично */
+    margin-top: 1.8rem;
+    margin-bottom: 1.1rem;
   }
 
   /* Декоративні стрічки-вишиванки — два кластери, як у макеті:
      лівий згори-зліва, правий — високий по правому краю донизу. */
   .hero .hero-card-decor{
     overflow: hidden;
-    border-radius: var(--rOuter);
+    border-radius: 0 0 var(--rOuter) var(--rOuter);
   }
   .hero .hero-ribbon{
     position: absolute;
@@ -193,7 +203,7 @@
      вилазили далеко вниз за плашку хіро — аж на «Нам Довіряють» і заголовок
      «Портфоліо». Обрізаємо декор по плашці (overflow:hidden десктоп має, на моб
      правило було відсутнє). Дівчина в окремому .hero-right — її це не чіпає. */
-  .hero .hero-card-decor{ overflow: hidden !important; border-radius: var(--rOuter, 2.4rem) !important; }
+  .hero .hero-card-decor{ overflow: hidden !important; border-radius: 0 0 var(--rOuter, 2.4rem) var(--rOuter, 2.4rem) !important; }
 
   .hero .hero-inner{
     position: relative !important;
@@ -235,7 +245,11 @@
      а фон-плашку (clip) ховаємо за текст, щоб вона не перекривала його */
   .hero .hero-left{ position: static !important; }
   .hero .hero-inner-clip{ z-index: -1 !important; }
-  .hero .hero-desc{ max-width: none !important; }
+  /* підзаголовок трохи нижче від заголовка */
+  .hero .hero-desc{ max-width: none !important; margin-top: 1.6rem !important; }
+  /* фонові фіолетові стрічки-вишиванки (закарлючки на нижньому шарі) — прибираємо на мобілці.
+     Жовті елементи хіро лишаються (вони не .hero-ribbon). */
+  .hero .hero-ribbon{ display: none !important; }
 }
 
 /* ===================== КОНТАКТИ (секція з формою) ===================== */
@@ -246,12 +260,13 @@
   /* Темна підкладка секції */
   .contactk-card{
     position: relative; overflow: hidden;   /* обрізаємо декоративні завитки по скругленню */
+    isolation: isolate;                      /* власний stacking context: deco(z:0) < контент(z:1) */
     background: var(--c-2c0060);
     border-radius: 6rem;
     padding: 9rem 0 7rem;
   }
   /* Декоративні вишиті завитки на тёмній підкладці (як у макеті) */
-  .contactk-deco{ position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .contactk-deco{ position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }   /* під потоковим контентом (.contactk-head static), у власному stacking-контексті картки */
   .contactk-pattern{ position: absolute; width: 48rem; height: auto; }
   .contactk-pattern--tr{ right: -4rem;  top: -6rem; }
   .contactk-pattern--l { left: -16rem;  top: 4rem;   transform: rotate(90deg); }
@@ -260,8 +275,8 @@
   .contactk-head,
   .contactk-grid{
     position: relative; z-index: 1;   /* контент над завитками */
-    width: 108rem;
-    max-width: calc(100% - 8rem);
+    width: 160rem;                    /* контент 1600 у фоні 1760 */
+    max-width: calc(100% - 16rem);    /* бічні поля 8rem (як на макс. ширині), щоб на проміжних не липло до краю */
     margin-left: auto;
     margin-right: auto;
   }
@@ -313,27 +328,30 @@
   .contactk-underlines .line--purple{ width: 4.6rem; background: var(--c-6D00F1); }
 
   /* Сітка: форма зверху, картки знизу */
-  .contactk-grid{ display: flex; flex-direction: column; gap: 1.5rem; }
+  .contactk-grid{ display: flex; flex-direction: row; align-items: stretch; gap: 2rem; }   /* форма зліва | картки колонкою справа, врівень по висоті */
 
   /* ── Жовта карточка-форма ── */
   .contactk-grid .ck-form{
     position: relative;
     overflow: hidden;
     display: flex;
-    flex-direction: row;        /* перекриваємо старе column */
+    flex-direction: column;     /* заголовок зверху, поля знизу — форма вужча */
     align-items: stretch;
     gap: 0;
     padding: 0;                 /* прибираємо старий padding .ck-form */
     background: var(--yellow);
     border-radius: 3rem;
-    min-height: 36.4rem;
+    min-height: 0;
+    /* форма — фікс. ширина (54rem=540px, щоб лишалась зручною); картки одразу справа, далі праворуч порожньо */
+    flex: 0 0 54rem;
+    min-width: 0;
   }
   .contactk-grid .kform-status:empty{ display: none; }  /* не займає місце порожнім */
   .ck-form-left{
     position: relative;
-    flex: 1 1 auto;
-    display: flex; align-items: flex-start;   /* зверху, врівень з полем «Ім'я» (як у макеті) */
-    padding: 3rem;
+    flex: 0 0 auto;
+    display: flex; align-items: flex-start;
+    padding: 3rem 3rem 1rem;
     z-index: 1;
   }
   .ck-form-title{
@@ -349,7 +367,8 @@
      PNG суцільно #fdcc0d (зливався б із карткою) → беремо його як маску й
      заливаємо світлішим жовтим, як у макеті. */
   .ck-form-scribble{
-    display: block; position: absolute; z-index: 0; pointer-events: none; user-select: none;
+    display: none;   /* прибрали жовту завитушку під інпутами */
+    position: absolute; z-index: 0; pointer-events: none; user-select: none;
     left: -38rem; bottom: -42rem; width: 105rem; height: 67.5rem;   /* ×2.5, нижче й значно лівіше */
     opacity: .85;
     background-color: var(--c-yellow2);
@@ -359,11 +378,11 @@
 
   .contactk-grid .ck-form-right{
     display: block;             /* перекриваємо старе grid */
-    flex: 0 0 53rem;
-    padding: 3rem 3rem 3rem 0;
+    flex: 0 0 auto; width: 100%;
+    padding: 0 3rem 3rem;
     z-index: 1;
   }
-  .contactk-grid .kform{ display: flex; flex-direction: column; gap: 2.4rem; }
+  .contactk-grid .kform{ display: flex; flex-direction: column; gap: 1.6rem; }
   .contactk-grid .kform-fields{ display: flex; flex-direction: column; gap: 1.5rem; }
   .contactk-grid .kform-row{ display: flex; flex-direction: column; gap: .9rem; align-items: stretch; }
   .contactk-grid .kform-label{
@@ -379,7 +398,7 @@
     padding: 0 1.35rem;
   }
   .contactk-grid .kform-field--area{
-    height: 9rem; border-radius: 1.8rem; padding: 1.35rem; align-items: flex-start;
+    height: 6.5rem; border-radius: 1.8rem; padding: 1.35rem; align-items: flex-start;
   }
   .contactk-grid .kform-field input,
   .contactk-grid .kform-field textarea{
@@ -403,20 +422,30 @@
     font-size: 1.35rem; line-height: 1.65rem;
   }
 
-  /* ── Інфо-карточки ── */
+  /* Активне поле форми контактів — біла заливка, без обводки */
+  .contactk-grid .kform-field:focus-within{ background: #fff !important; }
+  .contactk-grid .kform-field input:focus,
+  .contactk-grid .kform-field input:focus-visible,
+  .contactk-grid .kform-field textarea:focus,
+  .contactk-grid .kform-field textarea:focus-visible{ outline: none !important; box-shadow: none !important; }
+
+  /* ── Інфо-карточки: колонкою справа від форми, компактні (натуральна висота),
+     рівномірно розподілені по висоті форми ── */
   .contactk-grid .ck-cards{
-    display: flex; flex-direction: row; gap: 1.5rem;
+    flex: 0 0 50rem; min-width: 0; align-self: stretch;   /* ширша колонка карток на всю висоту форми */
+    display: flex; flex-direction: column; gap: 1.6rem;   /* картки одна під одною, разом заповнюють висоту форми */
     margin: 0;
   }
   .contactk-grid .ck-card{
-    flex: 1 1 0; min-width: 0;
+    flex: 1 1 0; min-width: 0; min-height: 0;   /* картки тягнуться → разом на всю висоту форми; контент по центру (align-items:center) */
     background: var(--c-3e0088);
     border-radius: 3rem;
-    padding: 3rem;
-    display: flex; flex-direction: column; gap: 2.4rem;
+    padding: 2.2rem 2.8rem;
+    display: flex; flex-direction: row; align-items: center; gap: 2.2rem;   /* іконка+назва зліва, текст справа; усе по центру по висоті картки */
     text-decoration: none;
   }
   .contactk-grid .ck-card .ck-top{
+    flex: 0 0 14rem;   /* фікс. ширина блоку «іконка+назва» → текст у всіх картках стартує з однієї вертикалі */
     display: flex; align-items: center; gap: 1.5rem;
   }
   .contactk-grid .ck-card .ck-ico{ height: 3.6rem; width: auto; }
@@ -425,10 +454,22 @@
     font-size: 1.5rem; color: var(--yellow);
   }
   .contactk-grid .ck-card .ck-body{
+    flex: 1 1 auto;
     font-family: "Stolzl", sans-serif; font-weight: 400;
     font-size: 1.35rem; line-height: 2.25rem; color: var(--c-white);
-    max-width: 21.7rem;
+    max-width: none;
   }
+}
+
+/* Контакти — ПЛАНШЕТ (768–1199): ряд «форма | картки» залишаємо лише на десктопі
+   ≥1200 (там є місце). Тут форма зверху на всю ширину, 3 картки рядком знизу. */
+@media (min-width: 768px) and (max-width: 1199px){
+  .contactk-grid{ flex-direction: column; }
+  .contactk-grid .ck-form{ flex: 0 0 auto; width: 100%; }
+  .contactk-grid .ck-cards{ flex: 1 1 auto; flex-direction: row; justify-content: flex-start; }
+  .contactk-grid .ck-card{ flex: 1 1 0; flex-direction: column; align-items: stretch; gap: 2.4rem; padding: 3rem; }
+  .contactk-grid .ck-card .ck-top{ flex: 0 0 auto; }
+  .contactk-grid .ck-card .ck-body{ flex: 0 0 auto; max-width: 21.7rem; }
 }
 
 /* ===================== ПОРТФОЛІО — кейси під hero ===================== */
@@ -498,18 +539,18 @@
      шар 1 — жовта плашка з узором-кружками (низ-право), шар 2 — колаж із
      прозорим фоном поверх; края обрізаються overflow:hidden карточки. */
   .hcase-layers{ position: absolute; inset: 0; z-index: 1; pointer-events: none; user-select: none; }
-  .hcase-l-dots{ position: absolute; right: 0; bottom: 0; width: 66.9rem; height: auto; }
+  .hcase-l-dots{ position: absolute; right: 0; bottom: 0; width: clamp(66.9rem, 47%, 78rem); height: auto; }
   /* Колаж = експорт фрейму 5596:160232 (794.5×584@1x, жовтий вибито):
      у макеті фрейм @ x860 y180, правий край = край картки + свес 54.5px */
-  .hcase-l-collage{ position: absolute; right: -4.1rem; top: 13.5rem; width: 59.6rem; height: auto; }
+  .hcase-l-collage{ position: absolute; right: -4.1rem; top: 13.5rem; width: clamp(59.6rem, 44%, 72rem); height: auto; }
 
   /* Strichka: стрічка STRI/CHKA (нативно прозорий PNG 1220×1136, scale .644
      за жовтим блоком: макет 670px / натурне 1040px) + фіолетовий узор-плашка */
-  .hcase-l-ribbon{ position: absolute; right: -1.95rem; top: 12.75rem; width: 59rem; height: auto; }
+  .hcase-l-ribbon{ position: absolute; right: -1.95rem; top: 12.75rem; width: clamp(59rem, 44%, 71rem); height: auto; }
 
   /* Vyriy: дрон = експорт фрейму 5596:161512 (972×738@1x, фон #161616 вибито,
      композиція як у макеті): чорнила від y94/x640 макета, низ/право обрізаються */
-  .hcase-l-drone{ position: absolute; right: -.9rem; top: -1.6rem; width: 72.9rem; height: auto; }
+  .hcase-l-drone{ position: absolute; right: -.9rem; top: -1.6rem; width: clamp(72.9rem, 52%, 85rem); height: auto; }
 
   .hcase-copy{ position: relative; z-index: 5; max-width: 50%; }
   .hcase-h3{
@@ -584,7 +625,8 @@
   .hcase-card{
     position: sticky;
     margin: 0 0 1.6rem;
-    overflow: hidden; border-radius: 3rem; padding: 3rem 2.4rem;
+    overflow: hidden; border-radius: 2.4rem; padding: 1.8rem 1.8rem 2.4rem;
+    display: flex; flex-direction: column;   /* стилізована «картка товару»: фото зверху → заголовок → текст → кнопка */
     transform: translate3d(0, var(--hc-stack-y, 0px), 0) scale(var(--hc-stack-scale, 1));
     transform-origin: center top; will-change: transform; backface-visibility: hidden;
   }
@@ -603,17 +645,25 @@
   .hcase-copy{ max-width: none; }
   .hcase-h3{
     margin: 0; font-family: "Unbounded", sans-serif; font-weight: 600;
-    font-size: 3rem; line-height: 1.1; color: inherit;
+    font-size: 2.4rem; line-height: 1.12; color: inherit;
   }
   .hcase-p{
-    margin: 2rem 0 0; max-width: none;
+    margin: 1.2rem 0 0; max-width: none;
     font-family: "Stolzl", sans-serif; font-weight: 400;
-    font-size: 1.5rem; line-height: 1.55; color: inherit;
+    font-size: 1.45rem; line-height: 1.5; color: inherit;
   }
   .hcase-site{ display: none; }
-  /* картинка — на всю ширину підкладки (виходимо за горизонтальний padding 2.4rem)
-     і впритул до нижнього краю картки (компенсуємо padding-bottom 3rem) */
-  .hcase-visual{ display: block; position: relative; width: calc(100% + 4.8rem); max-width: none; margin: 2.4rem -2.4rem -3rem; height: auto; }
+  /* фото-«шапка» картки товару: зверху, на всю ширину підкладки (вихід за гор. padding),
+     впритул до верхнього краю (компенсуємо padding-top), компактна висота через cover */
+  .hcase-visual{
+    order: -1;                          /* над заголовком/текстом */
+    display: block; position: relative;
+    width: calc(100% + 3.6rem); max-width: none;
+    margin: -1.8rem -1.8rem 1.8rem;     /* bleed до країв картки + відступ до заголовка */
+    height: 18rem; object-fit: cover; object-position: center;
+    border-radius: 0;
+    border-bottom: .3rem solid currentColor;   /* підкреслення — щоб фото не «обрізалось просто так» */
+  }
   .hcase-layers{ display: none; }   /* шари — тільки десктоп; мобілка лишає запечений візуал */
   .hcase-btn{
     position: static; margin-top: 2.4rem;
@@ -646,6 +696,12 @@
     border-radius: 6rem;
     padding: 6rem 0 6.5rem;
     overflow: hidden;
+    /* фіолетова карта = ФОН: ширше за контент, кап 176rem(1760), виходить за
+       shell(1600) і центрується на вьюпорті (як фон хіро/контактів) */
+    width: min(176rem, calc(100vw - 4rem));
+    max-width: none;
+    margin-left: 50%;
+    transform: translateX(-50%);
   }
   /* фонові стрічки-вишиванки */
   .briefs2-decor{ position: absolute; inset: 0; z-index: 0; pointer-events: none; }
@@ -655,7 +711,7 @@
   .briefs2-head,
   .briefs2-component{
     position: relative; z-index: 1;
-    width: min(140rem, calc(100% - 8rem));
+    width: min(160rem, calc(100% - 16rem));   /* контент брифів 1600; бічні поля 8rem (як на макс. ширині), щоб на проміжних не липло до краю */
     margin-left: auto;
     margin-right: auto;
   }
@@ -751,18 +807,37 @@
   }
   /* жовта плашка + шар — координати з макета (відносно карточки 104.8×39.4rem) */
   .briefs2-visual{ position: absolute; inset: 0; pointer-events: none; }
-  /* прив'язка до НИЗУ карточки → виліт униз 2.6rem незалежно від висоти */
-  .briefs2-yellow{
-    position: absolute; left: 66.45rem; bottom: -2.6rem;
-    width: 53.25rem; height: 36rem;            /* 710×480; виліт праворуч ~15rem */
+  /* жовта підложка (плашка) ПІД завитком — за сферою праворуч */
+  .briefs2-visual::before{
+    content: ""; position: absolute;
+    right: -8rem; bottom: -2rem; left: auto; top: auto;
+    width: 46rem; height: 32rem;
     background: var(--yellow); border-radius: 3rem;
-    z-index: 1;
+    z-index: -2; pointer-events: none;
   }
+  /* прив'язка до НИЗУ карточки → виліт униз 2.6rem незалежно від висоти */
+  /* фон-завиток: НАША світло-жовта закарлючка (Vector.svg), повернута −45°,
+     за сферою; z-index -1 → під текстом/кнопкою, але поверх білого фону картки */
+  .briefs2-yellow{
+    position: absolute; right: -22rem; bottom: -8rem; left: auto; top: auto;
+    width: 58rem; height: 58rem;
+    background: var(--c-yellow2);
+    -webkit-mask: url(/img/brand_line/Vector.svg) no-repeat center / contain;
+            mask: url(/img/brand_line/Vector.svg) no-repeat center / contain;
+    border-radius: 0;
+    transform: rotate(-45deg);
+    z-index: -1;
+  }
+  /* сфера — прив'язана до правого краю картки (в межах компонента), не зрізається */
   .briefs2-ball{
-    position: absolute; left: 51.2rem; bottom: -2.6rem;
-    width: 68.5rem; height: auto;              /* шар+завиток (913px) поверх плашки */
+    position: absolute; right: -14rem; left: auto; bottom: -3rem;
+    width: 42rem; height: auto;
     z-index: 2;
   }
+  /* картка — власний stacking-контекст (завиток поверх білого фону, під текстом) */
+  .briefs2-card{ isolation: isolate; }
+  /* секція брифів над «Відгуками» (виліт завитка/сфери поверх наступного блоку) */
+  .briefs--v2{ position: relative; z-index: 2; }
 
   /* ── Точки-прогрес (ліворуч, x=331@1920 ≈ 24.8rem) ── */
   .briefs2-dots{ display: flex; justify-content: flex-start; padding-left: 24.8rem; gap: .6rem; margin-top: 4rem; }
@@ -770,12 +845,24 @@
   .briefs2-dots span.is-active{ width: 6rem; background: var(--yellow); }
 }
 
+/* Брифи — вузький десктоп (768–1199): ряд табів (ширина по контенту) не сжимається,
+   а картка 100%−15.2rem на цих ширинах коротша за останній таб → «Банери» торчав
+   за правим краєм картки. Даємо картці повну ширину компонента, щоб таби стикувалися. */
+@media (min-width: 768px) and (max-width: 1199px){
+  .briefs2-card{ width: 100%; }
+  /* картка на всю ширину компонента (без вильоту 15.2rem) → тримаємо сферу в межах
+     картки/вьюпорта, інакше зрізалась праворуч. Завиток — за сферою. */
+  .briefs2-ball{ right: -3rem !important; left: auto !important; width: 30rem !important; bottom: -1rem !important; }
+  .briefs2-yellow{ right: -15rem !important; bottom: -5rem !important; width: 44rem !important; height: 44rem !important; }
+  .briefs2-visual::before{ right: -5rem !important; bottom: 0 !important; width: 34rem !important; height: 24rem !important; }
+}
+
 /* ── Брифи v2 — мобільне (щоб не ламалось) ── */
 @media (max-width: 767px){
-  .briefs--v2 .briefs2{ background: var(--c-3e0088); border-radius: 4rem; padding: 4rem 2.4rem; }
+  .briefs--v2 .briefs2{ background: var(--c-3e0088); border-radius: 4rem; padding: 2.8rem 2.4rem; }
   .briefs2-decor, .briefs2-ribbon{ display: none; }   /* стрічки прибираємо на мобілці */
-  .briefs2-head{ display: flex; flex-direction: column; align-items: flex-start; gap: 2.4rem; margin-bottom: 3.2rem; }
-  .briefs2-title{ margin: 0; font-family: "Unbounded", sans-serif; font-weight: 600; font-size: 4rem; line-height: 1.1; color: var(--c-white); }
+  .briefs2-head{ display: flex; flex-direction: column; align-items: flex-start; gap: 1.4rem; margin-bottom: 2rem; }
+  .briefs2-title{ margin: 0; font-family: "Unbounded", sans-serif; font-weight: 600; font-size: 3.2rem; line-height: 1.1; color: var(--c-white); }
   .briefs2-vline{ display: none; }
   .briefs2-lead{ margin: 0; font-family: "Stolzl", sans-serif; font-size: 1.6rem; line-height: 1.5; color: var(--c-white); }
   .briefs2-kicker{ display: none; }
@@ -801,14 +888,51 @@
     font-family: "Unbounded", sans-serif; font-weight: 600; font-size: 1.9rem;
     line-height: 1.1; color: var(--c-white);
   }
-  .briefs2-card{ background: var(--c-white); border-radius: 3rem; padding: 3rem 2.4rem; display: flex; flex-direction: column; }
+  .briefs2-card{ background: var(--c-white); border-radius: 3rem; padding: 2rem 2.2rem; display: flex; flex-direction: column; }
   .briefs2-left{ display: flex; flex-direction: column; align-items: flex-start; }
   .briefs2-tag{ display: inline-flex; padding: .6rem 1.6rem; border: .1rem solid var(--yellow); border-radius: .6rem 2rem 2rem 2rem; font-family: "Stolzl", sans-serif; font-size: 1.5rem; color: var(--c-161616); }
-  .briefs2-h3{ margin: 2.4rem 0 0; font-family: "Unbounded", sans-serif; font-weight: 600; font-size: 2.6rem; line-height: 1.2; color: var(--c-222222); }
-  .briefs2-desc{ margin: 2rem 0 0; font-family: "Stolzl", sans-serif; font-size: 1.6rem; line-height: 1.5; color: var(--c-222222); }
-  .briefs2-btn{ margin-top: 2.8rem; display: flex; width: 100%; align-items: center; justify-content: center; padding: 1.3rem 2.4rem; border-radius: 3rem; background: var(--c-6D00F1); color: var(--c-white); font-family: "Stolzl", sans-serif; font-weight: 500; font-size: 1.6rem; text-decoration: none; }
-  .briefs2-visual{ position: relative; width: 100%; margin-top: 2.4rem; }
-  .briefs2-ball{ display: block; width: 168%; max-width: none; height: auto; margin: 1.5rem -34% 0; transform: translateX(-16%); }  /* більший; зсув, щоб САМА сфера була по центру */
+  .briefs2-h3{ margin: 1.6rem 0 0; font-family: "Unbounded", sans-serif; font-weight: 600; font-size: 2.2rem; line-height: 1.2; color: var(--c-222222); }
+  .briefs2-desc{ margin: 1.4rem 0 0; font-family: "Stolzl", sans-serif; font-size: 1.55rem; line-height: 1.45; color: var(--c-222222); }
+  .briefs2-btn{ margin-top: 2rem; display: flex; width: 100%; align-items: center; justify-content: center; padding: 1.2rem 2.4rem; border-radius: 3rem; background: var(--c-6D00F1); color: var(--c-white); font-family: "Stolzl", sans-serif; font-weight: 500; font-size: 1.6rem; text-decoration: none; }
+  .briefs2-visual{ position: relative; width: 100%; height: 23rem; margin-top: 1.2rem; display: flex; align-items: center; justify-content: center; overflow: visible; }
+  /* жовта підложка (плашка) ПІД завитком — повертаємо */
+  .briefs2-visual::before{
+    content: ""; position: absolute;
+    left: 50%; top: 50%; transform: translate(-50%, -50%);
+    width: 27rem; height: 18.5rem;
+    background: var(--yellow); border-radius: 3rem;
+    z-index: -2; pointer-events: none;
+  }
+  /* фон: НАША стандартна закарлючка (Vector.svg) — світло-жовта, 2× більша,
+     виходить за краї, повернута −45° (проти годинникової). z-index -1 → за
+     текстом/кнопкою, але поверх білого фону картки (картка isolation:isolate). */
+  .briefs2-yellow{
+    display: block !important;
+    position: absolute !important; inset: auto !important;
+    left: 50% !important; top: 50% !important;
+    width: 200% !important; height: 200% !important;
+    transform: translate(-50%, -50%) rotate(-45deg) !important;
+    background: var(--c-yellow2) !important;
+    -webkit-mask: url(/img/brand_line/Vector.svg) no-repeat center / contain !important;
+            mask: url(/img/brand_line/Vector.svg) no-repeat center / contain !important;
+    border-radius: 0 !important; opacity: 1 !important;
+    z-index: -1 !important; pointer-events: none !important;
+  }
+  /* картка — власний stacking-контекст: завиток (z-1) поверх білого фону, але під текстом */
+  .briefs2-card{ isolation: isolate; }
+  /* секція брифів над «Відгуками», щоб виліт завитка був поверх наступного блоку;
+     overflow-x:clip — завиток виходить за краї картки, але не дає гор. скрол сторінки
+     (вертикаль лишається visible → виліт униз поверх «Відгуків») */
+  .briefs--v2{ position: relative; z-index: 2; overflow-x: clip; }
+  /* шар (нова чиста kolir-сфера без вшитого завитка) — по центру, без клипа */
+  .briefs2-ball{
+    position: relative !important; z-index: 1 !important;
+    width: auto !important; height: 100% !important; max-width: none !important;
+    margin: 0 !important;
+    transform: none !important;
+    object-fit: contain !important;
+    clip-path: none !important;
+  }
   .briefs2-dots{ display: none; }   /* пагінація не потрібна — є стрілковий навігатор */
   .briefs2-dots span{ width: 2.4rem; height: .3rem; border-radius: 9rem; background: rgba(255,255,255,.3); }
   .briefs2-dots span.is-active{ width: 4.8rem; background: var(--yellow); }
@@ -823,7 +947,7 @@
      проїжджають МІЖ шарами: iphone/screen/hand під ними (z1), finger над (z7). */
   .testimonials .t-stage{
     --ph-w: 28rem;
-    --ph-x: 9rem;
+    --ph-x: 1rem;          /* було 9rem — присуваємо телефон+картки до лівого краю контенту (1600), щоб не лишалось порожньо зліва */
     --ph-y: -25rem;
     --s: calc(var(--ph-w) / 386);
   }
@@ -843,7 +967,7 @@
   /* Свайдер нижче (картки заходять під палець). Картки — ПЕРЕД телефоном
      (z над .t-phone), їдуть над екраном і ховаються за ЛІВИМ краєм екрана. */
   .testimonials .t-swiper{
-    left: 10rem !important;     /* картка над екраном; зникає при драгу на лівому краї телефону */
+    left: 2rem !important;     /* картка над екраном; зникає при драгу на лівому краї телефону (зсунуто вліво разом із --ph-x) */
     top: calc(var(--ph-y) + 331 * var(--s) + 0.5rem) !important;
   }
   /* Клип-обгортка: ЖОРСТКА обрізка по лінії (червона лінія в макеті) — картка
@@ -900,12 +1024,12 @@
   /* прибираємо базовий margin-bottom:-6rem — він затягував секцію контактів
      угору й перекривав цитату «Засновник» унизу картки */
   .aboutk--v2{ margin-bottom: 0 !important; padding-bottom: 4rem; }
-  .aboutk--v2 .aboutk-shell{ width: min(140rem, calc(100% - 4rem)); max-width: none; margin: 0 auto; padding: 0 !important; }
+  .aboutk--v2 .aboutk-shell{ width: min(160rem, calc(100% - 16rem)); max-width: none; margin: 0 auto; padding: 0 !important; }  /* «Про Колір» 1600 з бічними полями 8rem (як на макс. ширині), щоб картка/фото не липли до краю на проміжних */
   .aboutk--v2 .aboutk-card{
     display: block;               /* перекриваємо старий grid */
     position: relative;
-    width: calc(100% - 6rem) !important; max-width: none !important;
-    margin: 0 0 0 6rem !important;   /* картка 114rem, вирівняна праворуч; фото заходить у лівий відступ */
+    width: 100% !important; max-width: none !important;
+    margin: 0 !important;   /* картка на всю ширину контенту (1600), фото абсолютне зліва */
     min-height: 48rem;
     background: var(--c-yellow);
     border-radius: 3rem;
@@ -1081,3 +1205,46 @@
   /* + трохи вужчий текст, щоб гарантовано не торкатись артів (особливо дрона) */
   .hcase-copy{ max-width:42%!important; }
 }
+
+/* ── Мобілка: однакові бічні марджини секцій, як у блоці «Про агенцію»
+   (картка на всю ширину shell, гаттер ~6px). Прибираємо фон-брейкаут
+   briefs/contacts на моб, щоб їхні картки не були вужчими за решту. ── */
+@media (max-width: 767px){
+  /* секція briefs мала бічний padding 1rem → її фон-картка сиділа вужче за решту;
+     прибираємо, щоб briefs2 був на всю ширину shell (гаттер ~6px, як About) */
+  .briefs--v2{ padding-left: 0 !important; padding-right: 0 !important; }
+  .briefs--v2 .briefs2,
+  .contactk-card{
+    width: auto !important;
+    max-width: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    transform: none !important;
+  }
+}
+
+/* ── ЄДИНИЙ стандарт полів форм (.kform-field) — як на десктопі головної, на ВСІХ
+   ширинах і всіх формах (контакти головної/волонтерки + «Залиш заявку»).
+   Стилізуємо САМ wrapper (.kform-field), input/textarea — прозорі. Так і дефолт,
+   і фокус міняються цілісно (раніше на моб фарбувався input → на фокусі білий
+   input лишався в жовтій рамці wrapper-а). ── */
+body .kform-field{
+  background: var(--c-yellow2) !important;
+  border: 0 !important;
+  border-radius: 2.25rem !important;
+  box-shadow: none !important;
+}
+body .kform-field--area{ border-radius: 1.8rem !important; }
+body .kform-field input,
+body .kform-field textarea{
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  color: var(--c-161616) !important;
+  outline: none !important;
+}
+body .kform-field input::placeholder,
+body .kform-field textarea::placeholder{ color: var(--c-161616) !important; opacity: .5; }
+/* активне поле — біле (а не кремове #FFF1B8), без обводки */
+body .kform-field:focus-within{ background: #fff !important; }

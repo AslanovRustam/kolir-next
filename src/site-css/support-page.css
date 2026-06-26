@@ -244,12 +244,12 @@ position: absolute;
 .support-button:hover{opacity:.92;transform:translateY(-.1rem);}
 .support-button--purple{color:#fff;background:var(--support-purple-3);}
 .support-button--yellow-small{color:var(--support-purple-2);background:var(--support-yellow);}
-.support-nft-stack{position:absolute;right:-2rem;bottom:-11rem;z-index:3;width:80rem;height:60rem;}
-.support-nft{position:absolute;width:33rem;max-width:none;border-radius:1.6rem;box-shadow:0 1.6rem 5rem rgba(0,0,0,.24);}
+.support-nft-stack{position:absolute;right:-2rem;bottom:-11rem;z-index:3;width:88rem;height:66rem;}
+.support-nft{position:absolute;width:37rem;max-width:none;border-radius:1.6rem;box-shadow:0 1.6rem 5rem rgba(0,0,0,.24);}
 .support-nft--one{right:5rem;bottom:-19rem;transform:rotate(-20.5deg);}
 .support-nft--two{right:26rem;bottom:-13rem;transform:rotate(8.3deg);}
 .support-nft--three{right:46rem;bottom:-30rem;transform:rotate(-17.7deg);}
-.support-cyber-visual,.support-itt-visual{position:absolute;right:0;bottom:0;z-index:3;width:50%;height:70%;border-radius:3rem 0 3rem 0;overflow:hidden;box-shadow:-2.2rem 2.4rem 6rem rgba(0,0,0,.22);}
+.support-cyber-visual,.support-itt-visual{position:absolute;right:0;bottom:0;z-index:3;width:54%;height:76%;border-radius:3rem 0 3rem 0;overflow:hidden;box-shadow:-2.2rem 2.4rem 6rem rgba(0,0,0,.22);}
 .support-cyber-visual img,.support-itt-visual img{width:100%;height:100%;object-fit:cover;display:block;}
 
 .support-volunteer{position:relative;z-index:3;display:grid;grid-template-columns:minmax(0,42rem) minmax(0,1fr);gap:5rem;align-items:center;padding:12rem 0 10rem;background:var(--support-dark);}
@@ -276,7 +276,7 @@ position: absolute;
   .support-page .hero-card.support-hero-card{min-height:0;padding:2rem 1rem 1rem;border-radius:5rem;background:var(--support-purple-1);}
   .support-page .s-scribble--left{left:-31rem;top:2rem;width:47rem;}
   .support-page .s-scribble--right{right:-33rem;bottom:-14rem;width:52rem;}
-  .support-page .hero-inner.support-hero-inner{min-height:0;height:auto;overflow:visible;margin-top:1.5rem;padding:2.5rem 2rem 1.5rem;display:block;}
+  .support-page .hero-inner.support-hero-inner{min-height:0;height:auto;overflow:visible;margin-top:0;padding:2.5rem 2rem 1.5rem;display:block;}
   .support-page .hero-inner-clip{border-radius:4rem;}
   .support-page .hero-scribble{right:-18rem;top:17rem;width:48rem;}
   .support-page .hero-inner-clip::after{display:none;}
@@ -1557,6 +1557,7 @@ body {
   color: var(--support-deep) !important;
 }
 
+
 .kolir-page.support-page .portfolio .p-title,
 .support-page .portfolio .p-title,
 .kolir-page.support-page .support-volunteer h2,
@@ -2492,7 +2493,9 @@ body{
   .kolir-page.support-page .hero-card.support-hero-card,
   .support-page .hero-card.support-hero-card{
     isolation:isolate!important;
-	          min-height: 67rem;
+    /* було 67rem → під яскравою плашкою лишався великий порожній тёмний фон (нижнє «вухо» ~112px).
+       0 → картка по контенту, нижнє «вухо» = верхньому (через padding-bottom). */
+    min-height: 0 !important;
   }
 
   .kolir-page.support-page .hero-right.support-hero-right,
@@ -4208,5 +4211,101 @@ body:has(.kolir-page.support-page){
   .support-page .support-project-card--nft .support-nft-stack{
     right:-22rem!important; width:36rem!important; height:28rem!important;
     transform:none!important;
+  }
+}
+
+/* ===== Мобілка: наезжающі support-картки → стиль «картки товару»
+   (фото-банер зверху → заголовок → текст → кнопка), компактно.
+   Селектори з модифікатором картки (4 класи) + у кінці файлу — щоб перебити
+   ручні абсолютні розкладки вище. ===== */
+@media (max-width: 767px) {
+  .kolir-page.support-page .support-project-card {
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 1.8rem 1.8rem 2.4rem !important;
+    overflow: hidden !important;
+  }
+  /* копія і кнопка — у потік під банером */
+  .kolir-page.support-page .support-project-card .support-project-copy {
+    position: static !important;
+    inset: auto !important;
+    width: 100% !important;
+    max-width: none !important;
+    order: 1 !important;
+    z-index: 5 !important;
+  }
+  .kolir-page.support-page .support-project-card .support-button {
+    position: static !important;
+    inset: auto !important;
+    order: 2 !important;
+    width: 100% !important;
+    margin: 2rem 0 0 !important;
+    transform: none !important;
+  }
+  /* cyber / ITT — одна картинка-банер зверху (cover), збільшена + лінія знизу */
+  .kolir-page.support-page .support-project-card--cyber .support-cyber-visual,
+  .kolir-page.support-page .support-project-card--itt .support-itt-visual {
+    position: relative !important;
+    order: -1 !important;
+    right: auto !important; bottom: auto !important; top: auto !important; left: auto !important;
+    width: calc(100% + 3.6rem) !important;
+    max-width: none !important;   /* інакше max-width:100% (рядок ~1255) клампив до контент-боксу → справа лишався зазор */
+    height: 28rem !important;
+    margin: -1.8rem -1.8rem 1.8rem !important;
+    border-radius: 0 !important;
+    border-bottom: .3rem solid currentColor !important;   /* підкреслення — щоб фото не «обрізалось просто так» */
+    overflow: hidden !important;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+  .kolir-page.support-page .support-project-card--cyber .support-cyber-visual img,
+  .kolir-page.support-page .support-project-card--itt .support-itt-visual img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+  /* NFT — фан із 3 карток у банері зверху (збільшено) + лінія знизу */
+  .kolir-page.support-page .support-project-card--nft .support-nft-stack {
+    position: relative !important;
+    order: -1 !important;
+    right: auto !important; bottom: auto !important; top: auto !important; left: auto !important;
+    width: calc(100% + 3.6rem) !important;
+    max-width: none !important;
+    height: 28rem !important;
+    margin: -1.8rem -1.8rem 1.8rem !important;
+    transform: none !important;
+    display: block !important;
+    overflow: hidden !important;
+    border-bottom: .3rem solid currentColor !important;   /* підкреслення */
+  }
+  .kolir-page.support-page .support-project-card--nft .support-nft {
+    position: absolute !important;
+    width: 17rem !important;
+    max-width: none !important;
+    height: auto !important;
+    top: auto !important;
+  }
+  .kolir-page.support-page .support-project-card--nft .support-nft--two {
+    left: 50% !important; right: auto !important; margin-left: -8.5rem !important;
+    bottom: 2rem !important; transform: rotate(6deg) !important; z-index: 2 !important;
+  }
+  .kolir-page.support-page .support-project-card--nft .support-nft--one {
+    left: 4% !important; right: auto !important;
+    bottom: 3rem !important; transform: rotate(-12deg) !important; z-index: 3 !important;
+  }
+  .kolir-page.support-page .support-project-card--nft .support-nft--three {
+    right: 4% !important; left: auto !important;
+    bottom: 3rem !important; transform: rotate(12deg) !important; z-index: 1 !important;
+  }
+  /* TROOPS-кругляж ITT — у лівий верхній кут картки, крутиться, не заважає тексту */
+  .kolir-page.support-page .support-project-card--itt .support-project-badge {
+    left: 1.6rem !important;
+    top: 1.6rem !important;
+    right: auto !important;
+    bottom: auto !important;
+    z-index: 9 !important;
   }
 }
