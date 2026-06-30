@@ -30,7 +30,11 @@ export default async function SupportPage() {
           <div className="hero-card support-hero-card" id="heroCard">
             <div className="hero-card-decor" aria-hidden="true">
               <img className="sup-ribbon sup-ribbon--left" src="/img/hero/ribbon.png" alt="" />
-              <img className="sup-ribbon sup-ribbon--right" src="/img/hero/ribbon-right.png" alt="" />
+              <img
+                className="sup-ribbon sup-ribbon--right"
+                src="/img/hero/ribbon-right.png"
+                alt=""
+              />
               <svg
                 className="s-scribble s-scribble--left"
                 width="895"
@@ -88,10 +92,19 @@ export default async function SupportPage() {
               </div>
 
               <div className="hero-right support-hero-right">
-                <img className="hero-scribble-y" src="/img/brand_line/Vector.svg" alt="" aria-hidden="true" />
+                <img
+                  className="hero-scribble-y"
+                  src="/img/brand_line/Vector.svg"
+                  alt=""
+                  aria-hidden="true"
+                />
                 <picture>
                   <source media="(max-width: 767px)" srcSet="/img/support/main-hero-s-mob.png" />
-                  <img className="girl support-statue" src="/img/support/hero-statue.png" alt="Ukraine support hero" />
+                  <img
+                    className="girl support-statue"
+                    src="/img/support/hero-statue.png"
+                    alt="Ukraine support hero"
+                  />
                 </picture>
               </div>
             </div>
@@ -117,47 +130,160 @@ export default async function SupportPage() {
 
           <div className="support-logo-rail" id="supportLogoRail">
             <div className="support-logo-track" id="supportLogoTrack" data-active-start="4">
-              <button className="support-logo-item" type="button" data-caption="79 ОДШБр" aria-label="79 ОДШБр">
-                <img src="/img/support/support-logo-79-odshbr.png" alt="Шеврон 79 ОДШБр" loading="lazy" />
+              <button
+                className="support-logo-item"
+                type="button"
+                data-caption="79 ОДШБр"
+                aria-label="79 ОДШБр"
+              >
+                <img
+                  src="/img/support/support-logo-79-odshbr.png"
+                  alt="Шеврон 79 ОДШБр"
+                  loading="lazy"
+                />
               </button>
-              <button className="support-logo-item" type="button" data-caption="73 МЦСпО" aria-label="73 МЦСпО">
-                <img src="/img/support/support-logo-73-mcspo.png" alt="Шеврон 73 МЦСпО" loading="lazy" />
+              <button
+                className="support-logo-item"
+                type="button"
+                data-caption="73 МЦСпО"
+                aria-label="73 МЦСпО"
+              >
+                <img
+                  src="/img/support/support-logo-73-mcspo.png"
+                  alt="Шеврон 73 МЦСпО"
+                  loading="lazy"
+                />
               </button>
-              <button className="support-logo-item" type="button" data-caption="НЗ ССО" aria-label="НЗ ССО">
-                <img src="/img/support/support-logo-nz-sso.png" alt="Шеврон НЗ ССО" loading="lazy" />
+              <button
+                className="support-logo-item"
+                type="button"
+                data-caption="НЗ ССО"
+                aria-label="НЗ ССО"
+              >
+                <img
+                  src="/img/support/support-logo-nz-sso.png"
+                  alt="Шеврон НЗ ССО"
+                  loading="lazy"
+                />
               </button>
-              <button className="support-logo-item" type="button" data-caption="25 ОПДБр" aria-label="25 ОПДБр">
-                <img src="/img/support/support-logo-25-opdbr.png" alt="Шеврон 25 ОПДБр" loading="lazy" />
+              <button
+                className="support-logo-item"
+                type="button"
+                data-caption="25 ОПДБр"
+                aria-label="25 ОПДБр"
+              >
+                <img
+                  src="/img/support/support-logo-25-opdbr.png"
+                  alt="Шеврон 25 ОПДБр"
+                  loading="lazy"
+                />
               </button>
-              <button className="support-logo-item is-active" type="button" data-caption="95 ОДШБр" aria-label="95 ОДШБр">
-                <img src="/img/support/support-logo-95-odshbr.png" alt="Шеврон 95 ОДШБр" loading="lazy" />
+              <button
+                className="support-logo-item is-active"
+                type="button"
+                data-caption="95 ОДШБр"
+                aria-label="95 ОДШБр"
+              >
+                <img
+                  src="/img/support/support-logo-95-odshbr.png"
+                  alt="Шеврон 95 ОДШБр"
+                  loading="lazy"
+                />
               </button>
-              <button className="support-logo-item" type="button" data-caption="3 ОШБр" aria-label="3 ОШБр">
-                <img src="/img/support/support-logo-3-oshbr.png" alt="Шеврон 3 ОШБр" loading="lazy" />
+              <button
+                className="support-logo-item"
+                type="button"
+                data-caption="3 ОШБр"
+                aria-label="3 ОШБр"
+              >
+                <img
+                  src="/img/support/support-logo-3-oshbr.png"
+                  alt="Шеврон 3 ОШБр"
+                  loading="lazy"
+                />
               </button>
-              <button className="support-logo-item" type="button" data-caption="77 ОАЕМБр" aria-label="77 ОАЕМБр">
-                <img src="/img/support/support-logo-77-oaembr.png" alt="Шеврон 77 ОАЕМБр" loading="lazy" />
+              <button
+                className="support-logo-item"
+                type="button"
+                data-caption="77 ОАЕМБр"
+                aria-label="77 ОАЕМБр"
+              >
+                <img
+                  src="/img/support/support-logo-77-oaembr.png"
+                  alt="Шеврон 77 ОАЕМБр"
+                  loading="lazy"
+                />
               </button>
-              <button className="support-logo-item" type="button" data-caption="28 ОМБр" aria-label="28 ОМБр">
-                <img src="/img/support/support-logo-28-ombr.png" alt="Шеврон 28 ОМБр" loading="lazy" />
+              <button
+                className="support-logo-item"
+                type="button"
+                data-caption="28 ОМБр"
+                aria-label="28 ОМБр"
+              >
+                <img
+                  src="/img/support/support-logo-28-ombr.png"
+                  alt="Шеврон 28 ОМБр"
+                  loading="lazy"
+                />
               </button>
-              <button className="support-logo-item" type="button" data-caption="Волонтерорист" aria-label="Волонтерорист">
+              {/* <button className="support-logo-item" type="button" data-caption="Волонтерорист" aria-label="Волонтерорист">
                 <img src="/img/support/support-logo-volonterorist.png" alt="Шеврон Волонтерорист" loading="lazy" />
+              </button> */}
+              <button
+                className="support-logo-item"
+                type="button"
+                data-caption="ГУР МО України"
+                aria-label="ГУР МО України"
+              >
+                <img
+                  src="/img/support/support-logo-hur.png"
+                  alt="Шеврон ГУР МО України"
+                  loading="lazy"
+                />
               </button>
-              <button className="support-logo-item" type="button" data-caption="ГУР МО України" aria-label="ГУР МО України">
-                <img src="/img/support/support-logo-hur.png" alt="Шеврон ГУР МО України" loading="lazy" />
-              </button>
-              <button className="support-logo-item" type="button" data-caption="ДСНС" aria-label="ДСНС">
+              <button
+                className="support-logo-item"
+                type="button"
+                data-caption="ДСНС"
+                aria-label="ДСНС"
+              >
                 <img src="/img/support/support-logo-dsns.png" alt="Шеврон ДСНС" loading="lazy" />
               </button>
-              <button className="support-logo-item" type="button" data-caption="НЗ ППО СВ" aria-label="НЗ ППО СВ">
-                <img src="/img/support/support-logo-nz-ppo-sv.png" alt="Шеврон НЗ ППО СВ" loading="lazy" />
+              <button
+                className="support-logo-item"
+                type="button"
+                data-caption="НЗ ППО СВ"
+                aria-label="НЗ ППО СВ"
+              >
+                <img
+                  src="/img/support/support-logo-nz-ppo-sv.png"
+                  alt="Шеврон НЗ ППО СВ"
+                  loading="lazy"
+                />
               </button>
-              <button className="support-logo-item" type="button" data-caption="ССО ЗСУ" aria-label="ССО ЗСУ">
-                <img src="/img/support/support-logo-sso-zsu.png" alt="Шеврон ССО ЗСУ" loading="lazy" />
+              <button
+                className="support-logo-item"
+                type="button"
+                data-caption="ССО ЗСУ"
+                aria-label="ССО ЗСУ"
+              >
+                <img
+                  src="/img/support/support-logo-sso-zsu.png"
+                  alt="Шеврон ССО ЗСУ"
+                  loading="lazy"
+                />
               </button>
-              <button className="support-logo-item" type="button" data-caption="Медбат" aria-label="Медбат">
-                <img src="/img/support/support-logo-med_bat.png" alt="Шеврон Медбат" loading="lazy" />
+              <button
+                className="support-logo-item"
+                type="button"
+                data-caption="Медбат"
+                aria-label="Медбат"
+              >
+                <img
+                  src="/img/support/support-logo-med_bat.png"
+                  alt="Шеврон Медбат"
+                  loading="lazy"
+                />
               </button>
             </div>
           </div>
@@ -181,7 +307,14 @@ export default async function SupportPage() {
             {/* NFT */}
             <div className="support-project-card support-project-card--yellow support-project-card--nft">
               <div className="support-card-scribble support-card-scribble--nft" aria-hidden="true">
-                <svg width="724" height="1315" viewBox="0 0 724 1315" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                <svg
+                  width="724"
+                  height="1315"
+                  viewBox="0 0 724 1315"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  focusable="false"
+                >
                   <path
                     d="M190.119 0.00519985C191.042 0.0151983 192.081 0.0264467 193.005 0.0364451C218.384 1.92755 237.542 23.8401 235.65 49.3346C235.247 54.5256 225.842 176.804 149.781 324.106C135.513 351.66 122.915 374.268 110.22 395.143C121.68 392.381 133.155 388.233 142.56 383.255C289.794 305.533 392.262 267.735 447.176 271.447C471.173 272.977 491.09 288.894 497.883 311.942C504.79 335.108 496.792 359.382 477.47 373.835C406.353 427.097 352.298 472 332.665 493.839C204.927 637.003 183.544 703.272 176.497 725.016C164.91 760.912 149.761 827.133 179.009 866.242C192.665 884.516 221.219 891.752 263.633 887.709C299.806 884.29 335.601 873.133 369.722 856.646C368.513 840.354 368.001 823.723 368.069 806.753C368.186 763.921 377.423 614.625 488.872 493.683C520.181 459.732 603.242 369.655 675.41 411.307C690.899 420.249 703.208 434.929 710.854 453.83C738.067 520.972 721.166 610.38 663.333 705.696C619.487 777.956 550.79 852.949 468.818 906.44C502.491 1101.92 625.626 1234.64 626.995 1236.15C644.458 1254.7 643.68 1283.9 625.134 1301.36C606.704 1318.83 577.502 1318.17 559.923 1299.62C553.416 1292.85 427.532 1158.14 383.243 951.464C347.525 966.086 310.359 975.959 272.336 979.588C176.759 988.713 128.655 953.094 104.983 921.551C64.2413 867.078 58.5025 789.316 88.3693 696.584C103.181 650.794 137.381 573.696 263.598 432.363C266.989 428.474 270.958 424.361 275.393 420.022C249.4 432.209 219.568 447.011 185.431 464.998C150.713 483.325 106.617 493.354 70.159 491.112C43.3912 489.552 19.3193 473.59 7.57246 449.564C-4.17683 425.769 -2.13652 397.275 12.8782 375.386C31.1789 348.568 47.5297 320.575 67.5765 281.769C134.438 152.377 143.349 43.8327 143.36 42.7937C145.241 18.3381 165.762 -0.258508 189.888 0.00270049L190.119 0.00519985ZM460.64 798.057C512.006 756.242 555.388 705.45 584.423 657.621C622.508 594.881 638.64 533.75 627.741 495.417C617.414 500.27 595.323 514.578 556.889 556.186C489.133 629.573 463.021 727.426 460.64 798.057Z"
                     fill="currentColor"
@@ -193,7 +326,7 @@ export default async function SupportPage() {
                 <h3>{t('Колекція NFT На Підтримку України')}</h3>
                 <p>
                   {t(
-                    'Поки наші українські воїни захищають рідні землі, команда Kolir також допомагає нашій країні наблизити перемогу. Ми не носимо форму та зброю. У нас в руках ручка та комп\'ютерна миша — так ми допомагаємо українській армії у цій страшній війні. Світ має можливість купувати NFT для підтримки України та українських збройних сил.',
+                    "Поки наші українські воїни захищають рідні землі, команда Kolir також допомагає нашій країні наблизити перемогу. Ми не носимо форму та зброю. У нас в руках ручка та комп'ютерна миша — так ми допомагаємо українській армії у цій страшній війні. Світ має можливість купувати NFT для підтримки України та українських збройних сил.",
                   )}
                 </p>
               </div>
@@ -208,16 +341,38 @@ export default async function SupportPage() {
               </a>
 
               <div className="support-nft-stack" aria-hidden="true">
-                <img className="support-nft support-nft--three" src="/img/support/nft-card-3.png" alt="" />
-                <img className="support-nft support-nft--two" src="/img/support/nft-card-2.png" alt="" />
-                <img className="support-nft support-nft--one" src="/img/support/nft-card-1.png" alt="" />
+                <img
+                  className="support-nft support-nft--three"
+                  src="/img/support/nft-card-3.png"
+                  alt=""
+                />
+                <img
+                  className="support-nft support-nft--two"
+                  src="/img/support/nft-card-2.png"
+                  alt=""
+                />
+                <img
+                  className="support-nft support-nft--one"
+                  src="/img/support/nft-card-1.png"
+                  alt=""
+                />
               </div>
             </div>
 
             {/* Cyber Army */}
             <div className="support-project-card support-project-card--purple support-project-card--cyber">
-              <div className="support-card-scribble support-card-scribble--cyber" aria-hidden="true">
-                <svg width="871" height="1137" viewBox="0 0 871 1137" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+              <div
+                className="support-card-scribble support-card-scribble--cyber"
+                aria-hidden="true"
+              >
+                <svg
+                  width="871"
+                  height="1137"
+                  viewBox="0 0 871 1137"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  focusable="false"
+                >
                   <path
                     d="M59.6569 2.0751C60.5408 1.80758 61.5353 1.50662 62.4193 1.2391C87.1964 -4.57064 112.046 10.5849 117.89 35.4728C119.063 40.5455 146.775 160.013 118.409 323.349C113.064 353.914 107.829 379.26 101.982 402.982C112.085 396.909 121.787 389.51 129.265 381.94C246.4 263.627 332.808 196.829 386.307 183.895C409.658 178.155 433.432 187.364 446.827 207.313C460.365 227.339 460.018 252.895 445.923 272.479C394.06 344.623 355.966 403.674 343.789 430.397C264.885 605.288 264.368 674.92 264.169 697.777C263.884 735.496 269.3 803.211 308.933 831.744C327.443 845.079 356.852 843.416 396.1 826.835C429.581 812.722 460.38 791.339 487.983 765.375C481.942 750.197 476.464 734.486 471.438 718.276C458.7 677.382 422.722 532.192 492.754 383.386C512.435 341.606 564.647 230.759 645.986 248.842C663.444 252.725 679.591 263.036 692.556 278.773C738.657 334.658 749.358 425.019 722.783 533.294C702.636 615.38 659.601 707.528 597.452 783.147C688.22 959.52 845.499 1049.18 847.259 1050.22C869.482 1062.67 877.5 1090.76 865.048 1112.98C852.706 1135.17 824.65 1143.3 802.317 1130.88C794.079 1126.38 633.58 1035.64 529.327 851.769C499.641 876.433 467.148 897.002 431.966 911.871C343.529 949.249 286.955 929.702 254.91 906.713C199.703 866.972 170.9 794.514 171.571 697.094C171.963 648.969 181.458 565.162 259.461 392.473C261.528 387.747 264.081 382.632 267.009 377.162C245.87 396.586 221.853 419.655 194.685 447.056C167.064 474.955 128.008 497.75 92.5568 506.549C66.554 513.092 38.8022 505.086 20.3886 485.691C2.04186 466.517 -4.56036 438.723 3.19598 413.338C12.6083 382.265 19.8078 350.656 27.2893 307.623C52.2532 164.133 28.1892 57.9151 27.8883 56.9206C22.3459 33.0272 36.3424 9.13083 59.4359 2.14197L59.6569 2.0751ZM557.136 682.209C593.592 626.91 619.738 565.444 633.086 511.107C650.595 439.831 647.644 376.676 625.747 343.379C617.351 351.106 600.57 371.382 576.389 422.605C533.771 512.939 538.217 614.117 557.136 682.209Z"
                     fill="currentColor"
@@ -244,14 +399,25 @@ export default async function SupportPage() {
               </a>
 
               <div className="support-cyber-visual" aria-hidden="true">
-                <img src="/img/support/cyberarmy.png" alt="Cyberarmy platform screenshot" loading="lazy" />
+                <img
+                  src="/img/support/cyberarmy.png"
+                  alt="Cyberarmy platform screenshot"
+                  loading="lazy"
+                />
               </div>
             </div>
 
             {/* ITT */}
             <div className="support-project-card support-project-card--dark support-project-card--itt">
               <div className="support-card-scribble support-card-scribble--itt" aria-hidden="true">
-                <svg width="1500" height="899" viewBox="0 0 1500 899" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                <svg
+                  width="1500"
+                  height="899"
+                  viewBox="0 0 1500 899"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  focusable="false"
+                >
                   <path
                     d="M1498.88 160.137C1499.02 161.237 1499.17 162.475 1499.31 163.575C1501.12 194.065 1478.13 220.364 1447.5 222.197C1441.26 222.549 1294.31 230.948 1106.91 164.069C1071.85 151.511 1042.94 140.148 1016.08 128.391C1021.2 141.58 1027.97 154.564 1035.4 164.954C1151.43 327.636 1212.8 443.465 1217.18 509.379C1219.21 538.168 1203.46 564.407 1177.14 576.179C1150.69 588.106 1120.53 582.48 1100.25 561.813C1025.5 485.752 963.433 428.647 934.311 408.793C743.561 279.783 661.31 264.962 634.317 260.063C589.764 252.03 508.569 244.618 466.735 285.672C447.186 304.842 443.152 339.965 454.755 389.768C464.615 432.248 483.621 473.038 508.697 510.984C527.882 506.936 547.582 503.663 567.779 501.026C618.745 494.305 797.808 481.377 959.517 594.572C1004.92 626.375 1125.36 710.746 1087.38 803.259C1079.23 823.115 1063.74 840.109 1042.48 852.231C966.972 895.354 857.916 889.572 735.278 836.048C642.303 795.469 542.096 725.767 465.341 636.831C238.216 708.196 100.074 875.92 98.4903 877.791C79.2274 901.534 44.3688 905.286 20.6258 886.023C-3.10011 866.898 -6.98949 832.057 12.2564 808.177C19.2629 799.352 159.335 628.039 398.079 542.253C374.965 502.111 357.269 459.483 346.861 414.837C320.698 302.613 355.361 239.689 389.09 206.479C447.358 149.292 538.935 130.011 654.02 150.683C710.859 160.967 808.043 189.298 996.373 316.792C1001.54 320.202 1007.07 324.265 1012.94 328.844C994.281 299.878 971.897 266.766 945.034 229.041C917.673 190.68 898.681 139.836 895.508 96.111C893.075 64.0215 908.206 32.8318 934.903 15.0109C961.325 -2.77598 995.545 -4.91324 1023.99 9.44035C1058.82 26.9131 1094.73 41.8781 1144.1 59.5076C1308.72 118.313 1439.26 111.525 1440.5 111.372C1469.89 109.692 1495.29 131.123 1498.85 159.862L1498.88 160.137ZM592.95 609.743C650.915 664.145 718.279 707.611 779.822 734.486C860.55 769.738 935.848 779.135 979.698 760.031C972.271 748.524 951.714 724.539 896.066 685.488C797.921 616.648 677.345 601.262 592.95 609.743Z"
                     fill="currentColor"
@@ -263,7 +429,7 @@ export default async function SupportPage() {
                 <h3>{t('Співпраця З ITT – IT-Військовими')}</h3>
                 <p>
                   {t(
-                    'Найкращі спеціалісти з різних галузей об\'єднуються, щоб захистити Україну — ці люди відчули себе зобов\'язаними призупинити свою звичайну кар\'єру, щоб спрямувати свою енергію та ресурси на захист своєї країни.',
+                    "Найкращі спеціалісти з різних галузей об'єднуються, щоб захистити Україну — ці люди відчули себе зобов'язаними призупинити свою звичайну кар'єру, щоб спрямувати свою енергію та ресурси на захист своєї країни.",
                   )}
                 </p>
               </div>
@@ -282,7 +448,11 @@ export default async function SupportPage() {
               </div>
 
               <div className="support-itt-visual" aria-hidden="true">
-                <img src="/img/support/itt-aid-photo.jpg" alt="ITT humanitarian aid" loading="lazy" />
+                <img
+                  src="/img/support/itt-aid-photo.jpg"
+                  alt="ITT humanitarian aid"
+                  loading="lazy"
+                />
               </div>
             </div>
           </div>
@@ -291,7 +461,14 @@ export default async function SupportPage() {
         {/* ============================ PORTFOLIO ============================ */}
         <section className="portfolio" id="Portfolio" aria-label="Portfolio">
           <div className="portfolio-decor" aria-hidden="true">
-            <svg width="776" height="752" viewBox="0 0 776 752" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+            <svg
+              width="776"
+              height="752"
+              viewBox="0 0 776 752"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              focusable="false"
+            >
               <path
                 d="M505.66 699.6L502.66 696.046L547.66 751.1L500.16 694.046L488.16 680.045L485.194 676.046L490.66 672.6C490.66 672.6 594.176 606.47 627.162 571.903C672.019 525.067 689.704 475.446 675.859 435.639C668.512 414.82 653.114 399.726 633.602 393.566C629.908 430.761 617.058 464.664 595.253 494.787C568.765 531.33 530.79 556.889 485.194 568.712C455.309 576.461 424.712 567.819 403.092 545.611C381.571 523.443 373.609 491.297 382.186 461.696L383.196 458.113C388.001 441.354 394.055 420.426 406.017 401.801C437.17 353.581 480.268 320.528 530.505 304.896C508.781 220.189 448.581 149.991 366.055 116.212C268.667 76.3489 158.511 94.1716 78.5731 162.843C58.6776 179.933 28.6567 177.692 11.4729 157.756C-5.61315 137.86 -3.3701 107.836 16.5655 90.6486C123.788 -1.45081 271.487 -25.3711 402.121 28.0997C517.501 75.327 600.492 175.747 626.11 295.845C629.168 296.184 632.226 296.522 635.382 296.9C695.316 304.991 745.272 346.105 765.66 404.232C791.8 478.986 766.412 564.16 695.892 637.714C668.566 666.263 547.66 751.1 547.66 751.1L528.66 728.6L518.084 716.1L511.16 706.1L505.66 699.6ZM534.694 405.945C515.733 416.567 499.399 432.488 485.987 453.26C483.266 457.398 480.9 463.737 478.667 470.587C494.813 463.494 508.043 452.925 518.084 438.995C525.643 428.616 531.126 417.73 534.694 405.945Z"
                 fill="currentColor"
@@ -332,7 +509,11 @@ export default async function SupportPage() {
 
           <div className="p-stage">
             <div className="p-stage-inner">
-              <svg aria-hidden="true" focusable="false" style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden' }}>
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden' }}
+              >
                 <symbol id="pZigTop" viewBox="0 0 546 300">
                   <path
                     d="M1.71738 115.561C1.87124 115.226 2.04434 114.849 2.19821 114.514C7.01317 105.571 18.0825 102.175 27.0272 107.039C28.8457 108.036 71.6932 131.487 112.779 183.337C120.458 193.05 126.614 201.345 132.124 209.391C132.986 204.761 133.348 199.899 133.071 195.655C128.816 129.252 131.768 85.7058 142.048 66.2936C146.507 57.7955 155.524 53.1411 164.994 54.4387C174.525 55.7138 182.033 62.6044 184.136 72.015C191.896 106.663 199.399 133.723 204.131 144.456C235.308 214.467 255.88 233.114 262.625 239.244C273.768 249.346 295.336 265.712 314.288 261.453C323.142 259.467 330.413 250.242 335.846 234.117C340.49 220.37 342.263 205.493 341.831 190.354C335.721 188.127 329.602 185.591 323.454 182.787C307.929 175.731 255.248 147.917 229.486 87.4827C222.258 70.5094 203.079 25.4784 229.936 5.98871C235.701 1.80613 243.031 -0.277788 251.135 0.0297689C279.929 1.10324 309.628 21.9047 334.812 58.5964C353.904 86.4134 369.945 123.738 376.023 162.381C452.445 182.114 520.644 158.955 521.417 158.704C530.988 155.374 541.46 160.439 544.78 170.06C548.121 179.639 543.129 190.177 533.539 193.548C530.024 194.813 460.655 218.647 378.442 200.951C377.938 216.367 375.475 231.533 370.607 245.989C358.37 282.328 337.617 294.032 322.318 297.497C295.921 303.431 266.766 292.79 237.97 266.717C223.761 253.819 201.344 228.726 170.584 159.569C169.724 157.696 168.877 155.576 168.024 153.249C168.218 164.72 168.737 178.019 169.712 193.41C170.715 209.068 167.181 226.786 160.437 239.711C155.516 249.214 145.807 255.376 135.176 255.724C124.629 256.111 114.62 250.702 109.118 241.644C102.363 230.58 94.8631 220.036 84.0407 206.373C47.9587 160.81 10.0148 139.788 9.63953 139.614C1.07003 134.924 -2.3408 124.397 1.67891 115.644L1.71738 115.561ZM335.358 147.615C328.539 122.042 317.163 97.9091 304.528 79.4923C287.953 55.3342 268.392 39.4431 252.707 37.1397C252.788 41.6994 254.387 52.0958 263.235 72.9207C278.847 109.639 310.111 135.182 335.358 147.615Z"
@@ -343,17 +524,33 @@ export default async function SupportPage() {
 
               <button className="p-nav p-prev" type="button" aria-label="Previous slide">
                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M14.5 5.5L8 12l6.5 6.5" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+                  <path
+                    d="M14.5 5.5L8 12l6.5 6.5"
+                    stroke="currentColor"
+                    strokeWidth="2.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </button>
 
               <button className="p-nav p-next is-filled" type="button" aria-label="Next slide">
                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M9.5 5.5L16 12l-6.5 6.5" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+                  <path
+                    d="M9.5 5.5L16 12l-6.5 6.5"
+                    stroke="currentColor"
+                    strokeWidth="2.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </button>
 
-              <div className="swiper p-swiper support-portfolio-swiper" id="portfolioSwiper" aria-label="Portfolio slider">
+              <div
+                className="swiper p-swiper support-portfolio-swiper"
+                id="portfolioSwiper"
+                aria-label="Portfolio slider"
+              >
                 <div className="swiper-wrapper">
                   <SupportCaseSlides locale={locale} />
                 </div>
