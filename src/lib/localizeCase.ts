@@ -34,10 +34,13 @@ export function localizeCase(work: CaseItem, locale: 'uk' | 'en' = 'uk'): CaseIt
         caption?: string
         heading?: string
         body?: string
+        images?: unknown
       }
       if (o.caption !== undefined) out.caption = o.caption
       if (o.heading !== undefined) out.heading = o.heading
       if (o.body !== undefined) out.body = o.body
+      // Локалізований набір зображень (інша к-сть/назви бордів на UK) — заміна цілком.
+      if (o.images !== undefined && 'images' in out) out.images = o.images
       return out
     }),
   }

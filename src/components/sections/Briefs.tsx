@@ -1,7 +1,6 @@
 'use client'
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
-import SphereSequence from './SphereSequence'
 
 type Tab = { label: string; tag: string; title: string; desc: string }
 type Anim = { from: number; to: number; start: number; dur: number }
@@ -26,18 +25,160 @@ const HREFS = [
   '/brief/banner',
 ]
 
-// Папки рендер-секвенсів сфери (по 48 кадрів) — за індексом табу.
-// Джерело: public/images/3D Renders for Kolir/*
-const SPHERE_BASE = '/images/3D Renders for Kolir'
-const SPHERE_DIRS = [
-  `${SPHERE_BASE}/Sphere_Logo_Kolir`, // 0 — логотип
-  `${SPHERE_BASE}/Sphere_Web`, // 1 — сайт
-  `${SPHERE_BASE}/Sphere_Brandbook`, // 2 — брендбук
-  `${SPHERE_BASE}/Sphere_landing`, // 3 — лендинг
-  `${SPHERE_BASE}/Sphere_Video`, // 4 — відео
-  `${SPHERE_BASE}/Sphere_Baner`, // 5 — банер
+// ── 3D-сфера: PNG-секвенції (по 48 кадрів) — кожна папка = свій бік сфери з
+// потрібною іконкою. Іконка дивиться в кадр на середині секвенції (кадр REST).
+// Порядок папок збігається з порядком табів/HREFS вище. ──
+const SPHERE_FOLDERS = [
+  'Sphere_Logo_Kolir', // logobook
+  'Sphere_Web', // website
+  'Sphere_Brandbook', // brandbook
+  'Sphere_landing', // landing-page
+  'Sphere_Video', // video
+  'Sphere_Baner', // banner
 ]
 const SPHERE_FRAMES = 48
+const SPHERE_REST = 24 // кадр (1-based), де іконка дивиться прямо в кадр
+const SPHERE_BASE = '/images/3D Renders for Kolir'
+const sphereFrameSrc = (seq: number, frame: number) =>
+  encodeURI(`${SPHERE_BASE}/${SPHERE_FOLDERS[seq]}/${String(frame).padStart(4, '0')}.png`)
+
+// Прокручувана 3D-сфера: при зміні табу секвенція доходить до «шва» (кадр 1 чи 48,
+// де сфера без іконки), безшовно підміняє папку й докручує до іконки нового табу.
+function Sphere3D({ idx }: { idx: number }) {
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const imagesRef = useRef<(HTMLImageElement | null)[][]>(
+    SPHERE_FOLDERS.map(() => Array<HTMLImageElement | null>(SPHERE_FRAMES).fill(null)),
+  )
+  const loaded = useRef<Set<number>>(new Set())
+  const curSeq = useRef(idx)
+  const curFrame = useRef(SPHERE_REST)
+  const prevIdx = useRef(idx)
+  const rafRef = useRef(0)
+
+  const loadSeq = useCallback(
+    (seq: number) =>
+      new Promise<void>((resolve) => {
+        if (loaded.current.has(seq)) return resolve()
+        let done = 0
+        const bump = () => {
+          if (++done === SPHERE_FRAMES) {
+            loaded.current.add(seq)
+            resolve()
+          }
+        }
+        for (let i = 0; i < SPHERE_FRAMES; i++) {
+          const img = new Image()
+          img.onload = bump
+          img.onerror = bump
+          img.src = sphereFrameSrc(seq, i + 1)
+          imagesRef.current[seq][i] = img
+        }
+      }),
+    [],
+  )
+
+  const draw = useCallback((seq: number, frame: number) => {
+    const canvas = canvasRef.current
+    const img = imagesRef.current[seq]?.[frame - 1]
+    if (!canvas || !img || !img.complete || !img.naturalWidth) return
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
+    curSeq.current = seq
+    curFrame.current = frame
+  }, [])
+
+  // mount: завантажити активну сферу, показати кадр з іконкою, потім фоном
+  // дотягнути решту секвенцій (по черзі, щоб не забивати мережу)
+  useEffect(() => {
+    let alive = true
+    ;(async () => {
+      await loadSeq(idx)
+      if (!alive) return
+      draw(idx, SPHERE_REST)
+      for (let s = 0; s < SPHERE_FOLDERS.length; s++) {
+        if (s === idx) continue
+        if (!alive) return
+        await loadSeq(s)
+      }
+    })()
+    return () => {
+      alive = false
+      if (rafRef.current) cancelAnimationFrame(rafRef.current)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  // зміна табу → прокрутка сфери до іконки нового табу
+  useEffect(() => {
+    const from = prevIdx.current
+    const to = idx
+    prevIdx.current = idx
+    if (from === to) return
+
+    let cancelled = false
+    ;(async () => {
+      await loadSeq(to)
+      if (cancelled) return
+      if (rafRef.current) cancelAnimationFrame(rafRef.current)
+
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      if (reduce) {
+        draw(to, SPHERE_REST)
+        return
+      }
+
+      const forward = to > from
+      const seqOut = curSeq.current
+      const outFrom = curFrame.current
+      const outTo = forward ? SPHERE_FRAMES : 1 // докрутити до «шва»
+      // кадр-«шов» (48 поточної папки ≈ 1 наступної — той самий ракурс), тож
+      // вхідну фазу починаємо з наступного кадру, інакше ракурс дублюється → ривок
+      const inFrom = forward ? 2 : SPHERE_FRAMES - 1
+      const inTo = SPHERE_REST
+
+      // Єдина крива швидкості на всю прокрутку (вихід+вхід): easeInOutCubic —
+      // старт із паузи, повна швидкість на шві, м'яке «осідання» на іконці.
+      // Час ділимо пропорційно дистанції кадрів, тож швидкість на шві неперервна
+      // (без провалу, який давав окремий ізинг на кожну фазу).
+      const dOut = Math.abs(outTo - outFrom)
+      const dIn = Math.abs(inTo - inFrom)
+      const total = dOut + dIn || 1
+      const split = dOut / total
+      const DURATION = 920 // мс на весь перекат
+      const easeInOutCubic = (p: number) =>
+        p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2
+      const start = performance.now()
+
+      const loop = (now: number) => {
+        const t = Math.min(1, (now - start) / DURATION)
+        const q = easeInOutCubic(t)
+        if (q <= split && split > 0) {
+          const lp = q / split
+          draw(seqOut, Math.round(outFrom + (outTo - outFrom) * lp))
+        } else {
+          const lp = split < 1 ? (q - split) / (1 - split) : 1
+          draw(to, Math.round(inFrom + (inTo - inFrom) * lp))
+        }
+        if (t < 1) {
+          rafRef.current = requestAnimationFrame(loop)
+        } else {
+          draw(to, SPHERE_REST)
+          rafRef.current = 0
+        }
+      }
+      rafRef.current = requestAnimationFrame(loop)
+    })()
+
+    return () => {
+      cancelled = true
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [idx])
+
+  return <canvas ref={canvasRef} width={500} height={500} className="briefs2-ball" aria-hidden="true" />
+}
 
 export default function Briefs({ content: c }: { content: BriefsContent }) {
   const TABS = c.tabs
@@ -73,50 +214,14 @@ export default function Briefs({ content: c }: { content: BriefsContent }) {
     path.setAttribute(
       'd',
       [
-        'M',
-        f(ox - e),
-        f(H),
-        'A',
-        f(e),
-        f(e),
-        0,
-        0,
-        0,
-        f(ox),
-        f(H - e),
-        'L',
-        f(ox),
-        f(r),
-        'A',
-        f(r),
-        f(r),
-        0,
-        0,
-        1,
-        f(ox + r),
-        0,
-        'L',
-        f(x2 - r),
-        0,
-        'A',
-        f(r),
-        f(r),
-        0,
-        0,
-        1,
-        f(x2),
-        f(r),
-        'L',
-        f(x2),
-        f(H - e),
-        'A',
-        f(e),
-        f(e),
-        0,
-        0,
-        0,
-        f(x2 + e),
-        f(H),
+        'M', f(ox - e), f(H),
+        'A', f(e), f(e), 0, 0, 0, f(ox), f(H - e),
+        'L', f(ox), f(r),
+        'A', f(r), f(r), 0, 0, 1, f(ox + r), 0,
+        'L', f(x2 - r), 0,
+        'A', f(r), f(r), 0, 0, 1, f(x2), f(r),
+        'L', f(x2), f(H - e),
+        'A', f(e), f(e), 0, 0, 0, f(x2 + e), f(H),
         'Z',
       ].join(' '),
     )
@@ -180,8 +285,7 @@ export default function Briefs({ content: c }: { content: BriefsContent }) {
   useEffect(() => {
     const onR = () => placeRef.current(false)
     window.addEventListener('resize', onR)
-    if (document.fonts && document.fonts.ready)
-      document.fonts.ready.then(() => placeRef.current(false))
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => placeRef.current(false))
     return () => {
       window.removeEventListener('resize', onR)
       if (rafRef.current) cancelAnimationFrame(rafRef.current)
@@ -239,11 +343,7 @@ export default function Briefs({ content: c }: { content: BriefsContent }) {
       <div className="briefs2">
         <div className="briefs2-decor" aria-hidden="true">
           <img className="briefs2-ribbon briefs2-ribbon--left" src="/img/hero/ribbon.png" alt="" />
-          <img
-            className="briefs2-ribbon briefs2-ribbon--right"
-            src="/img/hero/ribbon-right.png"
-            alt=""
-          />
+          <img className="briefs2-ribbon briefs2-ribbon--right" src="/img/hero/ribbon-right.png" alt="" />
         </div>
 
         <div className="briefs2-head" data-reveal="up">
@@ -261,18 +361,8 @@ export default function Briefs({ content: c }: { content: BriefsContent }) {
         </div>
 
         <div className="briefs2-component">
-          <div
-            className="briefs-tabs has-tab-ind"
-            role="tablist"
-            aria-label="Briefs categories"
-            ref={tabsRef}
-          >
-            <svg
-              className="briefs-ind-svg"
-              aria-hidden="true"
-              preserveAspectRatio="none"
-              ref={svgRef}
-            >
+          <div className="briefs-tabs has-tab-ind" role="tablist" aria-label="Briefs categories" ref={tabsRef}>
+            <svg className="briefs-ind-svg" aria-hidden="true" preserveAspectRatio="none" ref={svgRef}>
               <path ref={pathRef} />
             </svg>
             {TABS.map((tab, i) => (
@@ -291,37 +381,15 @@ export default function Briefs({ content: c }: { content: BriefsContent }) {
 
           {/* Мобільний навігатор брифів: стрілки + назва поточної категорії */}
           <div className="briefs2-tabnav" aria-hidden="true">
-            <button
-              className="briefs2-tabarrow briefs2-tabarrow--prev"
-              type="button"
-              aria-label="Попередній"
-              onClick={() => go(idx - 1)}
-            >
+            <button className="briefs2-tabarrow briefs2-tabarrow--prev" type="button" aria-label="Попередній" onClick={() => go(idx - 1)}>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M15 5l-7 7 7 7"
-                  stroke="currentColor"
-                  strokeWidth="2.4"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
+                <path d="M15 5l-7 7 7 7" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
             <span className="briefs2-tabnav-label">{t.label}</span>
-            <button
-              className="briefs2-tabarrow briefs2-tabarrow--next"
-              type="button"
-              aria-label="Наступний"
-              onClick={() => go(idx + 1)}
-            >
+            <button className="briefs2-tabarrow briefs2-tabarrow--next" type="button" aria-label="Наступний" onClick={() => go(idx + 1)}>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M9 5l7 7-7 7"
-                  stroke="currentColor"
-                  strokeWidth="2.4"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
+                <path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
           </div>
@@ -337,12 +405,7 @@ export default function Briefs({ content: c }: { content: BriefsContent }) {
             </div>
             <div className="briefs2-visual" aria-hidden="true">
               <span className="briefs2-yellow" />
-              <SphereSequence
-                className="briefs2-ball"
-                dir={SPHERE_DIRS[idx]}
-                count={SPHERE_FRAMES}
-                fps={16}
-              />
+              <Sphere3D idx={idx} />
             </div>
           </div>
 

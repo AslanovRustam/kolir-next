@@ -110,11 +110,15 @@ export interface CaseItem {
   links: CaseLink[];
 }
 
-/** Per-gallery-index override: any of caption/heading/body may be present. */
+/** Per-gallery-index override: any of caption/heading/body may be present.
+ *  `images` replaces a group/bento block's image list outright — used when a
+ *  case has genuinely DIFFERENT boards per locale (different count/filenames),
+ *  which the shared `{lang}` folder-swap (same filenames) can't express. */
 export interface UkGalleryOverride {
   caption?: string;
   heading?: string;
   body?: string;
+  images?: GalleryImage[];
 }
 
 export interface UkOverride {
@@ -192,6 +196,25 @@ export const UK_OVERRIDES: Record<string, UkOverride> = {
     description: 'Бренд і сайт для Nākotne — дитячого садка в мікрорайоні Іманта (Рига), де про кожну дитину дбають, де вона розвивається та з радістю навчається. Ми створили теплу, грайливу айдентику з власним персонажем-маскотом і набором ілюстрацій, а потім спроєктували повний сайт, де батьки дізнаються про філософію, програму, викладачів і новини садка.',
     scope: ['Айдентика','Ілюстрація','Веб-дизайн','UI/UX','Дизайн-система'],
     results: ['Айдентика та маскот','Набір ілюстрацій','Промо-сайт','UI-кіт і дизайн-система'],
+    // UA-набір бордів (14 шт., головна-десктоп одним високим бордом) — замінює EN-галерею.
+    gallery: {
+      0: { images: [
+        { src: 'images/Nakotne/ua/1.jpg' },
+        { src: 'images/Nakotne/ua/2.jpg' },
+        { src: 'images/Nakotne/ua/3.jpg' },
+        { src: 'images/Nakotne/ua/4.jpg' },
+        { src: 'images/Nakotne/ua/5.jpg' },
+        { src: 'images/Nakotne/ua/6.jpg' },
+        { src: 'images/Nakotne/ua/7.jpg' },
+        { src: 'images/Nakotne/ua/8.jpg' },
+        { src: 'images/Nakotne/ua/9.jpg' },
+        { src: 'images/Nakotne/ua/10.jpg' },
+        { src: 'images/Nakotne/ua/11.jpg' },
+        { src: 'images/Nakotne/ua/12.jpg' },
+        { src: 'images/Nakotne/ua/13.jpg' },
+        { src: 'images/Nakotne/ua/14.jpg' },
+      ] },
+    },
   },
   'hc': {
     title: 'HC Healthcare',
@@ -711,22 +734,27 @@ export const CASES: CaseItem[] = [
     scope: ['Brand identity','Illustration','Web design','UI/UX','Design system'],
     description: 'A brand and website for Nākotne — a kindergarten in the Imanta district of Riga that puts care, development and joyful learning at the centre of every child. We built a warm, playful identity with a custom mascot and a set of illustrations, then designed the full website where parents discover the philosophy, programme, teachers and news of the kindergarten.',
     results: ['Brand identity & mascot','Custom illustration set','Marketing website','UI kit & design system'],
+    // Галерея локалізована РІЗНИМИ наборами бордів (EN: 16, головна-десктоп розбита
+    // на 6.1/6.2/6.3; UA: 14, головна-десктоп одним високим бордом). База — EN;
+    // UA-набір лежить у UK_OVERRIDES['nakotne'].gallery[0].images.
     gallery: [
       { type: 'group', images: [
-        { src: 'images/Nakotne/1.jpg' },
-        { src: 'images/Nakotne/2.jpg' },
-        { src: 'images/Nakotne/3.jpg' },
-        { src: 'images/Nakotne/4.jpg' },
-        { src: 'images/Nakotne/5.jpg' },
-        { src: 'images/Nakotne/6.jpg' },
-        { src: 'images/Nakotne/7.jpg' },
-        { src: 'images/Nakotne/8.jpg' },
-        { src: 'images/Nakotne/9.jpg' },
-        { src: 'images/Nakotne/10.jpg' },
-        { src: 'images/Nakotne/11.jpg' },
-        { src: 'images/Nakotne/12.jpg' },
-        { src: 'images/Nakotne/13.jpg' },
-        { src: 'images/Nakotne/14.jpg' },
+        { src: 'images/Nakotne/en/1.jpg' },
+        { src: 'images/Nakotne/en/2 - Overview project.jpg' },
+        { src: 'images/Nakotne/en/3 - Problems and solutions.jpg' },
+        { src: 'images/Nakotne/en/4 - Project process.jpg' },
+        { src: 'images/Nakotne/en/5 - Animation logo.jpg' },
+        { src: 'images/Nakotne/en/6.1 - UI Main page - Desktop.jpg' },
+        { src: 'images/Nakotne/en/6.2 - UI Main page - Desktop.jpg' },
+        { src: 'images/Nakotne/en/6.3 - UI Main page - Desktop.jpg' },
+        { src: 'images/Nakotne/en/7 - Other Pages.jpg' },
+        { src: 'images/Nakotne/en/8 - Grid system.jpg' },
+        { src: 'images/Nakotne/en/9 - Fonts.jpg' },
+        { src: 'images/Nakotne/en/10 - Color palette.jpg' },
+        { src: 'images/Nakotne/en/11 - UI Kit.jpg' },
+        { src: 'images/Nakotne/en/12 - Logotype.jpg' },
+        { src: 'images/Nakotne/en/13 - Unique Illustration.jpg' },
+        { src: 'images/Nakotne/en/14 - UI Main page - Mobile.jpg' },
       ]},
     ],
     links: [

@@ -3423,7 +3423,12 @@ display: inline-flex;
     font-family: "Stolzl", sans-serif; font-weight: 400;
     font-size: 1.7rem; line-height: 2.6rem; color: var(--c-white);
   }
-  .contactk .ck-card{ padding: 2.4rem; }
+  /* контент картки (іконка+назва та текст) — по центру висоти картки */
+  .contactk .ck-card{
+    padding: 2.4rem;
+    display: flex; flex-direction: column; justify-content: center; gap: 1.6rem;
+  }
+  .contactk .ck-top{ margin-bottom: 0; }
 }
 
 

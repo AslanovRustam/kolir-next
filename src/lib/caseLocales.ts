@@ -12,7 +12,7 @@ const MAP = caseLocaleMap as Record<string, { uk: boolean; en: boolean }>
 // картинок, але показувати лише на одній мові). undefined = не чіпаємо.
 const FORCE_LOCALES: Record<string, Partial<{ uk: boolean; en: boolean }>> = {
   ctendo: { uk: false },          // Ctendo Group — лише EN
-  'wirex-brand': { uk: false },   // Wirex 2026 — лише EN
+  'wirex-brand': { uk: false, en: false }, // Wirex 2026 — приховано повністю
   'wirex-banners': { uk: false }, // Wirex Campaigns — лише EN
 }
 

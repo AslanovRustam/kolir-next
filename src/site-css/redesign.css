@@ -467,8 +467,10 @@
   .contactk-grid{ flex-direction: column; }
   .contactk-grid .ck-form{ flex: 0 0 auto; width: 100%; }
   .contactk-grid .ck-cards{ flex: 1 1 auto; flex-direction: row; justify-content: flex-start; }
-  .contactk-grid .ck-card{ flex: 1 1 0; flex-direction: column; align-items: stretch; gap: 2.4rem; padding: 3rem; }
-  .contactk-grid .ck-card .ck-top{ flex: 0 0 auto; }
+  /* контент зверху (іконка+назва та текст вирівняні по верху) → у ряду з 3 карток
+     заголовки всіх карток стоять на одній лінії, незалежно від к-сті рядків тексту */
+  .contactk-grid .ck-card{ flex: 1 1 0; flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 2.4rem; padding: 3rem; }
+  .contactk-grid .ck-card .ck-top{ flex: 0 0 auto; margin-bottom: 0; }
   .contactk-grid .ck-card .ck-body{ flex: 0 0 auto; max-width: 21.7rem; }
 }
 
@@ -1248,3 +1250,7 @@ body .kform-field input::placeholder,
 body .kform-field textarea::placeholder{ color: var(--c-161616) !important; opacity: .5; }
 /* активне поле — біле (а не кремове #FFF1B8), без обводки */
 body .kform-field:focus-within{ background: #fff !important; }
+
+/* 3D-сфера брифів рендериться в <canvas> — тримаємо квадратні пропорції на всіх
+   ширинах (canvas, на відміну від <img>, сам не масштабує висоту за шириною) */
+canvas.briefs2-ball{ display: block; aspect-ratio: 1 / 1; }
