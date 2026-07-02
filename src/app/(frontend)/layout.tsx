@@ -13,6 +13,10 @@ export const metadata = {
   title: 'Kolir — креативна агенція брендингу та дизайну',
   description:
     'Kolir — креативна агенція: брендинг, UI/UX, веброзробка, моушн та діджитал-маркетинг для амбіційних брендів.',
+  icons: {
+    icon: { url: '/favicon.svg', type: 'image/svg+xml' },
+    apple: '/apple-touch-icon.png',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
