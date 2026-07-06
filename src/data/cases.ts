@@ -701,6 +701,39 @@ export const CASES: CaseItem[] = [
     ],
   },
   {
+    // UA-only кейс: EN-версії ще немає, тому базові поля написані українською —
+    // обидві локалі показують UA. Коли зʼявиться EN: перекласти базу англійською,
+    // а українську перенести в UK_OVERRIDES['med-bat']. Галерея — лише ua/.
+    id: 'med-bat', title: 'Окремий медичний батальйон', client: 'Перший медичний батальйон · Збройні сили України', year: 2026,
+    categories: ['Branding','Web'], color: 'ink', text: 'cream',
+    teaser: 'Шеврон, логотип і сайт-рекрутинг для Першого медичного батальйону.',
+    scope: ['Шеврон','Логотип та айдентика','Веб-дизайн','UI/UX','Арт-дирекшн'],
+    description: 'Айдентика та сайт для Першого медичного батальйону Збройних сил України. Ми розробили шеврон, логотип і візуальну систему підрозділу, а потім спроєктували сайт-рекрутинг — впевнений, кінематографічний веб-досвід, що кличе нових медиків приєднатися до батальйону й рятувати життя побратимів на передовій.',
+    results: ['Шеврон підрозділу','Логотип та айдентика','Сайт-рекрутинг','Адаптивна UI/UX-система'],
+    gallery: [
+      { type: 'group', images: [
+        { src: 'images/med_bat/ua/1.jpg' },
+        { src: 'images/med_bat/ua/2.jpg' },
+        { src: 'images/med_bat/ua/4.jpg' },
+        { src: 'images/med_bat/ua/5.jpg' },
+        { src: 'images/med_bat/ua/6.jpg' },
+        { src: 'images/med_bat/ua/7.jpg' },
+        { src: 'images/med_bat/ua/8.jpg' },
+        { src: 'images/med_bat/ua/9.jpg' },
+        { src: 'images/med_bat/ua/10.jpg' },
+        { src: 'images/med_bat/ua/11.jpg' },
+        { src: 'images/med_bat/ua/12.jpg' },
+        { src: 'images/med_bat/ua/13.jpg' },
+        { src: 'images/med_bat/ua/14.jpg' },
+        { src: 'images/med_bat/ua/15.jpg' },
+        { src: 'images/med_bat/ua/16.jpg' },
+      ]},
+    ],
+    links: [
+      { label: 'View on Behance', url: '#', kind: 'social' },
+    ],
+  },
+  {
     id: 'ice-dating', title: 'ICE Dating', client: 'ICE Dating · Online dating platform', year: 2023,
     categories: ['Web','Product'], color: 'lilac', text: 'ink',
     teaser: 'Website concept & UX/UI for ICE Dating — an online dating platform.',

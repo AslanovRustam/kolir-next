@@ -42,7 +42,14 @@ const SLIDES: { pill: string; uk: string; en: string; img: string; alt: string; 
     alt: 'Vyriy Industries',
     href: '/portfolio/vyriy',
   },
-  // { pill: 'UI/UX', uk: 'Окремий медичний батальйон', en: 'Medical Battalion', img: '/img/slider/med_bat.png', alt: 'Медбат', href: '/portfolio' },
+  {
+    pill: 'UI/UX',
+    uk: 'Окремий медичний батальйон',
+    en: 'Medical Battalion',
+    img: '/img/slider/med_bat.png',
+    alt: 'Медбат',
+    href: '/portfolio/med-bat',
+  },
 ]
 
 export default function SupportCaseSlides({ locale = 'uk' }: { locale?: 'uk' | 'en' }) {
