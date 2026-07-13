@@ -10,6 +10,8 @@ import HeaderServer from '../../components/HeaderServer'
 import Footer from '../../components/Footer'
 
 export const metadata = {
+  // Базовий домен для абсолютних URL (canonical, OG, sitemap-посилання)
+  metadataBase: new URL('https://www.kolir.agency'),
   title: 'Kolir — креативна агенція брендингу та дизайну',
   description:
     'Kolir — креативна агенція: брендинг, UI/UX, веброзробка, моушн та діджитал-маркетинг для амбіційних брендів.',
