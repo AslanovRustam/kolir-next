@@ -4,9 +4,9 @@ import { allowedCaseIds } from '../../../lib/caseLocales'
 import { pageMeta } from '../../../lib/seo'
 
 export const metadata = pageMeta({
-  title: 'Портфоліо брендингу, айдентики та веб-дизайну',
+  title: 'Портфоліо — кейси брендингу та вебдизайну',
   description:
-    'Кейси Kolir: брендинг, айдентика, дизайн сайтів і motion для українських та міжнародних компаній. Дивіться, як ми вирішуємо бізнес-задачі дизайном.',
+    'Кейси Kolir: брендинг, айдентика, сайти та моушн для фінтеху, медицини, освіти й оборонних проєктів. 19+ реалізованих робіт.',
   path: '/portfolio',
   ogImage: '/img/og/portfolio.jpg',
 })

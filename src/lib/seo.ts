@@ -19,14 +19,14 @@ export function pageMeta({
   /** Абсолютний шлях від кореня, напр. '/portfolio'. */
   path: string
   ogImage?: string
-  /** Для головної: шаблон title.template не діє на кореневий сегмент,
-   *  тож бренд додаємо явно через title.absolute. */
+  /** Коли бренд уже всередині title (головна, /support): беремо title як є —
+   *  без title.template і без суфікса «| Kolir». */
   absoluteTitle?: boolean
 }): Metadata {
   const url = path || '/'
-  const ogTitle = `${title} | Kolir`
+  const ogTitle = absoluteTitle ? title : `${title} | Kolir`
   return {
-    title: absoluteTitle ? { absolute: ogTitle } : title,
+    title: absoluteTitle ? { absolute: title } : title,
     description,
     alternates: { canonical: url },
     openGraph: {

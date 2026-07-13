@@ -26,10 +26,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const casePaths = CASES.filter((c) => isCaseVisible(c, 'uk')).map((c) => `/portfolio/${c.id}`)
 
+  const priorityOf = (path: string) => {
+    if (path === '') return 1
+    if (path === '/privacy') return 0.3 // службова сторінка — низький пріоритет
+    if (path.startsWith('/portfolio')) return 0.8
+    return 0.6
+  }
+
   return [...staticPaths, ...casePaths].map((path) => ({
     url: `${SITE}${path}`,
     lastModified: now,
     changeFrequency: path === '' ? 'weekly' : 'monthly',
-    priority: path === '' ? 1 : path.startsWith('/portfolio') ? 0.8 : 0.6,
+    priority: priorityOf(path),
   }))
 }

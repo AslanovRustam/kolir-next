@@ -6,7 +6,7 @@ import { pageMeta } from '../../../../lib/seo'
 export const metadata = pageMeta({
   title: 'Бриф на playable-рекламу',
   description:
-    'Заповніть бриф на playable-рекламу — Kolir розробить інтерактивний ігровий креатив під ваш продукт і рекламні мережі. Повернемось із концепцією та оцінкою.',
+    'Заповніть бриф — команда Kolir проаналізує запит і повернеться з пропозицією щодо playable-реклами.',
   path: '/brief/playable',
 })
 
