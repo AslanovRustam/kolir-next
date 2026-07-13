@@ -6,6 +6,15 @@ import TestimonialsServer from '../../components/sections/TestimonialsServer'
 import About from '../../components/sections/About'
 import ContactServer from '../../components/sections/ContactServer'
 import ScriptOnMount from '../../components/ScriptOnMount'
+import { pageMeta } from '../../lib/seo'
+
+export const metadata = pageMeta({
+  title: 'Брендингова агенція та дизайн-студія в Україні',
+  description:
+    'Kolir — брендингова агенція та дизайн-студія: створюємо назви, айдентику, сайти й digital-присутність для брендів, що зростають. Обговоримо ваш проєкт.',
+  path: '/',
+  absoluteTitle: true,
+})
 
 export default function HomePage() {
   return (

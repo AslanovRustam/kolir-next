@@ -1,12 +1,14 @@
 import BriefForm from '../../../../components/BriefForm'
 import { getLocale } from '../../../../lib/locale'
 import { makeT } from '../../../../lib/t'
+import { pageMeta } from '../../../../lib/seo'
 
-export const metadata = {
-  title: 'Бриф: брендбук · Kolir',
+export const metadata = pageMeta({
+  title: 'Бриф на розробку брендбука',
   description:
-    'Заповніть бриф для розробки брендбуку — Kolir Agency, Одеса. Логотип, кольори, типографіка та правила використання.',
-}
+    'Заповніть бриф на брендбук — Kolir зафіксує айдентику: логотип, кольори, типографіку та правила використання. Отримайте концепцію, план та оцінку вартості.',
+  path: '/brief/brandbook',
+})
 
 export default async function BriefBrandbookPage() {
   const locale = await getLocale()

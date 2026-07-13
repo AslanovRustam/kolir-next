@@ -1,11 +1,14 @@
 import BriefForm from '../../../../components/BriefForm'
 import { getLocale } from '../../../../lib/locale'
 import { makeT } from '../../../../lib/t'
+import { pageMeta } from '../../../../lib/seo'
 
-export const metadata = {
-  title: 'Бриф: Playable Ads · Kolir',
-  description: 'Заповніть бриф на розробку Playable Ads — Kolir Agency повернеться з планом та оцінкою.',
-}
+export const metadata = pageMeta({
+  title: 'Бриф на playable-рекламу',
+  description:
+    'Заповніть бриф на playable-рекламу — Kolir розробить інтерактивний ігровий креатив під ваш продукт і рекламні мережі. Повернемось із концепцією та оцінкою.',
+  path: '/brief/playable',
+})
 
 export default async function BriefPlayablePage() {
   const locale = await getLocale()

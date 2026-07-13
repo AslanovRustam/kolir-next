@@ -1,4 +1,5 @@
 import type { CaseItem } from '../../data/cases'
+import { CASE_COVERS } from '../../data/caseCovers'
 
 const bgMap: Record<string, string> = {
   sun: 'bg-sun',
@@ -29,7 +30,7 @@ export default function Cover({
       {work.id === '15-krokiv' && (
         <>
           <img
-            src="/images/15_krokiv/cover.jpg"
+            src={CASE_COVERS[work.id]}
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -47,7 +48,7 @@ export default function Cover({
       {work.id === 'strichka' && (
         <>
           <img
-            src="/images/strichka/cover.jpg"
+            src={CASE_COVERS[work.id]}
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -64,7 +65,7 @@ export default function Cover({
       {work.id === 'vyriy' && (
         <>
           <img
-            src="/images/vyriy/Cover.jpg"
+            src={CASE_COVERS[work.id]}
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -82,7 +83,7 @@ export default function Cover({
       {work.id === '252b' && (
         <>
           <img
-            src="/images/252b/cover.png"
+            src={CASE_COVERS[work.id]}
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -99,7 +100,7 @@ export default function Cover({
       {work.id === 'med-bat' && (
         <>
           <img
-            src="/images/med_bat/ua/Cover.jpg"
+            src={CASE_COVERS[work.id]}
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -117,7 +118,7 @@ export default function Cover({
       {work.id === 'nakotne' && (
         <>
           <img
-            src="/images/Nakotne/cover.png"
+            src={CASE_COVERS[work.id]}
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -134,7 +135,7 @@ export default function Cover({
       {work.id === 'ice-dating' && (
         <>
           <img
-            src="/images/ice_dating/cover.jpg"
+            src={CASE_COVERS[work.id]}
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -151,7 +152,7 @@ export default function Cover({
       {work.id === '1st-legion' && (
         <>
           <img
-            src="/images/1st_legion/cover.jpg"
+            src={CASE_COVERS[work.id]}
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -169,7 +170,7 @@ export default function Cover({
       {work.id === 'wirex-brand' && (
         <>
           <img
-            src="/images/wirex/brand-book/cover.png"
+            src={CASE_COVERS[work.id]}
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -187,7 +188,7 @@ export default function Cover({
       {work.id === 'wirex-banners' && (
         <>
           <img
-            src="/images/wirex/banners/cover.jpg"
+            src={CASE_COVERS[work.id]}
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -205,7 +206,7 @@ export default function Cover({
       {work.id === 'kylon' && (
         <>
           <img
-            src="/images/kylon/Коробочка с кулоном.jpeg"
+            src={CASE_COVERS[work.id]}
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -223,7 +224,7 @@ export default function Cover({
       {work.id === 'hc' && (
         <>
           <img
-            src="/images/medicine/cover.png"
+            src={CASE_COVERS[work.id]}
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -242,7 +243,7 @@ export default function Cover({
       {work.id === 'eps' && (
         <>
           <img
-            src="/images/eps/cover.png"
+            src={CASE_COVERS[work.id]}
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -259,7 +260,7 @@ export default function Cover({
       {work.id === 'planty' && (
         <>
           <img
-            src="/images/planty/cover.jpg"
+            src={CASE_COVERS[work.id]}
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -277,7 +278,7 @@ export default function Cover({
       {work.id === 'mits' && (
         <>
           <img
-            src="/images/sil/cover.jpg"
+            src={CASE_COVERS[work.id]}
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -295,7 +296,7 @@ export default function Cover({
       {work.id === 'zaz' && (
         <>
           <img
-            src="/images/zaz/14ff63ec3e36c33ce853538599c1f62c.webp"
+            src={CASE_COVERS[work.id]}
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -313,7 +314,7 @@ export default function Cover({
       {work.id === 'citf' && (
         <>
           <img
-            src="/images/CITF/cover.jpg"
+            src={CASE_COVERS[work.id]}
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -330,7 +331,7 @@ export default function Cover({
       {work.id === 'ctendo' && (
         <>
           <img
-            src="/images/Ctendo/Ctendo Upwork_1.png"
+            src={CASE_COVERS[work.id]}
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -348,7 +349,7 @@ export default function Cover({
       {work.id === 'dotpay' && (
         <>
           <img
-            src="/images/DotPay/Cover.png"
+            src={CASE_COVERS[work.id]}
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -366,7 +367,7 @@ export default function Cover({
       {work.id === 'cqc' && (
         <>
           <img
-            src="/images/CQC/cover.jpg"
+            src={CASE_COVERS[work.id]}
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -384,7 +385,7 @@ export default function Cover({
       {work.id === 'sls' && (
         <>
           <img
-            src="/images/sls/Cover.png"
+            src={CASE_COVERS[work.id]}
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -402,7 +403,7 @@ export default function Cover({
       {work.id === 'edu' && (
         <>
           <img
-            src="/images/edu-lms/Cover.png"
+            src={CASE_COVERS[work.id]}
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
