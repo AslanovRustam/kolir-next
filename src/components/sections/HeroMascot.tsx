@@ -28,7 +28,7 @@ export default function HeroMascot({ alt }: { alt: string }) {
       muted
       loop
       playsInline
-      poster="/video/hero/mascot-poster.png"
+      poster="/video/hero/mascot-poster.webp"
       aria-label={alt}
     >
       {/* Chrome / Firefox / Edge — VP9 з альфа-каналом. */}

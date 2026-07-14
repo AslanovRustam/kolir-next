@@ -72,8 +72,8 @@ export default function Contact({ content: c }: { content: ContactContent }) {
       <div className="contactk-shell">
         <div className="contactk-card">
           <div className="contactk-deco" aria-hidden="true">
-            <img className="contactk-pattern contactk-pattern--tr" src="/img/brand_line/r3.png" alt="" />
-            <img className="contactk-pattern contactk-pattern--bl" src="/img/brand_line/r3.png" alt="" />
+            <img className="contactk-pattern contactk-pattern--tr" src="/img/brand_line/r3.webp" alt="" />
+            <img className="contactk-pattern contactk-pattern--bl" src="/img/brand_line/r3.webp" alt="" />
           </div>
 
           <div className="contactk-head" data-reveal="up">
@@ -144,7 +144,7 @@ export default function Contact({ content: c }: { content: ContactContent }) {
             <div className="ck-cards" data-reveal-stagger>
               <a className="ck-card" href="mailto:hello@kolir.agency">
                 <div className="ck-top">
-                  <img className="ck-ico" src="/img/contact/icon-mail.png" alt="" />
+                  <img className="ck-ico" src="/img/contact/icon-mail.webp" alt="" />
                   <div className="ck-ttl">{c.mailTitle}</div>
                 </div>
                 <div className="ck-body">{c.mailBody}</div>
@@ -152,7 +152,7 @@ export default function Contact({ content: c }: { content: ContactContent }) {
 
               <a className="ck-card" href="https://t.me/kolir_manager" target="_blank" rel="noreferrer">
                 <div className="ck-top">
-                  <img className="ck-ico" src="/img/contact/icon-telegram.png" alt="" />
+                  <img className="ck-ico" src="/img/contact/icon-telegram.webp" alt="" />
                   <div className="ck-ttl">{c.telegramTitle}</div>
                 </div>
                 <div className="ck-body">{c.telegramBody}</div>
@@ -160,7 +160,7 @@ export default function Contact({ content: c }: { content: ContactContent }) {
 
               <div className="ck-card">
                 <div className="ck-top">
-                  <img className="ck-ico" src="/img/contact/icon-office.png" alt="" />
+                  <img className="ck-ico" src="/img/contact/icon-office.webp" alt="" />
                   <div className="ck-ttl">{c.officeTitle}</div>
                 </div>
                 <div className="ck-body">{c.officeBody}</div>

@@ -82,9 +82,9 @@ export default function Testimonials({ content: c }: { content: TestimonialsCont
 
         <div className="t-stage">
           <div className="t-phone" aria-hidden="true">
-            <img className="t-ph t-ph--iphone" src="/img/testimonials/phone-iphone.png" alt="" />
-            <img className="t-ph t-ph--screen" src="/img/testimonials/phone-screen.png" alt="" />
-            <img className="t-ph t-ph--hand" src="/img/testimonials/phone-hand.png" alt="" />
+            <img className="t-ph t-ph--iphone" src="/img/testimonials/phone-iphone.webp" alt="" />
+            <img className="t-ph t-ph--screen" src="/img/testimonials/phone-screen.webp" alt="" />
+            <img className="t-ph t-ph--hand" src="/img/testimonials/phone-hand.webp" alt="" />
           </div>
 
           <div className="t-cards-clip">
@@ -110,7 +110,7 @@ export default function Testimonials({ content: c }: { content: TestimonialsCont
             </div>
           </div>
 
-          <img className="t-finger" src="/img/testimonials/phone-finger.png" alt="" aria-hidden="true" />
+          <img className="t-finger" src="/img/testimonials/phone-finger.webp" alt="" aria-hidden="true" />
         </div>
       </div>
     </section>

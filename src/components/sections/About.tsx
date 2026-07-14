@@ -19,7 +19,7 @@ export default async function About() {
 
           <img
             className="aboutk-founder"
-            src="/img/about/founder.png"
+            src="/img/about/founder.webp"
             alt="Олександр Лимарчук — засновник Kolir"
           />
 

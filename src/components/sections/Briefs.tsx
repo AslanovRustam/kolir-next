@@ -40,7 +40,7 @@ const SPHERE_FRAMES = 48
 const SPHERE_REST = 24 // кадр (1-based), де іконка дивиться прямо в кадр
 const SPHERE_BASE = '/images/3D Renders for Kolir'
 const sphereFrameSrc = (seq: number, frame: number) =>
-  encodeURI(`${SPHERE_BASE}/${SPHERE_FOLDERS[seq]}/${String(frame).padStart(4, '0')}.png`)
+  encodeURI(`${SPHERE_BASE}/${SPHERE_FOLDERS[seq]}/${String(frame).padStart(4, '0')}.webp`)
 
 // Прокручувана 3D-сфера: при зміні табу секвенція доходить до «шва» (кадр 1 чи 48,
 // де сфера без іконки), безшовно підміняє папку й докручує до іконки нового табу.
@@ -342,8 +342,8 @@ export default function Briefs({ content: c }: { content: BriefsContent }) {
     <section className="briefs briefs--v2" id="briefs" aria-label="Briefs">
       <div className="briefs2">
         <div className="briefs2-decor" aria-hidden="true">
-          <img className="briefs2-ribbon briefs2-ribbon--left" src="/img/hero/ribbon.png" alt="" />
-          <img className="briefs2-ribbon briefs2-ribbon--right" src="/img/hero/ribbon-right.png" alt="" />
+          <img className="briefs2-ribbon briefs2-ribbon--left" src="/img/hero/ribbon.webp" alt="" />
+          <img className="briefs2-ribbon briefs2-ribbon--right" src="/img/hero/ribbon-right.webp" alt="" />
         </div>
 
         <div className="briefs2-head" data-reveal="up">

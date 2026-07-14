@@ -29,8 +29,8 @@ export default async function Hero() {
     <section className="hero" aria-label="Hero">
       <div className="hero-card" id="heroCard">
         <div className="hero-card-decor" aria-hidden="true">
-          <img className="hero-ribbon hero-ribbon--left" src="/img/hero/ribbon.png" alt="" />
-          <img className="hero-ribbon hero-ribbon--right" src="/img/hero/ribbon-right.png" alt="" />
+          <img className="hero-ribbon hero-ribbon--left" src="/img/hero/ribbon.webp" alt="" />
+          <img className="hero-ribbon hero-ribbon--right" src="/img/hero/ribbon-right.webp" alt="" />
         </div>
 
         <div className="hero-inner">

@@ -114,7 +114,7 @@ export default function HeroMascotAlpha({ alt }: { alt: string }) {
   }, [])
 
   if (failed) {
-    return <img className="hero-mascot" src="/video/hero/mascot-poster.png" alt={alt} decoding="async" />
+    return <img className="hero-mascot" src="/video/hero/mascot-poster.webp" alt={alt} decoding="async" />
   }
 
   return <canvas ref={canvasRef} className="hero-mascot" width={960} height={960} role="img" aria-label={alt} />
