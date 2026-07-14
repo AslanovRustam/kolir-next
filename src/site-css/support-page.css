@@ -4323,15 +4323,15 @@ body:has(.kolir-page.support-page){
 }
 .support-certs-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 3rem 2.6rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2.6rem 2rem;
 }
 
 /* Універсальна картка — тримає і портрет, і ландшафт однаково */
 .support-cert {
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
+  gap: 1.2rem;
   padding: 0;
   border: none;
   background: transparent;
@@ -4343,10 +4343,10 @@ body:has(.kolir-page.support-page){
 .support-cert-figure {
   display: grid;
   place-items: center;
-  height: 34rem;
-  padding: 1.8rem;
+  height: 25rem;
+  padding: 1.3rem;
   background: #f4f1e8;
-  border-radius: var(--rInner);
+  border-radius: 2rem;
   overflow: hidden;
   box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.28);
   transition: transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1),
@@ -4365,8 +4365,8 @@ body:has(.kolir-page.support-page){
 }
 .support-cert-cap {
   color: #fff;
-  font-size: 1.8rem;
-  line-height: 1.32;
+  font-size: 1.5rem;
+  line-height: 1.3;
   opacity: 0.9;
 }
 
@@ -4448,13 +4448,13 @@ body:has(.kolir-page.support-page){
   right: 2.4rem;
 }
 
-/* Планшет: 2 колонки */
+/* Планшет: 3 колонки */
 @media (max-width: 1200px) and (min-width: 768px) {
   .support-certs-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .support-cert-figure {
-    height: 38rem;
+    height: 26rem;
   }
 }
 
@@ -4469,12 +4469,12 @@ body:has(.kolir-page.support-page){
   }
   .support-certs-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 2rem 1.4rem;
+    gap: 1.8rem 1.4rem;
   }
   .support-cert-figure {
-    height: 22rem;
+    height: 20rem;
     padding: 1rem;
-    border-radius: 2rem;
+    border-radius: 1.6rem;
   }
   .support-cert-cap {
     font-size: 1.4rem;
@@ -4501,13 +4501,10 @@ body:has(.kolir-page.support-page){
   }
 }
 
-/* Дуже вузькі екрани: 1 колонка */
+/* Дуже вузькі екрани: залишаємо 2 колонки, трохи нижче */
 @media (max-width: 420px) {
-  .support-certs-grid {
-    grid-template-columns: 1fr;
-  }
   .support-cert-figure {
-    height: 32rem;
+    height: 17rem;
   }
 }
 

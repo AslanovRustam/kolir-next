@@ -52,6 +52,11 @@ const CERTS: Cert[] = [
     uk: 'AERO COMBAT Drone Academy',
     en: 'AERO COMBAT Drone Academy',
   },
+  {
+    src: '/img/support/certificates/aero-combat-letter.jpg',
+    uk: 'AERO COMBAT Drone Academy',
+    en: 'AERO COMBAT Drone Academy',
+  },
 ]
 
 export default function SupportCertificates({ locale = 'uk' }: { locale?: 'uk' | 'en' }) {
