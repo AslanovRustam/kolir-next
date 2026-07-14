@@ -4309,3 +4309,213 @@ body:has(.kolir-page.support-page){
     z-index: 9 !important;
   }
 }
+
+/* ===================== CERTIFICATES / ПОДЯКИ (grid + lightbox) ===================== */
+.support-certs {
+  padding: 8rem 0 2rem;
+}
+.support-certs-sub {
+  margin: -3.2rem 0 4.6rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 1.9rem;
+  line-height: 1.4;
+}
+.support-certs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 3rem 2.6rem;
+}
+
+/* Універсальна картка — тримає і портрет, і ландшафт однаково */
+.support-cert {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  text-align: center;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+.support-cert-figure {
+  display: grid;
+  place-items: center;
+  height: 34rem;
+  padding: 1.8rem;
+  background: #f4f1e8;
+  border-radius: var(--rInner);
+  overflow: hidden;
+  box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.28);
+  transition: transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.support-cert-figure img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.support-cert:hover .support-cert-figure,
+.support-cert:focus-visible .support-cert-figure {
+  transform: translateY(-0.6rem);
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.42);
+}
+.support-cert-cap {
+  color: #fff;
+  font-size: 1.8rem;
+  line-height: 1.32;
+  opacity: 0.9;
+}
+
+/* Лайтбокс */
+.support-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: grid;
+  place-items: center;
+  padding: 4rem;
+  background: rgba(0, 0, 0, 0.88);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  animation: support-lb-in 0.2s ease;
+}
+@keyframes support-lb-in {
+  from {
+    opacity: 0;
+  }
+}
+.support-lb-figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+  max-width: 92vw;
+  max-height: 90vh;
+}
+.support-lb-figure img {
+  max-width: 92vw;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 1.2rem;
+  box-shadow: 0 3rem 8rem rgba(0, 0, 0, 0.6);
+}
+.support-lb-figure figcaption {
+  color: #fff;
+  font-size: 1.9rem;
+  text-align: center;
+}
+.support-lb-close,
+.support-lb-nav {
+  position: fixed;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 0.15rem solid rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  cursor: pointer;
+  line-height: 1;
+  transition: border-color 0.25s, color 0.25s, background 0.25s;
+}
+.support-lb-close:hover,
+.support-lb-nav:hover {
+  border-color: var(--support-yellow);
+  color: var(--support-yellow);
+}
+.support-lb-close {
+  top: 2.4rem;
+  right: 2.4rem;
+  width: 5.2rem;
+  height: 5.2rem;
+  font-size: 3.2rem;
+}
+.support-lb-nav {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5.8rem;
+  height: 5.8rem;
+  font-size: 3.6rem;
+}
+.support-lb-prev {
+  left: 2.4rem;
+}
+.support-lb-next {
+  right: 2.4rem;
+}
+
+/* Планшет: 2 колонки */
+@media (max-width: 1200px) and (min-width: 768px) {
+  .support-certs-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .support-cert-figure {
+    height: 38rem;
+  }
+}
+
+/* Мобайл: 2 колонки, нижча висота */
+@media (max-width: 767px) {
+  .support-certs {
+    padding: 6rem 0 1rem;
+  }
+  .support-certs-sub {
+    margin: -2.4rem 0 3.4rem;
+    font-size: 1.5rem;
+  }
+  .support-certs-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem 1.4rem;
+  }
+  .support-cert-figure {
+    height: 22rem;
+    padding: 1rem;
+    border-radius: 2rem;
+  }
+  .support-cert-cap {
+    font-size: 1.4rem;
+  }
+  .support-lightbox {
+    padding: 2rem;
+  }
+  .support-lb-nav {
+    width: 4.6rem;
+    height: 4.6rem;
+    font-size: 3rem;
+  }
+  .support-lb-prev {
+    left: 1.2rem;
+  }
+  .support-lb-next {
+    right: 1.2rem;
+  }
+  .support-lb-close {
+    top: 1.6rem;
+    right: 1.6rem;
+    width: 4.6rem;
+    height: 4.6rem;
+  }
+}
+
+/* Дуже вузькі екрани: 1 колонка */
+@media (max-width: 420px) {
+  .support-certs-grid {
+    grid-template-columns: 1fr;
+  }
+  .support-cert-figure {
+    height: 32rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .support-lightbox {
+    animation: none;
+  }
+  .support-cert-figure {
+    transition: none;
+  }
+}

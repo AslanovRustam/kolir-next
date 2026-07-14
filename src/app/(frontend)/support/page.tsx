@@ -4,6 +4,7 @@ import { getLocale } from '../../../lib/locale'
 import { makeT } from '../../../lib/t'
 import SupportPortfolioSwiper from '../../../components/SupportPortfolioSwiper'
 import SupportCaseSlides from '../../../components/portfolio/SupportCaseSlides'
+import SupportCertificates from '../../../components/SupportCertificates'
 import ScriptOnMount from '../../../components/ScriptOnMount'
 
 // Підтримка України — порт зі статичного support.html (1:1, без редизайну).
@@ -291,6 +292,17 @@ export default async function SupportPage() {
           <p className="support-trusted-caption" id="supportTrustedCaption" aria-live="polite">
             95 ОДШБр
           </p>
+        </section>
+
+        {/* ============================ CERTIFICATES ============================ */}
+        <section className="support-certs" aria-label="Certificates and letters of gratitude">
+          <h2 className="support-section-title" data-reveal="up">
+            {t('Грамоти та подяки')}
+          </h2>
+          <p className="support-certs-sub" data-reveal="up">
+            {t('Подяки та грамоти від організацій, яким ми допомагаємо')}
+          </p>
+          <SupportCertificates locale={locale} />
         </section>
 
         {/* ============================ SUPPORT PROJECTS ============================ */}
