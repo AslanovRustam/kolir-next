@@ -62,7 +62,12 @@ export default async function Cases() {
               <span className="hcase-site-url">{c.site}</span>
               <span className="hcase-site-line" />
             </div>
-            <a className="hcase-btn hcase-btn--purple" href={c.href} data-magnetic="0.2">
+            <a
+              className="hcase-btn hcase-btn--purple"
+              href={c.href}
+              data-magnetic="0.2"
+              aria-label={`Детальніше про кейс ${t(c.title)}`}
+            >
               {t('Детальніше')}
             </a>
             <div className="hcase-layers" aria-hidden="true">

@@ -18,6 +18,7 @@ export default function WorkCard({
       href={`/portfolio/${work.id}`}
       className="group block text-left reveal w-full"
       style={{ transitionDelay: `${Math.min(index, 7) * 40}ms` }}
+      aria-label={`${work.title} — кейс Kolir`}
     >
       <div className="relative w-full aspect-[5/4] rounded-2xl overflow-hidden">
         <div className="absolute inset-0 card-hover">
