@@ -2,6 +2,8 @@ import BriefForm from '../../../../components/BriefForm'
 import { getLocale } from '../../../../lib/locale'
 import { makeT } from '../../../../lib/t'
 import { pageMeta } from '../../../../lib/seo'
+import JsonLd from '../../../../components/JsonLd'
+import { breadcrumbLd } from '../../../../lib/jsonld'
 
 export const metadata = pageMeta({
   title: 'Бриф на брендбук',
@@ -15,6 +17,12 @@ export default async function BriefBrandbookPage() {
   const t = makeT(locale)
   return (
     <div className="wrapper__brifes">
+      <JsonLd
+        data={breadcrumbLd([
+          { name: 'Головна', path: '/' },
+          { name: 'Бриф на брендбук', path: '/brief/brandbook' },
+        ])}
+      />
       <main className="main__brifes">
         <section className="brief__brifes" id="briefs">
           <div className="container__brifes">
