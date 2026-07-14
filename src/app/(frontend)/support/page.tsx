@@ -2,6 +2,7 @@ import '../../../site-css/support-page.css'
 import '../../../site-css/support-redesign.css'
 import { getLocale } from '../../../lib/locale'
 import { makeT } from '../../../lib/t'
+import { pageMeta } from '../../../lib/seo'
 import SupportPortfolioSwiper from '../../../components/SupportPortfolioSwiper'
 import SupportCaseSlides from '../../../components/portfolio/SupportCaseSlides'
 import SupportCertificates from '../../../components/SupportCertificates'
@@ -12,11 +13,13 @@ import ScriptOnMount from '../../../components/ScriptOnMount'
 // support-page.css + support-redesign.css (підключені вище, в тому ж порядку,
 // що й у статиці). Слайдер/логорейл на статиці керуються JS — тут лишаємо
 // статичну розмітку без скриптів (порт макета).
-export const metadata = {
-  title: 'Підтримка України · Kolir',
+export const metadata = pageMeta({
+  title: 'Підтримка України — Kolir на боці ЗСУ',
   description:
-    'Kolir — креативна агенція з Одеси. Дізнайтесь, як ми допомагаємо Україні: NFT-колекція, кіберармія, волонтерство та візуальна підтримка ЗСУ.',
-}
+    'Kolir підтримує Збройні сили України та волонтерські ініціативи. Дізнайтесь, як агенція долучається до допомоги.',
+  path: '/support',
+  absoluteTitle: true,
+})
 
 export default async function SupportPage() {
   const locale = await getLocale()

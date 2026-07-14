@@ -3,11 +3,14 @@
 // (стилі .pp лежать у глобальному style.css/brife.css, що вже підключені).
 import { getLocale } from '../../../lib/locale'
 import { makeT } from '../../../lib/t'
+import { pageMeta } from '../../../lib/seo'
 
-export const metadata = {
-  title: 'Політика конфіденційності · Kolir',
-  description: 'Політика конфіденційності та використання файлів cookie агенції Kolir.',
-}
+export const metadata = pageMeta({
+  title: 'Політика конфіденційності',
+  description:
+    'Політика конфіденційності та використання файлів cookie агенції Kolir: які дані ми збираємо, з якою метою та як ви можете керувати ними.',
+  path: '/privacy',
+})
 
 export default async function PrivacyPage() {
   const locale = await getLocale()

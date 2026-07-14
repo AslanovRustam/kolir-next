@@ -7,16 +7,18 @@ import SupportCaseSlides from '../../../components/portfolio/SupportCaseSlides'
 import ScriptOnMount from '../../../components/ScriptOnMount'
 import { getLocale } from '../../../lib/locale'
 import { makeT } from '../../../lib/t'
+import { pageMeta } from '../../../lib/seo'
 
 // Стати волонтером — порт зі статичного volunteer.html (1:1, без редизайну).
 // Хедер/футер успадковуються з (frontend)/layout.tsx. Сторінкові стилі:
 // support-page.css + support-redesign.css + volunteer.css (у тому ж порядку,
 // що й у статиці). Форма заявки — клієнтський компонент VolunteerForm (демо).
-export const metadata = {
-  title: 'Стати волонтером · Kolir',
+export const metadata = pageMeta({
+  title: 'Стати волонтером у креативній агенції',
   description:
     'Kolir шукає волонтерів-дизайнерів, ілюстраторів та розробників. Реальні проєкти для ЗСУ та фондів, кейси для портфоліо, жодної бюрократії.',
-}
+  path: '/volunteer',
+})
 
 export default async function VolunteerPage() {
   const locale = await getLocale()

@@ -46,7 +46,9 @@ export default async function Cases() {
   return (
     <section className="hcases" id="cases" aria-label="Портфоліо">
       <h2 className="hcases-title" data-reveal="up">
-        {t('Портфоліо')}
+        {locale === 'en'
+          ? 'Portfolio — branding & design case studies'
+          : 'Портфоліо — кейси брендингу та дизайну'}
       </h2>
 
       <div className="hcases-list">
