@@ -1,0 +1,26 @@
+// Обкладинки кейсів (id → шлях у public). Єдине джерело для <Cover> і
+// генератора OG-зображень (scripts/gen-case-og.mjs). Додаєш кейс → додай сюди обкладинку.
+export const CASE_COVERS: Record<string, string> = {
+  "15-krokiv": "/images/15_krokiv/cover.jpg",
+  "strichka": "/images/strichka/cover.jpg",
+  "vyriy": "/images/vyriy/Cover.jpg",
+  "252b": "/images/252b/cover.png",
+  "med-bat": "/images/med_bat/ua/Cover.jpg",
+  "nakotne": "/images/Nakotne/cover.png",
+  "ice-dating": "/images/ice_dating/cover.jpg",
+  "1st-legion": "/images/1st_legion/cover.jpg",
+  "wirex-brand": "/images/wirex/brand-book/cover.png",
+  "wirex-banners": "/images/wirex/banners/cover.jpg",
+  "kylon": "/images/kylon/Коробочка с кулоном.jpeg",
+  "hc": "/images/medicine/cover.png",
+  "eps": "/images/eps/cover.png",
+  "planty": "/images/planty/cover.jpg",
+  "mits": "/images/sil/cover.jpg",
+  "zaz": "/images/zaz/14ff63ec3e36c33ce853538599c1f62c.webp",
+  "citf": "/images/CITF/cover.jpg",
+  "ctendo": "/images/Ctendo/Ctendo Upwork_1.png",
+  "dotpay": "/images/DotPay/Cover.png",
+  "cqc": "/images/CQC/cover.jpg",
+  "sls": "/images/sls/Cover.png",
+  "edu": "/images/edu-lms/Cover.png",
+}

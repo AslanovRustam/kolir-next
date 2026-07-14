@@ -6,6 +6,15 @@ import TestimonialsServer from '../../components/sections/TestimonialsServer'
 import About from '../../components/sections/About'
 import ContactServer from '../../components/sections/ContactServer'
 import ScriptOnMount from '../../components/ScriptOnMount'
+import { pageMeta } from '../../lib/seo'
+
+export const metadata = pageMeta({
+  title: 'Kolir — брендингова агенція: бренди, айдентика, сайти',
+  description:
+    'Брендингова агенція Kolir: нейминг, візуальна айдентика, вебдизайн і моушн для брендів, що зростають. Налаштуй яскравість свого бізнесу.',
+  path: '/',
+  absoluteTitle: true,
+})
 
 export default function HomePage() {
   return (

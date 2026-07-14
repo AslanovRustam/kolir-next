@@ -1,8 +1,32 @@
+import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { CASES } from '../../../../data/cases'
 import CaseDetail from '../../../../components/portfolio/CaseDetail'
 import { getLocale } from '../../../../lib/locale'
 import { isCaseVisible } from '../../../../lib/caseLocales'
+import { pageMeta } from '../../../../lib/seo'
+import { CASE_SEO } from '../../../../data/caseSeo'
+
+// Обрізаємо опис до ~158 символів на межі слова (fallback для нових кейсів).
+const trim = (s: string, n = 158) =>
+  s.length <= n ? s : s.slice(0, s.lastIndexOf(' ', n)).replace(/[,.;:—-]\s*$/, '') + '…'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+  const { slug } = await params
+  const work = CASES.find((c) => c.id === slug)
+  if (!work) return {}
+  const seo = CASE_SEO[work.id]
+  return pageMeta({
+    title: seo?.title ?? `${work.title} — кейс брендингу та дизайну`,
+    description: seo?.description ?? trim(work.description || work.teaser),
+    path: `/portfolio/${work.id}`,
+    ogImage: `/img/og/cases/${work.id}.jpg`,
+  })
+}
 
 export default async function CasePage({
   params,
