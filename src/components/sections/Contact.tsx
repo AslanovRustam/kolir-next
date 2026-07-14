@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef, useState } from 'react'
+import { track } from '../../lib/gtag'
 
 // Демо-обробка форми (без бекенду): валідація + UI-стани. Тексти — з CMS (пропси).
 const isEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)
@@ -59,6 +60,7 @@ export default function Contact({ content: c }: { content: ContactContent }) {
       return
     }
 
+    track('contact_submit')
     setStatus({ text: c.statusSending, cls: '' })
     console.log('[Kolir demo form] submit:', data)
     setTimeout(() => {
@@ -142,7 +144,11 @@ export default function Contact({ content: c }: { content: ContactContent }) {
 
             {/* Інфо-карточки */}
             <div className="ck-cards" data-reveal-stagger>
-              <a className="ck-card" href="mailto:hello@kolir.agency">
+              <a
+                className="ck-card"
+                href="mailto:hello@kolir.agency"
+                onClick={() => track('email_click', { method: 'email' })}
+              >
                 <div className="ck-top">
                   <img className="ck-ico" src="/img/contact/icon-mail.webp" alt="" />
                   <div className="ck-ttl">{c.mailTitle}</div>
@@ -150,7 +156,13 @@ export default function Contact({ content: c }: { content: ContactContent }) {
                 <div className="ck-body">{c.mailBody}</div>
               </a>
 
-              <a className="ck-card" href="https://t.me/kolir_manager" target="_blank" rel="noreferrer">
+              <a
+                className="ck-card"
+                href="https://t.me/kolir_manager"
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => track('telegram_click')}
+              >
                 <div className="ck-top">
                   <img className="ck-ico" src="/img/contact/icon-telegram.webp" alt="" />
                   <div className="ck-ttl">{c.telegramTitle}</div>

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { makeT, type Locale } from '../lib/t'
+import { track } from '../lib/gtag'
 
 // Демо-обробка форми волонтера (без бекенду): валідація + UI-стани, як у
 // статичному forms.js та компоненті sections/Contact.tsx. Зберігаємо оригінальні
@@ -120,6 +121,7 @@ export default function VolunteerForm({ locale }: { locale: Locale }) {
       return
     }
 
+    track('volunteer_submit')
     setStatus({ text: MSG.sending, cls: '' })
     // ДЕМО: тут буде реальне надсилання
     console.log('[Kolir volunteer demo form] submit:', data)

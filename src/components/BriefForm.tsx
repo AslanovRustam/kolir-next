@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react'
 import { makeT, type Locale } from '../lib/t'
+import { track } from '../lib/gtag'
 
 // Демо-обробка бриф-форми (без бекенду): валідація + UI-стани, як у статичному forms.js / kolir-briefs.js.
 // Рендерить серверну розмітку брифу (children) усередині клієнтської <form>.
@@ -53,6 +54,7 @@ export default function BriefForm({ className, locale, children, ...rest }: Prop
       return
     }
 
+    track('brief_submit', { brief_type: data.brief_type })
     setStatus({ text: MSG.sending, cls: '' })
     console.log('[Kolir demo brief] submit:', data)
     setTimeout(() => {

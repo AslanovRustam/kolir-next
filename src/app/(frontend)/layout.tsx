@@ -8,6 +8,7 @@ import '../../site-css/override.css'
 
 import HeaderServer from '../../components/HeaderServer'
 import Footer from '../../components/Footer'
+import GoogleAnalytics from '../../components/GoogleAnalytics'
 
 export const metadata = {
   // Базовий домен для абсолютних URL (canonical, OG, sitemap-посилання)
@@ -47,6 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="kolir-body">
+        <GoogleAnalytics />
         <HeaderServer />
         {children}
         <Footer />
