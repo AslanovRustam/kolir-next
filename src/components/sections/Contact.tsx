@@ -1,9 +1,12 @@
 'use client'
 
 import { useRef, useState } from 'react'
+import { track } from '../../lib/gtag'
 
-// Демо-обробка форми (без бекенду): валідація + UI-стани. Тексти — з CMS (пропси).
+// Валідація + надсилання на /forms/submit (заявка → колекція `submissions` + лист).
+// Тексти статусів — з CMS (пропси); повідомлення про збій мережі не в CMS.
 const isEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)
+const FAIL_MSG = 'Не вдалося надіслати. Спробуйте ще раз або напишіть на hello@kolir.agency.'
 
 export type ContactContent = {
   title: string
@@ -33,7 +36,7 @@ export default function Contact({ content: c }: { content: ContactContent }) {
   const formRef = useRef<HTMLFormElement>(null)
   const [status, setStatus] = useState<{ text: string; cls: string }>({ text: '', cls: '' })
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const form = e.currentTarget
     const data: Record<string, string> = {}
@@ -60,11 +63,20 @@ export default function Contact({ content: c }: { content: ContactContent }) {
     }
 
     setStatus({ text: c.statusSending, cls: '' })
-    console.log('[Kolir demo form] submit:', data)
-    setTimeout(() => {
+    try {
+      const res = await fetch('/forms/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ kind: 'contact', data }),
+      })
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      track('contact_submit')
       setStatus({ text: c.statusOk, cls: 'is-ok' })
       form.reset()
-    }, 700)
+    } catch (err) {
+      console.error('[contact] submit failed:', err)
+      setStatus({ text: FAIL_MSG, cls: 'is-error' })
+    }
   }
 
   return (
@@ -72,8 +84,8 @@ export default function Contact({ content: c }: { content: ContactContent }) {
       <div className="contactk-shell">
         <div className="contactk-card">
           <div className="contactk-deco" aria-hidden="true">
-            <img className="contactk-pattern contactk-pattern--tr" src="/img/brand_line/r3.png" alt="" />
-            <img className="contactk-pattern contactk-pattern--bl" src="/img/brand_line/r3.png" alt="" />
+            <img className="contactk-pattern contactk-pattern--tr" src="/img/brand_line/r3.webp" alt="" />
+            <img className="contactk-pattern contactk-pattern--bl" src="/img/brand_line/r3.webp" alt="" />
           </div>
 
           <div className="contactk-head" data-reveal="up">
@@ -142,17 +154,27 @@ export default function Contact({ content: c }: { content: ContactContent }) {
 
             {/* Інфо-карточки */}
             <div className="ck-cards" data-reveal-stagger>
-              <a className="ck-card" href="mailto:hello@kolir.agency">
+              <a
+                className="ck-card"
+                href="mailto:hello@kolir.agency"
+                onClick={() => track('email_click', { method: 'email' })}
+              >
                 <div className="ck-top">
-                  <img className="ck-ico" src="/img/contact/icon-mail.png" alt="" />
+                  <img className="ck-ico" src="/img/contact/icon-mail.webp" alt="" />
                   <div className="ck-ttl">{c.mailTitle}</div>
                 </div>
                 <div className="ck-body">{c.mailBody}</div>
               </a>
 
-              <a className="ck-card" href="https://t.me/kolir_manager" target="_blank" rel="noreferrer">
+              <a
+                className="ck-card"
+                href="https://t.me/kolir_manager"
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => track('telegram_click')}
+              >
                 <div className="ck-top">
-                  <img className="ck-ico" src="/img/contact/icon-telegram.png" alt="" />
+                  <img className="ck-ico" src="/img/contact/icon-telegram.webp" alt="" />
                   <div className="ck-ttl">{c.telegramTitle}</div>
                 </div>
                 <div className="ck-body">{c.telegramBody}</div>
@@ -160,7 +182,7 @@ export default function Contact({ content: c }: { content: ContactContent }) {
 
               <div className="ck-card">
                 <div className="ck-top">
-                  <img className="ck-ico" src="/img/contact/icon-office.png" alt="" />
+                  <img className="ck-ico" src="/img/contact/icon-office.webp" alt="" />
                   <div className="ck-ttl">{c.officeTitle}</div>
                 </div>
                 <div className="ck-body">{c.officeBody}</div>

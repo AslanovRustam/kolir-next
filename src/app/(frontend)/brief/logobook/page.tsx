@@ -2,6 +2,8 @@ import BriefForm from '../../../../components/BriefForm'
 import { getLocale } from '../../../../lib/locale'
 import { makeT } from '../../../../lib/t'
 import { pageMeta } from '../../../../lib/seo'
+import JsonLd from '../../../../components/JsonLd'
+import { breadcrumbLd } from '../../../../lib/jsonld'
 
 export const metadata = pageMeta({
   title: 'Бриф на логотип і брендбук',
@@ -15,6 +17,12 @@ export default async function BriefLogobookPage() {
   const t = makeT(locale)
   return (
     <div className="wrapper__brifes">
+      <JsonLd
+        data={breadcrumbLd([
+          { name: 'Головна', path: '/' },
+          { name: 'Бриф на логотип і брендбук', path: '/brief/logobook' },
+        ])}
+      />
       <main className="main__brifes">
         <section className="brief__brifes" id="briefs">
           <div className="container__brifes">
@@ -159,7 +167,7 @@ export default async function BriefLogobookPage() {
                     <label className="brief__field-checkbox__brifes" htmlFor="logo_type_ref_1">
                       <input type="checkbox" id="logo_type_ref_1" name="logo_type_ref[]" value="integrated_1" />
                       <div className="brief__field-pic__brifes">
-                        <img src="/img/checkboxes/logo/1.png" alt="Logo" width="143" height="143" />
+                        <img src="/img/checkboxes/logo/1.webp" alt="Logo" width="143" height="143" />
                       </div>
                       <div className="brief__field-checkbox-name__brifes"><p>{t('Інтегрований')}</p></div>
                     </label>
@@ -169,7 +177,7 @@ export default async function BriefLogobookPage() {
                     <label className="brief__field-checkbox__brifes" htmlFor="logo_type_ref_2">
                       <input type="checkbox" id="logo_type_ref_2" name="logo_type_ref[]" value="integrated_2" />
                       <div className="brief__field-pic__brifes">
-                        <img src="/img/checkboxes/logo/2.png" alt="Logo" width="143" height="143" />
+                        <img src="/img/checkboxes/logo/2.webp" alt="Logo" width="143" height="143" />
                       </div>
                       <div className="brief__field-checkbox-name__brifes"><p>{t('Інтегрований')}</p></div>
                     </label>
@@ -179,7 +187,7 @@ export default async function BriefLogobookPage() {
                     <label className="brief__field-checkbox__brifes" htmlFor="logo_type_ref_3">
                       <input type="checkbox" id="logo_type_ref_3" name="logo_type_ref[]" value="typographic" />
                       <div className="brief__field-pic__brifes">
-                        <img src="/img/checkboxes/logo/3.png" alt="Logo" width="143" height="143" />
+                        <img src="/img/checkboxes/logo/3.webp" alt="Logo" width="143" height="143" />
                       </div>
                       <div className="brief__field-checkbox-name__brifes"><p>{t('Композиційно-шрифтовий')}</p></div>
                     </label>
@@ -189,7 +197,7 @@ export default async function BriefLogobookPage() {
                     <label className="brief__field-checkbox__brifes" htmlFor="logo_type_ref_4">
                       <input type="checkbox" id="logo_type_ref_4" name="logo_type_ref[]" value="character" />
                       <div className="brief__field-pic__brifes">
-                        <img src="/img/checkboxes/logo/4.png" alt="Logo" width="143" height="143" />
+                        <img src="/img/checkboxes/logo/4.webp" alt="Logo" width="143" height="143" />
                       </div>
                       <div className="brief__field-checkbox-name__brifes"><p>{t('Персонаж')}</p></div>
                     </label>
@@ -199,7 +207,7 @@ export default async function BriefLogobookPage() {
                     <label className="brief__field-checkbox__brifes" htmlFor="logo_type_ref_5">
                       <input type="checkbox" id="logo_type_ref_5" name="logo_type_ref[]" value="symbol_only" />
                       <div className="brief__field-pic__brifes">
-                        <img src="/img/checkboxes/logo/5.png" alt="Logo" width="143" height="143" />
+                        <img src="/img/checkboxes/logo/5.webp" alt="Logo" width="143" height="143" />
                       </div>
                       <div className="brief__field-checkbox-name__brifes"><p>{t('Тільки знак')}</p></div>
                     </label>
@@ -209,7 +217,7 @@ export default async function BriefLogobookPage() {
                     <label className="brief__field-checkbox__brifes" htmlFor="logo_type_ref_6">
                       <input type="checkbox" id="logo_type_ref_6" name="logo_type_ref[]" value="coat_of_arms" />
                       <div className="brief__field-pic__brifes">
-                        <img src="/img/checkboxes/logo/6.png" alt="Logo" width="143" height="143" />
+                        <img src="/img/checkboxes/logo/6.webp" alt="Logo" width="143" height="143" />
                       </div>
                       <div className="brief__field-checkbox-name__brifes"><p>{t('Герб')}</p></div>
                     </label>
@@ -219,7 +227,7 @@ export default async function BriefLogobookPage() {
                     <label className="brief__field-checkbox__brifes" htmlFor="logo_type_ref_7">
                       <input type="checkbox" id="logo_type_ref_7" name="logo_type_ref[]" value="emblem" />
                       <div className="brief__field-pic__brifes">
-                        <img src="/img/checkboxes/logo/7.png" alt="Logo" width="143" height="143" />
+                        <img src="/img/checkboxes/logo/7.webp" alt="Logo" width="143" height="143" />
                       </div>
                       <div className="brief__field-checkbox-name__brifes"><p>{t('Емблема')}</p></div>
                     </label>
@@ -229,7 +237,7 @@ export default async function BriefLogobookPage() {
                     <label className="brief__field-checkbox__brifes" htmlFor="logo_type_ref_8">
                       <input type="checkbox" id="logo_type_ref_8" name="logo_type_ref[]" value="ligature_1" />
                       <div className="brief__field-pic__brifes">
-                        <img src="/img/checkboxes/logo/8.png" alt="Logo" width="143" height="143" />
+                        <img src="/img/checkboxes/logo/8.webp" alt="Logo" width="143" height="143" />
                       </div>
                       <div className="brief__field-checkbox-name__brifes"><p>{t('Лігатура')}</p></div>
                     </label>
@@ -239,7 +247,7 @@ export default async function BriefLogobookPage() {
                     <label className="brief__field-checkbox__brifes" htmlFor="logo_type_ref_9">
                       <input type="checkbox" id="logo_type_ref_9" name="logo_type_ref[]" value="ligature_2" />
                       <div className="brief__field-pic__brifes">
-                        <img src="/img/checkboxes/logo/9.png" alt="Logo" width="143" height="143" />
+                        <img src="/img/checkboxes/logo/9.webp" alt="Logo" width="143" height="143" />
                       </div>
                       <div className="brief__field-checkbox-name__brifes"><p>{t('Лігатура')}</p></div>
                     </label>
@@ -249,7 +257,7 @@ export default async function BriefLogobookPage() {
                     <label className="brief__field-checkbox__brifes" htmlFor="logo_type_ref_10">
                       <input type="checkbox" id="logo_type_ref_10" name="logo_type_ref[]" value="ornament" />
                       <div className="brief__field-pic__brifes">
-                        <img src="/img/checkboxes/logo/10.png" alt="Logo" width="143" height="143" />
+                        <img src="/img/checkboxes/logo/10.webp" alt="Logo" width="143" height="143" />
                       </div>
                       <div className="brief__field-checkbox-name__brifes"><p>{t('Орнамент')}</p></div>
                     </label>
@@ -272,7 +280,7 @@ export default async function BriefLogobookPage() {
                     <label className="brief__field-checkbox__brifes" htmlFor="logo_style_ref_1">
                       <input type="checkbox" id="logo_style_ref_1" name="logo_style_ref[]" value="style_1" />
                       <div className="brief__field-pic__brifes">
-                        <img src="/img/checkboxes/style/1.png" alt="Style" width="143" height="143" />
+                        <img src="/img/checkboxes/style/1.webp" alt="Style" width="143" height="143" />
                       </div>
                       <div className="brief__field-checkbox-name__brifes"><p>{t('Інтегрований')}</p></div>
                     </label>
@@ -282,7 +290,7 @@ export default async function BriefLogobookPage() {
                     <label className="brief__field-checkbox__brifes" htmlFor="logo_style_ref_2">
                       <input type="checkbox" id="logo_style_ref_2" name="logo_style_ref[]" value="style_2" />
                       <div className="brief__field-pic__brifes">
-                        <img src="/img/checkboxes/style/2.png" alt="Style" width="143" height="143" />
+                        <img src="/img/checkboxes/style/2.webp" alt="Style" width="143" height="143" />
                       </div>
                       <div className="brief__field-checkbox-name__brifes"><p>{t('Інтегрований')}</p></div>
                     </label>
@@ -292,7 +300,7 @@ export default async function BriefLogobookPage() {
                     <label className="brief__field-checkbox__brifes" htmlFor="logo_style_ref_3">
                       <input type="checkbox" id="logo_style_ref_3" name="logo_style_ref[]" value="style_3" />
                       <div className="brief__field-pic__brifes">
-                        <img src="/img/checkboxes/style/3.png" alt="Style" width="143" height="143" />
+                        <img src="/img/checkboxes/style/3.webp" alt="Style" width="143" height="143" />
                       </div>
                       <div className="brief__field-checkbox-name__brifes"><p>{t('Композиційно-шрифтовий')}</p></div>
                     </label>
@@ -302,7 +310,7 @@ export default async function BriefLogobookPage() {
                     <label className="brief__field-checkbox__brifes" htmlFor="logo_style_ref_4">
                       <input type="checkbox" id="logo_style_ref_4" name="logo_style_ref[]" value="style_4" />
                       <div className="brief__field-pic__brifes">
-                        <img src="/img/checkboxes/style/4.png" alt="Style" width="143" height="143" />
+                        <img src="/img/checkboxes/style/4.webp" alt="Style" width="143" height="143" />
                       </div>
                       <div className="brief__field-checkbox-name__brifes"><p>{t('Персонаж')}</p></div>
                     </label>
@@ -312,7 +320,7 @@ export default async function BriefLogobookPage() {
                     <label className="brief__field-checkbox__brifes" htmlFor="logo_style_ref_5">
                       <input type="checkbox" id="logo_style_ref_5" name="logo_style_ref[]" value="style_5" />
                       <div className="brief__field-pic__brifes">
-                        <img src="/img/checkboxes/style/5.png" alt="Style" width="143" height="143" />
+                        <img src="/img/checkboxes/style/5.webp" alt="Style" width="143" height="143" />
                       </div>
                       <div className="brief__field-checkbox-name__brifes"><p>{t('Тільки знак')}</p></div>
                     </label>
@@ -322,7 +330,7 @@ export default async function BriefLogobookPage() {
                     <label className="brief__field-checkbox__brifes" htmlFor="logo_style_ref_6">
                       <input type="checkbox" id="logo_style_ref_6" name="logo_style_ref[]" value="style_6" />
                       <div className="brief__field-pic__brifes">
-                        <img src="/img/checkboxes/style/6.png" alt="Style" width="143" height="143" />
+                        <img src="/img/checkboxes/style/6.webp" alt="Style" width="143" height="143" />
                       </div>
                       <div className="brief__field-checkbox-name__brifes"><p>{t('Герб')}</p></div>
                     </label>
@@ -332,7 +340,7 @@ export default async function BriefLogobookPage() {
                     <label className="brief__field-checkbox__brifes" htmlFor="logo_style_ref_7">
                       <input type="checkbox" id="logo_style_ref_7" name="logo_style_ref[]" value="style_7" />
                       <div className="brief__field-pic__brifes">
-                        <img src="/img/checkboxes/style/7.png" alt="Style" width="143" height="143" />
+                        <img src="/img/checkboxes/style/7.webp" alt="Style" width="143" height="143" />
                       </div>
                       <div className="brief__field-checkbox-name__brifes"><p>{t('Емблема')}</p></div>
                     </label>
@@ -342,7 +350,7 @@ export default async function BriefLogobookPage() {
                     <label className="brief__field-checkbox__brifes" htmlFor="logo_style_ref_8">
                       <input type="checkbox" id="logo_style_ref_8" name="logo_style_ref[]" value="style_8" />
                       <div className="brief__field-pic__brifes">
-                        <img src="/img/checkboxes/style/8.png" alt="Style" width="143" height="143" />
+                        <img src="/img/checkboxes/style/8.webp" alt="Style" width="143" height="143" />
                       </div>
                       <div className="brief__field-checkbox-name__brifes"><p>{t('Лігатура')}</p></div>
                     </label>
@@ -352,7 +360,7 @@ export default async function BriefLogobookPage() {
                     <label className="brief__field-checkbox__brifes" htmlFor="logo_style_ref_9">
                       <input type="checkbox" id="logo_style_ref_9" name="logo_style_ref[]" value="style_9" />
                       <div className="brief__field-pic__brifes">
-                        <img src="/img/checkboxes/style/9.png" alt="Style" width="143" height="143" />
+                        <img src="/img/checkboxes/style/9.webp" alt="Style" width="143" height="143" />
                       </div>
                       <div className="brief__field-checkbox-name__brifes"><p>{t('Лігатура')}</p></div>
                     </label>
@@ -362,7 +370,7 @@ export default async function BriefLogobookPage() {
                     <label className="brief__field-checkbox__brifes" htmlFor="logo_style_ref_10">
                       <input type="checkbox" id="logo_style_ref_10" name="logo_style_ref[]" value="style_10" />
                       <div className="brief__field-pic__brifes">
-                        <img src="/img/checkboxes/style/10.png" alt="Style" width="143" height="143" />
+                        <img src="/img/checkboxes/style/10.webp" alt="Style" width="143" height="143" />
                       </div>
                       <div className="brief__field-checkbox-name__brifes"><p>{t('Орнамент')}</p></div>
                     </label>
@@ -477,7 +485,7 @@ export default async function BriefLogobookPage() {
                         <label className="brief__field-checkbox__brifes" htmlFor="fonts_ref_1">
                           <input type="checkbox" id="fonts_ref_1" name="fonts_ref[]" value="font_1" />
                           <div className="brief__field-pic__brifes">
-                            <img src="/img/checkboxes/style/1.png" alt="Font ref" width="143" height="143" />
+                            <img src="/img/checkboxes/style/1.webp" alt="Font ref" width="143" height="143" />
                           </div>
                           <div className="brief__field-checkbox-name__brifes"><p>{t('Варіант 1')}</p></div>
                         </label>
@@ -487,7 +495,7 @@ export default async function BriefLogobookPage() {
                         <label className="brief__field-checkbox__brifes" htmlFor="fonts_ref_2">
                           <input type="checkbox" id="fonts_ref_2" name="fonts_ref[]" value="font_2" />
                           <div className="brief__field-pic__brifes">
-                            <img src="/img/checkboxes/style/2.png" alt="Font ref" width="143" height="143" />
+                            <img src="/img/checkboxes/style/2.webp" alt="Font ref" width="143" height="143" />
                           </div>
                           <div className="brief__field-checkbox-name__brifes"><p>{t('Варіант 2')}</p></div>
                         </label>
@@ -497,7 +505,7 @@ export default async function BriefLogobookPage() {
                         <label className="brief__field-checkbox__brifes" htmlFor="fonts_ref_3">
                           <input type="checkbox" id="fonts_ref_3" name="fonts_ref[]" value="font_3" />
                           <div className="brief__field-pic__brifes">
-                            <img src="/img/checkboxes/style/3.png" alt="Font ref" width="143" height="143" />
+                            <img src="/img/checkboxes/style/3.webp" alt="Font ref" width="143" height="143" />
                           </div>
                           <div className="brief__field-checkbox-name__brifes"><p>{t('Варіант 3')}</p></div>
                         </label>
@@ -507,7 +515,7 @@ export default async function BriefLogobookPage() {
                         <label className="brief__field-checkbox__brifes" htmlFor="fonts_ref_4">
                           <input type="checkbox" id="fonts_ref_4" name="fonts_ref[]" value="font_4" />
                           <div className="brief__field-pic__brifes">
-                            <img src="/img/checkboxes/style/4.png" alt="Style" width="143" height="143" />
+                            <img src="/img/checkboxes/style/4.webp" alt="Style" width="143" height="143" />
                           </div>
                           <div className="brief__field-checkbox-name__brifes"><p>{t('Варіант 4')}</p></div>
                         </label>
@@ -517,7 +525,7 @@ export default async function BriefLogobookPage() {
                         <label className="brief__field-checkbox__brifes" htmlFor="fonts_ref_5">
                           <input type="checkbox" id="fonts_ref_5" name="fonts_ref[]" value="font_5" />
                           <div className="brief__field-pic__brifes">
-                            <img src="/img/checkboxes/style/5.png" alt="Style" width="143" height="143" />
+                            <img src="/img/checkboxes/style/5.webp" alt="Style" width="143" height="143" />
                           </div>
                           <div className="brief__field-checkbox-name__brifes"><p>{t('Варіант 5')}</p></div>
                         </label>

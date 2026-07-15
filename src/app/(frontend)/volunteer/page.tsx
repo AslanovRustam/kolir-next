@@ -32,9 +32,9 @@ export default async function VolunteerPage() {
         <section className="hero" aria-label="Hero">
           <div className="hero-card support-hero-card vol-hero-card" id="heroCard">
             <div className="hero-card-decor" aria-hidden="true">
-              <img className="vol-swirl vol-swirl--tl" src="/img/contact/pattern.png" alt="" />
-              <img className="vol-swirl vol-swirl--bl" src="/img/contact/pattern.png" alt="" />
-              <img className="vol-swirl vol-swirl--br" src="/img/contact/pattern.png" alt="" />
+              <img className="vol-swirl vol-swirl--tl" src="/img/contact/pattern.webp" alt="" />
+              <img className="vol-swirl vol-swirl--bl" src="/img/contact/pattern.webp" alt="" />
+              <img className="vol-swirl vol-swirl--br" src="/img/contact/pattern.webp" alt="" />
             </div>
 
             {/* ===== HERO INNER ===== */}
@@ -63,12 +63,13 @@ export default async function VolunteerPage() {
               </div>
 
               <div className="hero-right support-hero-right vol-hero-right">
-                <img className="hero-scribble-y" src="/img/hero/scribble.png" alt="" aria-hidden="true" />
+                <img className="hero-scribble-y" src="/img/hero/scribble.webp" alt="" aria-hidden="true" />
                 <picture>
                   <img
                     className="girl support-statue vol-statues"
-                    src="/img/volunteer/hero-statues.png"
+                    src="/img/volunteer/hero-statues.webp"
                     alt="Українські статуї-волонтери"
+                    fetchPriority="high"
                   />
                 </picture>
               </div>
@@ -264,10 +265,10 @@ export default async function VolunteerPage() {
           <div className="contactk-shell">
             <div className="contactk-card">
               <div className="contactk-deco" aria-hidden="true">
-                <img className="contactk-pattern contactk-pattern--tr" src="/img/contact/pattern.png" alt="" />
-                <img className="contactk-pattern contactk-pattern--l" src="/img/contact/pattern.png" alt="" />
-                <img className="contactk-pattern contactk-pattern--bl" src="/img/contact/pattern.png" alt="" />
-                <img className="contactk-pattern contactk-pattern--br" src="/img/contact/pattern.png" alt="" />
+                <img className="contactk-pattern contactk-pattern--tr" src="/img/contact/pattern.webp" alt="" />
+                <img className="contactk-pattern contactk-pattern--l" src="/img/contact/pattern.webp" alt="" />
+                <img className="contactk-pattern contactk-pattern--bl" src="/img/contact/pattern.webp" alt="" />
+                <img className="contactk-pattern contactk-pattern--br" src="/img/contact/pattern.webp" alt="" />
               </div>
               {/* Макет як у Figma: зліва текст на фіолеті, справа жовта форма */}
               <div className="vol-apply-grid">

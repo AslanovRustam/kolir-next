@@ -33,10 +33,10 @@ export default async function SupportPage() {
         <section className="hero" aria-label="Hero">
           <div className="hero-card support-hero-card" id="heroCard">
             <div className="hero-card-decor" aria-hidden="true">
-              <img className="sup-ribbon sup-ribbon--left" src="/img/hero/ribbon.png" alt="" />
+              <img className="sup-ribbon sup-ribbon--left" src="/img/hero/ribbon.webp" alt="" />
               <img
                 className="sup-ribbon sup-ribbon--right"
-                src="/img/hero/ribbon-right.png"
+                src="/img/hero/ribbon-right.webp"
                 alt=""
               />
               <svg
@@ -103,11 +103,12 @@ export default async function SupportPage() {
                   aria-hidden="true"
                 />
                 <picture>
-                  <source media="(max-width: 767px)" srcSet="/img/support/main-hero-s-mob.png" />
+                  <source media="(max-width: 767px)" srcSet="/img/support/main-hero-s-mob.webp" />
                   <img
                     className="girl support-statue"
-                    src="/img/support/hero-statue.png"
-                    alt="Ukraine support hero"
+                    src="/img/support/hero-statue.webp"
+                    alt="Kolir на підтримку України та ЗСУ"
+                    fetchPriority="high"
                   />
                 </picture>
               </div>
@@ -141,7 +142,7 @@ export default async function SupportPage() {
                 aria-label="79 ОДШБр"
               >
                 <img
-                  src="/img/support/support-logo-79-odshbr.png"
+                  src="/img/support/support-logo-79-odshbr.webp"
                   alt="Шеврон 79 ОДШБр"
                   loading="lazy"
                 />
@@ -153,7 +154,7 @@ export default async function SupportPage() {
                 aria-label="73 МЦСпО"
               >
                 <img
-                  src="/img/support/support-logo-73-mcspo.png"
+                  src="/img/support/support-logo-73-mcspo.webp"
                   alt="Шеврон 73 МЦСпО"
                   loading="lazy"
                 />
@@ -165,7 +166,7 @@ export default async function SupportPage() {
                 aria-label="НЗ ССО"
               >
                 <img
-                  src="/img/support/support-logo-nz-sso.png"
+                  src="/img/support/support-logo-nz-sso.webp"
                   alt="Шеврон НЗ ССО"
                   loading="lazy"
                 />
@@ -177,7 +178,7 @@ export default async function SupportPage() {
                 aria-label="25 ОПДБр"
               >
                 <img
-                  src="/img/support/support-logo-25-opdbr.png"
+                  src="/img/support/support-logo-25-opdbr.webp"
                   alt="Шеврон 25 ОПДБр"
                   loading="lazy"
                 />
@@ -189,7 +190,7 @@ export default async function SupportPage() {
                 aria-label="95 ОДШБр"
               >
                 <img
-                  src="/img/support/support-logo-95-odshbr.png"
+                  src="/img/support/support-logo-95-odshbr.webp"
                   alt="Шеврон 95 ОДШБр"
                   loading="lazy"
                 />
@@ -201,7 +202,7 @@ export default async function SupportPage() {
                 aria-label="3 ОШБр"
               >
                 <img
-                  src="/img/support/support-logo-3-oshbr.png"
+                  src="/img/support/support-logo-3-oshbr.webp"
                   alt="Шеврон 3 ОШБр"
                   loading="lazy"
                 />
@@ -213,7 +214,7 @@ export default async function SupportPage() {
                 aria-label="77 ОАЕМБр"
               >
                 <img
-                  src="/img/support/support-logo-77-oaembr.png"
+                  src="/img/support/support-logo-77-oaembr.webp"
                   alt="Шеврон 77 ОАЕМБр"
                   loading="lazy"
                 />
@@ -225,13 +226,13 @@ export default async function SupportPage() {
                 aria-label="28 ОМБр"
               >
                 <img
-                  src="/img/support/support-logo-28-ombr.png"
+                  src="/img/support/support-logo-28-ombr.webp"
                   alt="Шеврон 28 ОМБр"
                   loading="lazy"
                 />
               </button>
               {/* <button className="support-logo-item" type="button" data-caption="Волонтерорист" aria-label="Волонтерорист">
-                <img src="/img/support/support-logo-volonterorist.png" alt="Шеврон Волонтерорист" loading="lazy" />
+                <img src="/img/support/support-logo-volonterorist.webp" alt="Шеврон Волонтерорист" loading="lazy" />
               </button> */}
               <button
                 className="support-logo-item"
@@ -240,7 +241,7 @@ export default async function SupportPage() {
                 aria-label="ГУР МО України"
               >
                 <img
-                  src="/img/support/support-logo-hur.png"
+                  src="/img/support/support-logo-hur.webp"
                   alt="Шеврон ГУР МО України"
                   loading="lazy"
                 />
@@ -251,7 +252,7 @@ export default async function SupportPage() {
                 data-caption="ДСНС"
                 aria-label="ДСНС"
               >
-                <img src="/img/support/support-logo-dsns.png" alt="Шеврон ДСНС" loading="lazy" />
+                <img src="/img/support/support-logo-dsns.webp" alt="Шеврон ДСНС" loading="lazy" />
               </button>
               <button
                 className="support-logo-item"
@@ -260,7 +261,7 @@ export default async function SupportPage() {
                 aria-label="НЗ ППО СВ"
               >
                 <img
-                  src="/img/support/support-logo-nz-ppo-sv.png"
+                  src="/img/support/support-logo-nz-ppo-sv.webp"
                   alt="Шеврон НЗ ППО СВ"
                   loading="lazy"
                 />
@@ -272,7 +273,7 @@ export default async function SupportPage() {
                 aria-label="ССО ЗСУ"
               >
                 <img
-                  src="/img/support/support-logo-sso-zsu.png"
+                  src="/img/support/support-logo-sso-zsu.webp"
                   alt="Шеврон ССО ЗСУ"
                   loading="lazy"
                 />
@@ -284,7 +285,7 @@ export default async function SupportPage() {
                 aria-label="Медбат"
               >
                 <img
-                  src="/img/support/support-logo-med_bat.png"
+                  src="/img/support/support-logo-med_bat.webp"
                   alt="Шеврон Медбат"
                   loading="lazy"
                 />
@@ -358,17 +359,17 @@ export default async function SupportPage() {
               <div className="support-nft-stack" aria-hidden="true">
                 <img
                   className="support-nft support-nft--three"
-                  src="/img/support/nft-card-3.png"
+                  src="/img/support/nft-card-3.webp"
                   alt=""
                 />
                 <img
                   className="support-nft support-nft--two"
-                  src="/img/support/nft-card-2.png"
+                  src="/img/support/nft-card-2.webp"
                   alt=""
                 />
                 <img
                   className="support-nft support-nft--one"
-                  src="/img/support/nft-card-1.png"
+                  src="/img/support/nft-card-1.webp"
                   alt=""
                 />
               </div>
@@ -415,7 +416,7 @@ export default async function SupportPage() {
 
               <div className="support-cyber-visual" aria-hidden="true">
                 <img
-                  src="/img/support/cyberarmy.png"
+                  src="/img/support/cyberarmy.webp"
                   alt="Cyberarmy platform screenshot"
                   loading="lazy"
                 />
@@ -459,12 +460,12 @@ export default async function SupportPage() {
               </a>
 
               <div className="support-project-site support-project-badge" aria-hidden="true">
-                <img src="/img/support/black-colo.png" alt="Troops badge" loading="lazy" />
+                <img src="/img/support/black-colo.webp" alt="Troops badge" loading="lazy" />
               </div>
 
               <div className="support-itt-visual" aria-hidden="true">
                 <img
-                  src="/img/support/itt-aid-photo.jpg"
+                  src="/img/support/itt-aid-photo.webp"
                   alt="ITT humanitarian aid"
                   loading="lazy"
                 />

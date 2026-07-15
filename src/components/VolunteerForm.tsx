@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { makeT, type Locale } from '../lib/t'
+import { track } from '../lib/gtag'
 
 // Демо-обробка форми волонтера (без бекенду): валідація + UI-стани, як у
 // статичному forms.js та компоненті sections/Contact.tsx. Зберігаємо оригінальні
@@ -86,14 +87,15 @@ export default function VolunteerForm({ locale }: { locale: Locale }) {
   const t = makeT(locale)
   const MSG = {
     sending: t('Надсилаємо…'),
-    ok: t('Дякуємо! Заявку отримано (демо-режим).'),
+    ok: t('Дякуємо! Заявку отримано. Ми звʼяжемось найближчим часом.'),
     err: t('Заповніть, будь ласка, обовʼязкові поля.'),
     bad: t('Перевірте правильність email.'),
+    fail: t('Не вдалося надіслати. Спробуйте ще раз або напишіть на hello@kolir.agency.'),
   }
   const formRef = useRef<HTMLFormElement>(null)
   const [status, setStatus] = useState<{ text: string; cls: string }>({ text: '', cls: '' })
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const form = e.currentTarget
     const data: Record<string, string> = {}
@@ -121,12 +123,20 @@ export default function VolunteerForm({ locale }: { locale: Locale }) {
     }
 
     setStatus({ text: MSG.sending, cls: '' })
-    // ДЕМО: тут буде реальне надсилання
-    console.log('[Kolir volunteer demo form] submit:', data)
-    setTimeout(() => {
+    try {
+      const res = await fetch('/forms/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ kind: 'volunteer', data }),
+      })
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      track('volunteer_submit')
       setStatus({ text: MSG.ok, cls: 'is-ok' })
       form.reset()
-    }, 700)
+    } catch (err) {
+      console.error('[volunteer] submit failed:', err)
+      setStatus({ text: MSG.fail, cls: 'is-error' })
+    }
   }
 
   return (
