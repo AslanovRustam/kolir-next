@@ -25,8 +25,13 @@ export default async function Hero() {
   const t = makeT(locale)
   const payload = await getPayload({ config })
   const hero = await payload.findGlobal({ slug: 'home-hero', locale })
+
   return (
     <section className="hero" aria-label="Hero">
+      {/* LCP головної — постер hero-маскота. У <video> немає fetchpriority для
+          poster, тож піднімаємо пріоритет preload-ом (React підіймає <link> у
+          <head>). Лише на головній, де цей маскот є. */}
+      <link rel="preload" as="image" href="/video/hero/mascot-poster.webp" fetchPriority="high" />
       <div className="hero-card" id="heroCard">
         <div className="hero-card-decor" aria-hidden="true">
           <img className="hero-ribbon hero-ribbon--left" src="/img/hero/ribbon.webp" alt="" />
