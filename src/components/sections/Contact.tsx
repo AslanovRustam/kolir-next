@@ -3,8 +3,10 @@
 import { useRef, useState } from 'react'
 import { track } from '../../lib/gtag'
 
-// Демо-обробка форми (без бекенду): валідація + UI-стани. Тексти — з CMS (пропси).
+// Валідація + надсилання на /forms/submit (заявка → колекція `submissions` + лист).
+// Тексти статусів — з CMS (пропси); повідомлення про збій мережі не в CMS.
 const isEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)
+const FAIL_MSG = 'Не вдалося надіслати. Спробуйте ще раз або напишіть на hello@kolir.agency.'
 
 export type ContactContent = {
   title: string
@@ -34,7 +36,7 @@ export default function Contact({ content: c }: { content: ContactContent }) {
   const formRef = useRef<HTMLFormElement>(null)
   const [status, setStatus] = useState<{ text: string; cls: string }>({ text: '', cls: '' })
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const form = e.currentTarget
     const data: Record<string, string> = {}
@@ -60,13 +62,21 @@ export default function Contact({ content: c }: { content: ContactContent }) {
       return
     }
 
-    track('contact_submit')
     setStatus({ text: c.statusSending, cls: '' })
-    console.log('[Kolir demo form] submit:', data)
-    setTimeout(() => {
+    try {
+      const res = await fetch('/forms/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ kind: 'contact', data }),
+      })
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      track('contact_submit')
       setStatus({ text: c.statusOk, cls: 'is-ok' })
       form.reset()
-    }, 700)
+    } catch (err) {
+      console.error('[contact] submit failed:', err)
+      setStatus({ text: FAIL_MSG, cls: 'is-error' })
+    }
   }
 
   return (
