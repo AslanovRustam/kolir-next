@@ -4327,7 +4327,7 @@ body:has(.kolir-page.support-page){
   gap: 2.6rem 2rem;
 }
 
-/* Універсальна картка — тримає і портрет, і ландшафт однаково */
+/* Уніфіковане брендове превью з логотипом організації (квадрат) */
 .support-cert {
   display: flex;
   flex-direction: column;
@@ -4341,11 +4341,8 @@ body:has(.kolir-page.support-page){
   color: inherit;
 }
 .support-cert-figure {
-  display: grid;
-  place-items: center;
-  height: 25rem;
-  padding: 1.3rem;
-  background: #f4f1e8;
+  display: block;
+  aspect-ratio: 1 / 1;
   border-radius: 2rem;
   overflow: hidden;
   box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.28);
@@ -4356,7 +4353,7 @@ body:has(.kolir-page.support-page){
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 .support-cert:hover .support-cert-figure,
 .support-cert:focus-visible .support-cert-figure {
@@ -4453,9 +4450,6 @@ body:has(.kolir-page.support-page){
   .support-certs-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-  .support-cert-figure {
-    height: 26rem;
-  }
 }
 
 /* Мобайл: 2 колонки, нижча висота */
@@ -4472,8 +4466,6 @@ body:has(.kolir-page.support-page){
     gap: 1.8rem 1.4rem;
   }
   .support-cert-figure {
-    height: 20rem;
-    padding: 1rem;
     border-radius: 1.6rem;
   }
   .support-cert-cap {
@@ -4498,13 +4490,6 @@ body:has(.kolir-page.support-page){
     right: 1.6rem;
     width: 4.6rem;
     height: 4.6rem;
-  }
-}
-
-/* Дуже вузькі екрани: залишаємо 2 колонки, трохи нижче */
-@media (max-width: 420px) {
-  .support-cert-figure {
-    height: 17rem;
   }
 }
 
