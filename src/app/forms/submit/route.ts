@@ -21,9 +21,35 @@ const subjectOf = (kind: Kind, briefType: string | undefined, name: string) => {
   return `Контакт-форма${who}`
 }
 
+type Attachment = { filename: string; content: Buffer; contentType?: string }
+
 export async function POST(req: Request) {
   try {
-    const body = (await req.json()) as Body
+    // Форми з файлами шлють multipart/form-data, без файлів — JSON.
+    const ct = req.headers.get('content-type') || ''
+    let body: Body
+    const attachments: Attachment[] = []
+
+    if (ct.includes('multipart/form-data')) {
+      const fd = await req.formData()
+      body = {
+        kind: String(fd.get('kind') || '') as Kind,
+        briefType: fd.get('briefType') ? String(fd.get('briefType')) : undefined,
+        data: JSON.parse(String(fd.get('data') || '{}')),
+      }
+      for (const entry of fd.getAll('files')) {
+        if (entry instanceof File && entry.size > 0) {
+          attachments.push({
+            filename: entry.name,
+            content: Buffer.from(await entry.arrayBuffer()),
+            contentType: entry.type || undefined,
+          })
+        }
+      }
+    } else {
+      body = (await req.json()) as Body
+    }
+
     if (!body?.kind || !body?.data || typeof body.data !== 'object') {
       return NextResponse.json({ ok: false, error: 'bad request' }, { status: 400 })
     }
@@ -69,7 +95,14 @@ export async function POST(req: Request) {
       '</table>'
 
     try {
-      await payload.sendEmail({ to: MAIL_TO, replyTo: email || undefined, subject, text, html })
+      await payload.sendEmail({
+        to: MAIL_TO,
+        replyTo: email || undefined,
+        subject,
+        text,
+        html,
+        ...(attachments.length ? { attachments } : {}),
+      })
     } catch (err) {
       // Заявку вже збережено — не валимо відповідь користувачу.
       console.error('[forms/submit] email failed:', err)
