@@ -266,8 +266,8 @@
     display: block; position: absolute; z-index: 0; pointer-events: none; user-select: none;
     left: -2rem; bottom: -2rem; width: 42rem; height: 27rem; opacity: .85;
     background-color: var(--c-yellow2);
-    -webkit-mask: url(/img/contact/scribble.png) no-repeat center / 100% 100%;
-            mask: url(/img/contact/scribble.png) no-repeat center / 100% 100%;
+    -webkit-mask: url(/img/contact/scribble.webp) no-repeat center / 100% 100%;
+            mask: url(/img/contact/scribble.webp) no-repeat center / 100% 100%;
   }
 
   /* ── Макет «Залиш заявку» за Figma: ліворуч текст на фіолеті, праворуч жовта форма ── */

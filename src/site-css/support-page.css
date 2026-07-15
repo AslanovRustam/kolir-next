@@ -256,7 +256,7 @@ position: absolute;
 .support-kicker{margin-bottom:1rem;color:var(--support-yellow);font-size:1.4rem;font-weight:600;}
 .support-volunteer h2{margin:0;color:#fff;font-size:5.2rem;line-height:1.05;font-weight:500;}
 .support-volunteer p{margin:2.4rem 0 0;color:#fff;font-size:1.8rem;line-height:1.58;}
-.support-case{position:relative;min-height:43rem;border-radius:3rem;overflow:hidden;background:url('/img/support/vyriy-bg.png') center/cover no-repeat;color:#fff;padding:4.6rem 5rem;}
+.support-case{position:relative;min-height:43rem;border-radius:3rem;overflow:hidden;background:url('/img/support/vyriy-bg.webp') center/cover no-repeat;color:#fff;padding:4.6rem 5rem;}
 .support-case-tag{position:relative;z-index:2;display:inline-flex;padding:.9rem 2rem;border:1px solid var(--support-yellow);border-radius:999rem;font-size:1.4rem;}
 .support-case strong{position:relative;z-index:2;display:block;margin-top:2.6rem;font-size:5rem;line-height:1.04;font-weight:500;}
 .support-case-image{position:absolute;right:0;bottom:0;width:64%;z-index:1;}

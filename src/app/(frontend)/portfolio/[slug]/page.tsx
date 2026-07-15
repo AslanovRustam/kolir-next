@@ -6,6 +6,8 @@ import { getLocale } from '../../../../lib/locale'
 import { isCaseVisible } from '../../../../lib/caseLocales'
 import { pageMeta } from '../../../../lib/seo'
 import { CASE_SEO } from '../../../../data/caseSeo'
+import JsonLd from '../../../../components/JsonLd'
+import { breadcrumbLd, caseCreativeWorkLd } from '../../../../lib/jsonld'
 
 // Обрізаємо опис до ~158 символів на межі слова (fallback для нових кейсів).
 const trim = (s: string, n = 158) =>
@@ -40,7 +42,21 @@ export default async function CasePage({
   // Немає картинок для цієї локалі → кейс недоступний на ній.
   if (!isCaseVisible(work, locale)) notFound()
 
-  return <CaseDetail work={work} locale={locale} />
+  const jsonLd = [
+    breadcrumbLd([
+      { name: 'Головна', path: '/' },
+      { name: 'Портфоліо', path: '/portfolio' },
+      { name: CASE_SEO[work.id]?.title ?? work.title, path: `/portfolio/${work.id}` },
+    ]),
+    caseCreativeWorkLd(work),
+  ]
+
+  return (
+    <>
+      <JsonLd data={jsonLd} />
+      <CaseDetail work={work} locale={locale} />
+    </>
+  )
 }
 
 export function generateStaticParams() {

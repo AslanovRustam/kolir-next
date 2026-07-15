@@ -10,6 +10,7 @@ import type {
   VideoBlock,
 } from '../../data/cases'
 import { localizeCase } from '../../lib/localizeCase'
+import { isCaseVisible } from '../../lib/caseLocales'
 import WorkCard from './WorkCard'
 import { getUI, catsLine, type Locale, type UIStrings } from './i18n'
 
@@ -241,15 +242,21 @@ export default function CaseDetail({
   const catsLocalized = catsLine(work.categories, locale)
   const [infoOpen, setInfoOpen] = useState(false)
 
-  // next / prev by index in CASES, wrapping.
-  const idx = CASES.findIndex((w) => w.id === rawWork.id)
-  const nextId = CASES[(idx + 1) % CASES.length].id
-  const prevId = CASES[(idx - 1 + CASES.length) % CASES.length].id
+  // next / prev — лише серед видимих на локалі кейсів (щоб не вести на 404).
+  const visibleCases = CASES.filter((w) => isCaseVisible(w, locale))
+  const idx = visibleCases.findIndex((w) => w.id === rawWork.id)
+  const nextId = visibleCases[(idx + 1) % visibleCases.length].id
+  const prevId = visibleCases[(idx - 1 + visibleCases.length) % visibleCases.length].id
 
-  // "other cases" — 3 інших кейси (рівно на 1 ряд по 3 колонки, без переносу).
-  const others = CASES.filter((w) => w.id !== rawWork.id)
+  // «Схожі проєкти» — до 3 кейсів, найближчих за нішею: ранжуємо за кількістю
+  // спільних категорій (більше спільного → вище), лише видимі на поточній локалі.
+  const overlap = (w: CaseItem) =>
+    w.categories.filter((c) => rawWork.categories.includes(c)).length
+  const others = CASES.filter((w) => w.id !== rawWork.id && isCaseVisible(w, locale))
+    .map((w) => ({ w, o: overlap(w) }))
+    .sort((a, b) => b.o - a.o)
     .slice(0, 3)
-    .map((w) => localizeCase(w, locale))
+    .map(({ w }) => localizeCase(w, locale))
 
   useEffect(() => {
     setInfoOpen(false)

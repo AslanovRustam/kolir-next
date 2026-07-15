@@ -8,10 +8,10 @@ const CASES = [
     p: 'Сайт «15 кроків до української єдності» — це послідовне знайомство з розвитком нашої країни. Його першочергова мета полягає в ознайомленні громадськості з історією українського державотворення, а також у пошуку нових кандидатів для майбутніх проєктів.',
     site: 'historyofukrainianunity.com',
     href: '/portfolio/15-krokiv',
-    visual: '/img/cases/15krokiv.png',
+    visual: '/img/cases/15krokiv.webp',
     layers: [
-      { cls: 'hcase-l-dots', src: '/img/cases/15krokiv-shape.png' },
-      { cls: 'hcase-l-collage', src: '/img/cases/15krokiv-collage.png' },
+      { cls: 'hcase-l-dots', src: '/img/cases/15krokiv-shape.webp' },
+      { cls: 'hcase-l-collage', src: '/img/cases/15krokiv-collage.webp' },
     ],
   },
   {
@@ -20,10 +20,10 @@ const CASES = [
     p: "Strichka — цифровий простір для українців за кордоном, що об'єднує спільноту, ініціативи та корисні матеріали в одному місці. Ми створили платформу, яка допомагає легко знайти все найважливіше: опис проєкту, підказки, блоги, ініціативи та швидкий доступ до застосунку. Це єдина точка входу в екосистему Strichka — для взаємодії, координації та підтримки українців по всьому світу.",
     site: 'strichka.org.ua',
     href: '/portfolio/strichka',
-    visual: '/img/cases/strichka.png',
+    visual: '/img/cases/strichka.webp',
     layers: [
-      { cls: 'hcase-l-dots hcase-l-dots--strichka', src: '/img/cases/strichka-dots.png' },
-      { cls: 'hcase-l-ribbon', src: '/img/cases/strichka-ribbon.png' },
+      { cls: 'hcase-l-dots hcase-l-dots--strichka', src: '/img/cases/strichka-dots.webp' },
+      { cls: 'hcase-l-ribbon', src: '/img/cases/strichka-ribbon.webp' },
     ],
   },
   {
@@ -32,10 +32,10 @@ const CASES = [
     p: 'Українська технологічна компанія, що розробляє та серійно виробляє автономні системи, адаптовані до реальних бойових умов. Ми створили багатосторінковий сайт, який відображає цілісну екосистему рішень компанії, де інженерні розробки формуються на основі практичного досвіду їх застосування.',
     site: 'vyriy.com',
     href: '/portfolio/vyriy',
-    visual: '/img/cases/vyriy.png',
+    visual: '/img/cases/vyriy.webp',
     layers: [
-      { cls: 'hcase-l-dots', src: '/img/cases/vyriy-dots.png' },
-      { cls: 'hcase-l-drone', src: '/img/cases/vyriy-drone.png' },
+      { cls: 'hcase-l-dots', src: '/img/cases/vyriy-dots.webp' },
+      { cls: 'hcase-l-drone', src: '/img/cases/vyriy-drone.webp' },
     ],
   },
 ]
@@ -62,7 +62,12 @@ export default async function Cases() {
               <span className="hcase-site-url">{c.site}</span>
               <span className="hcase-site-line" />
             </div>
-            <a className="hcase-btn hcase-btn--purple" href={c.href} data-magnetic="0.2">
+            <a
+              className="hcase-btn hcase-btn--purple"
+              href={c.href}
+              data-magnetic="0.2"
+              aria-label={`Детальніше про кейс ${t(c.title)}`}
+            >
               {t('Детальніше')}
             </a>
             <div className="hcase-layers" aria-hidden="true">

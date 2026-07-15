@@ -1,5 +1,6 @@
 import type { CaseItem } from '../../data/cases'
 import { CASE_COVERS } from '../../data/caseCovers'
+import { CASE_SEO } from '../../data/caseSeo'
 
 const bgMap: Record<string, string> = {
   sun: 'bg-sun',
@@ -18,6 +19,9 @@ export default function Cover({
 }) {
   const textCol = work.text === 'ink' ? 'text-ink' : 'text-cream'
 
+  // Осмислений alt обкладинки: «{назва + послуга} — кейс Kolir» (природний ключ).
+  const coverAlt = `${CASE_SEO[work.id]?.title ?? work.title} — кейс Kolir`
+
   // For small cards we scale type via container queries by passing `full`.
   const padding = full ? 'p-6 md:p-8' : 'p-3'
   const labelSize = full ? 'text-[10.5px]' : 'text-[8.5px]'
@@ -31,7 +35,9 @@ export default function Cover({
         <>
           <img
             src={CASE_COVERS[work.id]}
-            alt=""
+            alt={coverAlt}
+            loading={full ? undefined : 'lazy'}
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/15 via-transparent to-transparent"></div>
@@ -49,7 +55,9 @@ export default function Cover({
         <>
           <img
             src={CASE_COVERS[work.id]}
-            alt=""
+            alt={coverAlt}
+            loading={full ? undefined : 'lazy'}
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className={`absolute inset-0 flex flex-col justify-between ${padding}`}>
@@ -66,7 +74,9 @@ export default function Cover({
         <>
           <img
             src={CASE_COVERS[work.id]}
-            alt=""
+            alt={coverAlt}
+            loading={full ? undefined : 'lazy'}
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-ink/10"></div>
@@ -84,7 +94,9 @@ export default function Cover({
         <>
           <img
             src={CASE_COVERS[work.id]}
-            alt=""
+            alt={coverAlt}
+            loading={full ? undefined : 'lazy'}
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className={`absolute inset-0 flex flex-col justify-between ${padding}`}>
@@ -101,7 +113,9 @@ export default function Cover({
         <>
           <img
             src={CASE_COVERS[work.id]}
-            alt=""
+            alt={coverAlt}
+            loading={full ? undefined : 'lazy'}
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-ink/10"></div>
@@ -119,7 +133,9 @@ export default function Cover({
         <>
           <img
             src={CASE_COVERS[work.id]}
-            alt=""
+            alt={coverAlt}
+            loading={full ? undefined : 'lazy'}
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className={`absolute inset-0 flex flex-col justify-between ${padding}`}>
@@ -136,7 +152,9 @@ export default function Cover({
         <>
           <img
             src={CASE_COVERS[work.id]}
-            alt=""
+            alt={coverAlt}
+            loading={full ? undefined : 'lazy'}
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className={`absolute inset-0 flex flex-col justify-between ${padding}`}>
@@ -153,7 +171,9 @@ export default function Cover({
         <>
           <img
             src={CASE_COVERS[work.id]}
-            alt=""
+            alt={coverAlt}
+            loading={full ? undefined : 'lazy'}
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-ink/10"></div>
@@ -171,7 +191,9 @@ export default function Cover({
         <>
           <img
             src={CASE_COVERS[work.id]}
-            alt=""
+            alt={coverAlt}
+            loading={full ? undefined : 'lazy'}
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-ink/10"></div>
@@ -189,7 +211,9 @@ export default function Cover({
         <>
           <img
             src={CASE_COVERS[work.id]}
-            alt=""
+            alt={coverAlt}
+            loading={full ? undefined : 'lazy'}
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-ink/10"></div>
@@ -207,7 +231,9 @@ export default function Cover({
         <>
           <img
             src={CASE_COVERS[work.id]}
-            alt=""
+            alt={coverAlt}
+            loading={full ? undefined : 'lazy'}
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-ink/10"></div>
@@ -225,7 +251,9 @@ export default function Cover({
         <>
           <img
             src={CASE_COVERS[work.id]}
-            alt=""
+            alt={coverAlt}
+            loading={full ? undefined : 'lazy'}
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div
@@ -244,7 +272,9 @@ export default function Cover({
         <>
           <img
             src={CASE_COVERS[work.id]}
-            alt=""
+            alt={coverAlt}
+            loading={full ? undefined : 'lazy'}
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className={`absolute inset-0 flex flex-col justify-between ${padding}`}>
@@ -261,7 +291,9 @@ export default function Cover({
         <>
           <img
             src={CASE_COVERS[work.id]}
-            alt=""
+            alt={coverAlt}
+            loading={full ? undefined : 'lazy'}
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-ink/10"></div>
@@ -279,7 +311,9 @@ export default function Cover({
         <>
           <img
             src={CASE_COVERS[work.id]}
-            alt=""
+            alt={coverAlt}
+            loading={full ? undefined : 'lazy'}
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-ink/10"></div>
@@ -297,7 +331,9 @@ export default function Cover({
         <>
           <img
             src={CASE_COVERS[work.id]}
-            alt=""
+            alt={coverAlt}
+            loading={full ? undefined : 'lazy'}
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-ink/10"></div>
@@ -315,7 +351,9 @@ export default function Cover({
         <>
           <img
             src={CASE_COVERS[work.id]}
-            alt=""
+            alt={coverAlt}
+            loading={full ? undefined : 'lazy'}
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className={`absolute inset-0 flex flex-col justify-between ${padding}`}>
@@ -332,7 +370,9 @@ export default function Cover({
         <>
           <img
             src={CASE_COVERS[work.id]}
-            alt=""
+            alt={coverAlt}
+            loading={full ? undefined : 'lazy'}
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-ink/20"></div>
@@ -350,7 +390,9 @@ export default function Cover({
         <>
           <img
             src={CASE_COVERS[work.id]}
-            alt=""
+            alt={coverAlt}
+            loading={full ? undefined : 'lazy'}
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-ink/20"></div>
@@ -368,7 +410,9 @@ export default function Cover({
         <>
           <img
             src={CASE_COVERS[work.id]}
-            alt=""
+            alt={coverAlt}
+            loading={full ? undefined : 'lazy'}
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-ink/20"></div>
@@ -386,7 +430,9 @@ export default function Cover({
         <>
           <img
             src={CASE_COVERS[work.id]}
-            alt=""
+            alt={coverAlt}
+            loading={full ? undefined : 'lazy'}
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-ink/10"></div>
@@ -404,7 +450,9 @@ export default function Cover({
         <>
           <img
             src={CASE_COVERS[work.id]}
-            alt=""
+            alt={coverAlt}
+            loading={full ? undefined : 'lazy'}
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/55 via-ink/0 to-ink/30"></div>

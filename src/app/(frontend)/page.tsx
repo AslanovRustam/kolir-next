@@ -6,7 +6,9 @@ import TestimonialsServer from '../../components/sections/TestimonialsServer'
 import About from '../../components/sections/About'
 import ContactServer from '../../components/sections/ContactServer'
 import ScriptOnMount from '../../components/ScriptOnMount'
+import JsonLd from '../../components/JsonLd'
 import { pageMeta } from '../../lib/seo'
+import { organizationLd, websiteLd } from '../../lib/jsonld'
 
 export const metadata = pageMeta({
   title: 'Kolir — брендингова агенція: бренди, айдентика, сайти',
@@ -19,6 +21,7 @@ export const metadata = pageMeta({
 export default function HomePage() {
   return (
     <main className="kolir-page">
+      <JsonLd data={[organizationLd, websiteLd]} />
       <ScriptOnMount src="/js/hcase-stack.js" />
       <ScriptOnMount src="/js/logo-marquee.js" />
       <div className="shell">
