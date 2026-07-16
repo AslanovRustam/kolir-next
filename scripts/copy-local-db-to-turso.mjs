@@ -33,6 +33,8 @@ if (!DST_TOKEN) {
 // - payload_kv/locked/preferences: службові, специфічні для середовища.
 const SKIP = new Set([
   'payload_migrations',
+  // Заявки з форм — живуть лише на проді (ПД). Локальні тестові не заливаємо.
+  'submissions',
   'users',
   'users_sessions',
   'media',
