@@ -1,4 +1,6 @@
 import React from 'react'
+// Self-hosted Unbounded (@font-face) — замість зовнішнього render-blocking Google Fonts
+import '../../site-css/unbounded.css'
 // Глобальні стилі сайту (порядок як у статиці: style → brife → animations → redesign)
 import '../../site-css/style.css'
 import '../../site-css/brife.css'
@@ -39,14 +41,6 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="uk">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800;900&display=swap"
-        />
-      </head>
       <body className="kolir-body">
         <GoogleAnalytics />
         <HeaderServer />
