@@ -72,10 +72,17 @@ export default async function Cases() {
             </a>
             <div className="hcase-layers" aria-hidden="true">
               {c.layers.map((l, i) => (
-                <img className={l.cls} src={l.src} alt="" key={i} />
+                <img className={l.cls} src={l.src} alt="" key={i} loading="lazy" decoding="async" />
               ))}
             </div>
-            <img className="hcase-visual hcase-visual--mob" src={c.visual} alt="" aria-hidden="true" />
+            <img
+              className="hcase-visual hcase-visual--mob"
+              src={c.visual}
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+              decoding="async"
+            />
           </article>
         ))}
       </div>

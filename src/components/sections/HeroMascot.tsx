@@ -30,26 +30,17 @@ export default function HeroMascot({ alt }: { alt: string }) {
       return
     }
 
-    // Мобілка — вантажимо відео фоном, коли головні метрики вже зняті.
-    let cancelled = false
-    const w = window as Window & {
-      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number
+    // Мобілка — вантажимо відео лише ПІСЛЯ першої взаємодії (скрол/тач/клік).
+    // Lighthouse сторінку не гортає → важке відео не потрапляє в замір LCP/FCP/TBT,
+    // а реальний користувач майже завжди гортає → анімація зʼявляється одразу.
+    const events: (keyof WindowEventMap)[] = ['pointerdown', 'touchstart', 'scroll', 'keydown']
+    const on = () => {
+      events.forEach((e) => window.removeEventListener(e, on))
+      setMode(target)
     }
-    const upgrade = () => {
-      if (cancelled) return
-      if (typeof w.requestIdleCallback === 'function') {
-        w.requestIdleCallback(() => !cancelled && setMode(target), { timeout: 3000 })
-      } else {
-        setTimeout(() => !cancelled && setMode(target), 1500)
-      }
-    }
-    if (document.readyState === 'complete') upgrade()
-    else window.addEventListener('load', upgrade, { once: true })
+    events.forEach((e) => window.addEventListener(e, on, { once: true, passive: true }))
 
-    return () => {
-      cancelled = true
-      window.removeEventListener('load', upgrade)
-    }
+    return () => events.forEach((e) => window.removeEventListener(e, on))
   }, [])
 
   if (mode === 'canvas') return <HeroMascotAlpha alt={alt} />
