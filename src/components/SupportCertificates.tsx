@@ -1,6 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 
 // src     — оригінальний скан грамоти (відкривається в лайтбоксі)
 // preview — уніфіковане брендове превью з логотипом організації (показується в сітці)
@@ -97,6 +98,10 @@ const CERTS: Cert[] = [
 
 export default function SupportCertificates({ locale = 'uk' }: { locale?: 'uk' | 'en' }) {
   const [open, setOpen] = useState<number | null>(null)
+  // Лайтбокс рендеримо порталом у body: усередині секції його перекриває
+  // фіксована шапка сайту, і z-index це не лікує.
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
   const label = (c: Cert) => (locale === 'en' ? c.en : c.uk)
 
   const close = useCallback(() => setOpen(null), [])
@@ -142,8 +147,10 @@ export default function SupportCertificates({ locale = 'uk' }: { locale?: 'uk' |
         ))}
       </div>
 
-      {cur && (
-        <div className="support-lightbox" role="dialog" aria-modal="true" onClick={close}>
+      {cur &&
+        mounted &&
+        createPortal(
+          <div className="support-lightbox" role="dialog" aria-modal="true" onClick={close}>
           <button className="support-lb-close" type="button" aria-label="Close" onClick={close}>
             ×
           </button>
@@ -173,8 +180,9 @@ export default function SupportCertificates({ locale = 'uk' }: { locale?: 'uk' |
           >
             ›
           </button>
-        </div>
-      )}
+          </div>,
+          document.body,
+        )}
     </>
   )
 }
