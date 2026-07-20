@@ -13,6 +13,7 @@ import { localizeCase } from '../../lib/localizeCase'
 import { isCaseVisible } from '../../lib/caseLocales'
 import WorkCard from './WorkCard'
 import { getUI, catsLine, type Locale, type UIStrings } from './i18n'
+import { localeHref } from '../../lib/localeHref'
 
 // Дані кейсів зберігають шляхи як `images/...` (без слешу) — у Next вони лежать
 // у /public/images, тож для відносних шляхів додаємо ведучий «/».
@@ -185,9 +186,12 @@ function CaseMeta({ work, ui: UI, locale }: { work: CaseItem; ui: UIStrings; loc
 
 /* ===================== Nav controls (back + prev/next/close) ===================== */
 
-function BackLink({ label }: { label: string }) {
+function BackLink({ label, locale }: { label: string; locale: Locale }) {
   return (
-    <Link href="/portfolio" className="flex items-center gap-2 text-sm hover:text-sun transition">
+    <Link
+      href={localeHref('/portfolio', locale)}
+      className="flex items-center gap-2 text-sm hover:text-sun transition"
+    >
       <span className="inline-flex w-9 h-9 rounded-full border border-white/20 items-center justify-center shrink-0">
         ←
       </span>
@@ -196,25 +200,33 @@ function BackLink({ label }: { label: string }) {
   )
 }
 
-function NavControls({ prevId, nextId }: { prevId: string; nextId: string }) {
+function NavControls({
+  prevId,
+  nextId,
+  locale,
+}: {
+  prevId: string
+  nextId: string
+  locale: Locale
+}) {
   return (
     <div className="flex items-center gap-2 shrink-0">
       <Link
-        href={`/portfolio/${prevId}`}
+        href={localeHref(`/portfolio/${prevId}`, locale)}
         aria-label="Previous"
         className="inline-flex w-9 h-9 rounded-full border border-white/20 items-center justify-center hover:border-sun hover:text-sun transition"
       >
         ←
       </Link>
       <Link
-        href={`/portfolio/${nextId}`}
+        href={localeHref(`/portfolio/${nextId}`, locale)}
         aria-label="Next"
         className="inline-flex w-9 h-9 rounded-full border border-white/20 items-center justify-center hover:border-sun hover:text-sun transition"
       >
         →
       </Link>
       <Link
-        href="/portfolio"
+        href={localeHref('/portfolio', locale)}
         aria-label="Close"
         className="ml-1 inline-flex w-9 h-9 rounded-full bg-sun text-plum items-center justify-center text-base hover:bg-sunbright transition"
       >
@@ -288,8 +300,8 @@ export default function CaseDetail({
       {/* MOBILE nav — плаваюча плашка-капсула (як фільтри на портфоліо), не на всю ширину */}
       <div className="md:hidden sticky top-[9.5rem] z-10 px-4 py-3">
         <div className="flex items-center justify-between gap-3 backdrop-blur-[8px] bg-void/80 border border-white/20 px-2 py-1.5 rounded-full">
-          <BackLink label={UI.backToPortfolio} />
-          <NavControls prevId={prevId} nextId={nextId} />
+          <BackLink label={UI.backToPortfolio} locale={locale} />
+          <NavControls prevId={prevId} nextId={nextId} locale={locale} />
         </div>
       </div>
 
@@ -451,7 +463,7 @@ export default function CaseDetail({
                 <div className="flex items-baseline justify-between mb-5 md:mb-7">
                   <div className="font-sans text-[16px] text-white/40">{UI.otherCases}</div>
                   <Link
-                    href="/portfolio"
+                    href={localeHref('/portfolio', locale)}
                     className="font-sans text-[16px] text-white/40 hover:text-sun transition"
                   >
                     {UI.allWorks}
@@ -473,8 +485,8 @@ export default function CaseDetail({
             <div className="flex flex-col h-full border-l border-white/10 md:pl-8">
               {/* NAV MENU — над текстом */}
               <div className="shrink-0 flex items-center justify-between gap-3 pb-5">
-                <BackLink label={UI.backToPortfolio} />
-                <NavControls prevId={prevId} nextId={nextId} />
+                <BackLink label={UI.backToPortfolio} locale={locale} />
+                <NavControls prevId={prevId} nextId={nextId} locale={locale} />
               </div>
               {/* META — текст кейсу */}
               <div className="min-h-0 flex-1 overflow-y-auto no-scrollbar pt-5 border-t border-white/10">

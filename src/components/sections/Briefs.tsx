@@ -1,6 +1,8 @@
 'use client'
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { localeHref } from '../../lib/localeHref'
+import type { Locale } from '../../lib/locale'
 
 type Tab = { label: string; tag: string; title: string; desc: string }
 type Anim = { from: number; to: number; start: number; dur: number }
@@ -180,9 +182,15 @@ function Sphere3D({ idx }: { idx: number }) {
   return <canvas ref={canvasRef} width={500} height={500} className="briefs2-ball" aria-hidden="true" />
 }
 
-export default function Briefs({ content: c }: { content: BriefsContent }) {
+export default function Briefs({
+  content: c,
+  locale = 'uk',
+}: {
+  content: BriefsContent
+  locale?: Locale
+}) {
   const TABS = c.tabs
-  const hrefAt = (i: number) => HREFS[i] ?? '#'
+  const hrefAt = (i: number) => (HREFS[i] ? localeHref(HREFS[i], locale) : '#')
   const [idx, setIdx] = useState(0)
   const cardRef = useRef<HTMLDivElement>(null)
   const fromH = useRef<number | null>(null)

@@ -1,5 +1,6 @@
 import { getLocale } from '../../lib/locale'
 import { makeT } from '../../lib/t'
+import { localeHref } from '../../lib/localeHref'
 
 const CASES = [
   {
@@ -64,7 +65,7 @@ export default async function Cases() {
             </div>
             <a
               className="hcase-btn hcase-btn--purple"
-              href={c.href}
+              href={localeHref(c.href, locale)}
               data-magnetic="0.2"
               aria-label={`Детальніше про кейс ${t(c.title)}`}
             >
@@ -89,7 +90,7 @@ export default async function Cases() {
 
       <div className="hcases-cta" data-reveal="up">
         <span className="hcases-cta-text">{t('Хочете переглянути всі приклади робіт?')}</span>
-        <a className="hcases-cta-btn" href="/portfolio" data-magnetic="0.2">
+        <a className="hcases-cta-btn" href={localeHref('/portfolio', locale)} data-magnetic="0.2">
           {t('До портфоліо')}
         </a>
       </div>
