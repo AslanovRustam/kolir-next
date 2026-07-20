@@ -3,9 +3,11 @@ import config from '../payload.config'
 import { getLocale } from '../lib/locale'
 import Header, { type HeaderLabels } from './Header'
 
-// Серверна обгортка: тягне лейбли хедера з CMS за локаллю і передає у клієнтський Header.
+// Серверна обгортка: тягне лейбли хедера з CMS за локаллю. URL-версії для перемикача
+// мови рахує клієнтський Header через usePathname() (щоб не «замерзали» на soft-навігації).
 export default async function HeaderServer() {
   const locale = await getLocale()
+
   const payload = await getPayload({ config })
   const h = await payload.findGlobal({ slug: 'header', locale })
 
@@ -18,5 +20,5 @@ export default async function HeaderServer() {
     cta: h.cta || 'Розпочати проєкт',
   }
 
-  return <Header labels={labels} />
+  return <Header labels={labels} locale={locale} />
 }

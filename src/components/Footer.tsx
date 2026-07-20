@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { getPayload } from 'payload'
 import config from '../payload.config'
 import { getLocale } from '../lib/locale'
+import { localeHref } from '../lib/localeHref'
 
 const SOCIALS: { href: string; label: string; icon: string; enOnly?: boolean }[] = [
   { href: 'https://dribbble.com/kolir_agency', label: 'Dribbble', icon: '/img/uu.svg' },
@@ -29,7 +30,7 @@ export default async function Footer() {
       <div className="footerk-shell">
         <div className="footerk-top">
           <div className="footerk-left">
-            <Link className="footerk-logo-link" href="/" aria-label="Kolir">
+            <Link className="footerk-logo-link" href={localeHref('/', locale)} aria-label="Kolir">
               <img className="footerk-logo" src={logo} alt="Kolir" />
             </Link>
             <div className="footerk-copy">{copy}</div>
@@ -53,7 +54,7 @@ export default async function Footer() {
             <div className="footerk-copy">{legal}</div>
           </div>
           <div className="footerk-links">
-            <Link href="/privacy" className="footerk-link">
+            <Link href={localeHref('/privacy', locale)} className="footerk-link">
               {privacyLink}
             </Link>
           </div>

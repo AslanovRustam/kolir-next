@@ -11,6 +11,7 @@ import '../../site-css/override.css'
 import HeaderServer from '../../components/HeaderServer'
 import Footer from '../../components/Footer'
 import GoogleAnalytics from '../../components/GoogleAnalytics'
+import { getLocale } from '../../lib/locale'
 
 export const metadata = {
   // Базовий домен для абсолютних URL (canonical, OG, sitemap-посилання)
@@ -38,9 +39,10 @@ export const metadata = {
   },
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const locale = await getLocale()
   return (
-    <html lang="uk">
+    <html lang={locale}>
       <body className="kolir-body">
         <GoogleAnalytics />
         <HeaderServer />

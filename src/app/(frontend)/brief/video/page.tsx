@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import BriefForm from '../../../../components/BriefForm'
 import { getLocale } from '../../../../lib/locale'
 import { makeT } from '../../../../lib/t'
@@ -5,12 +6,23 @@ import { pageMeta } from '../../../../lib/seo'
 import JsonLd from '../../../../components/JsonLd'
 import { breadcrumbLd } from '../../../../lib/jsonld'
 
-export const metadata = pageMeta({
-  title: 'Бриф на відео та моушн',
-  description:
-    'Заповніть бриф — команда Kolir проаналізує запит і повернеться з пропозицією щодо відео та моушн-дизайну.',
-  path: '/brief/video',
-})
+const META = {
+  uk: {
+    title: 'Бриф на відео та моушн',
+    description:
+      'Заповніть бриф — команда Kolir проаналізує запит і повернеться з пропозицією щодо відео та моушн-дизайну.',
+  },
+  en: {
+    title: 'Video & Motion Brief',
+    description:
+      'Fill out the brief — the Kolir team will review your request and come back with a proposal for video and motion design.',
+  },
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale()
+  return pageMeta({ ...META[locale], path: '/brief/video', locale })
+}
 
 export default async function BriefVideoPage() {
   const locale = await getLocale()
