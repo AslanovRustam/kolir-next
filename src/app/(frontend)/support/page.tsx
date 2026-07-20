@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import '../../../site-css/support-page.css'
 import '../../../site-css/support-redesign.css'
 import { getLocale } from '../../../lib/locale'
@@ -13,13 +14,23 @@ import ScriptOnMount from '../../../components/ScriptOnMount'
 // support-page.css + support-redesign.css (підключені вище, в тому ж порядку,
 // що й у статиці). Слайдер/логорейл на статиці керуються JS — тут лишаємо
 // статичну розмітку без скриптів (порт макета).
-export const metadata = pageMeta({
-  title: 'Підтримка України — Kolir на боці ЗСУ',
-  description:
-    'Kolir підтримує Збройні сили України та волонтерські ініціативи. Дізнайтесь, як агенція долучається до допомоги.',
-  path: '/support',
-  absoluteTitle: true,
-})
+const META = {
+  uk: {
+    title: 'Підтримка України — Kolir на боці ЗСУ',
+    description:
+      'Kolir підтримує Збройні сили України та волонтерські ініціативи. Дізнайтесь, як агенція долучається до допомоги.',
+  },
+  en: {
+    title: 'Support Ukraine — Kolir Stands with the Armed Forces',
+    description:
+      'Kolir supports the Armed Forces of Ukraine and volunteer initiatives. Learn how the agency contributes to the cause.',
+  },
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale()
+  return pageMeta({ ...META[locale], path: '/support', locale, absoluteTitle: true })
+}
 
 export default async function SupportPage() {
   const locale = await getLocale()

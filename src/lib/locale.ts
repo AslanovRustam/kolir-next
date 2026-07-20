@@ -1,12 +1,10 @@
-import { cookies } from 'next/headers'
-import { LOCALE_COOKIE } from './locale-cookie'
+import { headers } from 'next/headers'
 
 export type Locale = 'uk' | 'en'
-export { LOCALE_COOKIE }
 
-// Поточна локаль із cookie (server). Дефолт — українська.
+// Поточна локаль — із заголовка, який ставить middleware за URL-префіксом (/en).
+// Дефолт — українська. Сигнатура async збережена (усі виклики getLocale() без змін).
 export async function getLocale(): Promise<Locale> {
-  const store = await cookies()
-  const v = store.get(LOCALE_COOKIE)?.value
-  return v === 'en' ? 'en' : 'uk'
+  const h = await headers()
+  return h.get('x-locale') === 'en' ? 'en' : 'uk'
 }

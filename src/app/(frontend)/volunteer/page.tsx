@@ -5,6 +5,7 @@ import VolunteerForm from '../../../components/VolunteerForm'
 import SupportPortfolioSwiper from '../../../components/SupportPortfolioSwiper'
 import SupportCaseSlides from '../../../components/portfolio/SupportCaseSlides'
 import ScriptOnMount from '../../../components/ScriptOnMount'
+import type { Metadata } from 'next'
 import { getLocale } from '../../../lib/locale'
 import { makeT } from '../../../lib/t'
 import { pageMeta } from '../../../lib/seo'
@@ -13,12 +14,23 @@ import { pageMeta } from '../../../lib/seo'
 // Хедер/футер успадковуються з (frontend)/layout.tsx. Сторінкові стилі:
 // support-page.css + support-redesign.css + volunteer.css (у тому ж порядку,
 // що й у статиці). Форма заявки — клієнтський компонент VolunteerForm (демо).
-export const metadata = pageMeta({
-  title: 'Стати волонтером у креативній агенції',
-  description:
-    'Kolir шукає волонтерів-дизайнерів, ілюстраторів та розробників. Реальні проєкти для ЗСУ та фондів, кейси для портфоліо, жодної бюрократії.',
-  path: '/volunteer',
-})
+const META = {
+  uk: {
+    title: 'Стати волонтером у креативній агенції',
+    description:
+      'Kolir шукає волонтерів-дизайнерів, ілюстраторів та розробників. Реальні проєкти для ЗСУ та фондів, кейси для портфоліо, жодної бюрократії.',
+  },
+  en: {
+    title: 'Become a Volunteer at a Creative Agency',
+    description:
+      'Kolir is looking for volunteer designers, illustrators and developers. Real projects for the Armed Forces and foundations, portfolio cases, no bureaucracy.',
+  },
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale()
+  return pageMeta({ ...META[locale], path: '/volunteer', locale })
+}
 
 export default async function VolunteerPage() {
   const locale = await getLocale()

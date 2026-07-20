@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
+import { notFound, redirect } from 'next/navigation'
 import { CASES } from '../../../../data/cases'
 import CaseDetail from '../../../../components/portfolio/CaseDetail'
 import { getLocale } from '../../../../lib/locale'
-import { isCaseVisible } from '../../../../lib/caseLocales'
+import { isCaseVisible, caseLocales } from '../../../../lib/caseLocales'
+import { localeHref } from '../../../../lib/localeHref'
 import { pageMeta } from '../../../../lib/seo'
 import { CASE_SEO } from '../../../../data/caseSeo'
 import JsonLd from '../../../../components/JsonLd'
@@ -21,11 +22,20 @@ export async function generateMetadata({
   const { slug } = await params
   const work = CASES.find((c) => c.id === slug)
   if (!work) return {}
+  const locale = await getLocale()
   const seo = CASE_SEO[work.id]
+  const en = locale === 'en'
+  const title = en
+    ? (seo?.en?.title ?? `${work.title} — Branding & Design Case`)
+    : (seo?.title ?? `${work.title} — кейс брендингу та дизайну`)
+  const description =
+    (en ? seo?.en?.description : seo?.description) ?? trim(work.description || work.teaser)
   return pageMeta({
-    title: seo?.title ?? `${work.title} — кейс брендингу та дизайну`,
-    description: seo?.description ?? trim(work.description || work.teaser),
+    title,
+    description,
     path: `/portfolio/${work.id}`,
+    locale,
+    avail: caseLocales(work),
     ogImage: `/img/og/cases/${work.id}.jpg`,
   })
 }
@@ -39,8 +49,9 @@ export default async function CasePage({
   const locale = await getLocale()
   const work = CASES.find((c) => c.id === slug)
   if (!work) notFound()
-  // Немає картинок для цієї локалі → кейс недоступний на ній.
-  if (!isCaseVisible(work, locale)) notFound()
+  // Кейс недоступний у цій локалі (напр. перемкнули мову на екслюзивному кейсі) →
+  // ведемо на лістинг тієї ж локалі, а не на 404.
+  if (!isCaseVisible(work, locale)) redirect(localeHref('/portfolio', locale))
 
   const jsonLd = [
     breadcrumbLd([
