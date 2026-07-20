@@ -1,9 +1,8 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import { LOCALE_COOKIE } from '../lib/locale-cookie'
+import { usePathname, useRouter } from 'next/navigation'
 
 export type HeaderLabels = {
   services: string
@@ -28,40 +27,81 @@ const DEFAULT_LABELS: HeaderLabels = {
 const LOGO_UK = '/img/Logo%20-%20Kolir%20UA.svg'
 const LOGO_EN = '/img/Logo-kolir.svg'
 
-export default function Header({ labels = DEFAULT_LABELS }: { labels?: HeaderLabels }) {
+export default function Header({
+  labels = DEFAULT_LABELS,
+  locale = 'uk',
+}: {
+  labels?: HeaderLabels
+  /** Поточна локаль сторінки (з URL, від сервера). Для active/логотипа/nav-префіксу. */
+  locale?: 'uk' | 'en'
+}) {
+  // URL-версії ПОТОЧНОЇ сторінки рахуємо на клієнті з usePathname() — воно завжди
+  // відображає адресний рядок навіть після soft-навігації. Серверний проп «замерз би»
+  // на сторінці, де хедер (спільний layout) відрендерився вперше → перемикач вів би туди.
+  const pathname = usePathname() || '/'
+  const isEnPath = pathname === '/en' || pathname.startsWith('/en/')
+  const basePath = isEnPath ? pathname.slice(3) || '/' : pathname // без /en
+  const ukHref = basePath
+  const enHref = basePath === '/' ? '/en' : `/en${basePath}`
+
+  // EN-навігація живе під /en (внутрішні лінки), uk — на корені.
+  const p = (href: string) => (locale === 'en' ? `/en${href === '/' ? '' : href}` : href)
   const NAV = [
-    { href: '/#Services', label: labels.services },
-    { href: '/portfolio', label: labels.portfolio },
-    { href: '/#briefs', label: labels.brief },
-    { href: '/#contact', label: labels.contact },
-    { href: '/support', label: labels.help, help: true },
+    { href: p('/#Services'), label: labels.services },
+    { href: p('/portfolio'), label: labels.portfolio },
+    { href: p('/#briefs'), label: labels.brief },
+    { href: p('/#contact'), label: labels.contact },
+    { href: p('/support'), label: labels.help, help: true },
   ]
 
   const [open, setOpen] = useState(false)
-  const [locale, setLocale] = useState<'uk' | 'en'>('uk')
-  const logo = locale === 'en' ? LOGO_EN : LOGO_UK
   const router = useRouter()
+  const logo = locale === 'en' ? LOGO_EN : LOGO_UK
 
-  // Поточна локаль із cookie (клієнт)
-  useEffect(() => {
-    const m = document.cookie.match(new RegExp(`(?:^|;\\s*)${LOCALE_COOKIE}=(uk|en)`))
-    if (m) setLocale(m[1] as 'uk' | 'en')
-  }, [])
-
-  // Перемикання мови: cookie + refresh серверних компонентів (вони перечитають CMS)
-  const changeLocale = (l: 'uk' | 'en') => {
-    if (l === locale) return
-    document.cookie = `${LOCALE_COOKIE}=${l};path=/;max-age=31536000`
-    setLocale(l)
+  // Перемикач мови: soft-навігація БЕЗ перезавантаження документа (зображення й ін.
+  // ассети не тягнуться заново — React зберігає DOM з тим самим src).
+  //   router.push  — змінює URL на іншу локаль;
+  //   router.refresh — інвалідує router cache і перезабирає ВСІ RSC поточного роуту,
+  //     включно зі спільним layout (<html lang>) і HeaderServer (лейбли/locale). Без
+  //     refresh спільний layout не перерендерився б, а /en/{p} і /{p} (той самий
+  //     внутрішній рут після proxy-rewrite) віддали б закешовану локаль.
+  const switchLang = (href: string) => {
+    router.push(href)
     router.refresh()
   }
+  const langButtons = (mob = false) => (
+    <div className={`lang-cap${mob ? ' lang-cap--mob' : ''}`}>
+      <a
+        className={`lang-cap-b${locale === 'uk' ? ' is-active' : ''}`}
+        href={ukHref}
+        hrefLang="uk"
+        onClick={(e) => {
+          e.preventDefault()
+          switchLang(ukHref)
+        }}
+      >
+        UA
+      </a>
+      <a
+        className={`lang-cap-b${locale === 'en' ? ' is-active' : ''}`}
+        href={enHref}
+        hrefLang="en"
+        onClick={(e) => {
+          e.preventDefault()
+          switchLang(enHref)
+        }}
+      >
+        EN
+      </a>
+    </div>
+  )
 
   return (
     <header className="site-header" aria-label="Site header">
       {/* Desktop — єдина плашка за макетом (Figma 5596-159587) */}
       <div className="hero-head">
         <div className="hh-left">
-          <Link className="brand" href="/" aria-label="Kolir">
+          <Link className="brand" href={p('/')} aria-label="Kolir">
             <img src={logo} alt="Kolir" />
           </Link>
           <nav className="nav" aria-label="Primary navigation">
@@ -74,7 +114,7 @@ export default function Header({ labels = DEFAULT_LABELS }: { labels?: HeaderLab
               ) : (
                 <Link
                   key={n.href}
-                  className={n.href === '/#contact' ? 'nav-contact' : undefined}
+                  className={n.href.endsWith('/#contact') ? 'nav-contact' : undefined}
                   href={n.href}
                 >
                   {n.label}
@@ -84,23 +124,8 @@ export default function Header({ labels = DEFAULT_LABELS }: { labels?: HeaderLab
           </nav>
         </div>
         <div className="hh-right">
-          <div className="lang-cap">
-            <button
-              className={`lang-cap-b${locale === 'uk' ? ' is-active' : ''}`}
-              type="button"
-              onClick={() => changeLocale('uk')}
-            >
-              UA
-            </button>
-            <button
-              className={`lang-cap-b${locale === 'en' ? ' is-active' : ''}`}
-              type="button"
-              onClick={() => changeLocale('en')}
-            >
-              EN
-            </button>
-          </div>
-          <Link className="cta-top" href="/#contact">
+          {langButtons()}
+          <Link className="cta-top" href={p('/#contact')}>
             {labels.cta}
           </Link>
         </div>
@@ -118,26 +143,11 @@ export default function Header({ labels = DEFAULT_LABELS }: { labels?: HeaderLab
           <span aria-hidden="true" />
         </button>
 
-        <Link className="m-brand" href="/">
+        <Link className="m-brand" href={p('/')}>
           <img src={logo} alt="Kolir" />
         </Link>
 
-        <div className="lang-cap lang-cap--mob">
-          <button
-            className={`lang-cap-b${locale === 'uk' ? ' is-active' : ''}`}
-            type="button"
-            onClick={() => changeLocale('uk')}
-          >
-            UA
-          </button>
-          <button
-            className={`lang-cap-b${locale === 'en' ? ' is-active' : ''}`}
-            type="button"
-            onClick={() => changeLocale('en')}
-          >
-            EN
-          </button>
-        </div>
+        {langButtons(true)}
       </div>
 
       {/* Fullscreen mobile menu */}

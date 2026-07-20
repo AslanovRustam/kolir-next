@@ -2,6 +2,7 @@ import Link from 'next/link'
 import type { CaseItem } from '../../data/cases'
 import Cover from './Cover'
 import { catsLine, type Locale } from './i18n'
+import { localeHref } from '../../lib/localeHref'
 
 export default function WorkCard({
   work,
@@ -15,7 +16,7 @@ export default function WorkCard({
   const catsLocalized = catsLine(work.categories, locale)
   return (
     <Link
-      href={`/portfolio/${work.id}`}
+      href={localeHref(`/portfolio/${work.id}`, locale)}
       className="group block text-left reveal w-full"
       style={{ transitionDelay: `${Math.min(index, 7) * 40}ms` }}
       aria-label={`${work.title} — кейс Kolir`}

@@ -1,16 +1,28 @@
 // Політика конфіденційності — порт зі статичного privacy.html.
 // Хедер/футер успадковуються з (frontend)/layout.tsx. Page-specific CSS немає
 // (стилі .pp лежать у глобальному style.css/brife.css, що вже підключені).
+import type { Metadata } from 'next'
 import { getLocale } from '../../../lib/locale'
 import { makeT } from '../../../lib/t'
 import { pageMeta } from '../../../lib/seo'
 
-export const metadata = pageMeta({
-  title: 'Політика конфіденційності',
-  description:
-    'Політика конфіденційності та використання файлів cookie агенції Kolir: які дані ми збираємо, з якою метою та як ви можете керувати ними.',
-  path: '/privacy',
-})
+const META = {
+  uk: {
+    title: 'Політика конфіденційності',
+    description:
+      'Політика конфіденційності та використання файлів cookie агенції Kolir: які дані ми збираємо, з якою метою та як ви можете керувати ними.',
+  },
+  en: {
+    title: 'Privacy Policy',
+    description:
+      'Kolir agency privacy and cookie policy: what data we collect, for what purposes, and how you can manage it.',
+  },
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale()
+  return pageMeta({ ...META[locale], path: '/privacy', locale })
+}
 
 export default async function PrivacyPage() {
   const locale = await getLocale()

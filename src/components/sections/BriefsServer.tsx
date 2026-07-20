@@ -79,5 +79,5 @@ export default async function BriefsServer() {
     tabs,
   }
 
-  return <Briefs content={content} />
+  return <Briefs content={content} locale={locale} />
 }

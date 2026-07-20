@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import BriefForm from '../../../../components/BriefForm'
 import { getLocale } from '../../../../lib/locale'
 import { makeT } from '../../../../lib/t'
@@ -5,12 +6,23 @@ import { pageMeta } from '../../../../lib/seo'
 import JsonLd from '../../../../components/JsonLd'
 import { breadcrumbLd } from '../../../../lib/jsonld'
 
-export const metadata = pageMeta({
-  title: 'Бриф на логотип і брендбук',
-  description:
-    'Заповніть бриф — команда Kolir проаналізує запит і повернеться з пропозицією щодо логотипа й брендбука.',
-  path: '/brief/logobook',
-})
+const META = {
+  uk: {
+    title: 'Бриф на логотип і брендбук',
+    description:
+      'Заповніть бриф — команда Kolir проаналізує запит і повернеться з пропозицією щодо логотипа й брендбука.',
+  },
+  en: {
+    title: 'Logo & Brand Book Brief',
+    description:
+      'Fill out the brief — the Kolir team will review your request and come back with a proposal for your logo and brand book.',
+  },
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale()
+  return pageMeta({ ...META[locale], path: '/brief/logobook', locale })
+}
 
 export default async function BriefLogobookPage() {
   const locale = await getLocale()

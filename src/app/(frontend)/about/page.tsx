@@ -1,11 +1,26 @@
+import type { Metadata } from 'next'
 import { getLocale } from '../../../lib/locale'
 import { makeT } from '../../../lib/t'
+import { pageMeta } from '../../../lib/seo'
+import { localeHref } from '../../../lib/localeHref'
 import '../../../site-css/about.css'
 
-export const metadata = {
-  title: 'Про нас · Kolir',
-  description:
-    'Kolir — креативна агенція брендингу та дизайну. Хто ми, у що віримо і як працюємо над брендами.',
+const META = {
+  uk: {
+    title: 'Про нас',
+    description:
+      'Kolir — креативна агенція брендингу та дизайну. Хто ми, у що віримо і як працюємо над брендами.',
+  },
+  en: {
+    title: 'About Us',
+    description:
+      'Kolir is a creative branding and design agency. Who we are, what we believe in, and how we work on brands.',
+  },
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale()
+  return pageMeta({ ...META[locale], path: '/about', locale })
 }
 
 // ТЕКСТИ — тимчасові плейсхолдери (перепишемо). Обгорнуті в t() для майбутнього en.
@@ -87,10 +102,10 @@ export default async function AboutPage() {
               )}
             </p>
             <div className="about-hero-cta">
-              <a className="about-btn about-btn--yellow" href="/#contact" data-magnetic="0.2">
+              <a className="about-btn about-btn--yellow" href={localeHref('/#contact', locale)} data-magnetic="0.2">
                 {t('Розпочати проєкт')}
               </a>
-              <a className="about-btn" href="/portfolio" data-magnetic="0.2">
+              <a className="about-btn" href={localeHref('/portfolio', locale)} data-magnetic="0.2">
                 {t('Наші роботи')}
               </a>
             </div>
@@ -208,7 +223,7 @@ export default async function AboutPage() {
           <span className="about-cta-swirl" aria-hidden="true" />
           <div className="about-inner">
             <h2 className="about-cta-title">{t('Маєте ідею? Давайте зробимо з неї бренд.')}</h2>
-            <a className="about-btn about-btn--yellow" href="/#contact" data-magnetic="0.2">
+            <a className="about-btn about-btn--yellow" href={localeHref('/#contact', locale)} data-magnetic="0.2">
               {t('Розпочати проєкт')}
             </a>
           </div>
