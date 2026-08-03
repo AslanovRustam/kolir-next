@@ -1,4 +1,5 @@
 import React from 'react'
+import Script from 'next/script'
 // Self-hosted Unbounded (@font-face) — замість зовнішнього render-blocking Google Fonts
 import '../../site-css/unbounded.css'
 // Глобальні стилі сайту (порядок як у статиці: style → brife → animations → redesign)
@@ -48,6 +49,13 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <HeaderServer />
         {children}
         <Footer />
+        {/* Pulse live chat (CRM). lazyOnload — вантажиться в простій після інтерактиву,
+            щоб не бити по LCP/INP. next/script сам ставить async. */}
+        <Script
+          src="https://cdn.pulse.is/livechat/loader.js"
+          data-live-chat-id="6a708ac104ed02b3a70dabb2"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   )
