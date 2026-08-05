@@ -12,6 +12,11 @@ const nextConfig: NextConfig = {
       {
         pathname: '/api/media/file/**',
       },
+      // статика з public/img — next/image інакше віддає 400 (localPatterns
+      // задано явно, тож дефолтний «дозволити все локальне» не діє)
+      {
+        pathname: '/img/**',
+      },
     ],
   },
   // public/ (відео/великі картинки кейсів, ~900МБ) роздається статикою через CDN

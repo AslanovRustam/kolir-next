@@ -1,7 +1,7 @@
 import '../../../site-css/support-page.css'
 import '../../../site-css/support-redesign.css'
 import '../../../site-css/volunteer.css'
-import VolunteerForm from '../../../components/VolunteerForm'
+import Image from 'next/image'
 import SupportPortfolioSwiper from '../../../components/SupportPortfolioSwiper'
 import SupportCaseSlides from '../../../components/portfolio/SupportCaseSlides'
 import ScriptOnMount from '../../../components/ScriptOnMount'
@@ -13,7 +13,8 @@ import { pageMeta } from '../../../lib/seo'
 // Стати волонтером — порт зі статичного volunteer.html (1:1, без редизайну).
 // Хедер/футер успадковуються з (frontend)/layout.tsx. Сторінкові стилі:
 // support-page.css + support-redesign.css + volunteer.css (у тому ж порядку,
-// що й у статиці). Форма заявки — клієнтський компонент VolunteerForm (демо).
+// що й у статиці). Блок «Залиш заявку» — без форми: декор-зображення + CTA
+// в Telegram-спільноту (компонент VolunteerForm лишився в проєкті, не задіяний).
 const META = {
   uk: {
     title: 'Стати волонтером у креативній агенції',
@@ -302,9 +303,30 @@ export default async function VolunteerPage() {
                 </div>
 
                 <div className="vol-apply-right">
-                  <div className="vol-apply-form">
-                    <VolunteerForm locale={locale} />
-                  </div>
+                  <Image
+                    className="vol-apply-decor"
+                    src="/img/volunteer_decor.png"
+                    alt={t('Шеврони підрозділів, прапор Інтернаціонального легіону та дрон')}
+                    width={720}
+                    height={583}
+                    sizes="(max-width: 767px) 90vw, 49rem"
+                  />
+                  <a
+                    className="vol-apply-tg"
+                    href="https://t.me/+8ZAVpAZRRawzYTAy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      className="vol-apply-tg-ico"
+                      src="/img/mingcute_telegram-fill.svg"
+                      alt=""
+                      aria-hidden="true"
+                      width={32}
+                      height={32}
+                    />
+                    {t('Приєднатись')}
+                  </a>
                 </div>
               </div>
             </div>
