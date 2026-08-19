@@ -51,6 +51,9 @@ export default function Header({
     { href: p('/portfolio'), label: labels.portfolio },
     { href: p('/#briefs'), label: labels.brief },
     { href: p('/#contact'), label: labels.contact },
+    // «Спільнота» (/spilnota) — лейбл захардкоджений: у CMS-глобалі 'header'
+    // поля під нього немає, а міграцію БД під один пункт не заводили.
+    { href: p('/spilnota'), label: locale === 'en' ? 'Community' : 'Спільнота' },
     { href: p('/support'), label: labels.help, help: true },
   ]
 

@@ -375,6 +375,20 @@
   .site-header .nav .nav-contact {
     display: none !important;
   }
+
+  /* Після появи пункту «Спільнота» рядок знову не вміщувався і «Допомога
+     Україні» складалась у 2 рядки. Замість ховати ще один пункт — тиснемо
+     проміжки й забороняємо перенос усередині пунктів. */
+  .site-header .hh-left {
+    gap: clamp(18px, calc(2px + 1.8vw), 36px) !important;
+  }
+  .site-header .hh-left .nav {
+    gap: clamp(14px, calc(2px + 1.3vw), 28px) !important;
+  }
+  .site-header .nav a,
+  .site-header .nav .nav-help {
+    white-space: nowrap;
+  }
 }
 
 /* Відгуки на ПЛАНШЕТІ (768–1199, мобільний слайдер): сусідні картки різко

@@ -31,6 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/about',
     '/support',
     '/volunteer',
+    '/spilnota',
     '/privacy',
     '/brief/logobook',
     '/brief/website',

@@ -1,0 +1,510 @@
+/* =========================================================================
+   Kolir · spilnota.css
+   Сторінка «Колір.Спільнота» (Figma 6644-53474, десктоп 1920).
+   Базові блоки успадковані: support-page.css + support-redesign.css (хіро,
+   слайдер кейсів), volunteer.css (двошарка хіро, .vol-apply-* розкладка CTA),
+   style.css (жовта картка .services + hover-розкрив карток).
+   Тут — лише дельти під цей макет. Підключається ОСТАННІМ.
+   Figma px @1920 × 0.075 = rem.
+   ========================================================================= */
+
+/* ─────────────────────────────  ДЕСКТОП  ───────────────────────────────── */
+@media (min-width: 768px) {
+  /* ── ХІРО: пара статуй праворуч, обрізана нижнім краєм фіолетової плашки ──
+     volunteer.css позиціонує 3 статуї (1361×1024) під свою композицію; у нас
+     інший кадр (977×732) — тож перекриваємо контейнер і саме зображення. */
+  .kolir-page.spilnota-page .hero .hero-right.support-hero-right.vol-hero-right.spil-hero-right {
+    top: 0 !important; /* без «виглядання» голів над карткою — кадр цілком у плашці */
+  }
+  .kolir-page.spilnota-page
+    .hero
+    #heroCard
+    .support-hero-right
+    .girl.support-statue.vol-statues.spil-couple,
+  .kolir-page.spilnota-page #heroCard .support-hero-right .girl.support-statue.vol-statues.spil-couple {
+    left: auto !important;
+    right: -2rem !important;
+    top: 1rem !important;
+    bottom: auto !important;
+    /* ширина у % картки (а не висота) — інакше на вужчих десктопах кадр
+       розповзається вліво й налазить на текст. Низ обрізає край плашки. */
+    width: 62% !important;
+    height: auto !important;
+    max-width: none !important;
+    filter: none !important; /* у макеті тіні під парою немає */
+  }
+  /* Жовтого скрайбла (.hero-scribble-y) у цьому хіро немає й у розмітці:
+     у макеті жовтий акцент дає сам кадр (прапор під накидкою), а «Union»
+     лежить повністю за парою. */
+  /* Пілюля/копірайт лівої колонки: у макеті текст ширший за волонтерський */
+  .kolir-page.spilnota-page .hero .hero-left.support-hero-copy {
+    max-width: 52rem !important;
+  }
+  .kolir-page.spilnota-page .hero .hero-title.vol-title {
+    max-width: 46rem !important;
+  }
+
+  /* ────────────────────────  «Є задача, але бракує рук?»  ───────────────── */
+  .spilnota-page .spil-why {
+    width: min(108rem, calc(100% - 8rem));
+    margin: 9rem auto 0;
+  }
+  /* У макеті колонки перетинаються по горизонталі: заголовок іде на всю ширину
+     (801px), а вузька копія (616px) лишає праворуч місце під врізку (656px),
+     прибиту до низу блока. Тому не grid, а потік + абсолютна права колонка. */
+  .spilnota-page .spil-why-inner {
+    position: relative;
+    min-height: 32rem;
+  }
+  .spilnota-page .spil-why-title {
+    margin: 0;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 600;
+    font-size: 4.35rem;
+    line-height: 5.4rem;
+    letter-spacing: -0.01em;
+    color: var(--c-white, #fff);
+    max-width: 60rem;
+  }
+  .spilnota-page .spil-why-copy {
+    margin-top: 3rem;
+    max-width: 46.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+  }
+  .spilnota-page .spil-why-copy p {
+    margin: 0;
+    font-family: 'Stolzl', sans-serif;
+    font-weight: 400;
+    font-size: 1.35rem;
+    line-height: 2.25rem;
+    color: rgba(255, 255, 255, 0.4);
+  }
+  /* Права колонка: маркер угорі, фіолетова врізка — по нижньому краю блока */
+  .spilnota-page .spil-why-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 49.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 3rem;
+    pointer-events: none; /* абсолютний шар не має перекривати текст зліва */
+  }
+  .spilnota-page .spil-why-note {
+    pointer-events: auto;
+  }
+  .spilnota-page .spil-why-kicker {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+    color: var(--c-white, #fff);
+    font-family: 'Stolzl', sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+  }
+  .spilnota-page .spil-why-kicker .lines {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .spilnota-page .spil-why-kicker .l1,
+  .spilnota-page .spil-why-kicker .l2 {
+    display: block;
+    height: 0.22rem;
+    border-radius: 99rem;
+  }
+  .spilnota-page .spil-why-kicker .l1 {
+    width: 4.6rem;
+    background: rgba(255, 255, 255, 0.25);
+  }
+  .spilnota-page .spil-why-kicker .l2 {
+    width: 2.3rem;
+    background: var(--c-6D00F1, #6d00f1);
+  }
+  .spilnota-page .spil-why-note {
+    background: var(--c-6D00F1, #6d00f1);
+    border-radius: 1.8rem;
+    padding: 1.5rem;
+    font-family: 'Stolzl', sans-serif;
+    font-weight: 400;
+    font-size: 1.35rem;
+    line-height: 2.25rem;
+    color: var(--c-white, #fff);
+  }
+
+  /* ───────────────────  «Напрямки, у яких ми працюємо»  ─────────────────── */
+  /* Та сама жовта картка, що й #Services на головній: 2 колонки × 2 картки,
+     заголовок Unbounded по центру + підзаголовок, маркер «Сервіси» справа. */
+  .spilnota-page .services {
+    margin-top: 9rem;
+    padding: 0 15rem 0;
+  }
+  .spilnota-page .services-card {
+    padding: 3.3rem 6rem 6rem;
+  }
+  .spilnota-page .services-head {
+    min-height: 0;
+    justify-content: center;
+  }
+  .spilnota-page .services-title {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 600;
+    font-size: 4.35rem;
+    line-height: 5.4rem;
+    letter-spacing: 0;
+    color: var(--c-161616, #161616);
+    max-width: 52rem; /* «Напрямки, у яких» має лишатися одним рядком */
+    margin: 0 auto;
+  }
+  /* Скрайбли жовтої картки: support-page.css задає .s-scribble{color:currentColor},
+     через що вони успадковують білий текст сторінки. Повертаємо світло-жовтий. */
+  .spilnota-page .services .s-scribble {
+    color: var(--c-yellow2, #ffe373) !important;
+  }
+  .spilnota-page .services-label {
+    top: 3rem;
+  }
+  .spilnota-page .services-sub {
+    margin: 3rem auto 0;
+    max-width: 46.2rem;
+    text-align: center;
+    font-family: 'Stolzl', sans-serif;
+    font-weight: 400;
+    font-size: 1.35rem;
+    line-height: 2.25rem;
+    color: var(--c-222222, #222);
+  }
+  .spilnota-page .services-grid {
+    margin-top: 3.75rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    grid-auto-rows: 11.5rem;
+  }
+  .spilnota-page .svc {
+    min-height: 11.5rem;
+    padding: 3rem 5.4rem 3rem 3rem;
+    --svc-head-h: 5.5rem;
+  }
+  .spilnota-page .svc-title {
+    font-size: 1.95rem;
+  }
+  .spilnota-page .svc-line {
+    width: 6rem;
+  }
+  .spilnota-page .svc-desc {
+    font-size: 1.35rem;
+    line-height: 2.25rem;
+    max-width: none;
+  }
+  .spilnota-page .svc-ico {
+    width: 3.75rem;
+    height: 3.75rem;
+    right: 1.5rem;
+    top: 1.5rem;
+  }
+
+  /* ────────────────────────  КЕЙСИ: шапка по центру  ────────────────────── */
+  .spilnota-page .spil-cases {
+    padding-top: 9rem;
+  }
+  .spilnota-page .spil-cases-head {
+    display: block !important;
+    text-align: center;
+  }
+  .kolir-page.spilnota-page .portfolio .support-portfolio-title,
+  .spilnota-page .portfolio .support-portfolio-title {
+    color: var(--c-F9F5FF, #f9f6ff) !important;
+    font-family: 'Unbounded', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 4.35rem !important;
+    line-height: 5.4rem !important;
+    letter-spacing: -0.01em !important;
+  }
+  .kolir-page.spilnota-page .portfolio .support-portfolio-sub,
+  .spilnota-page .portfolio .support-portfolio-sub {
+    margin: 3rem auto 0 !important;
+    max-width: 58.8rem !important;
+    font-size: 1.35rem !important;
+    line-height: 2.25rem !important;
+    color: rgba(255, 255, 255, 0.4) !important;
+  }
+  .spilnota-page .spil-cases-head .support-portfolio-underline {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* ───────────────────  CTA «Розкажіть про задачу…»  ────────────────────── */
+  .spilnota-page .spil-cta .contactk-card {
+    background: var(--c-3e0088, #3e0088);
+  }
+  .spilnota-page .spil-cta-grid {
+    align-items: center;
+    gap: 6rem;
+  }
+  .spilnota-page .spil-cta .vol-apply-left {
+    flex: 1 1 57rem;
+  }
+  .spilnota-page .spil-cta .vol-apply-title {
+    font-size: 4.35rem;
+    line-height: 5.4rem;
+    max-width: 57.7rem;
+  }
+  .spilnota-page .spil-cta .vol-apply-sub {
+    font-size: 1.35rem;
+    line-height: 2.25rem;
+    color: var(--c-white, #fff);
+    max-width: 46.5rem;
+  }
+  .spilnota-page .spil-cta-right {
+    flex: 0 0 38.5rem;
+    max-width: 45%;
+  }
+  .spilnota-page .spil-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.4rem;
+    padding: 1.2rem 1.8rem;
+    border-radius: 3rem;
+    background: var(--yellow);
+    color: var(--c-5e00cf, #5e00cf);
+    text-decoration: none;
+    font-family: 'Stolzl', sans-serif;
+    font-weight: 500;
+    font-size: 1.35rem;
+    line-height: 1.65rem;
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
+  }
+  .spilnota-page .spil-cta-btn:hover {
+    opacity: 0.95;
+    transform: translateY(-0.2rem);
+  }
+  .spilnota-page .spil-cta-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .spilnota-page .spil-cta-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 1.8rem 0;
+    border-bottom: 0.1rem solid rgba(255, 255, 255, 0.16);
+  }
+  .spilnota-page .spil-cta-check {
+    flex: 0 0 auto;
+    width: 1.95rem;
+    height: 1.95rem;
+    border-radius: 50%;
+    background: var(--yellow);
+    color: var(--c-3e0088, #3e0088);
+    display: grid;
+    place-items: center;
+  }
+  .spilnota-page .spil-cta-check svg {
+    width: 1rem;
+    height: 1rem;
+    display: block;
+  }
+  .spilnota-page .spil-cta-text {
+    font-family: 'Stolzl', sans-serif;
+    font-weight: 400;
+    font-size: 1.95rem;
+    line-height: 1.3;
+    color: var(--c-white, #fff);
+  }
+}
+
+/* ─────────────────────────────  МОБІЛЬНІ  ──────────────────────────────── */
+@media (max-width: 767px) {
+  /* ХІРО: стек (текст → кадр із парою), решта — з volunteer.css.
+     Кадр 977×732 ширший за волонтерські статуї, тож без «розтягування» на 134%. */
+  .kolir-page.spilnota-page .hero .support-hero-right .girl.support-statue.vol-statues.spil-couple,
+  .kolir-page.spilnota-page #heroCard .support-hero-right .girl.support-statue.vol-statues.spil-couple {
+    width: 112% !important;
+    max-width: none !important;
+    height: auto !important;
+    margin: 0 0 0 -6% !important;
+    transform: none !important;
+  }
+
+  /* «Є задача…» — стек: заголовок, копія, врізка. Маркер ховаємо (як vol-about). */
+  .spilnota-page .spil-why {
+    width: calc(100% - 3rem);
+    margin: 5rem auto 0;
+  }
+  .spilnota-page .spil-why-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+  }
+  .spilnota-page .spil-why-title {
+    margin: 0;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 2.4rem;
+    line-height: 1.15;
+    color: #fff;
+  }
+  .spilnota-page .spil-why-copy {
+    margin-top: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .spilnota-page .spil-why-copy p {
+    margin: 0;
+    font-family: 'Stolzl', sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.55);
+  }
+  .spilnota-page .spil-why-kicker {
+    display: none;
+  }
+  .spilnota-page .spil-why-note {
+    background: var(--c-6D00F1, #6d00f1);
+    border-radius: 1.6rem;
+    padding: 1.8rem;
+    font-family: 'Stolzl', sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: #fff;
+  }
+
+  /* «Напрямки»: на мобілці style.css прибирає жовту плашку й перетворює картки
+     на свайп-слайдер (заголовок стає білим) — лишаємо цю механіку як є,
+     додаємо тільки підзаголовок під темний фон. */
+  .spilnota-page .services-title {
+    text-align: center;
+  }
+  .spilnota-page .services-sub {
+    margin: 1.6rem 0 0;
+    text-align: center;
+    font-family: 'Stolzl', sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  /* Кейси: шапка по центру */
+  .spilnota-page .spil-cases-head {
+    align-items: center !important;
+    text-align: center;
+  }
+  .kolir-page.spilnota-page .portfolio .support-portfolio-title,
+  .spilnota-page .portfolio .support-portfolio-title {
+    color: var(--c-F9F5FF, #f9f6ff) !important;
+    font-family: 'Unbounded', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 2.4rem !important;
+    line-height: 1.15 !important;
+  }
+  .kolir-page.spilnota-page .portfolio .support-portfolio-sub,
+  .spilnota-page .portfolio .support-portfolio-sub {
+    font-size: 1.5rem !important;
+    line-height: 1.6 !important;
+    color: rgba(255, 255, 255, 0.55) !important;
+  }
+  .spilnota-page .spil-cases-head .support-portfolio-underline {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* CTA: стек — копія, кнопка, чеклист */
+  .spilnota-page .spil-cta .contactk-card {
+    background: var(--c-3e0088, #3e0088);
+  }
+  .spilnota-page .spil-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.4rem;
+    padding: 1.4rem 2.6rem;
+    border-radius: 3rem;
+    background: var(--yellow);
+    color: var(--c-5e00cf, #5e00cf);
+    text-decoration: none;
+    font-family: 'Stolzl', sans-serif;
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: 1;
+  }
+  .spilnota-page .spil-cta-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  .spilnota-page .spil-cta-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 1.4rem 0;
+    border-bottom: 0.1rem solid rgba(255, 255, 255, 0.16);
+  }
+  .spilnota-page .spil-cta-check {
+    flex: 0 0 auto;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    background: var(--yellow);
+    color: var(--c-3e0088, #3e0088);
+    display: grid;
+    place-items: center;
+  }
+  .spilnota-page .spil-cta-check svg {
+    width: 1.2rem;
+    height: 1.2rem;
+    display: block;
+  }
+  .spilnota-page .spil-cta-text {
+    font-family: 'Stolzl', sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    color: #fff;
+  }
+}
+
+/* ─────────────────  ПЛАНШЕТ / ВУЗЬКИЙ ДЕСКТОП (768–1199)  ─────────────────
+   Кадр із парою непрозорий біля лівого краю (коса дівчини), тож на вужчих
+   екранах пропорції макета (текст ~38% картки) треба тримати явно — інакше
+   заголовок і опис заходять під зображення. */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .kolir-page.spilnota-page .hero .hero-left.support-hero-copy {
+    max-width: 40rem !important;
+  }
+  .kolir-page.spilnota-page .hero .hero-title.vol-title {
+    max-width: 38rem !important;
+    font-size: 3.6rem !important;
+  }
+  /* support-page.css задає опису фіксовану width:36rem — на 1024 це впритул
+     до кадру, тож звужуємо явно (max-width тут не спрацював би). */
+  .kolir-page.spilnota-page .hero .hero-desc.support-hero-desc {
+    width: 31rem !important;
+    max-width: 100% !important;
+  }
+  .kolir-page.spilnota-page
+    #heroCard
+    .support-hero-right
+    .girl.support-statue.vol-statues.spil-couple {
+    width: 56% !important;
+    right: -1rem !important;
+  }
+
+  /* «Напрямки»: жовта картка вужча — тиснемо бічні відступи секції */
+  .spilnota-page .services {
+    padding: 0 6rem;
+  }
+  .spilnota-page .services-card {
+    padding: 3.3rem 4rem 5rem;
+  }
+}

@@ -6,6 +6,8 @@ export type ServiceCard = { title: string; desc: string }
 export type ServicesContent = {
   title: string
   kicker: string
+  /** Підзаголовок під H2 — використовує /spilnota; на головній його нема. */
+  sub?: string
   cards: ServiceCard[]
 }
 
@@ -21,7 +23,20 @@ const S2 =
 const CORNER =
   'M412.035 376.199C412.185 375.861 412.354 375.482 412.504 375.145C416.044 365.607 411.272 354.995 401.692 351.436C399.738 350.718 353.735 333.769 287.535 336.875C275.145 337.471 264.831 338.283 255.13 339.42C258.042 335.715 261.461 332.236 264.837 329.647C317.605 289.087 348.408 258.145 356.206 237.57C359.647 228.594 357.18 218.705 349.935 212.398C342.667 206.029 332.514 204.893 324.043 209.507C292.842 226.48 267.52 238.645 256.314 242.142C183.01 264.718 155.366 261.451 146.29 260.39C131.315 258.622 104.726 253.098 95.3855 235.955C91.0192 227.948 93.1453 216.366 101.679 201.626C108.947 189.05 118.964 177.9 130.638 168.246C136.358 171.399 142.316 174.355 148.495 177.157C164.08 184.248 219.874 205.759 282.388 185.401C299.941 179.678 346.511 164.497 343.395 131.333C342.725 124.214 339.44 117.296 333.845 111.369C313.977 90.2963 278.67 81.546 234.399 86.6876C200.836 90.5857 162.141 103.06 129.048 123.94C63.6176 79.1434 35.896 12.2893 35.5732 11.5393C31.7421 2.10393 21.0005 -2.47713 11.5651 1.35386C2.14847 5.14268 -2.47468 15.8653 1.33766 25.3428C2.71286 28.8348 30.7006 97.0198 98.4326 147.54C87.1696 158.084 77.3912 169.946 69.7392 183.16C50.5037 216.373 55.4355 239.787 62.956 253.644C75.966 277.523 103.27 292.561 141.944 297.152C161.051 299.396 194.766 299.809 267.151 277.481C269.128 276.897 271.285 276.14 273.6 275.251C264.842 282.667 254.494 291.043 242.271 300.453C229.828 310.017 218.839 324.371 213.581 337.994C209.689 347.981 211.481 359.388 218.255 367.659C224.946 375.892 235.641 379.896 246.096 378.086C258.891 375.902 271.787 374.623 289.228 373.801C347.387 371.054 388.317 385.896 388.697 386.064C397.897 389.454 408.074 385.094 411.997 376.283L412.035 376.199ZM167.073 144.964C190.825 133.262 216.509 125.956 238.727 123.372C267.871 119.981 292.773 124.3 304.888 134.646C301.405 137.591 292.525 143.236 271.003 150.273C233.048 162.672 193.138 155.864 167.073 144.964Z'
 
-export default function Services({ content: c }: { content: ServicesContent }) {
+export default function Services({
+  content: c,
+  id = 'Services',
+  className,
+  showKicker = false,
+}: {
+  content: ServicesContent
+  /** id секції (якір). Головна лишається #Services, /spilnota має власний. */
+  id?: string
+  /** Додатковий клас-модифікатор секції (сітка/типографіка під сторінку). */
+  className?: string
+  /** Маркер-кікер у правому куті («Сервіси»). На головній не показується. */
+  showKicker?: boolean
+}) {
   const SVC = c.cards
   const secRef = useRef<HTMLElement>(null)
 
@@ -72,7 +87,12 @@ export default function Services({ content: c }: { content: ServicesContent }) {
   }, [])
 
   return (
-    <section className="services" id="Services" aria-label="What We Do" ref={secRef}>
+    <section
+      className={className ? `services ${className}` : 'services'}
+      id={id}
+      aria-label="What We Do"
+      ref={secRef}
+    >
       <div className="services-card">
         <div className="services-clip" aria-hidden="true">
           <div className="services-bg">
@@ -88,7 +108,18 @@ export default function Services({ content: c }: { content: ServicesContent }) {
         <div className="services-content">
           <div className="services-head" data-reveal="up">
             <h2 className="services-title">{c.title}</h2>
+            {showKicker && c.kicker ? (
+              <div className="services-label" aria-hidden="true">
+                <span>{c.kicker}</span>
+                <span className="lines">
+                  <span className="l1" />
+                  <span className="l2" />
+                </span>
+              </div>
+            ) : null}
           </div>
+
+          {c.sub ? <p className="services-sub">{c.sub}</p> : null}
 
           <svg aria-hidden="true" focusable="false" style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden' }}>
             <symbol id="svcCorner" viewBox="0 0 414 388">
@@ -116,12 +147,11 @@ export default function Services({ content: c }: { content: ServicesContent }) {
             ))}
           </div>
 
+          {/* Крапки моб-слайдера — рівно за кількістю карток (на головній 5, на /spilnota 4) */}
           <div className="services-dots" aria-hidden="true">
-            <span className="is-active" />
-            <span />
-            <span />
-            <span />
-            <span />
+            {SVC.map((_, i) => (
+              <span key={i} className={i === 0 ? 'is-active' : undefined} />
+            ))}
           </div>
         </div>
       </div>
