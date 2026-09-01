@@ -31,15 +31,15 @@ const HREFS = [
 // потрібною іконкою. Іконка дивиться в кадр на середині секвенції (кадр REST).
 // Порядок папок збігається з порядком табів/HREFS вище. ──
 const SPHERE_FOLDERS = [
-  'Sphere_Logo_Kolir', // logobook
-  'Sphere_Web', // website
-  'Sphere_Brandbook', // brandbook
-  'Sphere_landing', // landing-page
-  'Sphere_Video', // video
-  'Sphere_Baner', // banner
+  'Kolir', // logobook
+  'WEB', // website
+  'Brandbook', // brandbook
+  'mobile', // landing-page
+  'Video', // video
+  'Baner', // banner
 ]
 const SPHERE_FRAMES = 48
-const SPHERE_REST = 24 // кадр (1-based), де іконка дивиться прямо в кадр
+const SPHERE_REST = 25 // кадр (1-based), де іконка дивиться прямо в кадр
 const SPHERE_BASE = '/images/3D Renders for Kolir'
 const sphereFrameSrc = (seq: number, frame: number) =>
   encodeURI(`${SPHERE_BASE}/${SPHERE_FOLDERS[seq]}/${String(frame).padStart(4, '0')}.webp`)
